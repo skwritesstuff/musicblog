@@ -6,7 +6,7 @@ title: The Story
     <div class="container">
       <div>
   <div class="post-breadcrumbs">
-    <a href="index.html">Home</a> » <span>The Story</span>
+    <a href="/">Home</a> » <span>The Story</span>
   </div>
 
   <div>
@@ -34,11 +34,14 @@ title: The Story
     </h4>
     <div>
       <a href="#genesis"><span>01.</span> Genesis &amp; The MSK Name</a>
-      <a href="#grog-shop"><span>02.</span> The Grog Shop &amp; Mac Miller</a>
-      <a href="#rebrand"><span>03.</span> 301 Rebrand &amp; IAWT 2.0</a>
-      <a href="#viral-surge"><span>04.</span> The 100k+ Viral Surge</a>
-      <a href="#prescient-ear"><span>05.</span> The Prescient Ear (Early Finds)</a>
-      <a href="#finale"><span>06.</span> The Definitive Finale (Jan 2012)</a>
+      <a href="#chiddy-bang"><span>02.</span> Drexel Ground Zero &amp; Chiddy Bang</a>
+      <a href="#mike-posner"><span>03.</span> Mike Posner (2009–2012)</a>
+      <a href="#grog-shop"><span>04.</span> The Grog Shop &amp; Mac Miller</a>
+      <a href="#rebrand"><span>05.</span> 301 Rebrand &amp; IAWT 2.0</a>
+      <a href="#iawt-records"><span>06.</span> IAWT Records (2011)</a>
+      <a href="#viral-surge"><span>07.</span> The 100k+ Viral Surge</a>
+      <a href="#prescient-ear"><span>08.</span> The Prescient Ear (Early Finds)</a>
+      <a href="#finale"><span>09.</span> The Definitive Finale (Jan 2012)</a>
     </div>
   </div>
 
@@ -53,17 +56,23 @@ title: The Story
   </section>
 
   <section id="chiddy-bang">
-
-<h2>Chiddy Bang: Drexel, MySpace &amp; the first interview (Fall 2009)</h2>
-<p>In late 2009, The MuSiK Box discovered Chiddy Bang—Chidera “Chiddy” Anamege and Noah “Xaphoon Jones” Beresin—while they were still students at Drexel University, in the dorm-room and MySpace era. With only a MySpace page to point listeners toward, the duo became the subject of an exclusive early interview and spotlight at ground zero. According to the founders’ account, the coverage was subsequently credited across the blogosphere as an initial discovery and earned dozens of organic backlinks from music blogs, college sites, and aggregators.</p>
-<p>One surviving example is the August 19, 2010 <a href="https://biffwooten.wordpress.com/2010/08/19/new-chiddy/">Bangers and Mash feature, “New Chiddy”</a>. Covering release-date news during Chiddy Bang’s Cleveland studio stop, it credited and linked back to the site: “Props to The MuSiK Box for spreading the word.” That specific backlink documents the continuing reach of the coverage; it is not itself a count of the wider backlink history.</p>
-</section><section id="mike-posner">
-
-<h2>Mike Posner: Duke discovery to the final post (2009–2012)</h2>
-<p>In 2009, The MuSiK Box discovered Mike Posner while he was a student at Duke University and pushed “Drug Dealer Girl” early. In December 2009, the site dropped and hosted his rare, little-known all-rap pre-fame mixtape, <em>Reflections of a Lost Teen</em>. Recorded in his basement as a high-school senior and rediscovered during his Duke years, it showed a different side of Posner before his pop breakthrough. The <a href="https://web.archive.org/web/20110929235937/http://www.inaudiowetrust.com:80/2009/12/mike-posner-reflections-of-a-lost-teen-mixtape/">original mixtape post survives on Wayback</a>.</p>
-<p>The relationship bookended the publication’s original run: the January 25, 2012 post featuring Posner’s “Looks Like Sex” was the site’s final official editorial post.</p>
-</section><section id="grog-shop">
     <div>CHAPTER 02</div>
+    <h2>The Drexel Ground Zero &amp; The Viral Backlink Trail (Fall 2009)</h2>
+    <div>
+      <p>In the Fall of 2009, Noah "Xaphoon Jones" Beresin and Chidera "Chiddy" Anamege were students collaborating out of a Drexel University dorm room in Philadelphia with just a fledgling MySpace presence. The MuSiK Box was among the first publications anywhere to identify the duo, conducting foundational interviews and spotlighting their early sound right as The Swelly Express was taking form. As the duo surged across the indie hip-hop circuit, contemporary blogs routinely cited and linked back to The MuSiK Box as a primary authority on the group—such as the August 2010 feature on <a href="https://biffwooten.wordpress.com/2010/08/19/new-chiddy/">Bangers and Mash</a>, giving direct "Props to The MuSiK Box for spreading the word" during Chiddy Bang's stops in Cleveland. The early coverage generated dozens of organic backlinks from music blogs and college lifestyle sites, firmly cementing the publication's standing as a tastemaker at the dawn of the 2010s blog era.</p>
+    </div>
+  </section>
+
+  <section id="mike-posner">
+    <div>CHAPTER 03</div>
+    <h2>Mike Posner: Duke Dorm Roots, "Drug Dealer Girl", and "Reflections of a Lost Teen" (2009–2012)</h2>
+    <div>
+      <p>Well before Mike Posner became a multi-platinum pop powerhouse, the publication championed his craft during his undergraduate days at Duke University. The MuSiK Box was among the very first platforms to feature Posner and push his breakout anthem "Drug Dealer Girl" while it was still an underground dorm-room staple. In December 2009, the site dropped and hosted <a href="https://web.archive.org/web/20110929235937/http://www.inaudiowetrust.com:80/2009/12/mike-posner-reflections-of-a-lost-teen-mixtape/">Reflections of a Lost Teen</a>, Posner's little-known, ultra-rare all-rap mixtape recorded in his dorm room prior to <em>A Matter of Time</em>. His trajectory with the publication came full circle: on January 25, 2012, his track "Looks Like Sex" became the final authentic editorial post published by the founders before they sold the site.</p>
+    </div>
+  </section>
+
+  <section id="grog-shop">
+    <div>CHAPTER 04</div>
     <h2>Live Concerts, The Grog Shop &amp; Mac Miller (2010)</h2>
     <div>
       <p>The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. In the spring of 2010, Seamus and Myles partnered with Cleveland promotion crew <em>The Coventry Kids</em> to book an 18-year-old Pittsburgh prodigy named <strong>Mac Miller</strong> at <strong>The Grog Shop</strong> in Cleveland Heights.</p>
@@ -81,7 +90,7 @@ title: The Story
   </section>
 
   <section id="rebrand">
-    <div>CHAPTER 03</div>
+    <div>CHAPTER 05</div>
     <h2>The 301 Rebrand &amp; IAWT 2.0 (Early 2011)</h2>
     <div>
       <p>As readership expanded beyond Ohio into a national footprint, the co-founders orchestrated a comprehensive brand evolution in early 2011, executing a 301 permanent redirect from <code>themusikbox.com</code> (128 preserved snapshots) to <code>inaudiowetrust.com</code> (1,630+ preserved snapshots).</p>
@@ -91,11 +100,15 @@ title: The Story
   </section>
 
   <section id="iawt-records">
+    <div>CHAPTER 06</div>
+    <h2>IAWT Records &amp; Independent Imprint (2011)</h2>
+    <div>
+      <p>As the publication evolved into In Audio We Trust (IAWT 2.0) in 2011—drawing thousands of daily readers—the platform’s ambition expanded beyond music journalism into direct artist collaboration and independent curation with IAWT Records, the brand's boutique imprint and development initiative. IAWT Records was created to support underground artists, facilitate digital premieres, and bridge the gap between digital blog coverage and independent music distribution during the golden age of internet mixtape releases.</p>
+    </div>
+  </section>
 
-<h2>IAWT Records (2011)</h2>
-<p>Founded in 2011, IAWT Records was a boutique digital imprint and artist development vehicle, prominently featured in the site’s header navigation alongside the blog. The imprint released digital tracks and worked directly with independent artists, extending In Audio We Trust from editorial coverage into artist curation, development, and independent music distribution.</p>
-</section><section id="viral-surge">
-    <div>CHAPTER 04</div>
+  <section id="viral-surge">
+    <div>CHAPTER 07</div>
     <h2>The 100,000+ Viral Surge &amp; Mashup Culture</h2>
     <div>
       <p>During its peak in 2011, <em>In Audio We Trust</em> averaged 2,000 to 6,000+ daily readers. On record-shattering days, viral algorithmic traffic from <strong>StumbleUpon</strong>, Reddit, and Hype Machine propelled single-day visitor counts above <strong>100,000 unique visitors</strong>.</p>
@@ -104,7 +117,7 @@ title: The Story
   </section>
 
   <section id="prescient-ear">
-    <div>CHAPTER 05</div>
+    <div>CHAPTER 08</div>
     <h2>The Prescient Ear: Generational Early Finds</h2>
     <p>
       What made The MuSiK Box &amp; IAWT unique in music history was their staggering track record of identifying future stadium-filling megastars months or years before mainstream recognition:
@@ -146,7 +159,7 @@ title: The Story
   </section>
 
   <section id="finale">
-    <div>CHAPTER 06</div>
+    <div>CHAPTER 09</div>
     <h2>The Definitive Finale (January 2012)</h2>
     <div>
       <p>By early 2012, as high school drew toward graduation and college loomed, the co-founders sold the publication, concluding their storied 50/50 partnership.</p>
@@ -154,8 +167,8 @@ title: The Story
       <p>Following January 2012, publication ceased for a three-month blackout before external owners resumed sporadic posting. This archive strictly preserves the genuine, curated <strong>August 2009 – January 2012</strong> era: <strong>307 posts and 54 media artifacts</strong> representing a golden snapshot of millennial music discovery.</p>
     </div>
     <div>
-      <a href="archive.html" class="tag-pill">Explore the Chronological Archive →</a>
-      <a href="gallery.html" class="tag-pill">View Recovered Media &amp; Artwork →</a>
+      <a href="/archive.html" class="tag-pill">Explore the Chronological Archive →</a>
+      <a href="/gallery.html" class="tag-pill">View Recovered Media &amp; Artwork →</a>
     </div>
   </section>
 </div>

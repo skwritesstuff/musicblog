@@ -60,7 +60,7 @@ originalPath: /blog/mike-posner-ft-lil-wayne-bow-chicka-wow-wow-remix-video.html
 <li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20110226041029/http://www.inaudiowetrust.com:80/2011/02/mike-posner-ft-lil-wayne-bow-chicka-wow-wow-remix-video/" target="_blank" rel="noopener">View on Internet Archive</a></li>
 </ul>
 <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2012).*</p>
 <p style="margin-bottom: 1rem;"></p><h3>Preserved Audio &amp; Video Stream
 </h3><p style="margin-bottom: 1rem;"></p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-color); margin: 1.5rem 0;">
 <p style="margin-bottom: 1rem;">  <iframe src="https://www.youtube-nocookie.com/embed/3Iocp9qLviw?rel=0" title="Mike Posner ft. Lil Wayne – Bow Chicka Wow Wow" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>

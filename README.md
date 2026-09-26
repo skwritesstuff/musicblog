@@ -1,6 +1,6 @@
 # In Audio We Trust / shameis.com
 
-A June 2011-inspired rebuild using the supplied authentic masthead capture. This repository contains 360 recovered posts, original media, Story updates, editable site copy, and Decap CMS configuration.
+A Vintage digital-rescue archive with Decap CMS. This repository contains 360 recovered posts, original media, Story updates, editable site copy, and Decap CMS configuration.
 
 ## Netlify deployment
 
@@ -13,7 +13,7 @@ For a manual deployment, build locally and upload the contents of `dist` to Netl
 - Navigation, labels, blurbs and footer: `src/data/siteCopy.json`.
 - Posts: `src/content/posts/*.md`.
 - Story: `src/content/pages/story.md`.
-- Styling: `public/styles/2011.css`.
+- Styling: `public/styles/vintage.css`.
 - Build templates: `scripts/build.py`.
 - CMS: `public/admin/config.yml`.
 

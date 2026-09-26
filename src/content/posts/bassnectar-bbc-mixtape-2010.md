@@ -45,7 +45,7 @@ originalPath: /blog/bassnectar-bbc-mixtape-2010.html
 <li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20110524060925/http://www.inaudiowetrust.com:80/2010/12/bassnectar-bbc-mixtape-2010/" target="_blank" rel="noopener">View on Internet Archive</a></li>
 </ul>
 <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2012).*</p>
       </div>
       <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between;">
         <a href="/archive.html" style="font-family: var(--font-mono); font-size: 0.9rem;">← Back to Master Archive</a>

@@ -60,7 +60,7 @@ originalPath: /blog/listen-up-childish-gambino-donald-glover-aka-troy-from-commu
 <li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20110214165550/http://www.inaudiowetrust.com:80/2011/02/listen-up-childish-gambino-donald-glover-aka-troy-from-community-aka-derrick-comedy/" target="_blank" rel="noopener">View on Internet Archive</a></li>
 </ul>
 <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2012).*</p>
 <p style="margin-bottom: 1rem;"></p><h3>Preserved Audio &amp; Video Stream
 </h3><p style="margin-bottom: 1rem;"></p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; border: 1px solid var(--border-color); margin: 1.5rem 0;">
 <p style="margin-bottom: 1rem;">  <iframe src="https://www.youtube-nocookie.com/embed/27d138zhyZQ?rel=0" title="Childish Gambino – Freaks and Geeks (Official Video)" style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>

@@ -45,7 +45,7 @@ originalPath: /blog/j-cole-pays-tribute-to-biggie-tupac-at-bonnaroo-videos.html
 <li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20110616062205/http://www.inaudiowetrust.com:80/2011/06/j-cole-pays-tribute-to-biggie-tupac-at-bonnaroo-videos/" target="_blank" rel="noopener">View on Internet Archive</a></li>
 </ul>
 <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2012).*</p>
       </div>
       <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between;">
         <a href="/archive.html" style="font-family: var(--font-mono); font-size: 0.9rem;">← Back to Master Archive</a>
