@@ -18,11 +18,10 @@ title: The Story
     <p>
       From Saint Ignatius High School hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
     </p>
-    <div>\
-<p>
-      <div>Founded by: <strong>Seamus Kelleher</strong> &amp; <strong>Myles Snider</strong></div>
-      <div></div>\
-</p>
+    <div>
+      <p>
+        <div>Founded by: <strong>Seamus Kelleher</strong> &amp; <strong>Myles Snider</strong></div>
+      </p>
 
   </div>
 

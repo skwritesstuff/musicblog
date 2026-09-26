@@ -144,8 +144,15 @@ html {
 :root .site-header .theme-toggle-btn,
 [data-theme="light"] .site-header .theme-toggle-btn {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
+}
+
+:root .site-header .theme-toggle-btn:hover,
+[data-theme="light"] .site-header .theme-toggle-btn:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ==========================================================================
@@ -322,25 +329,26 @@ a:hover {
   color: #ffffff;
 }
 
-/* ★ The Story — sole sparse yellow accent */
+/* ★ The Story — sole sparse yellow accent (text only, no yellow flood) */
 .nav-links a[href*="story.html"]:not([href*="#"]) {
-  color: #000000 !important;
+  color: var(--accent-yellow) !important;
   font-weight: 700;
-  background: var(--accent-yellow) !important;
-  border-color: var(--accent-yellow) !important;
+  background: transparent !important;
+  border-color: transparent !important;
 }
 
 .nav-links a[href*="story.html"]:not([href*="#"]).active,
 .nav-links a[href*="story.html"]:not([href*="#"]):hover {
-  color: #000000 !important;
-  background: var(--accent-yellow) !important;
-  text-decoration: none;
+  color: var(--accent-yellow) !important;
+  background: transparent !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 :root .nav-links a[href*="story.html"]:not([href*="#"]),
 [data-theme="light"] .nav-links a[href*="story.html"]:not([href*="#"]),
 [data-theme="dark"] .nav-links a[href*="story.html"]:not([href*="#"]) {
-  color: #000000 !important;
+  color: var(--accent-yellow) !important;
 }
 
 #radio-play-btn.radio-btn {
@@ -357,9 +365,9 @@ a:hover {
 
 .badge-brand.brand-iawt,
 .badge-brand.brand-mb {
-  color: #ffffff;
-  background: var(--accent-orange);
-  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+  background: transparent;
+  border: 1px solid var(--accent-orange);
 }
 
 /* Clean post article (no leaked archival chrome) */
@@ -464,13 +472,22 @@ a:hover {
 }
 
 .brand-badge-mb {
-  color: var(--brand-musikbox);
+  color: #ffffff;
   text-shadow: none;
 }
 
 .brand-badge-iawt {
-  color: var(--brand-inaudio);
+  color: #ffffff;
   text-shadow: none;
+}
+
+:root .site-header .brand-badge-mb,
+[data-theme="light"] .site-header .brand-badge-mb,
+:root .site-header .brand-badge-iawt,
+[data-theme="light"] .site-header .brand-badge-iawt,
+[data-theme="dark"] .site-header .brand-badge-mb,
+[data-theme="dark"] .site-header .brand-badge-iawt {
+  color: #ffffff;
 }
 
 .masthead-subtitle {
