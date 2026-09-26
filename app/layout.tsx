@@ -18,7 +18,7 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: 'The MuSiK Box & In Audio We Trust (2009–2012) • shameis.com',
-  description: 'Vintage Blog Era Digital Retrospective curated by Seamus Kelleher and Myles Snider.',
+  description: 'Vintage blog-era archive of The MuSiK Box and In Audio We Trust (2009–2012).',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
