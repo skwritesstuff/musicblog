@@ -1,7 +1,6 @@
 ---
 title: The Story
 ---
-
 <main>
     <div class="container">
       <div>
@@ -49,8 +48,8 @@ title: The Story
     <div>CHAPTER 01</div>
     <h2>Genesis &amp; The MSK Name (Saint Ignatius, 2008–2009)</h2>
     <div>
-      <p>In late 2008 and early 2009, during their sophomore year at <strong>Saint Ignatius High School</strong> in Cleveland, Ohio, co-founders <strong>Myles Snider</strong> and <strong>Seamus Kelleher</strong> launched an underground music destination straight from their laptops: <em>The MuSiK Box</em> (<code>themusikbox.com</code>).</p>
-      <p>The publication’s distinct capitalization was a subtle in-joke and personal signature: <strong>The MuSiK Box</strong> cleverly embedded the co-founders' initials: <strong>M</strong>yles <strong>S</strong>nider and <strong>S</strong>eamus <strong>K</strong>elleher (sharing the "S", with the "K" from Kelleher), spelling out <strong>MSK</strong> within <em>MuSik</em> using lowercase "u" and "i".</p>
+      <p>In the fall of 2009, during their sophomore year at <strong>Saint Ignatius High School</strong> in Cleveland, Ohio, co-founders <strong>Myles Snider</strong> and <strong>Seamus Kelleher</strong> wondered if their knack for finding new music and their passion for sharing it burned CDs could be spun into something bigger. They’d find their answer quickly and over the next 3 years chase the excitement of an industry so constantly in flux, their naïveté wouldn’t matter. With a Wordpress account and the purchase of a $7 domain, these best buds launched an underground music blog they hoped their friends, and hopefully the ladies, would think was cool. : <em>The MuSiK Box</em> (<code>themusikbox.com</code>).</p>
+      <p>The publication’s distinct capitalization was a subtle in-joke and personal signature: <strong>The MuSiK Box</strong> cleverly embedded the co-founders' initials: <strong>M</strong>yles <strong>S</strong>nider and <strong>S</strong>eamus <strong>K</strong>elleher (sharing the "S", with the "K" from Kelleher), spelling out <strong>MSK</strong> within <em>MuSiK</em> using lowercase "u" and "i".</p>
       <p>Built on early WordPress architectures and powered by DatPiff mixtape rips, Mediafire downloads, and direct email submissions from hungry indie artists, the site stood at the vanguard of the burgeoning music-blog revolution. While peers listened to top-40 radio, Seamus and Myles were tracking SoundCloud demos, underground mixtapes, and nascent producers across the country.</p>
     </div>
   </section>
@@ -174,4 +173,3 @@ title: The Story
 </div>
     </div>
   </main>
-  
