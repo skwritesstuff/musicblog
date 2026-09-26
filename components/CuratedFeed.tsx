@@ -8,8 +8,7 @@ export interface CuratedPost {
   title: string;
   date: string;
   brand: 'The MuSiK Box' | 'In Audio We Trust';
-  tierBadge: string;
-  tier: 1 | 2 | 3;
+  category: string;
   youtubeId: string;
   description: string;
   postSlug: string;
@@ -17,15 +16,13 @@ export interface CuratedPost {
 }
 
 export const CURATED_POSTS: CuratedPost[] = [
-  // --- TIER 1: Restored Original Artwork + Verified Media ---
   {
     id: 'mac-miller',
     artist: 'Mac Miller',
     title: 'Knock Knock / Futuristic Funk',
-    date: 'March 2011',
+    date: '2011-03',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 1 • RESTORED PHOTO + VIDEO',
-    tier: 1,
+    category: 'HIP HOP',
     youtubeId: '6bMmhKz6KXg',
     description: 'Published following his May 2010 first out-of-town headlining concert at The Grog Shop in Cleveland Heights. Features the restored June 2010 original headshot photograph.',
     postSlug: '/blog/mac-miller-futuristic-funk',
@@ -35,10 +32,9 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'childish-gambino',
     artist: 'Childish Gambino',
     title: 'Listen Up // Freaks and Geeks',
-    date: 'February 2011',
+    date: '2011-02',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 1 • RESTORED ART + VIDEO',
-    tier: 1,
+    category: 'HIP HOP',
     youtubeId: '27d138zhyZQ',
     description: 'Breakout coverage during Donald Glover’s Community and Derrick Comedy era, pre-dating Camp. Features restored original 2011 custom header artwork and interview.',
     postSlug: '/blog/listen-up-childish-gambino-donald-glover-aka-troy-from-community-aka-derrick-comedy',
@@ -48,10 +44,9 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'j-cole',
     artist: 'J. Cole',
     title: 'Return of Simba / Artist of the Week',
-    date: 'May 2011',
+    date: '2009-11',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 1 • RESTORED PHOTO + AUDIO',
-    tier: 1,
+    category: 'HIP HOP',
     youtubeId: 'vcr3vH0_MyQ',
     description: 'Named Artist of the Week directly following The Warm Up before Cole World: The Sideline Story. Backed by the restored December 2009 server photograph.',
     postSlug: '/blog/j-cole-artist-of-the-week',
@@ -61,25 +56,21 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'chiddy-bang',
     artist: 'Chiddy Bang',
     title: 'Bad Day ft. Darwin Deez',
-    date: 'October 2010',
+    date: '2010-10',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 1 • RESTORED PHOTO + AUDIO',
-    tier: 1,
+    category: 'HIP HOP',
     youtubeId: '51qOi7QOGsc',
     description: 'Documented directly from their Drexel University dorm room beginnings in Philadelphia. Features recovered November 2009 photograph of producer Xaphoon Jones.',
     postSlug: '/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams',
     waybackUrl: 'https://web.archive.org/web/20101015000000/http://themusikbox.com/2010/10/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/',
   },
-
-  // --- TIER 2: Preserved Video Embeds & Audio Streams ---
   {
     id: 'mgk',
     artist: 'Machine Gun Kelly',
     title: 'Half Naked & Almost Famous',
-    date: 'May 2011',
+    date: '2011-03',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 2 • PRESERVED VIDEO',
-    tier: 2,
+    category: 'HIP HOP',
     youtubeId: 'I0LNAvvd6Kk',
     description: 'Hometown Cleveland coverage following the April 22, 2010 Saint Ignatius High School parking lot iPhone interview tracking his Lace Up transition.',
     postSlug: '/blog/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2',
@@ -89,10 +80,9 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'the-white-panda',
     artist: 'The White Panda',
     title: 'Shake Drop on Video / Rematch Era',
-    date: 'July 2010',
+    date: '2010-07',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 2 • MASHUP STREAM',
-    tier: 2,
+    category: 'MIXTAPE',
     youtubeId: 'YMx0NcmQOvY',
     description: 'Seminal college-era mashup premiere showcasing the duo’s breakout sophomore tape during the peak dorm-party circuit era.',
     postSlug: '/blog/the-white-panda-rematch-mixtape',
@@ -102,10 +92,9 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'brenton-duvall',
     artist: 'Brenton Duvall',
     title: 'Gucci Mane – That’s All (Remix)',
-    date: 'October 2010',
+    date: '2010-10',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 2 • PRESERVED REMIX',
-    tier: 2,
+    category: 'MIXTAPE',
     youtubeId: 'jSCZKmbSL58',
     description: 'Quintessential blog-era production synthesizing Atlanta trap with breezy indie pop hooks, paired with his Childish Gambino Javelin remix.',
     postSlug: '/blog/gucci-mane-thats-all-brenton-duvall-remix',
@@ -115,25 +104,21 @@ export const CURATED_POSTS: CuratedPost[] = [
     id: 'kid-cudi',
     artist: 'Kid Cudi',
     title: 'Maniac ft. Cage (MOTM II)',
-    date: 'October 2010',
+    date: '2010-10',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 2 • PRESERVED VIDEO',
-    tier: 2,
+    category: 'HIP HOP',
     youtubeId: 'ZT4hcbSNq6U',
     description: 'Cleveland native spotlight published during the peak rollout for Man on the Moon II: The Legend of Mr. Rager.',
     postSlug: '/blog/kid-cudi-maniac-ft-cage',
     waybackUrl: 'https://web.archive.org/web/20101010000000/http://themusikbox.com/2010/10/kid-cudi-maniac-ft-cage/',
   },
-
-  // --- TIER 3: Archival Text & Historical Snapshot ---
   {
     id: 'chip-tha-ripper',
     artist: 'Chip Tha Ripper',
     title: 'Freestyle (Interior Crocodile Alligator)',
-    date: '2009–2010',
+    date: '2009-11',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 3 • HISTORICAL SNAPSHOT',
-    tier: 3,
+    category: 'HIP HOP',
     youtubeId: 'ZIfSaDNVjXI',
     description: 'Foundational local coverage of the Cleveland underground titan and frequent Kid Cudi collaborator with full tracklist and preserved review commentary.',
     postSlug: '/artists/chip-tha-ripper',
@@ -156,7 +141,7 @@ export default function CuratedFeed() {
           Foundational Blog Discoveries
         </h2>
         <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">
-          Nine essential co-signs selected by Seamus Kelleher — prioritized by visual and audio completeness today.
+          Nine essential co-signs selected by Seamus Kelleher from The MuSiK Box and In Audio We Trust archives.
         </p>
       </div>
 
@@ -165,24 +150,16 @@ export default function CuratedFeed() {
         {CURATED_POSTS.map((post) => (
           <article
             key={post.id}
-            className={`group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 ${
-              post.tier === 1 ? 'border-t-2 border-t-accent' : post.tier === 2 ? 'border-t-2 border-t-app-accent' : ''
-            }`}
+            className="group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40"
           >
             {/* Card Meta */}
-            <div className="flex justify-between items-center mb-4">
-              <span
-                className={`font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border ${
-                  post.tier === 1
-                    ? 'text-accent border-accent/30'
-                    : post.tier === 2
-                    ? 'text-app-accent-text border-app-accent/30'
-                    : 'text-text-dark border-white/10'
-                }`}
-              >
-                {post.tierBadge}
+            <div className="flex justify-between items-center mb-4 gap-3">
+              <span className="font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border border-red-600/40 text-red-600">
+                {post.category}
               </span>
-              <span className="text-xs text-text-dark font-medium">{post.brand}</span>
+              <span className="text-xs text-text-dark font-medium text-right shrink-0">
+                {post.date} • {post.brand}
+              </span>
             </div>
 
             {/* Title & Artist */}
@@ -193,7 +170,6 @@ export default function CuratedFeed() {
               <h4 className="font-heading text-sm font-semibold text-accent/90 mt-0.5 line-clamp-1">
                 {post.title}
               </h4>
-              <span className="text-xs text-text-dark mt-1 block">{post.date}</span>
             </div>
 
             {/* DIRECT INLINE YOUTUBE VIDEO EMBED */}
