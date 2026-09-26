@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0f1115;
-  --card: #171a21;
+  --bg: #000000;
+  --card: #0a0a0a;
   --text: #fffaf0;
-  --accent: #FFCC00;
+  --accent: #f7f308;
   --app-accent: #2eb8c8;
 }
 

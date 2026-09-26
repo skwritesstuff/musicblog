@@ -9,7 +9,7 @@ import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
 export default function Home() {
   return (
     <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-accent selection:text-bg pb-20">
-      <header className="border-b border-border-line bg-[#141820]/90 backdrop-blur sticky top-0 z-40">
+      <header className="border-b border-border-line bg-black/90 backdrop-blur sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4 sm:gap-6 overflow-hidden">
             <a href="https://shameis.com" className="text-text-muted hover:text-white text-xs font-mono shrink-0">

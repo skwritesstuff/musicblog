@@ -163,8 +163,8 @@ html {
 [data-theme="dark"] {
   --bg-primary: #000000;
   --bg-secondary: #000000;
-  --bg-card: #0a0a0a;
-  --bg-card-hover: #141414;
+  --bg-card: #000000;
+  --bg-card-hover: #0a0a0a;
   --border-color: #2a2a2a;
   --border-glow: rgba(227, 37, 7, 0.35);
 
@@ -200,7 +200,7 @@ html {
 }
 
 [data-theme="dark"] .hero-box {
-  background: #0a0a0a;
+  background: #000000;
 }
 
 [data-theme="dark"] .brand-title img {
@@ -456,7 +456,7 @@ a:hover {
    Stack: black header chrome → white dual-era banner → black menu */
 .dual-brand-header {
   background: #000000 !important;
-  border-bottom: 1px solid #262626;
+  border-bottom: 1px solid #000000;
   padding: 1.25rem 0 0.85rem !important;
 }
 
@@ -741,6 +741,20 @@ a:hover {
   padding: 0.6rem 0;
   font-family: var(--font-mono);
   font-size: 0.78rem;
+  background: #000000;
+}
+
+/* Kill leftover navy chrome on radio controls (was #0b0e14 / #18202c) */
+.vintage-player-bar #radio-prev-btn,
+.vintage-player-bar #radio-next-btn,
+.vintage-player-bar #radio-track-select,
+.vintage-player-bar #radio-track-select:focus {
+  background: #000000 !important;
+}
+
+.vintage-player-bar .player-inner > div:has(#radio-track-select),
+.vintage-player-bar div:has(> #radio-track-select) {
+  background: #000000 !important;
 }
 
 .player-inner {
