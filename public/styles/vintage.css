@@ -507,13 +507,24 @@ a:hover {
   color: #ffffff;
 }
 
+.dual-brand-era-mb {
+  text-align: center;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 0.75rem 1rem 0.85rem;
+}
+
+.dual-brand-era-mb .dual-brand-era-label {
+  margin-bottom: 0.45rem;
+}
+
 .dual-brand-mb-banner {
   height: 78px;
   width: auto;
   max-width: min(480px, 90vw);
   display: block;
   margin: 0 auto;
-  background: transparent;
+  background: #ffffff;
 }
 
 .dual-brand-divider {
