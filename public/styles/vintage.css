@@ -452,15 +452,23 @@ a:hover {
   backdrop-filter: blur(8px);
 }
 
-/* Co-equal dual-brand masthead */
+/* Co-equal dual-brand masthead
+   Stack: black header chrome → white dual-era banner → black menu */
 .dual-brand-header {
   background: #000000 !important;
   border-bottom: 1px solid #262626;
-  padding: 2.25rem 0 1.1rem !important;
+  padding: 1.25rem 0 0.85rem !important;
 }
 
 .dual-brand-inner {
   max-width: 1100px;
+}
+
+.dual-brand-banner {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem 1.15rem;
+  margin: 0 auto 0.95rem;
 }
 
 .dual-brand-row {
@@ -469,21 +477,21 @@ a:hover {
   align-items: center;
   gap: 1.25rem 2rem;
   flex-wrap: nowrap;
-  margin: 0 auto 1.35rem;
-  max-width: 1080px;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .dual-brand-era {
   flex: 1 1 0;
   min-width: 0;
   text-decoration: none !important;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
 }
 
 .dual-brand-era:hover {
   text-decoration: none !important;
-  opacity: 0.94;
+  opacity: 0.92;
 }
 
 .dual-brand-era-iawt {
@@ -504,14 +512,14 @@ a:hover {
 }
 
 .dual-brand-era-label.era-iawt {
-  color: #ffffff;
+  color: #111111;
 }
 
 .dual-brand-era-mb {
   text-align: center;
-  background: #ffffff;
-  border-radius: 6px;
-  padding: 0.65rem 0.85rem 0.7rem;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
 }
 
 .dual-brand-era-mb .dual-brand-era-label {
@@ -524,11 +532,11 @@ a:hover {
   max-width: 100%;
   display: block;
   margin: 0 auto;
-  background: #ffffff;
+  background: transparent;
 }
 
 .dual-brand-divider {
-  color: #555555;
+  color: #b0b0b0;
   font-size: 1.35rem;
   font-weight: 300;
   flex: 0 0 auto;
@@ -556,7 +564,8 @@ a:hover {
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  background: #000;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
 }
 
 .dual-brand-nav {
@@ -564,9 +573,10 @@ a:hover {
   justify-content: center;
   align-items: center;
   gap: 0.35rem 1.25rem;
-  border-top: 1px solid #1a1a1a;
-  padding-top: 0.95rem;
+  border-top: 0;
+  padding: 0.55rem 0 0.15rem;
   flex-wrap: wrap;
+  background: #000000;
 }
 
 .dual-brand-nav .nav-link {
@@ -595,9 +605,16 @@ a:hover {
 
 .dual-brand-nav .theme-toggle-btn {
   margin-left: 0.25rem;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
 }
 
 @media (max-width: 720px) {
+  .dual-brand-banner {
+    padding: 0.95rem 0.85rem 1rem;
+  }
+
   .dual-brand-row {
     gap: 1.25rem;
     max-width: 100%;

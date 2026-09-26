@@ -163,19 +163,21 @@ def absify_chrome(chunk: str) -> str:
 # Co-equal dual-brand masthead: The MuSiK Box (Era 1) + In Audio We Trust (Era 2).
 site_header = '''<header class="site-header dual-brand-header">
   <div class="container dual-brand-inner">
-    <div class="dual-brand-row">
-      <a class="dual-brand-era dual-brand-era-mb" href="/" aria-label="The MuSiK Box era 2009–2011">
-        <span class="dual-brand-era-label era-mb">Era 1 · 2009–2011</span>
-        <img src="/images/The_MuSiK_Box_Banner_DarkTheme.png" alt="The MuSiK Box — We Skip Study Hall For This..." class="dual-brand-mb-banner" />
-      </a>
-      <div class="dual-brand-divider" aria-hidden="true">⇄</div>
-      <a class="dual-brand-era dual-brand-era-iawt" href="/" aria-label="In Audio We Trust era 2011–2012">
-        <span class="dual-brand-era-label era-iawt">Era 2 · 2011–2012</span>
-        <span class="dual-brand-iawt-marks">
-          <img src="/images/iawt-needle-logo.png" alt="In Audio We Trust" class="dual-brand-iawt-needle" />
-          <img src="/images/iawt-headphone-coin.png" alt="In Audio We Trust coin emblem" class="dual-brand-iawt-coin" />
-        </span>
-      </a>
+    <div class="dual-brand-banner">
+      <div class="dual-brand-row">
+        <a class="dual-brand-era dual-brand-era-mb" href="/" aria-label="The MuSiK Box era 2009–2011">
+          <span class="dual-brand-era-label era-mb">Era 1 · 2009–2011</span>
+          <img src="/images/The_MuSiK_Box_Banner_LightTheme.png" alt="The MuSiK Box — We Skip Study Hall For This..." class="dual-brand-mb-banner" />
+        </a>
+        <div class="dual-brand-divider" aria-hidden="true">⇄</div>
+        <a class="dual-brand-era dual-brand-era-iawt" href="/" aria-label="In Audio We Trust era 2011–2012">
+          <span class="dual-brand-era-label era-iawt">Era 2 · 2011–2012</span>
+          <span class="dual-brand-iawt-marks">
+            <img src="/images/iawt-needle-logo-dark.png" alt="In Audio We Trust" class="dual-brand-iawt-needle" />
+            <img src="/images/iawt-headphone-coin-light.png" alt="In Audio We Trust coin emblem" class="dual-brand-iawt-coin" />
+          </span>
+        </a>
+      </div>
     </div>
     <nav class="dual-brand-nav" aria-label="Primary">
       <a href="/" class="nav-link">Home</a>
