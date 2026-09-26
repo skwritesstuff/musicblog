@@ -18,13 +18,12 @@ title: The Story
     <p>
       From Saint Ignatius High School hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
     </p>
-    <div>
+    <div>\
+<p>
       <div>Founded by: <strong>Seamus Kelleher</strong> &amp; <strong>Myles Snider</strong></div>
-      <div>•</div>
+      <div></div>\
+</p>
 
-      <div>•</div>
-      <div>Era: <strong>August 2009 – January 2012</strong></div>
-    </div>
   </div>
 
   <div>
@@ -54,6 +53,7 @@ title: The Story
 The publication’s distinct capitalization was a subtle in-joke and personal signature: <strong>The MuSiK Box</strong> cleverly embedded the co-founders' initials: <strong>M</strong>yles <strong>S</strong>nider and <strong>S</strong>eamus <strong>K</strong>elleher (sharing the "S", with the "K" from Kelleher), spelling out <strong>MSK</strong> within <em>MuSiK</em> using lowercase "u" and "i".</p>
       <p>Built on early WordPress architectures and powered by DatPiff mixtape rips, Mediafire downloads, and direct email submissions from hungry indie artists, the site stood at the vanguard of the burgeoning music-blog revolution. While peers listened to top-40 radio, Seamus and Myles were tracking SoundCloud demos, underground mixtapes, and nascent producers across the country.</p>
     </div>
+
   </section>
 
   <section id="chiddy-bang">
