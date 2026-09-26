@@ -18,14 +18,10 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: 'The MuSiK Box & In Audio We Trust (2009–2012) • shameis.com',
-  description: 'A preserved digital retrospective of The MuSiK Box and In Audio We Trust, curated by Seamus Kelleher and Myles Snider.',
+  description: 'Vintage Blog Era Digital Retrospective curated by Seamus Kelleher and Myles Snider.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${ibmPlexSans.variable} dark`}>
       <body className="bg-bg text-text-primary antialiased min-h-screen">

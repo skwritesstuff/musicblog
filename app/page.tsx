@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-accent selection:text-bg pb-20">
-      {/* Top Browser Status Bar */}
       <header className="border-b border-border-line bg-[#141820]/90 backdrop-blur sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -42,11 +41,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         <div className="p-8 sm:p-10 rounded-3xl bg-card/80 border border-border-line backdrop-blur-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-
           <span className="font-mono text-xs uppercase tracking-widest text-accent font-bold">
             PARTIAL DIGITAL RESCUE (2009–2012)
           </span>
@@ -57,7 +53,6 @@ export default function Home() {
             A preserved digital retrospective of <em>The MuSiK Box</em> and <em>In Audio We Trust</em>, chronicling early indie hip-hop, mixtape culture, and generational discoveries from high school hallways to thousands of daily readers.
           </p>
 
-          {/* Salvage Notice Banner */}
           <div className="rounded-xl bg-[#18130e] border border-amber-500/30 p-4 border-l-4 border-l-accent flex items-start gap-3">
             <span className="text-lg">⚠️</span>
             <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
@@ -68,12 +63,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9-Card Curated Feed Section */}
       <main id="curated" className="flex-1">
         <CuratedFeed onSelectTrack={(track) => setActiveTrack(track)} />
       </main>
 
-      {/* Persistent Audio Player Bar */}
       <PersistentPlayer activeTrack={activeTrack} />
     </div>
   );

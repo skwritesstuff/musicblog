@@ -20,7 +20,6 @@ export interface CuratedPost {
 }
 
 export const CURATED_POSTS: CuratedPost[] = [
-  // --- TIER 1: Restored Original Artwork + Functional Media ---
   {
     id: 'mac-miller',
     artist: 'Mac Miller',
@@ -85,8 +84,6 @@ export const CURATED_POSTS: CuratedPost[] = [
     postSlug: '/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams',
     waybackUrl: 'https://web.archive.org/web/20101015000000/http://themusikbox.com/2010/10/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/',
   },
-
-  // --- TIER 2: Preserved Video Embeds & Audio Streams ---
   {
     id: 'mgk',
     artist: 'Machine Gun Kelly',
@@ -151,8 +148,6 @@ export const CURATED_POSTS: CuratedPost[] = [
     postSlug: '/blog/kid-cudi-maniac-ft-cage',
     waybackUrl: 'https://web.archive.org/web/20101010000000/http://themusikbox.com/2010/10/kid-cudi-maniac-ft-cage/',
   },
-
-  // --- TIER 3: Archival Text & Historical Snapshot ---
   {
     id: 'chip-tha-ripper',
     artist: 'Chip Tha Ripper',
@@ -169,11 +164,7 @@ export const CURATED_POSTS: CuratedPost[] = [
   },
 ];
 
-export default function CuratedFeed({
-  onSelectTrack,
-}: {
-  onSelectTrack?: (track: CuratedPost) => void;
-}) {
+export default function CuratedFeed({ onSelectTrack }: { onSelectTrack?: (track: CuratedPost) => void }) {
   const [playingId, setPlayingId] = useState<string | null>(null);
   const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
 
@@ -185,7 +176,6 @@ export default function CuratedFeed({
       currentAudio.pause();
       setPlayingId(null);
     } else {
-      // Pause any previously playing audio
       Object.entries(audioRefs.current).forEach(([id, el]) => {
         if (id !== post.id && el) el.pause();
       });
@@ -197,10 +187,9 @@ export default function CuratedFeed({
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
-      {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-3">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-glow-lime" />
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="font-heading text-xs font-bold uppercase tracking-wider text-accent">
             SHAMEIS.COM CURATED SPOTLIGHT
           </span>
@@ -213,18 +202,16 @@ export default function CuratedFeed({
         </p>
       </div>
 
-      {/* 3x3 Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {CURATED_POSTS.map((post) => {
           const isPlaying = playingId === post.id;
           return (
             <article
               key={post.id}
-              className={`group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 hover:shadow-glass ${
+              className={`group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 ${
                 post.tier === 1 ? 'border-t-2 border-t-accent' : post.tier === 2 ? 'border-t-2 border-t-app-accent' : ''
               }`}
             >
-              {/* Card Meta */}
               <div className="flex justify-between items-center mb-4">
                 <span
                   className={`font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border ${
@@ -240,7 +227,6 @@ export default function CuratedFeed({
                 <span className="text-xs text-text-dark font-medium">{post.brand}</span>
               </div>
 
-              {/* Title & Artist */}
               <div className="mb-4">
                 <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-accent transition-colors">
                   {post.artist}
@@ -251,7 +237,6 @@ export default function CuratedFeed({
                 <span className="text-xs text-text-dark mt-1 block">{post.date}</span>
               </div>
 
-              {/* DIRECT INLINE MEDIA EMBED */}
               <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden">
                 {post.mediaType === 'video' && (
                   <div className="relative w-full aspect-video">
@@ -276,14 +261,11 @@ export default function CuratedFeed({
                       {post.duration && <span className="font-mono text-text-dark">{post.duration}</span>}
                     </div>
 
-                    {/* Custom Styled Audio Trigger & Waveform */}
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => togglePlay(post)}
                         className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-                          isPlaying
-                            ? 'bg-accent text-bg shadow-glow-lime scale-105'
-                            : 'bg-accent text-bg hover:scale-105'
+                          isPlaying ? 'bg-accent text-bg scale-105' : 'bg-accent text-bg hover:scale-105'
                         }`}
                         aria-label={isPlaying ? 'Pause' : 'Play'}
                       >
@@ -299,18 +281,13 @@ export default function CuratedFeed({
                         )}
                       </button>
 
-                      {/* Fake/CSS Waveform bars */}
                       <div className="flex-1 flex items-center gap-1 h-8">
                         {[40, 70, 30, 90, 60, 100, 50, 80, 45, 95, 30, 65, 85, 40, 75, 55, 90, 35].map((h, i) => (
                           <span
                             key={i}
                             style={{ height: `${h}%` }}
                             className={`w-1 rounded-full transition-all duration-150 ${
-                              isPlaying
-                                ? i % 2 === 0
-                                  ? 'bg-accent animate-pulse'
-                                  : 'bg-app-accent'
-                                : 'bg-white/20'
+                              isPlaying ? (i % 2 === 0 ? 'bg-accent animate-pulse' : 'bg-app-accent') : 'bg-white/20'
                             }`}
                           />
                         ))}
@@ -344,12 +321,10 @@ export default function CuratedFeed({
                 )}
               </div>
 
-              {/* Editorial Description */}
               <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
                 {post.description}
               </p>
 
-              {/* Actions */}
               <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
                 <a
                   href={post.postSlug}

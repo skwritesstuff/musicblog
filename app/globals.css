@@ -5,14 +5,9 @@
 :root {
   --bg: #0f1115;
   --card: #171a21;
-  --card2: #1f2430;
-  --line: rgba(255, 255, 255, 0.18);
   --text: #fffaf0;
-  --muted: #d6dbe5;
-  --soft: #edf1f7;
   --accent: #c7ff5a;
   --app-accent: #2eb8c8;
-  --app-accent-text: #4bdceb;
 }
 
 body {
