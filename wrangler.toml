@@ -1,0 +1,4 @@
+# Cloudflare Pages — Next.js static HTML export
+name = "shameis-musicblog"
+compatibility_date = "2024-09-26"
+pages_build_output_dir = "out"
