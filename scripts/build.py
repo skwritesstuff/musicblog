@@ -129,7 +129,6 @@ def dt(s):
 
 base = html.fromstring((S / 'index.html').read_text())
 radio = html.tostring(cls(base, 'vintage-player-bar')[0], encoding='unicode')
-site_header = html.tostring(cls(base, 'site-header')[0], encoding='unicode')
 site_footer = html.tostring(cls(base, 'site-footer')[0], encoding='unicode')
 radio_scripts = ''.join(
     html.tostring(n, encoding='unicode')
@@ -146,7 +145,7 @@ theme_scripts = ''.join(
 radio = radio.replace('PLAY RETRO RADIO', e(C['radioPlay'])).replace('PAUSE RADIO', e(C['radioPause']))
 radio_scripts = radio_scripts.replace('PLAY RETRO RADIO', C['radioPlay']).replace('PAUSE RADIO', C['radioPause'])
 
-# Absolute paths for shared chrome; keep Story + IAWT Records utility anchors for navigation.
+# Absolute paths for shared chrome.
 def absify_chrome(chunk: str) -> str:
     chunk = chunk.replace('href="index.html"', 'href="/"')
     chunk = chunk.replace('href="story.html"', 'href="/story.html"')
@@ -161,26 +160,38 @@ def absify_chrome(chunk: str) -> str:
     return chunk
 
 
-site_header = absify_chrome(site_header)
+# Co-equal dual-brand masthead: The MuSiK Box (Era 1) + In Audio We Trust (Era 2).
+site_header = '''<header class="site-header dual-brand-header">
+  <div class="container dual-brand-inner">
+    <div class="dual-brand-row">
+      <a class="dual-brand-era dual-brand-era-mb" href="/" aria-label="The MuSiK Box era 2009–2011">
+        <span class="dual-brand-era-label era-mb">Era 1 · 2009–2011</span>
+        <img src="/images/The_MuSiK_Box_Banner_DarkTheme.png" alt="The MuSiK Box — We Skip Study Hall For This..." class="dual-brand-mb-banner" />
+      </a>
+      <div class="dual-brand-divider" aria-hidden="true">⇄</div>
+      <a class="dual-brand-era dual-brand-era-iawt" href="/" aria-label="In Audio We Trust era 2011–2012">
+        <span class="dual-brand-era-label era-iawt">Era 2 · 2011–2012</span>
+        <span class="dual-brand-iawt-marks">
+          <img src="/images/iawt-needle-logo.png" alt="In Audio We Trust" class="dual-brand-iawt-needle" />
+          <img src="/images/iawt-headphone-coin.png" alt="In Audio We Trust coin emblem" class="dual-brand-iawt-coin" />
+        </span>
+      </a>
+    </div>
+    <nav class="dual-brand-nav" aria-label="Primary">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/story.html#iawt-records" class="nav-link">★ IAWT Records</a>
+      <a href="/story.html" class="nav-link nav-story">★ The Story</a>
+      <a href="/archive.html" class="nav-link">Master Archive</a>
+      <a href="/artists/index.html" class="nav-link">Artists</a>
+      <a href="/gallery.html" class="nav-link">Artwork Vault</a>
+      <a href="/search.html" class="nav-link">🔍 Search</a>
+      <a href="/rss.xml" class="nav-link nav-rss" target="_blank" rel="noopener">RSS</a>
+      <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme"><span id="theme-icon">☀️</span> <span id="theme-label">Light</span></button>
+    </nav>
+  </div>
+</header>'''
+
 site_footer = absify_chrome(site_footer)
-# Ensure verify/home can find the IAWT Records deep link from site copy.
-if '/story.html#iawt-records' not in site_header:
-    site_header = site_header.replace(
-        'href="/story.html"',
-        'href="/story.html"',
-        1,
-    )
-    site_header = site_header.replace(
-        '<li><a href="/story.html"',
-        '<li><a href="/story.html#iawt-records" class="nav-link">★ IAWT Records</a></li>\n            <li><a href="/story.html"',
-        1,
-    )
-# Force Story nav weight only; yellow is applied sparingly via CSS (not site-wide).
-site_header = re.sub(
-    r'(<a href="/story\.html"[^>]*style=")[^"]*(")',
-    r'\1font-weight:700;\2',
-    site_header,
-)
 # Player button vermilion (inline styles in original chrome)
 radio = radio.replace('background: var(--accent-orange)', 'background: #e32507')
 radio = re.sub(r'background:\s*var\(--accent-orange\)', 'background: #e32507', radio)
