@@ -60,7 +60,7 @@ export default function PersistentPlayer({ activeTrack }: { activeTrack?: Curate
             192 KBPS MP3
           </span>
           <span className="text-[11px] text-text-dark">
-            SEAMUS KELLEHER & MYLES SNIDER RETROSPECTIVE
+            THE MUSIK BOX & IN AUDIO WE TRUST · 2009–2012
           </span>
         </div>
       </div>

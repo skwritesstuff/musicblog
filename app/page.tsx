@@ -24,8 +24,8 @@ export default function Home() {
           </div>
 
           <nav className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-heading font-medium text-text-muted">
-            <a href="#curated" className="text-accent">
-              Curated
+            <a href="#featured" className="hover:text-text-primary transition-colors">
+              Featured
             </a>
             <a href="/archive" className="hover:text-text-primary transition-colors">
               Archive (360)
@@ -62,7 +62,7 @@ export default function Home() {
         </div>
       </section>
 
-      <main id="curated" className="flex-1">
+      <main id="featured" className="flex-1">
         <CuratedFeed />
       </main>
 

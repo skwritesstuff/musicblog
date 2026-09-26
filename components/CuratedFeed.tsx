@@ -134,14 +134,14 @@ export default function CuratedFeed() {
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-3">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
           <span className="font-heading text-xs font-bold uppercase tracking-wider text-accent">
-            SHAMEIS.COM CURATED SPOTLIGHT
+            FROM THE ARCHIVE
           </span>
         </div>
         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary mb-3">
           Foundational Blog Discoveries
         </h2>
         <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">
-          Nine essential co-signs selected by Seamus Kelleher from The MuSiK Box and In Audio We Trust archives.
+          Early premieres and coverage recovered from The MuSiK Box and In Audio We Trust.
         </p>
       </div>
 
