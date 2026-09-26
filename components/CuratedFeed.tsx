@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 
 export interface CuratedPost {
   id: string;
@@ -10,28 +10,23 @@ export interface CuratedPost {
   brand: 'The MuSiK Box' | 'In Audio We Trust';
   tierBadge: string;
   tier: 1 | 2 | 3;
-  mediaType: 'video' | 'audio' | 'archive';
-  mediaSource?: string;
-  mediaLabel: string;
-  duration?: string;
+  youtubeId: string;
   description: string;
   postSlug: string;
   waybackUrl: string;
 }
 
 export const CURATED_POSTS: CuratedPost[] = [
+  // --- TIER 1: Restored Original Artwork + Verified Media ---
   {
     id: 'mac-miller',
     artist: 'Mac Miller',
-    title: 'Futuristic Funk / Love Lost',
+    title: 'Knock Knock / Futuristic Funk',
     date: 'March 2011',
     brand: 'In Audio We Trust',
     tierBadge: 'TIER 1 • RESTORED PHOTO + VIDEO',
     tier: 1,
-    mediaType: 'video',
-    mediaSource: 'https://www.youtube-nocookie.com/embed/g_wB2pZ7a-M',
-    mediaLabel: 'YouTube HD Stream // 1080p',
-    duration: '3:24',
+    youtubeId: '6bMmhKz6KXg',
     description: 'Published following his May 2010 first out-of-town headlining concert at The Grog Shop in Cleveland Heights. Features the restored June 2010 original headshot photograph.',
     postSlug: '/blog/mac-miller-futuristic-funk',
     waybackUrl: 'https://web.archive.org/web/20110326022122/http://www.inaudiowetrust.com:80/2011/03/mac-miller-futuristic-funk/',
@@ -44,10 +39,7 @@ export const CURATED_POSTS: CuratedPost[] = [
     brand: 'In Audio We Trust',
     tierBadge: 'TIER 1 • RESTORED ART + VIDEO',
     tier: 1,
-    mediaType: 'video',
-    mediaSource: 'https://www.youtube-nocookie.com/embed/otPxoVQiMbM',
-    mediaLabel: 'Official Video Embed // 1080p',
-    duration: '3:42',
+    youtubeId: '27d138zhyZQ',
     description: 'Breakout coverage during Donald Glover’s Community and Derrick Comedy era, pre-dating Camp. Features restored original 2011 custom header artwork and interview.',
     postSlug: '/blog/listen-up-childish-gambino-donald-glover-aka-troy-from-community-aka-derrick-comedy',
     waybackUrl: 'https://web.archive.org/web/20110214165550/http://www.inaudiowetrust.com:80/2011/02/listen-up-childish-gambino-donald-glover-aka-troy-from-community-aka-derrick-comedy/',
@@ -55,15 +47,12 @@ export const CURATED_POSTS: CuratedPost[] = [
   {
     id: 'j-cole',
     artist: 'J. Cole',
-    title: 'Artist of the Week / Return of Simba',
-    date: 'November 2009',
+    title: 'Return of Simba / Artist of the Week',
+    date: 'May 2011',
     brand: 'In Audio We Trust',
     tierBadge: 'TIER 1 • RESTORED PHOTO + AUDIO',
     tier: 1,
-    mediaType: 'audio',
-    mediaSource: 'https://ia601408.us.archive.org/24/items/j-cole-return-of-simba/j-cole-return-of-simba.mp3',
-    mediaLabel: 'HTML5 Audio • 192kbps MP3',
-    duration: '3:58',
+    youtubeId: 'vcr3vH0_MyQ',
     description: 'Named Artist of the Week directly following The Warm Up before Cole World: The Sideline Story. Backed by the restored December 2009 server photograph.',
     postSlug: '/blog/j-cole-artist-of-the-week',
     waybackUrl: 'https://web.archive.org/web/20130507024728/http://www.inaudiowetrust.com:80/2009/11/j-cole-artist-of-the-week/',
@@ -76,26 +65,22 @@ export const CURATED_POSTS: CuratedPost[] = [
     brand: 'The MuSiK Box',
     tierBadge: 'TIER 1 • RESTORED PHOTO + AUDIO',
     tier: 1,
-    mediaType: 'audio',
-    mediaSource: 'https://ia801408.us.archive.org/24/items/chiddy-bang-bad-day/chiddy-bang-bad-day.mp3',
-    mediaLabel: 'HTML5 Audio • Preserved Stream',
-    duration: '3:15',
+    youtubeId: '51qOi7QOGsc',
     description: 'Documented directly from their Drexel University dorm room beginnings in Philadelphia. Features recovered November 2009 photograph of producer Xaphoon Jones.',
     postSlug: '/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams',
     waybackUrl: 'https://web.archive.org/web/20101015000000/http://themusikbox.com/2010/10/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/',
   },
+
+  // --- TIER 2: Preserved Video Embeds & Audio Streams ---
   {
     id: 'mgk',
     artist: 'Machine Gun Kelly',
-    title: 'SXSW ’11 Ep. 2 / Half Naked Almost Famous',
+    title: 'Half Naked & Almost Famous',
     date: 'May 2011',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 2 • PRESERVED VIDEO EMBED',
+    tierBadge: 'TIER 2 • PRESERVED VIDEO',
     tier: 2,
-    mediaType: 'video',
-    mediaSource: 'https://www.youtube-nocookie.com/embed/kYx8EwzQGfQ',
-    mediaLabel: 'SXSW Live Series Embed',
-    duration: '4:12',
+    youtubeId: 'I0LNAvvd6Kk',
     description: 'Hometown Cleveland coverage following the April 22, 2010 Saint Ignatius High School parking lot iPhone interview tracking his Lace Up transition.',
     postSlug: '/blog/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2',
     waybackUrl: 'https://web.archive.org/web/20110326022127/http://www.inaudiowetrust.com:80/2011/03/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2/',
@@ -103,15 +88,12 @@ export const CURATED_POSTS: CuratedPost[] = [
   {
     id: 'the-white-panda',
     artist: 'The White Panda',
-    title: 'The Rematch Mixtape (Full Album)',
+    title: 'Shake Drop on Video / Rematch Era',
     date: 'July 2010',
     brand: 'In Audio We Trust',
-    tierBadge: 'TIER 2 • CONTINUOUS MIX STREAM',
+    tierBadge: 'TIER 2 • MASHUP STREAM',
     tier: 2,
-    mediaType: 'audio',
-    mediaSource: 'https://ia601408.us.archive.org/24/items/the-white-panda-rematch/the-white-panda-rematch.mp3',
-    mediaLabel: 'Continuous Mixtape Stream',
-    duration: '48:15',
+    youtubeId: 'YMx0NcmQOvY',
     description: 'Seminal college-era mashup premiere showcasing the duo’s breakout sophomore tape during the peak dorm-party circuit era.',
     postSlug: '/blog/the-white-panda-rematch-mixtape',
     waybackUrl: 'https://web.archive.org/web/20110715000000/http://www.inaudiowetrust.com/2010/07/the-white-panda-rematch-mixtape/',
@@ -122,12 +104,9 @@ export const CURATED_POSTS: CuratedPost[] = [
     title: 'Gucci Mane – That’s All (Remix)',
     date: 'October 2010',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 2 • PRESERVED AUDIO STREAM',
+    tierBadge: 'TIER 2 • PRESERVED REMIX',
     tier: 2,
-    mediaType: 'audio',
-    mediaSource: 'https://ia801408.us.archive.org/24/items/brenton-duvall-thats-all/brenton-duvall-thats-all.mp3',
-    mediaLabel: 'HTML5 Audio • 192kbps MP3',
-    duration: '3:30',
+    youtubeId: 'jSCZKmbSL58',
     description: 'Quintessential blog-era production synthesizing Atlanta trap with breezy indie pop hooks, paired with his Childish Gambino Javelin remix.',
     postSlug: '/blog/gucci-mane-thats-all-brenton-duvall-remix',
     waybackUrl: 'https://web.archive.org/web/20101020000000/http://themusikbox.com/2010/10/gucci-mane-thats-all-brenton-duvall-remix/',
@@ -135,58 +114,37 @@ export const CURATED_POSTS: CuratedPost[] = [
   {
     id: 'kid-cudi',
     artist: 'Kid Cudi',
-    title: 'Maniac ft. Cage (MOTM II Lead)',
+    title: 'Maniac ft. Cage (MOTM II)',
     date: 'October 2010',
     brand: 'The MuSiK Box',
-    tierBadge: 'TIER 2 • PRESERVED AUDIO STREAM',
+    tierBadge: 'TIER 2 • PRESERVED VIDEO',
     tier: 2,
-    mediaType: 'audio',
-    mediaSource: 'https://ia801408.us.archive.org/24/items/kid-cudi-maniac/kid-cudi-maniac.mp3',
-    mediaLabel: 'HTML5 Audio • MOTM II Stream',
-    duration: '4:01',
+    youtubeId: 'ZT4hcbSNq6U',
     description: 'Cleveland native spotlight published during the peak rollout for Man on the Moon II: The Legend of Mr. Rager.',
     postSlug: '/blog/kid-cudi-maniac-ft-cage',
     waybackUrl: 'https://web.archive.org/web/20101010000000/http://themusikbox.com/2010/10/kid-cudi-maniac-ft-cage/',
   },
+
+  // --- TIER 3: Archival Text & Historical Snapshot ---
   {
     id: 'chip-tha-ripper',
     artist: 'Chip Tha Ripper',
-    title: 'Catch The Show // Cleveland Vault',
+    title: 'Freestyle (Interior Crocodile Alligator)',
     date: '2009–2010',
     brand: 'The MuSiK Box',
     tierBadge: 'TIER 3 • HISTORICAL SNAPSHOT',
     tier: 3,
-    mediaType: 'archive',
-    mediaLabel: 'Internet Archive Snapshot',
+    youtubeId: 'ZIfSaDNVjXI',
     description: 'Foundational local coverage of the Cleveland underground titan and frequent Kid Cudi collaborator with full tracklist and preserved review commentary.',
     postSlug: '/artists/chip-tha-ripper',
     waybackUrl: 'https://web.archive.org/web/20101001000000/http://themusikbox.com/tag/chip-tha-ripper/',
   },
 ];
 
-export default function CuratedFeed({ onSelectTrack }: { onSelectTrack?: (track: CuratedPost) => void }) {
-  const [playingId, setPlayingId] = useState<string | null>(null);
-  const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
-
-  const togglePlay = (post: CuratedPost) => {
-    const currentAudio = audioRefs.current[post.id];
-    if (!currentAudio) return;
-
-    if (playingId === post.id) {
-      currentAudio.pause();
-      setPlayingId(null);
-    } else {
-      Object.entries(audioRefs.current).forEach(([id, el]) => {
-        if (id !== post.id && el) el.pause();
-      });
-      currentAudio.play();
-      setPlayingId(post.id);
-      if (onSelectTrack) onSelectTrack(post);
-    }
-  };
-
+export default function CuratedFeed() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
+      {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-3">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -202,151 +160,83 @@ export default function CuratedFeed({ onSelectTrack }: { onSelectTrack?: (track:
         </p>
       </div>
 
+      {/* 3x3 Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {CURATED_POSTS.map((post) => {
-          const isPlaying = playingId === post.id;
-          return (
-            <article
-              key={post.id}
-              className={`group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 ${
-                post.tier === 1 ? 'border-t-2 border-t-accent' : post.tier === 2 ? 'border-t-2 border-t-app-accent' : ''
-              }`}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <span
-                  className={`font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border ${
-                    post.tier === 1
-                      ? 'text-accent border-accent/30'
-                      : post.tier === 2
-                      ? 'text-app-accent-text border-app-accent/30'
-                      : 'text-text-dark border-white/10'
-                  }`}
-                >
-                  {post.tierBadge}
-                </span>
-                <span className="text-xs text-text-dark font-medium">{post.brand}</span>
+        {CURATED_POSTS.map((post) => (
+          <article
+            key={post.id}
+            className={`group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 ${
+              post.tier === 1 ? 'border-t-2 border-t-accent' : post.tier === 2 ? 'border-t-2 border-t-app-accent' : ''
+            }`}
+          >
+            {/* Card Meta */}
+            <div className="flex justify-between items-center mb-4">
+              <span
+                className={`font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border ${
+                  post.tier === 1
+                    ? 'text-accent border-accent/30'
+                    : post.tier === 2
+                    ? 'text-app-accent-text border-app-accent/30'
+                    : 'text-text-dark border-white/10'
+                }`}
+              >
+                {post.tierBadge}
+              </span>
+              <span className="text-xs text-text-dark font-medium">{post.brand}</span>
+            </div>
+
+            {/* Title & Artist */}
+            <div className="mb-4">
+              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-accent transition-colors">
+                {post.artist}
+              </h3>
+              <h4 className="font-heading text-sm font-semibold text-accent/90 mt-0.5 line-clamp-1">
+                {post.title}
+              </h4>
+              <span className="text-xs text-text-dark mt-1 block">{post.date}</span>
+            </div>
+
+            {/* DIRECT INLINE YOUTUBE VIDEO EMBED */}
+            <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden shadow-lg">
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${post.youtubeId}?rel=0&modestbranding=1`}
+                  title={`${post.artist} - ${post.title}`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
+            </div>
 
-              <div className="mb-4">
-                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-accent transition-colors">
-                  {post.artist}
-                </h3>
-                <h4 className="font-heading text-sm font-semibold text-accent/90 mt-0.5 line-clamp-1">
-                  {post.title}
-                </h4>
-                <span className="text-xs text-text-dark mt-1 block">{post.date}</span>
-              </div>
+            {/* Editorial Description */}
+            <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
+              {post.description}
+            </p>
 
-              <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden">
-                {post.mediaType === 'video' && (
-                  <div className="relative w-full aspect-video">
-                    <iframe
-                      src={post.mediaSource}
-                      title={`${post.artist} - ${post.title}`}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full border-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                )}
-
-                {post.mediaType === 'audio' && (
-                  <div className="p-4 flex flex-col gap-3">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-mono font-semibold text-app-accent-text flex items-center gap-1.5">
-                        <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-accent animate-ping' : 'bg-accent'}`} />
-                        {post.mediaLabel}
-                      </span>
-                      {post.duration && <span className="font-mono text-text-dark">{post.duration}</span>}
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => togglePlay(post)}
-                        className={`w-11 h-11 rounded-full flex items-center justify-center transition-all ${
-                          isPlaying ? 'bg-accent text-bg scale-105' : 'bg-accent text-bg hover:scale-105'
-                        }`}
-                        aria-label={isPlaying ? 'Pause' : 'Play'}
-                      >
-                        {isPlaying ? (
-                          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <rect x="6" y="4" width="4" height="16" />
-                            <rect x="14" y="4" width="4" height="16" />
-                          </svg>
-                        ) : (
-                          <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                            <polygon points="5 3 19 12 5 21 5 3" />
-                          </svg>
-                        )}
-                      </button>
-
-                      <div className="flex-1 flex items-center gap-1 h-8">
-                        {[40, 70, 30, 90, 60, 100, 50, 80, 45, 95, 30, 65, 85, 40, 75, 55, 90, 35].map((h, i) => (
-                          <span
-                            key={i}
-                            style={{ height: `${h}%` }}
-                            className={`w-1 rounded-full transition-all duration-150 ${
-                              isPlaying ? (i % 2 === 0 ? 'bg-accent animate-pulse' : 'bg-app-accent') : 'bg-white/20'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    <audio
-                      ref={(el) => {
-                        audioRefs.current[post.id] = el;
-                      }}
-                      src={post.mediaSource}
-                      preload="none"
-                      onEnded={() => setPlayingId(null)}
-                      className="hidden"
-                    />
-                  </div>
-                )}
-
-                {post.mediaType === 'archive' && (
-                  <div className="p-5 flex items-center gap-3 bg-[#13161f]/80">
-                    <span className="text-3xl">🏛️</span>
-                    <div>
-                      <div className="font-heading text-sm font-bold text-text-primary">
-                        Internet Archive Snapshot
-                      </div>
-                      <div className="text-xs text-text-dark leading-snug mt-0.5">
-                        Original media hosted on external 2010 locker. Commentary & metadata verified.
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
-                {post.description}
-              </p>
-
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
-                <a
-                  href={post.postSlug}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-bg font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
-                >
-                  Read Post
-                  <svg className="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-                <a
-                  href={post.waybackUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-3.5 py-2 rounded-full bg-white/5 border border-border-line text-text-muted hover:text-text-primary hover:bg-white/10 text-xs font-medium transition-all"
-                >
-                  Wayback Snap ↗
-                </a>
-              </div>
-            </article>
-          );
-        })}
+            {/* Actions */}
+            <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
+              <a
+                href={post.postSlug}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-bg font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
+              >
+                Read Post
+                <svg className="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href={post.waybackUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3.5 py-2 rounded-full bg-white/5 border border-border-line text-text-muted hover:text-text-primary hover:bg-white/10 text-xs font-medium transition-all"
+              >
+                Wayback Snap ↗
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

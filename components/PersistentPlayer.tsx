@@ -67,11 +67,7 @@ export default function PersistentPlayer({ activeTrack }: { activeTrack?: Curate
 
       <audio
         ref={audioRef}
-        src={
-          activeTrack?.mediaType === 'audio'
-            ? activeTrack.mediaSource
-            : 'https://ia601408.us.archive.org/24/items/j-cole-return-of-simba/j-cole-return-of-simba.mp3'
-        }
+        src="https://ia601408.us.archive.org/24/items/j-cole-return-of-simba/j-cole-return-of-simba.mp3"
         preload="none"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

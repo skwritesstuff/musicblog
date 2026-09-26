@@ -1,14 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
-import CuratedFeed, { CuratedPost } from '@/components/CuratedFeed';
+import React from 'react';
+import CuratedFeed from '@/components/CuratedFeed';
 import PersistentPlayer from '@/components/PersistentPlayer';
 import LogoTheMuSiKBox from '@/components/LogoTheMuSiKBox';
 import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
 
 export default function Home() {
-  const [activeTrack, setActiveTrack] = useState<CuratedPost | null>(null);
-
   return (
     <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-accent selection:text-bg pb-20">
       <header className="border-b border-border-line bg-[#141820]/90 backdrop-blur sticky top-0 z-40">
@@ -65,10 +63,11 @@ export default function Home() {
       </section>
 
       <main id="curated" className="flex-1">
-        <CuratedFeed onSelectTrack={(track) => setActiveTrack(track)} />
+        <CuratedFeed />
       </main>
 
-      <PersistentPlayer activeTrack={activeTrack} />
+      <PersistentPlayer />
     </div>
   );
 }
+
