@@ -1,0 +1,262 @@
+backend:
+  name: git-gateway
+  branch: main
+site_url: https://shameis.com
+media_folder: public/uploads
+public_folder: /uploads
+collections:
+- name: copy
+  label: Site copy
+  files:
+  - name: siteCopy
+    label: Labels, navigation and footer
+    file: src/data/siteCopy.json
+    fields:
+    - label: brand
+      name: brand
+      widget: string
+      required: false
+    - label: title
+      name: title
+      widget: string
+      required: false
+    - label: utilityLinks
+      name: utilityLinks
+      widget: list
+      fields:
+      - label: label
+        name: label
+        widget: string
+        required: false
+      - label: href
+        name: href
+        widget: string
+        required: false
+    - label: socialLinks
+      name: socialLinks
+      widget: list
+      fields:
+      - label: label
+        name: label
+        widget: string
+        required: false
+      - label: href
+        name: href
+        widget: string
+        required: false
+    - label: channels
+      name: channels
+      widget: list
+      fields:
+      - label: label
+        name: label
+        widget: string
+        required: false
+      - label: links
+        name: links
+        widget: list
+        fields:
+        - label: label
+          name: label
+          widget: string
+          required: false
+        - label: query
+          name: query
+          widget: string
+          required: false
+    - label: artistsLabel
+      name: artistsLabel
+      widget: string
+      required: false
+    - label: mixesLabel
+      name: mixesLabel
+      widget: string
+      required: false
+    - label: searchLabel
+      name: searchLabel
+      widget: string
+      required: false
+    - label: publishedLabel
+      name: publishedLabel
+      widget: string
+      required: false
+    - label: readMoreLabel
+      name: readMoreLabel
+      widget: string
+      required: false
+    - label: archiveLabel
+      name: archiveLabel
+      widget: string
+      required: false
+    - label: homeBlurb
+      name: homeBlurb
+      widget: string
+      required: false
+    - label: storyBlurb
+      name: storyBlurb
+      widget: string
+      required: false
+    - label: contactBlurb
+      name: contactBlurb
+      widget: string
+      required: false
+    - label: searchBlurb
+      name: searchBlurb
+      widget: string
+      required: false
+    - label: footerText
+      name: footerText
+      widget: string
+      required: false
+    - label: archiveNotice
+      name: archiveNotice
+      widget: string
+      required: false
+    - label: storyLabel
+      name: storyLabel
+      widget: string
+      required: false
+    - label: allPostsLabel
+      name: allPostsLabel
+      widget: string
+      required: false
+    - label: galleryLabel
+      name: galleryLabel
+      widget: string
+      required: false
+    - label: siteUrl
+      name: siteUrl
+      widget: string
+      required: false
+    - label: channelsLabel
+      name: channelsLabel
+      widget: string
+      required: false
+    - label: radioPlay
+      name: radioPlay
+      widget: string
+      required: false
+    - label: radioPause
+      name: radioPause
+      widget: string
+      required: false
+    - label: previousLabel
+      name: previousLabel
+      widget: string
+      required: false
+    - label: searchTitle
+      name: searchTitle
+      widget: string
+      required: false
+    - label: contactTitle
+      name: contactTitle
+      widget: string
+      required: false
+    - label: storyTitle
+      name: storyTitle
+      widget: string
+      required: false
+    - label: metadataLabel
+      name: metadataLabel
+      widget: string
+      required: false
+    - label: resultsLabel
+      name: resultsLabel
+      widget: string
+      required: false
+    - label: noResultsLabel
+      name: noResultsLabel
+      widget: string
+      required: false
+    - label: footerLinks
+      name: footerLinks
+      widget: list
+      fields:
+      - label: label
+        name: label
+        widget: string
+        required: false
+      - label: href
+        name: href
+        widget: string
+        required: false
+    - name: archiveTitle
+      label: archiveTitle
+      widget: string
+    - name: artistsTitle
+      label: artistsTitle
+      widget: string
+    - name: categoriesTitle
+      label: categoriesTitle
+      widget: string
+    - name: searchError
+      label: searchError
+      widget: string
+- name: posts
+  label: Posts
+  folder: src/content/posts
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - name: title
+    label: title
+    widget: string
+    required: true
+  - name: artist
+    label: artist
+    widget: string
+    required: false
+  - name: date
+    label: date
+    widget: string
+    required: true
+  - name: category
+    label: category
+    widget: string
+    required: true
+  - name: audioUrl
+    label: audioUrl
+    widget: string
+    required: false
+  - name: artwork
+    label: artwork
+    widget: image
+    required: false
+  - name: excerpt
+    label: excerpt
+    widget: text
+    required: false
+  - name: legacyPath
+    label: legacyPath
+    widget: string
+    required: false
+  - name: body
+    label: body
+    widget: markdown
+    required: true
+  - name: sourceLinks
+    label: Preserved source links
+    widget: list
+    required: false
+    field:
+      name: link
+      label: Link
+      widget: string
+  - name: metadata
+    label: Original metadata
+    widget: object
+    required: false
+    fields: []
+- name: pages
+  label: Pages
+  files:
+  - name: story
+    label: The Story
+    file: src/content/pages/story.md
+    fields:
+    - name: title
+      label: Title
+      widget: string
+    - name: body
+      label: Body
+      widget: markdown

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media & Artwork Vault | In Audio We Trust</title>
+  <link rel="stylesheet" href="../styles/vintage.css" />
+</head>
+<body>
+  <div class="vintage-player-bar">
+    <div class="container player-inner" style="flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="radio-play-btn" class="radio-btn" style="background: var(--accent-orange); color: #fff; border: none; padding: 4px 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px rgba(255, 110, 0, 0.4); transition: transform 0.15s ease;">
+          <span id="radio-play-icon">▶</span> <span id="radio-play-text">PLAY RETRO RADIO</span>
+        </button>
+        <button id="radio-prev-btn" title="Previous Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏮</button>
+        <button id="radio-next-btn" title="Next Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏭</button>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; background: #0b0e14; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
+          <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
+          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+            <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
+            <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
+            <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
+            <option value="3">4. Lupe Fiasco – Words I Never Said (2011)</option>
+            <option value="4">5. Tyler, The Creator – She ft. Frank Ocean (2011)</option>
+            <option value="5">6. The Weeknd – The Morning (2011)</option>
+            <option value="6">7. Wiz Khalifa – No Sleep (2011)</option>
+            <option value="7">8. Skrillex – Rock That Body Remix (2011)</option>
+            <option value="8">9. Timeflies – Adderall &amp; Red Bull (2011)</option>
+            <option value="9">10. Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 0.85rem; margin-left: auto;">
+        <span id="radio-time-display" style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">STREAM READY</span>
+        <button id="radio-mute-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem;" title="Mute/Unmute">🔊</button>
+        <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">192 KBPS STEREO</span>
+        <div class="player-eq" id="radio-eq" style="opacity: 0.35;">
+          <span class="eq-bar eq-1"></span>
+          <span class="eq-bar eq-2"></span>
+          <span class="eq-bar eq-3"></span>
+          <span class="eq-bar eq-4"></span>
+        </div>
+      </div>
+    </div>
+    <div id="yt-radio-container" style="position: absolute; width: 1px; height: 1px; left: -9999px; overflow: hidden;"></div>
+  </div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead">
+        <div>
+          <a href="../index.html" class="brand-title" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="../logo-dark.png" alt="In Audio We Trust Logo" style="height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));" />
+            <div>
+              <div>
+                <span class="brand-badge-mb">THE MUSIK BOX</span>
+                <span style="color: var(--text-muted);">&bull;</span>
+                <span class="brand-badge-iawt">IN AUDIO WE TRUST</span>
+              </div>
+              <div class="masthead-subtitle" style="font-size: 0.76rem; font-weight: normal;">PARTIAL DIGITAL RESCUE (2009–2012) &bull; SALVAGED ARCHIVE &bull; 360 RECOVERED OF THOUSANDS PUBLISHED</div>
+              <div style="font-size: 0.73rem; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 0.2rem;">Created by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+            </div>
+          </a>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link ">Home</a></li>
+            <li><a href="../story.html" class="nav-link " style="font-weight: 700; color: var(--accent-orange);">★ The Story</a></li>
+            <li><a href="../archive.html" class="nav-link ">Archive</a></li>
+            <li><a href="artists/index.html" class="nav-link ">Artists</a></li>
+            <li><a href="categories/index.html" class="nav-link ">Categories</a></li>
+            <li><a href="../gallery.html" class="nav-link active">Media & Art</a></li>
+            <li><a href="../search.html" class="nav-link ">🔍 Search</a></li>
+            <li><a href="rss.xml" class="nav-link" target="_blank">RSS</a></li>
+          </ul>
+          <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
+            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="archive-header" style="margin-bottom: 2.5rem;">
+  <div class="post-breadcrumbs"><a href="../index.html">Home</a> &raquo; <span>Media & Art</span></div>
+  <h1 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 0.75rem;">Preserved Media &amp; Artwork Vault</h1>
+  <p style="color: var(--text-secondary); max-width: 850px; font-size: 1.05rem; line-height: 1.6;">
+    A transparent historical catalog of the 54 verified WordPress media uploads from <em>The MuSiK Box</em> and <em>In Audio We Trust</em> (2009–2012).
+  </p>
+  
+  <div style="background: var(--bg-card); border-left: 4px solid var(--accent-orange); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem;">Digital Preservation &amp; Provenance Transparency</h4>
+    <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+      <strong>Part 1:</strong> The <strong>9 authentic recovered visual assets</strong> below were successfully salvaged and restored in their original photographic and graphic formats. Click any card to inspect the full high-res original.<br />
+      <strong>Part 2:</strong> For the remaining <strong>45 historical upload records</strong>, Wayback Machine crawlers indexed the database filenames and post links but did not cache the binary image files. Rather than generating synthetic placeholders, their complete filenames, dates, and Wayback snapshot links are preserved in the searchable Server Uploads Registry below.
+    </p>
+  </div>
+</div>
+
+<section style="margin-bottom: 4rem;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem;">
+    <div>
+      <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-primary);">★ Recovered Cover Art &amp; Photography</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">Verified original high-resolution photographs, press images, album art, and site logos.</p>
+    </div>
+    <span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">9 Verified Visual Assets</span>
+  </div>
+  <div class="gallery-grid"><div class="media-card" id="visual-jcole">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/The_MuSiK_Box_JCole_Dec2009.jpg" alt="J. Cole — Early Artist of the Week Feature" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2009-12</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">J. Cole — Early Artist of the Week Feature</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>j-cole.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Original preserved photograph of J. Cole spotlighted as "Artist of the Week" in late 2009, shortly after his breakthrough mixtape The Warm Up.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/The_MuSiK_Box_JCole_Dec2009.jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110209085058/http://www.themusikbox.com/wp-content/uploads/2009/12/j-cole.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-xaphoon">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/The_MuSiK_Box_XaphoonJones_Nov2009.jpg" alt="Xaphoon Jones & Chiddy Bang Spotlight" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2009-11</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">Xaphoon Jones & Chiddy Bang Spotlight</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>xaphoon-jones.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">High-resolution press photo of producer Noah Beresin (Xaphoon Jones) during the explosive rise of The Swelly Express.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/The_MuSiK_Box_XaphoonJones_Nov2009.jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20100820190903/http://www.themusikbox.com/wp-content/uploads/2009/11/xaphoon-jones.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-logo">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/The_MuSiK_Box_Original_Logo_2010.png" alt="The MuSiK Box — Original 2010 Brand Identity" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2010-03</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">The MuSiK Box — Original 2010 Brand Identity</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>musikbox-logo1.png</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Original high-resolution transparent logo and retro cassette mark created during the sophomore year of Saint Ignatius High School.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/The_MuSiK_Box_Original_Logo_2010.png" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20100820190847/http://www.themusikbox.com/wp-content/uploads/2010/03/musikbox-logo1.png" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-macklemore">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/Macklemore_Early_Feature_2010.jpg" alt="Macklemore — Early Independent Spotlight" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2010-08</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">Macklemore — Early Independent Spotlight</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>macklemore.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Archived photograph featured in August 2010 coverage — over two full years before The Heist and "Thrift Shop" made him a household name.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/Macklemore_Early_Feature_2010.jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110222205504/http://www.themusikbox.com/wp-content/uploads/2010/08/macklemore.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-xv">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/XV_Vizzy_Artwork_2011.png" alt="XV — Vizzy Concept Artwork" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2011-01</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">XV — Vizzy Concept Artwork</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>vizzy.png</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Artwork promoting Wichita emcee XV prior to The MuSiK Box co-promoting the Animal House Tour at The Grog Shop with The Dean's List.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/XV_Vizzy_Artwork_2011.png" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110222205739/http://www.themusikbox.com/wp-content/uploads/2011/01/vizzy.png" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-chase">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/media-033_Chase_Status_No_More_Idols.Jpg" alt="Chase & Status — No More Idols Album Cover" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2011-01</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">Chase & Status — No More Idols Album Cover</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>Chase-Status-No-More-Idols.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Original 500x500 album cover upload for Brixton Briefcase from UK bass pioneers Chase & Status.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/media-033_Chase_Status_No_More_Idols.Jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110222205834/http://www.themusikbox.com/wp-content/uploads/2011/01/Chase-Status-No-More-Idols.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-mckenzie">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/media-037_Mckenzie_Eddy1.Jpg" alt="McKenzie Eddy — Silence (ft. Curren$y & Wiz Khalifa)" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2011-01</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">McKenzie Eddy — Silence (ft. Curren$y & Wiz Khalifa)</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>mckenzie-eddy1.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">The MuSiK Box</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Artwork for the Jet Life and Taylor Gang collaborative remix release, uploaded to WordPress in January 2011.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/media-037_Mckenzie_Eddy1.Jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110222205553/http://www.themusikbox.com/wp-content/uploads/2011/01/mckenzie-eddy1.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-lupe">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/Lupe_Fiasco_Words_I_Never_Said_2011.jpg" alt="Lupe Fiasco feat. Skylar Grey — Words I Never Said" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2011-02</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">Lupe Fiasco feat. Skylar Grey — Words I Never Said</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>Lupe-Fiasco-feat.-Skylar-Grey-Words-I-Never-Said-Art.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">In Audio We Trust</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Official promotional single artwork for Lupe Fiasco's socially conscious anthem from Lasers, featured in early 2011.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/Lupe_Fiasco_Words_I_Never_Said_2011.jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110222205634/http://www.themusikbox.com/wp-content/uploads/2011/02/Lupe-Fiasco-feat.-Skylar-Grey-Words-I-Never-Said-Art.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div><div class="media-card" id="visual-adele">
+      <div style="position: relative; width: 100%; height: 230px; background: #0c1017; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-color);">
+        <img src="../recovered_media/Adele_Viral_Mashup_Artwork_2011.jpg" alt="Adele — Rolling in the Thrill (Forcing Function Mashup)" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.3s ease;" />
+        <span style="position: absolute; top: 8px; right: 8px; background: var(--accent-orange); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(0,0,0,0.5);">★ Preserved Artwork</span>
+      </div>
+      <div class="media-badge">RESTORED VISUAL &bull; 2011-04</div>
+      <h4 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; color: var(--text-primary); line-height: 1.3;">Adele — Rolling in the Thrill (Forcing Function Mashup)</h4>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.75rem;">
+        File: <code>adele.jpg</code> &bull; Platform: <strong style="color: var(--accent-cyan);">In Audio We Trust</strong>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">Smash viral mashup artwork from the peak StumbleUpon and Hype Machine viral traffic era, driving tens of thousands of streams.</p>
+      <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <a href="../recovered_media/Adele_Viral_Mashup_Artwork_2011.jpg" target="_blank" class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 110, 0, 0.4); font-weight: 700;">View Full High-Res ↗</a>
+        <a href="https://web.archive.org/web/20110710084201/http://www.inaudiowetrust.com/wp-content/uploads/2011/04/adele.jpg" target="_blank" class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Wayback Record ↗</a>
+      </div>
+    </div></div>
+</section>
+
+<section style="margin-bottom: 3.5rem;">
+  <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">WordPress Server Uploads Registry</h3>
+        <p style="color: var(--text-secondary); font-size: 0.86rem; margin: 0;">Complete database of all 54 media uploads cataloged across The MuSiK Box and In Audio We Trust (2009–2012).</p>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+        Showing <span id="ledger-count" style="color: var(--accent-orange); font-weight: 700;">54</span> records
+      </div>
+    </div>
+    <input type="text" id="ledger-search" placeholder="Search archival uploads by artist, title, or filename (e.g., Lil Wayne, Katy Perry, Cudi, 2011)..." class="search-box" style="padding: 0.75rem 1rem; font-size: 0.9rem;" />
+  </div>
+
+  <div style="overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+      <thead>
+        <tr style="border-bottom: 1px solid var(--border-color); background: rgba(125, 125, 125, 0.05); text-align: left;">
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Date</th>
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Artist / Subject</th>
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Original Server Filename</th>
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Platform</th>
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">Preservation Status</th>
+          <th style="padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">Wayback Record</th>
+        </tr>
+      </thead>
+      <tbody id="ledger-tbody">
+        <tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Freddie Gibbs</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Freddie Gibbs</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Freddie-Gibbs-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225900/http://www.inaudiowetrust.com/wp-content/uploads/2011/08/Freddie-Gibbs-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Kid Cudi Thumb</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Kid Cudi</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Kid+Cudi-thumb-580x343-165721-300x150.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225901/http://www.inaudiowetrust.com/wp-content/uploads/2011/08/Kid+Cudi-thumb-580x343-165721-300x150.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Lil Wayne Tha Carter Iv</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>LIL-WAYNE-THA-CARTER-IV-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225934/http://www.inaudiowetrust.com/wp-content/uploads/2011/08/LIL-WAYNE-THA-CARTER-IV-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Man Vs Doob Artwork1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Man-vs-Doob-artwork1-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225900/http://www.inaudiowetrust.com/wp-content/uploads/2011/08/Man-vs-Doob-artwork1-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Wiz Khalifa</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>wiz-khalifa-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225900/http://www.inaudiowetrust.com/wp-content/uploads/2011/08/wiz-khalifa-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-05</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Screen Shot 2011 05 19 At 11.52.13 Am</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Screen-shot-2011-05-19-at-11.52.13-AM.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20131217224627/http://www.inaudiowetrust.com/wp-content/uploads/2011/05/Screen-shot-2011-05-19-at-11.52.13-AM.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-04</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Adele</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>adele.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110904213348/http://www.inaudiowetrust.com/wp-content/uploads/2011/04/adele.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-03</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">John Legend</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>John-Legend.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110710084141/http://www.inaudiowetrust.com/wp-content/uploads/2011/03/John-Legend.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Backlow</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>backlow.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211115221133/http://www.themusikbox.com/wp-content/uploads/2011/02/backlow.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Childish Gambino</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Childish Gambino</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Childish-Gambino-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225905/http://www.inaudiowetrust.com/wp-content/uploads/2011/02/Childish-Gambino-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Lupe Fiasco Feat. Skylar Grey Words I Never Said Art</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Lupe Fiasco</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Lupe-Fiasco-feat.-Skylar-Grey-Words-I-Never-Said-Art.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203065032/http://www.themusikbox.com/wp-content/uploads/2011/02/Lupe-Fiasco-feat.-Skylar-Grey-Words-I-Never-Said-Art.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Mikeposner1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>MikePosner1-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110907181128/http://www.inaudiowetrust.com/wp-content/uploads/2011/02/MikePosner1-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Olu Boys And Girls</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Olu-Boys-and-Girls.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20111009180447/http://www.inaudiowetrust.com/wp-content/uploads/2011/02/Olu-Boys-and-Girls.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Whitestripes</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>WhiteStripes-300x150.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">In Audio We Trust</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20211006225906/http://www.inaudiowetrust.com/wp-content/uploads/2011/02/WhiteStripes-300x150.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Atmosphere Produce Extralarge</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>atmosphere-produce-extralarge_1202506942300.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205725/http://www.themusikbox.com/wp-content/uploads/2011/01/atmosphere-produce-extralarge_1202506942300.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Cataracs Dev Sunrise</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>cataracs_dev_sunrise.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20160217000435/http://www.themusikbox.com/wp-content/uploads/2011/01/cataracs_dev_sunrise.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Chase Status No More Idols</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Chase-Status-No-More-Idols.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203064818/http://www.themusikbox.com/wp-content/uploads/2011/01/Chase-Status-No-More-Idols.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Chiptharip</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Chip Tha Ripper</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>ChipThaRip.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205901/http://www.themusikbox.com/wp-content/uploads/2011/01/ChipThaRip.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Doxx Suck My Soul Front Cover</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Doxx-Suck-My-Soul-Front-Cover-500x490.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203064755/http://www.themusikbox.com/wp-content/uploads/2011/01/Doxx-Suck-My-Soul-Front-Cover-500x490.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Doxx Suck My Soul Rear Cover</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Doxx-Suck-My-Soul-Rear-Cover-500x493.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205732/http://www.themusikbox.com/wp-content/uploads/2011/01/Doxx-Suck-My-Soul-Rear-Cover-500x493.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Mckenzie Eddy1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>McKenzie-Eddy1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203065023/http://www.themusikbox.com/wp-content/uploads/2011/01/McKenzie-Eddy1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Pms</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>PMS.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203064605/http://www.themusikbox.com/wp-content/uploads/2011/01/PMS.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">The Hipsters</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>The-Hipsters.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205434/http://www.themusikbox.com/wp-content/uploads/2011/01/The-Hipsters.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2011-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Vizzy</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">XV</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Vizzy.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203064741/http://www.themusikbox.com/wp-content/uploads/2011/01/Vizzy.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-12</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Bassnectar Halloween 22</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Bassnectar</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Bassnectar-Halloween-22.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205619/http://www.themusikbox.com/wp-content/uploads/2010/12/Bassnectar-Halloween-22.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-12</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Bright Eyes</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Bright-Eyes.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20160211020842/http://www.themusikbox.com/wp-content/uploads/2010/12/Bright-Eyes.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-12</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Home Alone</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>home-alone.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110207232112/http://www.themusikbox.com/wp-content/uploads/2010/12/home-alone.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Ease1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>ease1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205806/http://www.themusikbox.com/wp-content/uploads/2010/11/ease1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Kid Cudi</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Kid Cudi</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Kid-Cudi.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20171026230935/http://www.themusikbox.com/wp-content/uploads/2010/11/Kid-Cudi.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Mrlittlejeans</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>mrlittlejeans.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20160406001428/http://www.themusikbox.com/wp-content/uploads/2010/11/mrlittlejeans.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Tayyib Ali Eighteen Front Large</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Tayyib_Ali_Eighteen-front-large.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20130216083839/http://www.themusikbox.com/wp-content/uploads/2010/11/Tayyib_Ali_Eighteen-front-large.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">The Knocks Dancing With The Dj Chiddy Bang Remix</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Chiddy Bang</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>The-Knocks-Dancing-With-the-DJ-Chiddy-Bang-Remix.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20131217151907/http://www.themusikbox.com/wp-content/uploads/2010/11/The-Knocks-Dancing-With-the-DJ-Chiddy-Bang-Remix.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-10</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Off The Beat Upenn</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Off-The-Beat-UPenn.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205514/http://www.themusikbox.com/wp-content/uploads/2010/10/Off-The-Beat-UPenn.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-09</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Edward Sharpe And The Magnetic Zeros1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>edward-sharpe-and-the-magnetic-zeros1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205712/http://www.themusikbox.com/wp-content/uploads/2010/09/edward-sharpe-and-the-magnetic-zeros1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-09</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Tinie Tempah Discovery</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Tinie-Tempah-Discovery.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20240530000131/http://www.themusikbox.com/wp-content/uploads/2010/09/Tinie-Tempah-Discovery.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Mac Miller Kids Front Large</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Mac_Miller_Kids-front-large.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20140601215709/http://www.themusikbox.com/wp-content/uploads/2010/08/Mac_Miller_Kids-front-large.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-08</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Macklemore</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Macklemore</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>macklemore.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203065016/http://www.themusikbox.com/wp-content/uploads/2010/08/macklemore.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-07</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Octobersverycoldfrontsm2</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>octobersverycoldfrontsm2.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20160217193106/http://www.themusikbox.com/wp-content/uploads/2010/07/octobersverycoldfrontsm2.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-06</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Dj Skeet Skeet</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>dj-skeet-skeet.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20140603064932/http://www.themusikbox.com/wp-content/uploads/2010/06/dj-skeet-skeet.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-06</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Katy Perry1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Katy-Perry1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20180713165254/http://www.themusikbox.com/wp-content/uploads/2010/06/Katy-Perry1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-06</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Mac Miller</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Mac Miller</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Mac-Miller.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20160218022404/http://www.themusikbox.com/wp-content/uploads/2010/06/Mac-Miller.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-05</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Bigzremixes1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>bigzremixes1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20101006055434/http://www.themusikbox.com/wp-content/uploads/2010/05/bigzremixes1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-05</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Chiddy Bang 1026058A</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Chiddy_Bang_1026058a.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20140123145919/http://www.themusikbox.com/wp-content/uploads/2010/05/Chiddy_Bang_1026058a.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-05</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Thatkidcg1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>thatkidcg1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20130216083836/http://www.themusikbox.com/wp-content/uploads/2010/05/thatkidcg1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-04</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Chiddy Bang 001</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Chiddy Bang</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>Chiddy-Bang-001.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20120518192249/http://www.themusikbox.com/wp-content/uploads/2010/04/Chiddy-Bang-001.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-04</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Thewhitepanda1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>thewhitepanda1.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20140414094111/http://www.themusikbox.com/wp-content/uploads/2010/04/thewhitepanda1.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-03</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Musicsocial</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>musicsocial.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110222205543/http://www.themusikbox.com/wp-content/uploads/2010/03/musicsocial.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-03</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Musikbox Logo1</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>musikbox-logo1.png</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110203065214/http://www.themusikbox.com/wp-content/uploads/2010/03/musikbox-logo1.png" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-03</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Theblackkeys</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>TheBlackKeys.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20120428165600/http://www.themusikbox.com/wp-content/uploads/2010/03/TheBlackKeys.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-02</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Jjpicture</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>jjpicture.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20131220092043/http://www.themusikbox.com/wp-content/uploads/2010/02/jjpicture.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">J. Cole</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">J. Cole</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>j.-cole.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110103005058/http://www.themusikbox.com/wp-content/uploads/2010/01/j.-cole.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2010-01</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Smoker Face</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Various / Underground</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>smoker-face.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--text-muted); border-color: var(--border-color);">Server Record (Binary Uncached)</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20140602212058/http://www.themusikbox.com/wp-content/uploads/2010/01/smoker-face.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2009-12</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">J Cole</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">J. Cole</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>j-cole.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20110209085058/http://www.themusikbox.com/wp-content/uploads/2009/12/j-cole.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr><tr class="ledger-row" style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;">
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">2009-11</td>
+      <td style="padding: 0.75rem 1rem; font-weight: 700; color: var(--text-primary);"><strong style="color: var(--accent-orange);">Xaphoon Jones</strong><div style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Chiddy Bang</div></td>
+      <td style="padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); word-break: break-all;"><code>xaphoon-jones.jpg</code></td>
+      <td style="padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap;">The MuSiK Box</td>
+      <td style="padding: 0.75rem 1rem; white-space: nowrap;"><span class="tag-pill" style="color: var(--accent-orange); border-color: rgba(255, 107, 53, 0.4); font-weight: 700;">★ Image Preserved</span></td>
+      <td style="padding: 0.75rem 1rem; text-align: right; white-space: nowrap;">
+        <a href="https://web.archive.org/web/20100820190903/http://www.themusikbox.com/wp-content/uploads/2009/11/xaphoon-jones.jpg" target="_blank" class="tag-pill" style="font-size: 0.72rem;">Wayback Snapshot ↗</a>
+      </td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('ledger-search');
+    const rows = document.querySelectorAll('.ledger-row');
+    const countEl = document.getElementById('ledger-count');
+    
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            row.style.display = '';
+            visibleCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+        
+        if (countEl) countEl.textContent = visibleCount;
+      });
+    }
+  });
+</script>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 800; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.3rem;">The MuSiK Box (2009–2011) &bull; In Audio We Trust (2011–2012)</p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">Original publication created &amp; curated by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong>.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives. Published multiple times daily from August 2009 – January 2012; thousands of original posts and media assets remain lost to time.</p>
+      </div>
+      <div style="text-align: right;">
+        <p><a href="../story.html" style="color: var(--accent-orange); font-weight: 700;">★ The Story</a> &bull; <a href="../archive.html">Chronological Master Index</a> &bull; <a href="rss.xml">RSS Feed</a> &bull; <a href="https://web.archive.org" target="_blank">Wayback Machine</a></p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.35rem;">Curated by Seamus Kelleher &amp; Myles Snider &bull; Built with Astro</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const themes = [
+      { id: 'light', label: 'Light', icon: '☀️' },
+      { id: 'dark', label: 'Dark', icon: '🌙' },
+      { id: 'sepia', label: 'Tape', icon: '📼' },
+      { id: 'neon', label: 'Neon', icon: '⚡' }
+    ];
+    function applyTheme(themeId) {
+      document.documentElement.setAttribute('data-theme', themeId);
+      try { localStorage.setItem('vintage-archive-theme', themeId); } catch(e) {}
+      const theme = themes.find(t => t.id === themeId) || themes[0];
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (labelEl) labelEl.textContent = theme.label;
+    }
+    const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('vintage-archive-theme')) || 'light';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(localStorage.getItem('vintage-archive-theme') || 'light');
+      const btn = document.getElementById('theme-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') || 'light';
+          const curIdx = themes.findIndex(t => t.id === cur);
+          const nextIdx = (curIdx + 1) % themes.length;
+          applyTheme(themes[nextIdx].id);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      const playlist = [
+        { title: "Mac Miller – Futuristic Funk (2011)", id: "PVeRKV23s5U" },
+        { title: "Frank Ocean – Acura Integurl (2011)", id: "NNlXo4ymLlU" },
+        { title: "Childish Gambino – Freaks and Geeks (2011)", id: "27d138zhyZQ" },
+        { title: "Lupe Fiasco – Words I Never Said (2011)", id: "22l1sf5JZD0" },
+        { title: "Tyler, The Creator ft. Frank Ocean – She (2011)", id: "7MTCTK70jIU" },
+        { title: "The Weeknd – The Morning (2011)", id: "uac4q389yaM" },
+        { title: "Wiz Khalifa – No Sleep (2011)", id: "evMR4aZMpjM" },
+        { title: "Skrillex – Rock That Body Remix (2011)", id: "Z13MDsCReE0" },
+        { title: "Timeflies – Adderall & Red Bull (2011)", id: "11OguJCoXqQ" },
+        { title: "Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)", id: "5Al3VmPNzBE" }
+      ];
+
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isMuted = false;
+
+      const playBtn = document.getElementById('radio-play-btn');
+      const playIcon = document.getElementById('radio-play-icon');
+      const playText = document.getElementById('radio-play-text');
+      const prevBtn = document.getElementById('radio-prev-btn');
+      const nextBtn = document.getElementById('radio-next-btn');
+      const selectEl = document.getElementById('radio-track-select');
+      const statusDot = document.getElementById('radio-status-dot');
+      const eqBars = document.getElementById('radio-eq');
+      const timeDisplay = document.getElementById('radio-time-display');
+      const muteBtn = document.getElementById('radio-mute-btn');
+      const container = document.getElementById('yt-radio-container');
+
+      function initTrack(index) {
+        if (!container) return;
+        currentIndex = (index + playlist.length) % playlist.length;
+        if (selectEl) selectEl.value = currentIndex;
+        const track = playlist[currentIndex];
+        container.innerHTML = `<iframe id="yt-radio-iframe" src="https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin || '*')}" style="position: absolute; width: 1px; height: 1px; left: -9999px; border: 0;" allow="autoplay"></iframe>`;
+        setPlayingState(true);
+      }
+
+      function setPlayingState(playing) {
+        isPlaying = playing;
+        if (playIcon) playIcon.textContent = playing ? "⏸" : "▶";
+        if (playText) playText.textContent = playing ? "PAUSE RADIO" : "PLAY RETRO RADIO";
+        if (statusDot) {
+          statusDot.style.background = playing ? "#10b981" : "#f59e0b";
+          statusDot.style.boxShadow = playing ? "0 0 10px #10b981" : "none";
+        }
+        if (eqBars) {
+          eqBars.style.opacity = playing ? "1" : "0.35";
+        }
+        if (timeDisplay) {
+          timeDisplay.textContent = playing ? "PLAYING STREAM" : "STREAM PAUSED";
+        }
+      }
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            initTrack(currentIndex);
+          } else {
+            if (container) container.innerHTML = "";
+            setPlayingState(false);
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => initTrack(currentIndex - 1));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => initTrack(currentIndex + 1));
+      }
+      if (selectEl) {
+        selectEl.addEventListener('change', (e) => initTrack(parseInt(e.target.value, 10)));
+      }
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          muteBtn.textContent = isMuted ? "🔇" : "🔊";
+          const iframe = document.getElementById('yt-radio-iframe');
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              event: 'command',
+              func: isMuted ? 'mute' : 'unMute'
+            }), '*');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

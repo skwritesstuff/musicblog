@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Figure Aliens Original Mix Full Hd | Vintage Archive</title>
+  <link rel="stylesheet" href="../styles/vintage.css" />
+</head>
+<body>
+  <div class="vintage-player-bar">
+    <div class="container player-inner" style="flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="radio-play-btn" class="radio-btn" style="background: var(--accent-orange); color: #fff; border: none; padding: 4px 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px rgba(255, 110, 0, 0.4); transition: transform 0.15s ease;">
+          <span id="radio-play-icon">▶</span> <span id="radio-play-text">PLAY RETRO RADIO</span>
+        </button>
+        <button id="radio-prev-btn" title="Previous Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏮</button>
+        <button id="radio-next-btn" title="Next Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏭</button>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; background: #0b0e14; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
+          <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
+          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+            <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
+            <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
+            <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
+            <option value="3">4. Lupe Fiasco – Words I Never Said (2011)</option>
+            <option value="4">5. Tyler, The Creator – She ft. Frank Ocean (2011)</option>
+            <option value="5">6. The Weeknd – The Morning (2011)</option>
+            <option value="6">7. Wiz Khalifa – No Sleep (2011)</option>
+            <option value="7">8. Skrillex – Rock That Body Remix (2011)</option>
+            <option value="8">9. Timeflies – Adderall &amp; Red Bull (2011)</option>
+            <option value="9">10. Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 0.85rem; margin-left: auto;">
+        <span id="radio-time-display" style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">STREAM READY</span>
+        <button id="radio-mute-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem;" title="Mute/Unmute">🔊</button>
+        <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">192 KBPS STEREO</span>
+        <div class="player-eq" id="radio-eq" style="opacity: 0.35;">
+          <span class="eq-bar eq-1"></span>
+          <span class="eq-bar eq-2"></span>
+          <span class="eq-bar eq-3"></span>
+          <span class="eq-bar eq-4"></span>
+        </div>
+      </div>
+    </div>
+    <div id="yt-radio-container" style="position: absolute; width: 1px; height: 1px; left: -9999px; overflow: hidden;"></div>
+  </div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead">
+        <div>
+          <a href="../index.html" class="brand-title" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="../logo-dark.png" alt="In Audio We Trust Logo" style="height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));" />
+            <div>
+              <div>
+                <span class="brand-badge-mb">THE MUSIK BOX</span>
+                <span style="color: var(--text-muted);">&bull;</span>
+                <span class="brand-badge-iawt">IN AUDIO WE TRUST</span>
+              </div>
+              <div class="masthead-subtitle" style="font-size: 0.76rem; font-weight: normal;">PARTIAL DIGITAL RESCUE (2009–2012) &bull; SALVAGED ARCHIVE &bull; 360 RECOVERED OF THOUSANDS PUBLISHED</div>
+              <div style="font-size: 0.73rem; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 0.2rem;">Created by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+            </div>
+          </a>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link ">Home</a></li>
+            <li><a href="../story.html" class="nav-link " style="font-weight: 700; color: var(--accent-orange);">★ The Story</a></li>
+            <li><a href="../archive.html" class="nav-link ">Archive</a></li>
+            <li><a href="../artists/index.html" class="nav-link ">Artists</a></li>
+            <li><a href="../categories/index.html" class="nav-link ">Categories</a></li>
+            <li><a href="../gallery.html" class="nav-link ">Media & Art</a></li>
+            <li><a href="../search.html" class="nav-link ">🔍 Search</a></li>
+            <li><a href="../rss.xml" class="nav-link" target="_blank">RSS</a></li>
+          </ul>
+          <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
+            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <article style="max-width: 840px; margin: 0 auto;">
+      <div class="post-header">
+        <div class="post-breadcrumbs"><a href="../index.html">Home</a> &raquo; <a href="../archive.html">Archive</a> &raquo; <span>2011</span></div>
+        <div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1rem;">
+          <span class="badge-brand brand-iawt">In Audio We Trust</span>
+          <span class="badge-date" style="font-family: var(--font-mono); font-size: 0.8rem;">2011-03-01</span>
+          <span class="tag-pill">Mixtape / Mix</span>
+        </div>
+        <h1 class="post-title">Figure Aliens Original Mix Full Hd</h1>
+        
+        <table class="post-meta-table">
+          <tr><th>Platform</th><td>In Audio We Trust</td></tr>
+          <tr><th>Date</th><td>2011-03-01</td></tr>
+          <tr><th>Category</th><td>Mixtape / Mix</td></tr>
+          <tr><th>Featured Artists</th><td>Various / Underground</td></tr>
+          <tr><th>Archival Snapshot</th><td><a href="https://web.archive.org/web/20110326022047/http://www.inaudiowetrust.com:80/2011/03/figure-aliens-original-mix-full-hd/" target="_blank" class="wayback-button">Open in Wayback Machine &nearr;</a></td></tr>
+        </table>
+      </div>
+      
+      <div style="background: rgba(15, 20, 28, 0.6); border: 1px dashed var(--border-color); border-radius: 8px; padding: 0.85rem 1.25rem; margin: 1.5rem 0; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <span>Original MP3 audio link archived in crawl metadata.</span>
+          <span style="color: var(--accent-orange); font-size: 0.72rem;">Use top bar Retro Radio to stream golden era playlist &uarr;</span>
+        </div>
+
+      <div style="color: var(--text-secondary); line-height: 1.8;">
+        <p style="margin-bottom: 1rem;"><h2>Figure Aliens Original Mix Full Hd</p>
+<div class="archive-callout">**Vintage Archive Post**: Originally published on **In Audio We Trust** in **March 2011**.</div>
+<p style="margin-bottom: 1rem;"><h3>Metadata & Archival Record</p>
+<p style="margin-bottom: 1rem;"><h3>Original Source & Snapshots</p>
+<ul>
+<li>**Original Link**: <a href="http://www.inaudiowetrust.com:80/2011/03/figure-aliens-original-mix-full-hd/" target="_blank" rel="noopener">http://www.inaudiowetrust.com:80/2011/03/figure-aliens-original-mix-full-hd/</a></li>
+<li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20110326022047/http://www.inaudiowetrust.com:80/2011/03/figure-aliens-original-mix-full-hd/" target="_blank" rel="noopener">View on Internet Archive</a></li>
+</ul>
+<hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;" />
+<p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box & In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+      </div>
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+        <a href="../archive.html" style="font-family: var(--font-mono); font-size: 0.9rem;">&larr; Back to Master Archive</a>
+        <a href="../search.html" style="font-family: var(--font-mono); font-size: 0.9rem;">Search All 360 Posts &rarr;</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 800; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.3rem;">The MuSiK Box (2009–2011) &bull; In Audio We Trust (2011–2012)</p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">Original publication created &amp; curated by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong>.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives. Published multiple times daily from August 2009 – January 2012; thousands of original posts and media assets remain lost to time.</p>
+      </div>
+      <div style="text-align: right;">
+        <p><a href="../story.html" style="color: var(--accent-orange); font-weight: 700;">★ The Story</a> &bull; <a href="../archive.html">Chronological Master Index</a> &bull; <a href="../rss.xml">RSS Feed</a> &bull; <a href="https://web.archive.org" target="_blank">Wayback Machine</a></p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.35rem;">Curated by Seamus Kelleher &amp; Myles Snider &bull; Built with Astro</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const themes = [
+      { id: 'light', label: 'Light', icon: '☀️' },
+      { id: 'dark', label: 'Dark', icon: '🌙' },
+      { id: 'sepia', label: 'Tape', icon: '📼' },
+      { id: 'neon', label: 'Neon', icon: '⚡' }
+    ];
+    function applyTheme(themeId) {
+      document.documentElement.setAttribute('data-theme', themeId);
+      try { localStorage.setItem('vintage-archive-theme', themeId); } catch(e) {}
+      const theme = themes.find(t => t.id === themeId) || themes[0];
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (labelEl) labelEl.textContent = theme.label;
+    }
+    const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('vintage-archive-theme')) || 'light';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(localStorage.getItem('vintage-archive-theme') || 'light');
+      const btn = document.getElementById('theme-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') || 'light';
+          const curIdx = themes.findIndex(t => t.id === cur);
+          const nextIdx = (curIdx + 1) % themes.length;
+          applyTheme(themes[nextIdx].id);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      const playlist = [
+        { title: "Mac Miller – Futuristic Funk (2011)", id: "PVeRKV23s5U" },
+        { title: "Frank Ocean – Acura Integurl (2011)", id: "NNlXo4ymLlU" },
+        { title: "Childish Gambino – Freaks and Geeks (2011)", id: "27d138zhyZQ" },
+        { title: "Lupe Fiasco – Words I Never Said (2011)", id: "22l1sf5JZD0" },
+        { title: "Tyler, The Creator ft. Frank Ocean – She (2011)", id: "7MTCTK70jIU" },
+        { title: "The Weeknd – The Morning (2011)", id: "uac4q389yaM" },
+        { title: "Wiz Khalifa – No Sleep (2011)", id: "evMR4aZMpjM" },
+        { title: "Skrillex – Rock That Body Remix (2011)", id: "Z13MDsCReE0" },
+        { title: "Timeflies – Adderall & Red Bull (2011)", id: "11OguJCoXqQ" },
+        { title: "Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)", id: "5Al3VmPNzBE" }
+      ];
+
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isMuted = false;
+
+      const playBtn = document.getElementById('radio-play-btn');
+      const playIcon = document.getElementById('radio-play-icon');
+      const playText = document.getElementById('radio-play-text');
+      const prevBtn = document.getElementById('radio-prev-btn');
+      const nextBtn = document.getElementById('radio-next-btn');
+      const selectEl = document.getElementById('radio-track-select');
+      const statusDot = document.getElementById('radio-status-dot');
+      const eqBars = document.getElementById('radio-eq');
+      const timeDisplay = document.getElementById('radio-time-display');
+      const muteBtn = document.getElementById('radio-mute-btn');
+      const container = document.getElementById('yt-radio-container');
+
+      function initTrack(index) {
+        if (!container) return;
+        currentIndex = (index + playlist.length) % playlist.length;
+        if (selectEl) selectEl.value = currentIndex;
+        const track = playlist[currentIndex];
+        container.innerHTML = `<iframe id="yt-radio-iframe" src="https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin || '*')}" style="position: absolute; width: 1px; height: 1px; left: -9999px; border: 0;" allow="autoplay"></iframe>`;
+        setPlayingState(true);
+      }
+
+      function setPlayingState(playing) {
+        isPlaying = playing;
+        if (playIcon) playIcon.textContent = playing ? "⏸" : "▶";
+        if (playText) playText.textContent = playing ? "PAUSE RADIO" : "PLAY RETRO RADIO";
+        if (statusDot) {
+          statusDot.style.background = playing ? "#10b981" : "#f59e0b";
+          statusDot.style.boxShadow = playing ? "0 0 10px #10b981" : "none";
+        }
+        if (eqBars) {
+          eqBars.style.opacity = playing ? "1" : "0.35";
+        }
+        if (timeDisplay) {
+          timeDisplay.textContent = playing ? "PLAYING STREAM" : "STREAM PAUSED";
+        }
+      }
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            initTrack(currentIndex);
+          } else {
+            if (container) container.innerHTML = "";
+            setPlayingState(false);
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => initTrack(currentIndex - 1));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => initTrack(currentIndex + 1));
+      }
+      if (selectEl) {
+        selectEl.addEventListener('change', (e) => initTrack(parseInt(e.target.value, 10)));
+      }
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          muteBtn.textContent = isMuted ? "🔇" : "🔊";
+          const iframe = document.getElementById('yt-radio-iframe');
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              event: 'command',
+              func: isMuted ? 'mute' : 'unMute'
+            }), '*');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

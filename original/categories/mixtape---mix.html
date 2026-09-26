@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mixtape / Mix | Category Vault</title>
+  <link rel="stylesheet" href="../styles/vintage.css" />
+</head>
+<body>
+  <div class="vintage-player-bar">
+    <div class="container player-inner" style="flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="radio-play-btn" class="radio-btn" style="background: var(--accent-orange); color: #fff; border: none; padding: 4px 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px rgba(255, 110, 0, 0.4); transition: transform 0.15s ease;">
+          <span id="radio-play-icon">▶</span> <span id="radio-play-text">PLAY RETRO RADIO</span>
+        </button>
+        <button id="radio-prev-btn" title="Previous Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏮</button>
+        <button id="radio-next-btn" title="Next Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏭</button>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; background: #0b0e14; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
+          <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
+          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+            <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
+            <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
+            <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
+            <option value="3">4. Lupe Fiasco – Words I Never Said (2011)</option>
+            <option value="4">5. Tyler, The Creator – She ft. Frank Ocean (2011)</option>
+            <option value="5">6. The Weeknd – The Morning (2011)</option>
+            <option value="6">7. Wiz Khalifa – No Sleep (2011)</option>
+            <option value="7">8. Skrillex – Rock That Body Remix (2011)</option>
+            <option value="8">9. Timeflies – Adderall &amp; Red Bull (2011)</option>
+            <option value="9">10. Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 0.85rem; margin-left: auto;">
+        <span id="radio-time-display" style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">STREAM READY</span>
+        <button id="radio-mute-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem;" title="Mute/Unmute">🔊</button>
+        <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">192 KBPS STEREO</span>
+        <div class="player-eq" id="radio-eq" style="opacity: 0.35;">
+          <span class="eq-bar eq-1"></span>
+          <span class="eq-bar eq-2"></span>
+          <span class="eq-bar eq-3"></span>
+          <span class="eq-bar eq-4"></span>
+        </div>
+      </div>
+    </div>
+    <div id="yt-radio-container" style="position: absolute; width: 1px; height: 1px; left: -9999px; overflow: hidden;"></div>
+  </div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead">
+        <div>
+          <a href="../index.html" class="brand-title" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="../logo-dark.png" alt="In Audio We Trust Logo" style="height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));" />
+            <div>
+              <div>
+                <span class="brand-badge-mb">THE MUSIK BOX</span>
+                <span style="color: var(--text-muted);">&bull;</span>
+                <span class="brand-badge-iawt">IN AUDIO WE TRUST</span>
+              </div>
+              <div class="masthead-subtitle" style="font-size: 0.76rem; font-weight: normal;">PARTIAL DIGITAL RESCUE (2009–2012) &bull; SALVAGED ARCHIVE &bull; 360 RECOVERED OF THOUSANDS PUBLISHED</div>
+              <div style="font-size: 0.73rem; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 0.2rem;">Created by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+            </div>
+          </a>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link ">Home</a></li>
+            <li><a href="../story.html" class="nav-link " style="font-weight: 700; color: var(--accent-orange);">★ The Story</a></li>
+            <li><a href="../archive.html" class="nav-link ">Archive</a></li>
+            <li><a href="../artists/index.html" class="nav-link ">Artists</a></li>
+            <li><a href="../categories/index.html" class="nav-link active">Categories</a></li>
+            <li><a href="../gallery.html" class="nav-link ">Media & Art</a></li>
+            <li><a href="../search.html" class="nav-link ">🔍 Search</a></li>
+            <li><a href="../rss.xml" class="nav-link" target="_blank">RSS</a></li>
+          </ul>
+          <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
+            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div style="margin-bottom: 2rem;">
+      <div class="post-breadcrumbs"><a href="../index.html">Home</a> &raquo; <a href="index.html">Categories</a> &raquo; <span>Mixtape / Mix</span></div>
+      <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">Mixtape / Mix</h1>
+      <p style="color: var(--text-secondary);">Showing 72 salvaged articles classified under Mixtape / Mix (from incomplete archive).</p>
+    </div>
+    <div class="posts-grid"><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chip-tha-ripper-hammer-brothers-remix-the-cool-kids.html">Chip Tha Ripper Hammer Brothers Remix The Cool Kids</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/chip-tha-ripper.html" class="tag-pill">Chip Tha Ripper</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/get-this-mixtape-chief-wakil-hack-this.html">Get This Mixtape Chief Wakil Hack This</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-reflections-of-a-lost-teen-mixtape.html">Mike Posner Reflections Of A Lost Teen Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/theodore-grams-great-job-mixtape.html">Theodore Grams Great Job Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/theodore-grams.html" class="tag-pill">Theodore Grams</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/theodore-grams-electric-theo-mixtape.html">Theodore Grams Electric Theo Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/theodore-grams.html" class="tag-pill">Theodore Grams</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-07</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-white-panda-rematch-mixtape.html">The White Panda Rematch Mixtape</a></h3>
+      <p class="card-notes">Foundational coverage of the collegiate mashup boom; early premiere of The White Panda's breakout sophomore mixtape.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/the-white-panda.html" class="tag-pill">The White Panda</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-sap-o-black-yellow-remix.html">J Sap O Black Yellow Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/joey-sap.html" class="tag-pill">Joey Sap</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kings-of-leon-closer-presets-remix.html">Kings Of Leon Closer Presets Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/bassnectar-bbc-mixtape-2010.html">Bassnectar Bbc Mixtape 2010</a></h3>
+      <p class="card-notes">Pivotal coverage of the American bass and dubstep explosion heading into 2011.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/bassnectar.html" class="tag-pill">Bassnectar</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-z-remixes-never-change-feat-jay-z.html">Big Z Remixes Never Change Feat Jay Z</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Helen</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cee-lo-green-–-bright-lights-bigger-city-scoop-deville-remix.html">Cee Lo Green – Bright Lights Bigger City Scoop Deville Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cold-war-kids-mine-is-yours-remix-feat-sir-michael-rocks-prod-by-the-blended-babies.html">Cold War Kids Mine Is Yours Remix Feat Sir Michael Rocks Prod By The Blended Babies</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/darude-sandstorm-vaski-remix.html">Darude Sandstorm Vaski Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/javelin-tryouts-brenton-duvall-remix-feat-childish-gambino.html">Javelin Tryouts Brenton Duvall Remix Feat Childish Gambino</a></h3>
+      <p class="card-notes">Pre-Camp breakthrough; featured during Community/Derrick Comedy era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/childish-gambino.html" class="tag-pill">Childish Gambino</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jj-kills-mixtape.html">Jj Kills Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kanye-west-monster-teachers-remix.html">Kanye West Monster Teachers Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-cudi-zone-killagraham-remix.html">Kid Cudi Cudi Zone Killagraham Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/miguel-feat-gilbere-forte’-–-hard-way-remix.html">Miguel Feat Gilbere Forte’ – Hard Way Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-ft-lil-wayne-bow-chicka-wow-wow-remix-video.html">Mike Posner Ft Lil Wayne Bow Chicka Wow Wow Remix Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pretty-lights-2010-unreleased-remixes-mixtape.html">Pretty Lights 2010 Unreleased Remixes Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/pretty-lights.html" class="tag-pill">Pretty Lights</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-white-stripes-seven-nation-army-glitch-mob-remix.html">The White Stripes Seven Nation Army Glitch Mob Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/the-glitch-mob.html" class="tag-pill">The Glitch Mob</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/two-door-cinema-what-you-know-young-empires-remix.html">Two Door Cinema What You Know Young Empires Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/weezer-say-it-aint-so-killagraham-remix.html">Weezer Say It Aint So Killagraham Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/band-of-horses-the-funeral-butch-clancy-remix.html">Band Of Horses The Funeral Butch Clancy Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-z-remixes-get-em-high-ft-kanye-west-common.html">Big Z Remixes Get Em High Ft Kanye West Common</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cheryl-cole-parachute-eliminate-dubstep-remix.html">Cheryl Cole Parachute Eliminate Dubstep Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/daft-punk-rinzler-kaskade-remix.html">Daft Punk Rinzler Kaskade Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/don-diablo-ft-dragonette-animale-why-are-we-whispering-remix.html">Don Diablo Ft Dragonette Animale Why Are We Whispering Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/ellie-goulding-lights-bassnectar-dubstep-remix.html">Ellie Goulding Lights Bassnectar Dubstep Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/bassnectar.html" class="tag-pill">Bassnectar</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/figure-aliens-original-mix-full-hd.html">Figure Aliens Original Mix Full Hd</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/foster-the-people-pumped-up-kicks-mndr-remix.html">Foster The People Pumped Up Kicks Mndr Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/her-majesty-the-wolves-glaciers-roksonix-remix.html">Her Majesty The Wolves Glaciers Roksonix Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-hanna-dubstep-remix-bryzergold-discoskankvip.html">J Hanna Dubstep Remix Bryzergold Discoskankvip</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kanye-west-all-of-the-lights-remix-ft-lil-wayne-drake-big-sean.html">Kanye West All Of The Lights Remix Ft Lil Wayne Drake Big Sean</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/drake.html" class="tag-pill">Drake</a><a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/robyn-call-your-girlfriend-feed-me-remix.html">Robyn Call Your Girlfriend Feed Me Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/rusko-everyday-netsky-remix.html">Rusko Everyday Netsky Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/rusko.html" class="tag-pill">Rusko</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-black-eyed-peas-rock-that-body-skrillex-remix.html">The Black Eyed Peas Rock That Body Skrillex Remix</a></h3>
+      <p class="card-notes">Foundational 2011 coverage of the American dubstep boom</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/skrillex.html" class="tag-pill">Skrillex</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/trey-palms-feat-the-dream-ever-since-remix.html">Trey Palms Feat The Dream Ever Since Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyler-the-creator-france-toro-y-moi-remix.html">Tyler The Creator France Toro Y Moi Remix</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/adele-someone-like-you-messed-remix.html">Adele Someone Like You Messed Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/beastie-boys-make-some-noise-passion-pit-remix.html">Beastie Boys Make Some Noise Passion Pit Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/james-vincent-mcmorrow-we-dont-eat-adventure-club-dubstep-remix.html">James Vincent Mcmorrow We Dont Eat Adventure Club Dubstep Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/two-door-cinema-club-something-good-can-work-rac-remix.html">Two Door Cinema Club Something Good Can Work Rac Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-zero-heroes-mixtape.html">Xv Zero Heroes Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/avicii-levels-original-mix.html">Avicii Levels Original Mix</a></h3>
+      <p class="card-notes">Original instrumental mix covered months before global vocal anthem</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/avicii.html" class="tag-pill">Avicii</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-z-remixes-diamonds-feat-kanye-west.html">Big Z Remixes Diamonds Feat Kanye West</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/edward-sharpe-the-magnetic-zeros-–-home-party-supplies-remix.html">Edward Sharpe The Magnetic Zeros – Home Party Supplies Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/notorious-b-i-g-gimme-the-loot-superginger-remix.html">Notorious B I G Gimme The Loot Superginger Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/sbtrkt-wildfire-remix-ft-drake-little-dragon.html">Sbtrkt Wildfire Remix Ft Drake Little Dragon</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/drake.html" class="tag-pill">Drake</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/snoop-dogg-sweat-david-guetta-afrojack-dub-remix.html">Snoop Dogg Sweat David Guetta Afrojack Dub Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-swervin-lunice-remix.html">Xv Swervin Lunice Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/y-c-feat-insert-rapper-name-here-racks-remix.html">Y C Feat Insert Rapper Name Here Racks Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/charles-hamilton-c-a-t-s-can-mixtape.html">Charles Hamilton C A T S Can Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dj-bhoff-welcome-to-college-mix.html">Dj Bhoff Welcome To College Mix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/florence-and-the-machine-shake-it-out-the-weeknd-remix.html">Florence And The Machine Shake It Out The Weeknd Remix</a></h3>
+      <p class="card-notes">Anonymous Tumblr era post-House of Balloons</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/the-weeknd.html" class="tag-pill">The Weeknd</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mr-muthafuckin-exquire-huzzah-remix-ft-despot-das-racist-danny-brown-and-el-p.html">Mr Muthafuckin Exquire Huzzah Remix Ft Despot Das Racist Danny Brown And El P</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-weeknd-the-morning-party-chi-duly-remixes.html">The Weeknd The Morning Party Chi Duly Remixes</a></h3>
+      <p class="card-notes">Anonymous Tumblr era post-House of Balloons</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/the-weeknd.html" class="tag-pill">The Weeknd</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/aap-rocky-live-love-aap-mixtape.html">Aap Rocky Live Love Aap Mixtape</a></h3>
+      <p class="card-notes">Covered release week of Live Love A$AP (defining cloud rap)</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/a$ap-rocky.html" class="tag-pill">A$AP Rocky</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-work-out-j-farell-remix.html">J Cole Work Out J Farell Remix</a></h3>
+      <p class="card-notes">Named Artist of the Week in Nov 2009 post-The Warm Up</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/avicii-ft-kelis-silhouettes-smoke-mirrors-vocal-mix.html">Avicii Ft Kelis Silhouettes Smoke Mirrors Vocal Mix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/avicii.html" class="tag-pill">Avicii</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kendrick-lamar-ft-busta-rhymes-rigamortus-remix.html">Kendrick Lamar Ft Busta Rhymes Rigamortus Remix</a></h3>
+      <p class="card-notes">Pre-Section.80 discovery (4 months prior to debut mixtape)</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/kendrick-lamar.html" class="tag-pill">Kendrick Lamar</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-black-friday-mixtape.html">Mac Miller Black Friday Mixtape</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-please-dont-go-manila-killa-remix.html">Mike Posner Please Dont Go Manila Killa Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/skrillex-first-of-the-year-restless-remix.html">Skrillex First Of The Year Restless Remix</a></h3>
+      <p class="card-notes">Foundational 2011 coverage of the American dubstep boom</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/skrillex.html" class="tag-pill">Skrillex</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/skrillex-voltage-disics-extended-mix.html">Skrillex Voltage Disics Extended Mix</a></h3>
+      <p class="card-notes">Foundational 2011 coverage of the American dubstep boom</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/skrillex.html" class="tag-pill">Skrillex</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/spencer-hill-believe-it-ft-nadia-ali-cazzettes-androids-sound-hot-remix.html">Spencer Hill Believe It Ft Nadia Ali Cazzettes Androids Sound Hot Remix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/araabmuzik-crazy-skrillex-mixing-video.html">Araabmuzik Crazy Skrillex Mixing Video</a></h3>
+      <p class="card-notes">Foundational 2011 coverage of the American dubstep boom</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/skrillex.html" class="tag-pill">Skrillex</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/avicii-levels-skrillex-remix.html">Avicii Levels Skrillex Remix</a></h3>
+      <p class="card-notes">Original instrumental mix covered months before global vocal anthem; Foundational 2011 coverage of the American dubstep boom</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/avicii.html" class="tag-pill">Avicii</a><a href="../artists/skrillex.html" class="tag-pill">Skrillex</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cato-hipop-mixtape.html">Cato Hipop Mixtape</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/nicky-romero-toulouse-original-mix.html">Nicky Romero Toulouse Original Mix</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/gucci-mane-thats-all-brenton-duvall-remix.html">Gucci Mane - "That's All" (Brenton Duvall Remix)</a></h3>
+      <p class="card-notes">Seminal collegiate remix blending Atlanta trap with breezy indie pop.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        <a href="../artists/gucci-mane.html" class="tag-pill">Gucci Mane</a><a href="../artists/brenton-duvall.html" class="tag-pill">Brenton Duvall</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/doxx-suck-my-soul-mixtape.html">Doxx - Suck My Soul (Mixtape)</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/mixtape---mix.html" class="tag-pill" style="color: var(--accent-orange);">#Mixtape / Mix</a>
+        
+      </div>
+    </article></div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 800; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.3rem;">The MuSiK Box (2009–2011) &bull; In Audio We Trust (2011–2012)</p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">Original publication created &amp; curated by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong>.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives. Published multiple times daily from August 2009 – January 2012; thousands of original posts and media assets remain lost to time.</p>
+      </div>
+      <div style="text-align: right;">
+        <p><a href="../story.html" style="color: var(--accent-orange); font-weight: 700;">★ The Story</a> &bull; <a href="../archive.html">Chronological Master Index</a> &bull; <a href="../rss.xml">RSS Feed</a> &bull; <a href="https://web.archive.org" target="_blank">Wayback Machine</a></p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.35rem;">Curated by Seamus Kelleher &amp; Myles Snider &bull; Built with Astro</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const themes = [
+      { id: 'light', label: 'Light', icon: '☀️' },
+      { id: 'dark', label: 'Dark', icon: '🌙' },
+      { id: 'sepia', label: 'Tape', icon: '📼' },
+      { id: 'neon', label: 'Neon', icon: '⚡' }
+    ];
+    function applyTheme(themeId) {
+      document.documentElement.setAttribute('data-theme', themeId);
+      try { localStorage.setItem('vintage-archive-theme', themeId); } catch(e) {}
+      const theme = themes.find(t => t.id === themeId) || themes[0];
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (labelEl) labelEl.textContent = theme.label;
+    }
+    const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('vintage-archive-theme')) || 'light';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(localStorage.getItem('vintage-archive-theme') || 'light');
+      const btn = document.getElementById('theme-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') || 'light';
+          const curIdx = themes.findIndex(t => t.id === cur);
+          const nextIdx = (curIdx + 1) % themes.length;
+          applyTheme(themes[nextIdx].id);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      const playlist = [
+        { title: "Mac Miller – Futuristic Funk (2011)", id: "PVeRKV23s5U" },
+        { title: "Frank Ocean – Acura Integurl (2011)", id: "NNlXo4ymLlU" },
+        { title: "Childish Gambino – Freaks and Geeks (2011)", id: "27d138zhyZQ" },
+        { title: "Lupe Fiasco – Words I Never Said (2011)", id: "22l1sf5JZD0" },
+        { title: "Tyler, The Creator ft. Frank Ocean – She (2011)", id: "7MTCTK70jIU" },
+        { title: "The Weeknd – The Morning (2011)", id: "uac4q389yaM" },
+        { title: "Wiz Khalifa – No Sleep (2011)", id: "evMR4aZMpjM" },
+        { title: "Skrillex – Rock That Body Remix (2011)", id: "Z13MDsCReE0" },
+        { title: "Timeflies – Adderall & Red Bull (2011)", id: "11OguJCoXqQ" },
+        { title: "Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)", id: "5Al3VmPNzBE" }
+      ];
+
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isMuted = false;
+
+      const playBtn = document.getElementById('radio-play-btn');
+      const playIcon = document.getElementById('radio-play-icon');
+      const playText = document.getElementById('radio-play-text');
+      const prevBtn = document.getElementById('radio-prev-btn');
+      const nextBtn = document.getElementById('radio-next-btn');
+      const selectEl = document.getElementById('radio-track-select');
+      const statusDot = document.getElementById('radio-status-dot');
+      const eqBars = document.getElementById('radio-eq');
+      const timeDisplay = document.getElementById('radio-time-display');
+      const muteBtn = document.getElementById('radio-mute-btn');
+      const container = document.getElementById('yt-radio-container');
+
+      function initTrack(index) {
+        if (!container) return;
+        currentIndex = (index + playlist.length) % playlist.length;
+        if (selectEl) selectEl.value = currentIndex;
+        const track = playlist[currentIndex];
+        container.innerHTML = `<iframe id="yt-radio-iframe" src="https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin || '*')}" style="position: absolute; width: 1px; height: 1px; left: -9999px; border: 0;" allow="autoplay"></iframe>`;
+        setPlayingState(true);
+      }
+
+      function setPlayingState(playing) {
+        isPlaying = playing;
+        if (playIcon) playIcon.textContent = playing ? "⏸" : "▶";
+        if (playText) playText.textContent = playing ? "PAUSE RADIO" : "PLAY RETRO RADIO";
+        if (statusDot) {
+          statusDot.style.background = playing ? "#10b981" : "#f59e0b";
+          statusDot.style.boxShadow = playing ? "0 0 10px #10b981" : "none";
+        }
+        if (eqBars) {
+          eqBars.style.opacity = playing ? "1" : "0.35";
+        }
+        if (timeDisplay) {
+          timeDisplay.textContent = playing ? "PLAYING STREAM" : "STREAM PAUSED";
+        }
+      }
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            initTrack(currentIndex);
+          } else {
+            if (container) container.innerHTML = "";
+            setPlayingState(false);
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => initTrack(currentIndex - 1));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => initTrack(currentIndex + 1));
+      }
+      if (selectEl) {
+        selectEl.addEventListener('change', (e) => initTrack(parseInt(e.target.value, 10)));
+      }
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          muteBtn.textContent = isMuted ? "🔇" : "🔊";
+          const iframe = document.getElementById('yt-radio-iframe');
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              event: 'command',
+              func: isMuted ? 'mute' : 'unMute'
+            }), '*');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

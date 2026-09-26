@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artists Directory | In Audio We Trust Archive</title>
+  <link rel="stylesheet" href="../styles/vintage.css" />
+</head>
+<body>
+  <div class="vintage-player-bar">
+    <div class="container player-inner" style="flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="radio-play-btn" class="radio-btn" style="background: var(--accent-orange); color: #fff; border: none; padding: 4px 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px rgba(255, 110, 0, 0.4); transition: transform 0.15s ease;">
+          <span id="radio-play-icon">▶</span> <span id="radio-play-text">PLAY RETRO RADIO</span>
+        </button>
+        <button id="radio-prev-btn" title="Previous Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏮</button>
+        <button id="radio-next-btn" title="Next Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏭</button>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; background: #0b0e14; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
+          <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
+          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+            <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
+            <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
+            <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
+            <option value="3">4. Lupe Fiasco – Words I Never Said (2011)</option>
+            <option value="4">5. Tyler, The Creator – She ft. Frank Ocean (2011)</option>
+            <option value="5">6. The Weeknd – The Morning (2011)</option>
+            <option value="6">7. Wiz Khalifa – No Sleep (2011)</option>
+            <option value="7">8. Skrillex – Rock That Body Remix (2011)</option>
+            <option value="8">9. Timeflies – Adderall &amp; Red Bull (2011)</option>
+            <option value="9">10. Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 0.85rem; margin-left: auto;">
+        <span id="radio-time-display" style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">STREAM READY</span>
+        <button id="radio-mute-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem;" title="Mute/Unmute">🔊</button>
+        <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">192 KBPS STEREO</span>
+        <div class="player-eq" id="radio-eq" style="opacity: 0.35;">
+          <span class="eq-bar eq-1"></span>
+          <span class="eq-bar eq-2"></span>
+          <span class="eq-bar eq-3"></span>
+          <span class="eq-bar eq-4"></span>
+        </div>
+      </div>
+    </div>
+    <div id="yt-radio-container" style="position: absolute; width: 1px; height: 1px; left: -9999px; overflow: hidden;"></div>
+  </div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead">
+        <div>
+          <a href="../index.html" class="brand-title" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="../logo-dark.png" alt="In Audio We Trust Logo" style="height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));" />
+            <div>
+              <div>
+                <span class="brand-badge-mb">THE MUSIK BOX</span>
+                <span style="color: var(--text-muted);">&bull;</span>
+                <span class="brand-badge-iawt">IN AUDIO WE TRUST</span>
+              </div>
+              <div class="masthead-subtitle" style="font-size: 0.76rem; font-weight: normal;">PARTIAL DIGITAL RESCUE (2009–2012) &bull; SALVAGED ARCHIVE &bull; 360 RECOVERED OF THOUSANDS PUBLISHED</div>
+              <div style="font-size: 0.73rem; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 0.2rem;">Created by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+            </div>
+          </a>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link ">Home</a></li>
+            <li><a href="../story.html" class="nav-link " style="font-weight: 700; color: var(--accent-orange);">★ The Story</a></li>
+            <li><a href="../archive.html" class="nav-link ">Archive</a></li>
+            <li><a href="../artists/index.html" class="nav-link active">Artists</a></li>
+            <li><a href="../categories/index.html" class="nav-link ">Categories</a></li>
+            <li><a href="../gallery.html" class="nav-link ">Media & Art</a></li>
+            <li><a href="../search.html" class="nav-link ">🔍 Search</a></li>
+            <li><a href="../rss.xml" class="nav-link" target="_blank">RSS</a></li>
+          </ul>
+          <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
+            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div style="margin-bottom: 2.5rem;">
+  <div class="post-breadcrumbs"><a href="../index.html">Home</a> &raquo; <span>Artists Directory</span></div>
+  <h1 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 0.5rem;">Artists Directory</h1>
+  <p style="color: var(--text-secondary); max-width: 800px; font-size: 1.05rem;">
+    Salvaged historical coverage across 76 featured artists and pioneers from the 2009–2012 golden era.
+  </p>
+
+  <div style="background: rgba(255, 107, 53, 0.08); border-left: 4px solid var(--accent-orange); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--accent-orange); margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono);">
+      ⚠️ Important Archival Notice: Do Not Infer Coverage From Post Counts
+    </h4>
+    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+      <strong>This is an incomplete salvage:</strong> During the 2009–2012 run of <em>The MuSiK Box</em> and <em>In Audio We Trust</em>, Seamus and Myles published multiple times every single day across thousands of artists, mixtapes, and premieres. The post counts shown below reflect <em>only what was captured in fragmented Wayback Machine crawl passes</em>.<br /><br />
+      <strong>Please do not infer an artist's significance, coverage frequency, or editorial priority from these numbers.</strong> An artist listed with 1 or 2 posts was often covered extensively on the actual site. The numbers below reflect solely the random fragments that survived crawler passes over a decade ago, not the actual volume of our coverage.
+    </p>
+  </div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem;">
+  <a href="skrillex.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Skrillex</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">18 salvaged</span>
+    </a><a href="kanye-west.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Kanye West</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">14 salvaged</span>
+    </a><a href="mike-posner.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Mike Posner</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">9 salvaged</span>
+    </a><a href="curren$y.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Curren$y</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">9 salvaged</span>
+    </a><a href="xv.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">XV</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">8 salvaged</span>
+    </a><a href="kid-cudi.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Kid Cudi</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">8 salvaged</span>
+    </a><a href="j.-cole.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">J. Cole</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">7 salvaged</span>
+    </a><a href="tyler.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Tyler</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">7 salvaged</span>
+    </a><a href="the-creator.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The Creator</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">7 salvaged</span>
+    </a><a href="mac-miller.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Mac Miller</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">7 salvaged</span>
+    </a><a href="wale.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Wale</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">6 salvaged</span>
+    </a><a href="chip-tha-ripper.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Chip Tha Ripper</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">5 salvaged</span>
+    </a><a href="joey-sap.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Joey Sap</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">5 salvaged</span>
+    </a><a href="bassnectar.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Bassnectar</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">5 salvaged</span>
+    </a><a href="avicii.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Avicii</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">5 salvaged</span>
+    </a><a href="the-weeknd.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The Weeknd</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">5 salvaged</span>
+    </a><a href="lupe-fiasco.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Lupe Fiasco</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="drake.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Drake</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="odd-future---ofwgkta.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Odd Future / OFWGKTA</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="rusko.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Rusko</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="frank-ocean.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Frank Ocean</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="wiz-khalifa.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Wiz Khalifa</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">4 salvaged</span>
+    </a><a href="theodore-grams.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Theodore Grams</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="chiddy-bang.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Chiddy Bang</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="childish-gambino.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Childish Gambino</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="pusha-t.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Pusha T</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="big-sean.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Big Sean</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="ellie-goulding.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Ellie Goulding</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">3 salvaged</span>
+    </a><a href="nero.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Nero</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="the-white-panda.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The White Panda</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="pretty-lights.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Pretty Lights</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="tiësto.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Tiësto</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="machine-gun-kelly-(mgk).html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Machine Gun Kelly (MGK)</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="tezo.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Tezo</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="kendrick-lamar.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Kendrick Lamar</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="freddie-gibbs.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Freddie Gibbs</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="brenton-duvall.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Brenton Duvall</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">2 salvaged</span>
+    </a><a href="norwegian-recycling.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Norwegian Recycling</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="the-glitch-mob.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The Glitch Mob</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="diplo.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Diplo</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="deadmau5.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Deadmau5</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="yelawolf.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Yelawolf</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="the-dean's-list.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The Dean's List</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="a$ap-rocky.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">A$AP Rocky</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="lana-del-rey.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Lana Del Rey</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="cage.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Cage</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="la-roux.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">La Roux</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="lloyd-banks.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Lloyd Banks</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="fabolous.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Fabolous</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="pharrell-williams.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Pharrell Williams</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="tevon-rease.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Tevon Rease</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="fashawn.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Fashawn</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="omen.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Omen</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="brandon-flowers.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Brandon Flowers</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="gucci-mane.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Gucci Mane</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="bon-iver.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Bon Iver</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="zeds-dead.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Zeds Dead</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="omar-linx.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Omar Linx</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="mr-hudson.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Mr Hudson</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="datsik.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Datsik</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="t.i..html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">T.I.</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="erik-paul.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Erik Paul</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="meg-and-dia.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Meg and Dia</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="jay-z.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Jay-Z</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="atmosphere.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Atmosphere</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="chase-and-status.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Chase and Status</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="rick-ross.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Rick Ross</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="martin-solveig.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Martin Solveig</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="dragonette.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Dragonette</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="big-k.r.i.t..html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Big K.R.I.T.</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="lykke-li.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Lykke Li</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="yeasayer.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Yeasayer</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="hi-rez.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Hi-Rez</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="fam-famous.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Fam Famous</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="gorilla-warfare-tactics.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">Gorilla Warfare Tactics</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a><a href="the-decemberists.html" class="post-card" style="padding: 1rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">The Decemberists</span>
+      <span class="tag-pill" style="color: var(--text-muted); font-size: 0.72rem; border-color: var(--border-color);">1 salvaged</span>
+    </a>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 800; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.3rem;">The MuSiK Box (2009–2011) &bull; In Audio We Trust (2011–2012)</p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">Original publication created &amp; curated by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong>.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives. Published multiple times daily from August 2009 – January 2012; thousands of original posts and media assets remain lost to time.</p>
+      </div>
+      <div style="text-align: right;">
+        <p><a href="../story.html" style="color: var(--accent-orange); font-weight: 700;">★ The Story</a> &bull; <a href="../archive.html">Chronological Master Index</a> &bull; <a href="../rss.xml">RSS Feed</a> &bull; <a href="https://web.archive.org" target="_blank">Wayback Machine</a></p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.35rem;">Curated by Seamus Kelleher &amp; Myles Snider &bull; Built with Astro</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const themes = [
+      { id: 'light', label: 'Light', icon: '☀️' },
+      { id: 'dark', label: 'Dark', icon: '🌙' },
+      { id: 'sepia', label: 'Tape', icon: '📼' },
+      { id: 'neon', label: 'Neon', icon: '⚡' }
+    ];
+    function applyTheme(themeId) {
+      document.documentElement.setAttribute('data-theme', themeId);
+      try { localStorage.setItem('vintage-archive-theme', themeId); } catch(e) {}
+      const theme = themes.find(t => t.id === themeId) || themes[0];
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (labelEl) labelEl.textContent = theme.label;
+    }
+    const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('vintage-archive-theme')) || 'light';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(localStorage.getItem('vintage-archive-theme') || 'light');
+      const btn = document.getElementById('theme-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') || 'light';
+          const curIdx = themes.findIndex(t => t.id === cur);
+          const nextIdx = (curIdx + 1) % themes.length;
+          applyTheme(themes[nextIdx].id);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      const playlist = [
+        { title: "Mac Miller – Futuristic Funk (2011)", id: "PVeRKV23s5U" },
+        { title: "Frank Ocean – Acura Integurl (2011)", id: "NNlXo4ymLlU" },
+        { title: "Childish Gambino – Freaks and Geeks (2011)", id: "27d138zhyZQ" },
+        { title: "Lupe Fiasco – Words I Never Said (2011)", id: "22l1sf5JZD0" },
+        { title: "Tyler, The Creator ft. Frank Ocean – She (2011)", id: "7MTCTK70jIU" },
+        { title: "The Weeknd – The Morning (2011)", id: "uac4q389yaM" },
+        { title: "Wiz Khalifa – No Sleep (2011)", id: "evMR4aZMpjM" },
+        { title: "Skrillex – Rock That Body Remix (2011)", id: "Z13MDsCReE0" },
+        { title: "Timeflies – Adderall & Red Bull (2011)", id: "11OguJCoXqQ" },
+        { title: "Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)", id: "5Al3VmPNzBE" }
+      ];
+
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isMuted = false;
+
+      const playBtn = document.getElementById('radio-play-btn');
+      const playIcon = document.getElementById('radio-play-icon');
+      const playText = document.getElementById('radio-play-text');
+      const prevBtn = document.getElementById('radio-prev-btn');
+      const nextBtn = document.getElementById('radio-next-btn');
+      const selectEl = document.getElementById('radio-track-select');
+      const statusDot = document.getElementById('radio-status-dot');
+      const eqBars = document.getElementById('radio-eq');
+      const timeDisplay = document.getElementById('radio-time-display');
+      const muteBtn = document.getElementById('radio-mute-btn');
+      const container = document.getElementById('yt-radio-container');
+
+      function initTrack(index) {
+        if (!container) return;
+        currentIndex = (index + playlist.length) % playlist.length;
+        if (selectEl) selectEl.value = currentIndex;
+        const track = playlist[currentIndex];
+        container.innerHTML = `<iframe id="yt-radio-iframe" src="https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin || '*')}" style="position: absolute; width: 1px; height: 1px; left: -9999px; border: 0;" allow="autoplay"></iframe>`;
+        setPlayingState(true);
+      }
+
+      function setPlayingState(playing) {
+        isPlaying = playing;
+        if (playIcon) playIcon.textContent = playing ? "⏸" : "▶";
+        if (playText) playText.textContent = playing ? "PAUSE RADIO" : "PLAY RETRO RADIO";
+        if (statusDot) {
+          statusDot.style.background = playing ? "#10b981" : "#f59e0b";
+          statusDot.style.boxShadow = playing ? "0 0 10px #10b981" : "none";
+        }
+        if (eqBars) {
+          eqBars.style.opacity = playing ? "1" : "0.35";
+        }
+        if (timeDisplay) {
+          timeDisplay.textContent = playing ? "PLAYING STREAM" : "STREAM PAUSED";
+        }
+      }
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            initTrack(currentIndex);
+          } else {
+            if (container) container.innerHTML = "";
+            setPlayingState(false);
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => initTrack(currentIndex - 1));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => initTrack(currentIndex + 1));
+      }
+      if (selectEl) {
+        selectEl.addEventListener('change', (e) => initTrack(parseInt(e.target.value, 10)));
+      }
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          muteBtn.textContent = isMuted ? "🔇" : "🔊";
+          const iframe = document.getElementById('yt-radio-iframe');
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              event: 'command',
+              func: isMuted ? 'mute' : 'unMute'
+            }), '*');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

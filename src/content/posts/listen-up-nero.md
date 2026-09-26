@@ -1,0 +1,58 @@
+---
+title: Listen Up Nero
+artist: Nero
+date: '2010-06-01'
+category: Electronic / Dubstep
+audioUrl: ''
+artwork: ''
+teaser: Early electronic/dubstep spotlight on UK bass duo Nero prior to Welcome Reality
+  and their Grammy-winning Skrillex collab.
+originalPath: /blog/listen-up-nero.html
+---
+
+<main>
+    <div class="container">
+      <article style="max-width: 840px; margin: 0 auto;">
+      <div class="post-header">
+        <div class="post-breadcrumbs"><a href="/index.html">Home</a> » <a href="/archive.html">Archive</a> » <span>2010</span></div>
+        <div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1rem;">
+          <span class="badge-brand brand-mb">The MuSiK Box</span>
+          <span class="badge-date" style="font-family: var(--font-mono); font-size: 0.8rem;">2010-06-01</span>
+          <span class="tag-pill">Electronic / Dubstep</span>
+        </div>
+        <h1 class="post-title">Listen Up Nero</h1>
+        <div class="archive-callout"><strong style="color: var(--accent-orange); display: block; margin-bottom: 0.3rem;">Historical Significance:</strong><p>Early electronic/dubstep spotlight on UK bass duo Nero prior to Welcome Reality and their Grammy-winning Skrillex collab.</p></div>
+        <table class="post-meta-table">
+          <tr><th>Platform</th><td>The MuSiK Box</td></tr>
+          <tr><th>Date</th><td>2010-06-01</td></tr>
+          <tr><th>Category</th><td>Electronic / Dubstep</td></tr>
+          <tr><th>Featured Artists</th><td><a href="/artists/nero.html" class="tag-pill">Nero</a></td></tr>
+          <tr><th>Archival Snapshot</th><td><a href="https://web.archive.org/web/20120304043938/http://www.inaudiowetrust.com:80/2010/06/listen-up-nero/" target="_blank" class="wayback-button">Open in Wayback Machine ↗</a></td></tr>
+        </table>
+      </div>
+      
+      <div style="background: rgba(15, 20, 28, 0.6); border: 1px dashed var(--border-color); border-radius: 8px; padding: 0.85rem 1.25rem; margin: 1.5rem 0; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <span>Original MP3 audio link archived in crawl metadata.</span>
+          <span style="color: var(--accent-orange); font-size: 0.72rem;">Use top bar Retro Radio to stream golden era playlist ↑</span>
+        </div>
+
+      <div style="color: var(--text-secondary); line-height: 1.8;">
+        <p style="margin-bottom: 1rem;"></p><h2>Listen Up Nero
+<div class="archive-callout">**Vintage Archive Post**: Originally published on **In Audio We Trust** in **June 2010**.</div>
+</h2><p style="margin-bottom: 1rem;"></p><h3>Metadata &amp; Archival Record
+</h3><p style="margin-bottom: 1rem;"></p><h3>Original Source &amp; Snapshots
+<ul>
+<li>**Original Link**: <a href="http://www.inaudiowetrust.com:80/2010/06/listen-up-nero/" target="_blank" rel="noopener">http://www.inaudiowetrust.com:80/2010/06/listen-up-nero/</a></li>
+<li>**Wayback Machine Snapshot**: <a href="https://web.archive.org/web/20120304043938/http://www.inaudiowetrust.com:80/2010/06/listen-up-nero/" target="_blank" rel="noopener">View on Internet Archive</a></li>
+</ul>
+<hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+</h3><p style="margin-bottom: 1rem;">*Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2013).*</p>
+      </div>
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+        <a href="/archive.html" style="font-family: var(--font-mono); font-size: 0.9rem;">← Back to Master Archive</a>
+        <a href="/search.html" style="font-family: var(--font-mono); font-size: 0.9rem;">Search All 360 Posts →</a>
+      </div>
+    </article>
+    </div>
+  </main>
+  

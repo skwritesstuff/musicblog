@@ -1,0 +1,2946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hip Hop | Category Vault</title>
+  <link rel="stylesheet" href="../styles/vintage.css" />
+</head>
+<body>
+  <div class="vintage-player-bar">
+    <div class="container player-inner" style="flex-wrap: wrap; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="radio-play-btn" class="radio-btn" style="background: var(--accent-orange); color: #fff; border: none; padding: 4px 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px rgba(255, 110, 0, 0.4); transition: transform 0.15s ease;">
+          <span id="radio-play-icon">▶</span> <span id="radio-play-text">PLAY RETRO RADIO</span>
+        </button>
+        <button id="radio-prev-btn" title="Previous Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏮</button>
+        <button id="radio-next-btn" title="Next Track" style="background: #18202c; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 3px 8px; font-size: 0.75rem; cursor: pointer;">⏭</button>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; background: #0b0e14; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
+          <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
+          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+            <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
+            <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
+            <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
+            <option value="3">4. Lupe Fiasco – Words I Never Said (2011)</option>
+            <option value="4">5. Tyler, The Creator – She ft. Frank Ocean (2011)</option>
+            <option value="5">6. The Weeknd – The Morning (2011)</option>
+            <option value="6">7. Wiz Khalifa – No Sleep (2011)</option>
+            <option value="7">8. Skrillex – Rock That Body Remix (2011)</option>
+            <option value="8">9. Timeflies – Adderall &amp; Red Bull (2011)</option>
+            <option value="9">10. Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 0.85rem; margin-left: auto;">
+        <span id="radio-time-display" style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">STREAM READY</span>
+        <button id="radio-mute-btn" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem;" title="Mute/Unmute">🔊</button>
+        <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">192 KBPS STEREO</span>
+        <div class="player-eq" id="radio-eq" style="opacity: 0.35;">
+          <span class="eq-bar eq-1"></span>
+          <span class="eq-bar eq-2"></span>
+          <span class="eq-bar eq-3"></span>
+          <span class="eq-bar eq-4"></span>
+        </div>
+      </div>
+    </div>
+    <div id="yt-radio-container" style="position: absolute; width: 1px; height: 1px; left: -9999px; overflow: hidden;"></div>
+  </div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead">
+        <div>
+          <a href="../index.html" class="brand-title" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+            <img src="../logo-dark.png" alt="In Audio We Trust Logo" style="height: 52px; width: auto; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.35));" />
+            <div>
+              <div>
+                <span class="brand-badge-mb">THE MUSIK BOX</span>
+                <span style="color: var(--text-muted);">&bull;</span>
+                <span class="brand-badge-iawt">IN AUDIO WE TRUST</span>
+              </div>
+              <div class="masthead-subtitle" style="font-size: 0.76rem; font-weight: normal;">PARTIAL DIGITAL RESCUE (2009–2012) &bull; SALVAGED ARCHIVE &bull; 360 RECOVERED OF THOUSANDS PUBLISHED</div>
+              <div style="font-size: 0.73rem; font-family: var(--font-mono); color: var(--text-secondary); margin-top: 0.2rem;">Created by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+            </div>
+          </a>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <ul class="nav-links">
+            <li><a href="../index.html" class="nav-link ">Home</a></li>
+            <li><a href="../story.html" class="nav-link " style="font-weight: 700; color: var(--accent-orange);">★ The Story</a></li>
+            <li><a href="../archive.html" class="nav-link ">Archive</a></li>
+            <li><a href="../artists/index.html" class="nav-link ">Artists</a></li>
+            <li><a href="../categories/index.html" class="nav-link active">Categories</a></li>
+            <li><a href="../gallery.html" class="nav-link ">Media & Art</a></li>
+            <li><a href="../search.html" class="nav-link ">🔍 Search</a></li>
+            <li><a href="../rss.xml" class="nav-link" target="_blank">RSS</a></li>
+          </ul>
+          <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
+            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div style="margin-bottom: 2rem;">
+      <div class="post-breadcrumbs"><a href="../index.html">Home</a> &raquo; <a href="index.html">Categories</a> &raquo; <span>Hip Hop</span></div>
+      <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">Hip Hop</h1>
+      <p style="color: var(--text-secondary);">Showing 226 salvaged articles classified under Hip Hop (from incomplete archive).</p>
+    </div>
+    <div class="posts-grid"><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/hello-world.html">Hello World</a></h3>
+      <p class="card-notes">First official blog post on In Audio We Trust (August 2009)</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-artist-of-the-week.html">J Cole Artist Of The Week</a></h3>
+      <p class="card-notes">Named Artist of the Week in Nov 2009 post-The Warm Up</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jay-z-x-young-jeezy-tour-dates.html">Jay Z X Young Jeezy Tour Dates</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/shwayze-let-it-beat-review.html">Shwayze Let It Beat Review</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2009-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wale-video-on-okayplayertv.html">Wale Video On Okayplayertv</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wale.html" class="tag-pill">Wale</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-start-your-own-rebellion.html">Listen Up Start Your Own Rebellion</a></h3>
+      <p class="card-notes">Early indie hip-hop spotlight from the founding year of The MuSiK Box.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lupe-fiasco-proceed-x-what-u-want.html">Lupe Fiasco Proceed X What U Want</a></h3>
+      <p class="card-notes">Early Lupe Fiasco spotlight during the pre-Lasers underground mixtape era.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/lupe-fiasco.html" class="tag-pill">Lupe Fiasco</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/new-b-o-b-drop.html">New B O B Drop</a></h3>
+      <p class="card-notes">Spotlight during B.o.B's pre-Adventures of Bobby Ray mixtape ascent.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-olu.html">Listen Up Olu</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-07</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/t-i-–-ya-hear-me.html">T I – Ya Hear Me</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-07</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-coolest-dj-ever.html">The Coolest Dj Ever</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-07</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/u-c-b-diana-ft-wale-colin-munroe.html">U C B Diana Ft Wale Colin Munroe</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wale.html" class="tag-pill">Wale</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-mirrors-edge-ft-mike-posner-video.html">Xv Mirrors Edge Ft Mike Posner Video</a></h3>
+      <p class="card-notes">Early co-sign of Kansas native XV collaborating with Mike Posner, leading up to IAWT's 2011 Grog Shop Animal House show.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a><a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wheels-on-fire-–-broken-up.html">Wheels On Fire – Broken Up</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/huey-mack-popular.html">Huey Mack Popular</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/norwegian-recycling-mash-it-up.html">Norwegian Recycling Mash It Up</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/norwegian-recycling.html" class="tag-pill">Norwegian Recycling</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/t-i-pledge-allegiance-ft-rick-ross-video.html">T I Pledge Allegiance Ft Rick Ross Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/13-god-old-age.html">13 God Old Age</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/aer-we-r-who-we-r.html">Aer We R Who We R</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chiddy-bang-rebel.html">Chiddy Bang Rebel</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chiddy-bang.html" class="tag-pill">Chiddy Bang</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/curreny-soundbombin.html">Curreny Soundbombin</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/eminem-dudey-ft-obie-trice.html">Eminem Dudey Ft Obie Trice</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/gorilla-warfare-tactics-the-tale-of-mr-street.html">Gorilla Warfare Tactics The Tale Of Mr Street</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/ish-in-dreams.html">Ish In Dreams</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/joey-sap-zewted-gruve.html">Joey Sap Zewted Gruve</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/joey-sap.html" class="tag-pill">Joey Sap</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-childish-gambino-donald-glover-aka-troy-from-community-aka-derrick-comedy.html">Listen Up Childish Gambino Donald Glover Aka Troy From Community Aka Derrick Comedy</a></h3>
+      <p class="card-notes">Pre-Camp breakthrough; featured during Community/Derrick Comedy era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/childish-gambino.html" class="tag-pill">Childish Gambino</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-rolling-in-the-deep-adele-cover.html">Mike Posner Rolling In The Deep Adele Cover</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pusha-t-my-god.html">Pusha T My God</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/pusha-t.html" class="tag-pill">Pusha T</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/saigon-its-alright-ft-marsha-ambrosius.html">Saigon Its Alright Ft Marsha Ambrosius</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-ft-snoop-dogg-young-wild-free.html">Wiz Khalifa Ft Snoop Dogg Young Wild Free</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-f-i-f-a-one-shot.html">Xv F I F A One Shot</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/bankie-travolta-psa.html">Bankie Travolta Psa</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-k-r-i-t-time-machine.html">Big K R I T Time Machine</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cold-chillin-vol-2-dj-corey-grand-x-chill-will-x-ilthy.html">Cold Chillin Vol 2 Dj Corey Grand X Chill Will X Ilthy</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/djs-from-mars-bring-me-to-life.html">Djs From Mars Bring Me To Life</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dome-piece-vibesquad.html">Dome Piece Vibesquad</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/fam-famous-key-to-success-official-music-video.html">Fam Famous Key To Success Official Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/fess-grandiose-krucial-vs-happy-meals.html">Fess Grandiose Krucial Vs Happy Meals</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/gozeraaah-earl-tyler-of-odd-future.html">Gozeraaah Earl Tyler Of Odd Future</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/grafh-ft-waka-flocka-knock-em-down-video.html">Grafh Ft Waka Flocka Knock Em Down Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/hercules-love-affair-shelter-the-xx-cover.html">Hercules Love Affair Shelter The Xx Cover</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/johnny-thirdboy-uncle-juju-the-epoch-ep.html">Johnny Thirdboy Uncle Juju The Epoch Ep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/justice-civilization.html">Justice Civilization</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kyle-lucas-picking-up-the-pieces-ft-sts-pierce-the-veil.html">Kyle Lucas Picking Up The Pieces Ft Sts Pierce The Veil</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-kyla-la-grange.html">Listen Up Kyla La Grange</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-vic-mensa.html">Listen Up Vic Mensa</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-vinny-radio.html">Listen Up Vinny Radio</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-futuristic-funk.html">Mac Miller Futuristic Funk</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2.html">Machine Gun Kelly X Sxsw 11 Half Naked Almost Famous Episode 2</a></h3>
+      <p class="card-notes">Cleveland native; filmed in St. Ignatius parking lot April 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/machine-gun-kelly-(mgk).html" class="tag-pill">Machine Gun Kelly (MGK)</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/modestep-sunlight.html">Modestep Sunlight</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/nemo-achida-digital-dan-ep.html">Nemo Achida Digital Dan Ep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/new-tezo-cool-no-ls.html">New Tezo Cool No Ls</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tezo.html" class="tag-pill">Tezo</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pusha-t-cook-it-down.html">Pusha T Cook It Down</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/pusha-t.html" class="tag-pill">Pusha T</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/skirllex-cinemasensual-seductionfather-said.html">Skirllex Cinemasensual Seductionfather Said</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-cool-kids-free-throws-video.html">The Cool Kids Free Throws Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-kendrick-lamar-experience-documentary-trailer.html">The Kendrick Lamar Experience Documentary Trailer</a></h3>
+      <p class="card-notes">Pre-Section.80 discovery (4 months prior to debut mixtape)</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kendrick-lamar.html" class="tag-pill">Kendrick Lamar</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-lighthouse-and-the-whaler-under-mountain-under-ground.html">The Lighthouse And The Whaler Under Mountain Under Ground</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyga-lap-dance-prod-by-lex-lugar-video.html">Tyga Lap Dance Prod By Lex Lugar Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/walk-the-moon-anna-sun.html">Walk The Moon Anna Sun</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wavves-king-of-the-beach-video.html">Wavves King Of The Beach Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-no-sleep.html">Wiz Khalifa No Sleep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-rooftops-ft-curreny.html">Wiz Khalifa Rooftops Ft Curreny</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-03</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/zion-i-the-grouch-rockit-man.html">Zion I The Grouch Rockit Man</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/afrodjmac-b-and-c-down-in-history.html">Afrodjmac B And C Down In History</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/berner-yoko-ono-ft-wiz-khalifa-big-k-r-i-t.html">Berner Yoko Ono Ft Wiz Khalifa Big K R I T</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cover-crazy-karmin.html">Cover Crazy Karmin</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/curreny-feat-freddy-gibbs-scottie-pippen.html">Curreny Feat Freddy Gibbs Scottie Pippen</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/freddie-gibbs.html" class="tag-pill">Freddie Gibbs</a><a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dj-craze-performs-on-the-new-traktor-scratch-pro-2.html">Dj Craze Performs On The New Traktor Scratch Pro 2</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dj-drama-ft-wiz-khalifa-fabolous-roscoe-dash-–-“oh-my”.html">Dj Drama Ft Wiz Khalifa Fabolous Roscoe Dash – “Oh My”</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/freddie-gibbs-rock-bottom-video.html">Freddie Gibbs Rock Bottom Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/freddie-gibbs.html" class="tag-pill">Freddie Gibbs</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/joey-sap-sap-the-illmatic.html">Joey Sap Sap The Illmatic</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/joey-sap.html" class="tag-pill">Joey Sap</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-the-journey-of-mr-rager-documentary.html">Kid Cudi The Journey Of Mr Rager Documentary</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lil-wayne-ft-rick-ross-john-music-video.html">Lil Wayne Ft Rick Ross John Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lil-wayne-you-da-shit-prod-by-detail.html">Lil Wayne You Da Shit Prod By Detail</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/luke-christopher-rooftops-ft-asher-roth.html">Luke Christopher Rooftops Ft Asher Roth</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lupe-fiasco-words-i-never-said-video.html">Lupe Fiasco Words I Never Said Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/lupe-fiasco.html" class="tag-pill">Lupe Fiasco</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-feat-wale-so-what.html">Mac Miller Feat Wale So What</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a><a href="../artists/wale.html" class="tag-pill">Wale</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-talk-about.html">Mac Miller Talk About</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-g-forest-green.html">Mike G Forest Green</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/nardwuar-vs-lil-wayne.html">Nardwuar Vs Lil Wayne</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pusha-t-my-god-video.html">Pusha T My God Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/pusha-t.html" class="tag-pill">Pusha T</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/santigold-go-ft-karen-o.html">Santigold Go Ft Karen O</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/snoop-dogg-ft-willie-nelson-superman-music-video.html">Snoop Dogg Ft Willie Nelson Superman Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tayyib-ali-feat-amandi-supermodel-videomp3.html">Tayyib Ali Feat Amandi Supermodel Videomp3</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-distant-sounds-mon-amour.html">The Distant Sounds Mon Amour</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-head-and-the-heart-lost-in-my-mind-video-new-releases.html">The Head And The Heart Lost In My Mind Video New Releases</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-novel-ideas-summer-demos.html">The Novel Ideas Summer Demos</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tim-and-jean-come-around.html">Tim And Jean Come Around</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyler-the-creator-tron-cat.html">Tyler The Creator Tron Cat</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wale-feat-black-cobain-4am.html">Wale Feat Black Cobain 4Am</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wale.html" class="tag-pill">Wale</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-taylor-gang-ft-chevy-woods-video.html">Wiz Khalifa Taylor Gang Ft Chevy Woods Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-04</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-when-were-done.html">Xv When Were Done</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/arcade-fire-speaking-in-tongues-feat-david-byrne-and-culture-war.html">Arcade Fire Speaking In Tongues Feat David Byrne And Culture War</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-sean-what-goes-around.html">Big Sean What Goes Around</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/big-sean.html" class="tag-pill">Big Sean</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/boldy-james-–-jimbo-music-video.html">Boldy James – Jimbo Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/bon-iver-calgary.html">Bon Iver Calgary</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/c-r-a-c-blu-taraach-buy-me-lunch.html">C R A C Blu Taraach Buy Me Lunch</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chiddy-bang-guinness-flow.html">Chiddy Bang Guinness Flow</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chiddy-bang.html" class="tag-pill">Chiddy Bang</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chip-tha-ripper-sippin-on-some-syrup.html">Chip Tha Ripper Sippin On Some Syrup</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chip-tha-ripper.html" class="tag-pill">Chip Tha Ripper</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/curreny-in-texas-video.html">Curreny In Texas Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/curreny-the-jet-life-tour-ym-illroots.html">Curreny The Jet Life Tour Ym Illroots</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/d-julien-world.html">D Julien World</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/drake-dreams-money-can-buy.html">Drake Dreams Money Can Buy</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/drake.html" class="tag-pill">Drake</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/frank-ocean-acura-integurl-video-mp3.html">Frank Ocean Acura Integurl Video Mp3</a></h3>
+      <p class="card-notes">Nostalgia, Ultra underground release window, pre-Channel Orange</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/frank-ocean.html" class="tag-pill">Frank Ocean</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/happy-mothers-day-video-blog-2-pac-the-pharcyde-blink-182-hot-stylez.html">Happy Mothers Day Video Blog 2 Pac The Pharcyde Blink 182 Hot Stylez</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/hodgy-beats-ofwgkta-bubble-gum-feat-tyler-the-creator-casey-veggies.html">Hodgy Beats Ofwgkta Bubble Gum Feat Tyler The Creator Casey Veggies</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-disgusting.html">J Cole Disgusting</a></h3>
+      <p class="card-notes">Named Artist of the Week in Nov 2009 post-The Warm Up</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-return-of-simba.html">J Cole Return Of Simba</a></h3>
+      <p class="card-notes">Named Artist of the Week in Nov 2009 post-The Warm Up</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jordan-gable-crashing-official-music-video.html">Jordan Gable Crashing Official Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-ink-its-on-video.html">Kid Ink Its On Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lil-wayne-feat-gudda-gudda-its-young-money.html">Lil Wayne Feat Gudda Gudda Its Young Money</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lil-wayne-how-to-love-prod-by-detail.html">Lil Wayne How To Love Prod By Detail</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-love-lost.html">Mac Miller Love Lost</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-wear-my-hat-video.html">Mac Miller Wear My Hat Video</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/machine-gun-kelly-half-naked-almost-famous-mp3.html">Machine Gun Kelly Half Naked Almost Famous Mp3</a></h3>
+      <p class="card-notes">Cleveland native; filmed in St. Ignatius parking lot April 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/machine-gun-kelly-(mgk).html" class="tag-pill">Machine Gun Kelly (MGK)</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/michael-kiwanuka-i-need-your-company.html">Michael Kiwanuka I Need Your Company</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-a-day-in-the-life-video.html">Mike Posner A Day In The Life Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-the-scientist-coldplay-cover.html">Mike Posner The Scientist Coldplay Cover</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mr-little-jeans-the-suburbs-arcade-fire-cover.html">Mr Little Jeans The Suburbs Arcade Fire Cover</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/nesby-phips-feat-curreny-and-stalley-magic.html">Nesby Phips Feat Curreny And Stalley Magic</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/nicki-minaj-–-super-bass.html">Nicki Minaj – Super Bass</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/ofwgkta-on-bbc-radio-1-video.html">Ofwgkta On Bbc Radio 1 Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/odd-future-/-ofwgkta.html" class="tag-pill">Odd Future / OFWGKTA</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/rich-kid-sound-system-not-far-from-home.html">Rich Kid Sound System Not Far From Home</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/sa-ra-hollywood.html">Sa Ra Hollywood</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/snoop-dogg-the-way-it-used-to-be-video.html">Snoop Dogg The Way It Used To Be Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-weeknd-rolling-stone.html">The Weeknd Rolling Stone</a></h3>
+      <p class="card-notes">Anonymous Tumblr era post-House of Balloons</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/the-weeknd.html" class="tag-pill">The Weeknd</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyler-the-creator-analog-cidade-de-deus-unofficial-video.html">Tyler The Creator Analog Cidade De Deus Unofficial Video</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyler-the-creator-thurnis-haley-golf-wang-part-3.html">Tyler The Creator Thurnis Haley Golf Wang Part 3</a></h3>
+      <p class="card-notes">Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tyler.html" class="tag-pill">Tyler</a><a href="../artists/the-creator.html" class="tag-pill">The Creator</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/unreleased-the-weeknd-x5.html">Unreleased The Weeknd X5</a></h3>
+      <p class="card-notes">Anonymous Tumblr era post-House of Balloons</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/the-weeknd.html" class="tag-pill">The Weeknd</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wale-and-meek-mill-100-hunnit-official-music-video.html">Wale And Meek Mill 100 Hunnit Official Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wale.html" class="tag-pill">Wale</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/washed-out-eyes-be-closed.html">Washed Out Eyes Be Closed</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/when-saints-go-machine-fail-forever.html">When Saints Go Machine Fail Forever</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/white-panda-edward-maya-vs-roscoe-dash-waka-flaka-wale-stereo-hands.html">White Panda Edward Maya Vs Roscoe Dash Waka Flaka Wale Stereo Hands</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wale.html" class="tag-pill">Wale</a><a href="../artists/the-white-panda.html" class="tag-pill">The White Panda</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-reefer-party-ft-chevy-woods-neako.html">Wiz Khalifa Reefer Party Ft Chevy Woods Neako</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-05</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/young-jeezy-feat-lil-wayne-ballin-full-song.html">Young Jeezy Feat Lil Wayne Ballin Full Song</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/aaron-lafette-brighten-up-my-day-official-music-video.html">Aaron Lafette Brighten Up My Day Official Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-sean-i-do-it-video.html">Big Sean I Do It Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/big-sean.html" class="tag-pill">Big Sean</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/flying-overseas-–-theophilus-london-feat-f-devonte-hynes-solange-knowles-unofficial-video.html">Flying Overseas – Theophilus London Feat F Devonte Hynes Solange Knowles Unofficial Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/frank-ocean-american-wedding-unofficial-video.html">Frank Ocean American Wedding Unofficial Video</a></h3>
+      <p class="card-notes">Nostalgia, Ultra underground release window, pre-Channel Orange</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/frank-ocean.html" class="tag-pill">Frank Ocean</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/frank-ocean-novacane-video.html">Frank Ocean Novacane Video</a></h3>
+      <p class="card-notes">Nostalgia, Ultra underground release window, pre-Channel Orange</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/frank-ocean.html" class="tag-pill">Frank Ocean</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/is-tropical-the-greeks-music-video.html">Is Tropical The Greeks Music Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-pays-tribute-to-biggie-tupac-at-bonnaroo-videos.html">J Cole Pays Tribute To Biggie Tupac At Bonnaroo Videos</a></h3>
+      <p class="card-notes">Named Artist of the Week in Nov 2009 post-The Warm Up</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-marijuana-video.html">Kid Cudi Marijuana Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kids-these-days-summerscent.html">Kids These Days Summerscent</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pogo-murmurs-of-middle-earth.html">Pogo Murmurs Of Middle Earth</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/rockie-fresh-sofa-king-cole-video.html">Rockie Fresh Sofa King Cole Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-weeknd-the-morning-video.html">The Weeknd The Morning Video</a></h3>
+      <p class="card-notes">Anonymous Tumblr era post-House of Balloons</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/the-weeknd.html" class="tag-pill">The Weeknd</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-06</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tyler-the-creator-she-ft-frank-ocean-video.html">Tyler The Creator She Ft Frank Ocean Video</a></h3>
+      <p class="card-notes">Nostalgia, Ultra underground release window, pre-Channel Orange; Spring 2011 Goblin release era</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/frank-ocean.html" class="tag-pill">Frank Ocean</a><a href="../artists/tyler.html" class="tag-pill">Tyler</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/el-p-drones-over-bklyn.html">El P Drones Over Bklyn</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/james-blake-x-bon-iver-fall-creek-boys-choir.html">James Blake X Bon Iver Fall Creek Boys Choir</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jay-z-and-kanye-west-otis-video.html">Jay Z And Kanye West Otis Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/pretty-lights-pretty-lights-vs-led-zeppelin.html">Pretty Lights Pretty Lights Vs Led Zeppelin</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/pretty-lights.html" class="tag-pill">Pretty Lights</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/radical-face-the-bastards-volume-one-free-ep.html">Radical Face The Bastards Volume One Free Ep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-08</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/red-hot-chili-peppers-the-adventures-of-rain-dance-maggie-video.html">Red Hot Chili Peppers The Adventures Of Rain Dance Maggie Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/azad-right-spiderwebs-2.html">Azad Right Spiderwebs 2</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/bad-bad-not-good-fall-in-love-j-dilla-tribute.html">Bad Bad Not Good Fall In Love J Dilla Tribute</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/cosmo-jarvis-she-doesnt-mind.html">Cosmo Jarvis She Doesnt Mind</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/sex-ray-vision-blender.html">Sex Ray Vision Blender</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tv-on-the-radio-second-song-video.html">Tv On The Radio Second Song Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-09</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wu-lyf-dirt-video-go-tell-fire-reprise.html">Wu Lyf Dirt Video Go Tell Fire Reprise</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/anchorsong-plum-rain.html">Anchorsong Plum Rain</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/basic-physics-d-veloped-turnin-tricks-for-treats.html">Basic Physics D Veloped Turnin Tricks For Treats</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mayer-hawthorne-no-strings.html">Mayer Hawthorne No Strings</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/rev-william-burke-–-“street-walker”-prod-by-rza.html">Rev William Burke – “Street Walker” Prod By Rza</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/welcome-to-in-audio-we-trust-2-0.html">Welcome To In Audio We Trust 2 0</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/a-cool-stick-birds-eye-view-ep.html">A Cool Stick Birds Eye View Ep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/after-the-smoke-feel-better.html">After The Smoke Feel Better</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/after-the-smoke-wallstreet.html">After The Smoke Wallstreet</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/andrea-impolite-offset-sunrise.html">Andrea Impolite Offset Sunrise</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/andrew-belle-have-yourself-a-merry-little-christmas.html">Andrew Belle Have Yourself A Merry Little Christmas</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/audiodax-smile.html">Audiodax Smile</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/birdy-1901-phoenix-cover.html">Birdy 1901 Phoenix Cover</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/black-star-you-already-knew.html">Black Star You Already Knew</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chip-tha-ripper-ft-eric-grant-hold-me-down.html">Chip Tha Ripper Ft Eric Grant Hold Me Down</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chip-tha-ripper.html" class="tag-pill">Chip Tha Ripper</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/common-celebrate.html">Common Celebrate</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dj-trademark-yoni-drink-in-my-cup.html">Dj Trademark Yoni Drink In My Cup</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kap-slap-kaskade-found-love-ep.html">Kap Slap Kaskade Found Love Ep</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-rain-mr-k-i-d.html">Kid Cudi Rain Mr K I D</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-black-light-dinner-party.html">Listen Up Black Light Dinner Party</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/listen-up-teknicolor.html">Listen Up Teknicolor</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/milo-a-persnickety-goblins-hard-sigh.html">Milo A Persnickety Goblins Hard Sigh</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/radical-something-sun-down-mp3-video.html">Radical Something Sun Down Mp3 Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/t-i-pyro.html">T I Pyro</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/timeflies-love-gravy-video.html">Timeflies Love Gravy Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wzrd-kid-cudi-dot-da-genius-brake.html">Wzrd Kid Cudi Dot Da Genius Brake</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/2am-club-tell-her-hi.html">2Am Club Tell Her Hi</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/common-the-dreamer-the-believer-album-stream.html">Common The Dreamer The Believer Album Stream</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/danny-asroff-mdot-burks-never-falling.html">Danny Asroff Mdot Burks Never Falling</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/skyway-ft-whuzi-trenchcoats.html">Skyway Ft Whuzi Trenchcoats</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-kid-daytona-the-interlude-ii-lp.html">The Kid Daytona The Interlude Ii Lp</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/the-roots-undun-short-film.html">The Roots Undun Short Film</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-12</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/timeflies-tuesday-adderall-and-red-bull-mp3-video.html">Timeflies Tuesday Adderall And Red Bull Mp3 Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2012-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mac-miller-jerrys-record-store.html">Mac Miller Jerrys Record Store</a></h3>
+      <p class="card-notes">Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mac-miller.html" class="tag-pill">Mac Miller</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2012-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mike-posner-looks-like-sex-mp3-video.html">Mike Posner Looks Like Sex Mp3 Video</a></h3>
+      <p class="card-notes">Preserved vintage blog post</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--text-secondary);">Editorial Staff</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mike-posner.html" class="tag-pill">Mike Posner</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-black-and-yellow-video.html">Wiz Khalifa - "Black and Yellow" (Video)</a></h3>
+      <p class="card-notes">Original release coverage of Wiz Khalifa's generation-defining Pittsburgh anthem.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wiz-khalifa.html" class="tag-pill">Wiz Khalifa</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-maniac-ft-cage.html">KiD CuDi - "Maniac" ft. Cage</a></h3>
+      <p class="card-notes">Cleveland native Kid Cudi spotlight heading into Man on the Moon II: The Legend of Mr. Rager.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a><a href="../artists/cage.html" class="tag-pill">Cage</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lloyd-banks-start-it-up-ft-kanye-west-swizz-beatz-ryan-leslie-fabolous.html">Lloyd Banks - "Start it Up" ft. Kanye West, Swizz Beatz, Ryan Leslie & Fabolous</a></h3>
+      <p class="card-notes">G-Unit and G.O.O.D. Music powerhouse collaboration during the peak G.O.O.D. Fridays era.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a><a href="../artists/lloyd-banks.html" class="tag-pill">Lloyd Banks</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/child-rebel-soldier-kanye-lupe-pharrell-dont-stop.html">Child Rebel Soldier (Kanye, Lupe, Pharrell) - "Don't Stop"</a></h3>
+      <p class="card-notes">Legendary supergroup release from Kanye West, Lupe Fiasco, and Pharrell Williams.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a><a href="../artists/lupe-fiasco.html" class="tag-pill">Lupe Fiasco</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/tevon-rease-mixtape-murder-video.html">Tevon Rease - "Mixtape Murder" [Video]</a></h3>
+      <p class="card-notes">Midwest underground hip-hop spotlight.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tevon-rease.html" class="tag-pill">Tevon Rease</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/j-cole-relaxation-ft-omen-fashawn.html">J. Cole - "Relaxation" ft. Omen & Fashawn</a></h3>
+      <p class="card-notes">Follow-up coverage of J. Cole following his 2009 MuSiK Box Artist of the Week coronation.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a><a href="../artists/fashawn.html" class="tag-pill">Fashawn</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-10</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams.html">Chiddy Bang - "Bad Day" ft. Darwin Deez & Theodore Grams</a></h3>
+      <p class="card-notes">Continuing the close archival coverage of Philly duo Chiddy Bang and Xaphoon Jones.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chiddy-bang.html" class="tag-pill">Chiddy Bang</a><a href="../artists/theodore-grams.html" class="tag-pill">Theodore Grams</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/kid-cudi-mojo-so-dope-video.html">KiD CuDi - "Mojo So Dope" (Video)</a></h3>
+      <p class="card-notes">Cleveland native Kid Cudi premiering the official visual for a MOTM II centerpiece.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/kid-cudi.html" class="tag-pill">Kid Cudi</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mr-hudson-anyone-but-him-ft-kanye-west-video.html">Mr Hudson - "Anyone But Him" ft. Kanye West (Video)</a></h3>
+      <p class="card-notes">G.O.O.D. Music family collaboration video drop.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/mr-hudson.html" class="tag-pill">Mr Hudson</a><a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/controversy-trophy.html">Controversy - "Trophy"</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/ti-welcome-to-the-world-ft-kanye-west-kid-cudi.html">T.I. - "Welcome to the World" ft. Kanye West & KiD CuDi</a></h3>
+      <p class="card-notes">Major collaborative track from T.I.'s No Mercy produced by Danja.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/t.i..html" class="tag-pill">T.I.</a><a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-mb">The MuSiK Box</span>
+        <span class="badge-date">2010-11</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jay-z-kanye-west-thats-my-bitch-ft-elly-jackson.html">Jay-Z & Kanye West - "That's My Bitch" ft. Elly Jackson</a></h3>
+      <p class="card-notes">First leaked recording from the legendary Watch The Throne sessions.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/jay-z.html" class="tag-pill">Jay-Z</a><a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/lupe-fiasco-words-i-never-said-ft-skylar-grey.html">Lupe Fiasco - "Words I Never Said" ft. Skylar Grey</a></h3>
+      <p class="card-notes">Original release coverage of the politically charged lead single from Lasers.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/lupe-fiasco.html" class="tag-pill">Lupe Fiasco</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chip-tha-ripper-cool-points-video.html">Chip Tha Ripper - "Cool Points" (Video)</a></h3>
+      <p class="card-notes">Cleveland native Chip Tha Ripper official music video drop.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chip-tha-ripper.html" class="tag-pill">Chip Tha Ripper</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/chip-tha-ripper-roll-that-weed-bitch.html">Chip Tha Ripper - "Roll That Weed Bitch!"</a></h3>
+      <p class="card-notes">Cleveland hip-hop release coverage.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/chip-tha-ripper.html" class="tag-pill">Chip Tha Ripper</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/atmosphere-minnesota-nice-ft-felipe-cuauhtli-prof-mr-gene-poole.html">Atmosphere - "Minnesota Nice" ft. Felipe Cuauhtli, Prof, & Mr. Gene Poole</a></h3>
+      <p class="card-notes">Rhymesayers indie hip-hop posse cut.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/atmosphere.html" class="tag-pill">Atmosphere</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/wiz-khalifa-on-my-level-ft-too-short.html">Wiz Khalifa - "On My Level" ft. Too Short</a></h3>
+      <p class="card-notes">Lead promotional single from Rolling Papers.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/wiz-khalifa.html" class="tag-pill">Wiz Khalifa</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/mckenzie-eddy-silence-ft-curreny-wiz-khalifa-remix.html">McKenzie Eddy - "Silence" ft. Curren$y & Wiz Khalifa (Remix)</a></h3>
+      <p class="card-notes">Damon Dash DD172 / Jet Life crew collaboration.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/curren$y.html" class="tag-pill">Curren$y</a><a href="../artists/wiz-khalifa.html" class="tag-pill">Wiz Khalifa</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-smallville-prod-j-cole.html">XV - "Smallville" (Prod. J. Cole)</a></h3>
+      <p class="card-notes">Historic collaboration between two key artists championed early by IAWT, produced by J. Cole.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a><a href="../artists/j.-cole.html" class="tag-pill">J. Cole</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/dem-hipsters-there-you-go-ft-qx3rd.html">Dem Hipsters - "There You Go" ft. Qx3rd</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/purple-monkey-sircus-all-i-know-ft-tezo.html">Purple Monkey Sircus - "All I Know" ft. Tezo</a></h3>
+      <p class="card-notes">Cleveland native Tezo feature.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/tezo.html" class="tag-pill">Tezo</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/rick-ross-devil-in-a-new-dress-video.html">Rick Ross - "Devil in a New Dress" (Video)</a></h3>
+      <p class="card-notes">Visual coverage following the release of Kanye West's MBDTF.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/rick-ross.html" class="tag-pill">Rick Ross</a><a href="../artists/kanye-west.html" class="tag-pill">Kanye West</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/big-krit-grillade-hometown-hero-video.html">Big K.R.I.T. & Grillade – “Hometown Hero” (Video)</a></h3>
+      <p class="card-notes">Big K.R.I.T. visual following his breakthrough on the K.R.I.T. Wuz Here mixtape.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/big-k.r.i.t..html" class="tag-pill">Big K.R.I.T.</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/brenton-duvall-sweet-victory-instrumental.html">Brenton Duvall - "Sweet Victory" (Instrumental)</a></h3>
+      <p class="card-notes">Exclusive instrumental premiere from producer Brenton Duvall.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/brenton-duvall.html" class="tag-pill">Brenton Duvall</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/xv-ham-heroes-amongst-men.html">XV - "H.A.M. (Heroes Amongst Men)"</a></h3>
+      <p class="card-notes">XV freestyle over Kanye & Jay-Z's H.A.M. beat ahead of Zero Heroes.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/xv.html" class="tag-pill">XV</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-01</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/joey-sap-days-after-daze.html">Joey Sap - "Days AfTer DaZe"</a></h3>
+      <p class="card-notes">Early local Cleveland/Pittsburgh underground hip-hop feature.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher & Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/joey-sap.html" class="tag-pill">Joey Sap</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/hi-rez-no-place-like-home.html">Hi-Rez - "No Place Like Home"</a></h3>
+      <p class="card-notes">Early college-rap underground discovery.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/hi-rez.html" class="tag-pill">Hi-Rez</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/fam-famous-dream.html">Fam Famous - "Dream"</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/fam-famous.html" class="tag-pill">Fam Famous</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/uu-let-it-burn-outerspace.html">UU - "Let it Burn" + "Outerspace"</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/gorilla-warfare-tactics-east-village-freestyle.html">Gorilla Warfare Tactics - "East Village Freestyle"</a></h3>
+      <p class="card-notes">NYC collegiate hip-hop underground discovery.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/gorilla-warfare-tactics.html" class="tag-pill">Gorilla Warfare Tactics</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/joey-sap-level-ups-video.html">Joey Sap - "Level Ups" (Video)</a></h3>
+      <p class="card-notes">Music video premiere for Cleveland/Pittsburgh artist Joey Sap.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-cyan);">Myles Snider</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        <a href="../artists/joey-sap.html" class="tag-pill">Joey Sap</a>
+      </div>
+    </article><article class="post-card">
+      <div class="card-meta-top">
+        <span class="badge-brand brand-iawt">In Audio We Trust</span>
+        <span class="badge-date">2011-02</span>
+      </div>
+      <h3 class="card-title"><a href="../blog/jitta-on-the-track-ft-g-riot-the-white-lighter.html">Jitta On The Track ft. G-Riot - "The White Lighter"</a></h3>
+      <p class="card-notes">Preserved vintage blog post.</p>
+      <div style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">By <strong style="color: var(--accent-orange);">Seamus Kelleher</strong></div>
+      <div class="card-tags">
+        <a href="../categories/hip-hop.html" class="tag-pill" style="color: var(--accent-orange);">#Hip Hop</a>
+        
+      </div>
+    </article></div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p style="font-weight: 800; color: var(--text-primary); font-size: 1rem; margin-bottom: 0.3rem;">The MuSiK Box (2009–2011) &bull; In Audio We Trust (2011–2012)</p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">Original publication created &amp; curated by <strong style="color: var(--accent-orange);">Seamus Kelleher</strong> &amp; <strong style="color: var(--accent-cyan);">Myles Snider</strong>.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives. Published multiple times daily from August 2009 – January 2012; thousands of original posts and media assets remain lost to time.</p>
+      </div>
+      <div style="text-align: right;">
+        <p><a href="../story.html" style="color: var(--accent-orange); font-weight: 700;">★ The Story</a> &bull; <a href="../archive.html">Chronological Master Index</a> &bull; <a href="../rss.xml">RSS Feed</a> &bull; <a href="https://web.archive.org" target="_blank">Wayback Machine</a></p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.35rem;">Curated by Seamus Kelleher &amp; Myles Snider &bull; Built with Astro</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const themes = [
+      { id: 'light', label: 'Light', icon: '☀️' },
+      { id: 'dark', label: 'Dark', icon: '🌙' },
+      { id: 'sepia', label: 'Tape', icon: '📼' },
+      { id: 'neon', label: 'Neon', icon: '⚡' }
+    ];
+    function applyTheme(themeId) {
+      document.documentElement.setAttribute('data-theme', themeId);
+      try { localStorage.setItem('vintage-archive-theme', themeId); } catch(e) {}
+      const theme = themes.find(t => t.id === themeId) || themes[0];
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (iconEl) iconEl.textContent = theme.icon;
+      if (labelEl) labelEl.textContent = theme.label;
+    }
+    const savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('vintage-archive-theme')) || 'light';
+    applyTheme(savedTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme(localStorage.getItem('vintage-archive-theme') || 'light');
+      const btn = document.getElementById('theme-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const cur = document.documentElement.getAttribute('data-theme') || 'light';
+          const curIdx = themes.findIndex(t => t.id === cur);
+          const nextIdx = (curIdx + 1) % themes.length;
+          applyTheme(themes[nextIdx].id);
+        });
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      const playlist = [
+        { title: "Mac Miller – Futuristic Funk (2011)", id: "PVeRKV23s5U" },
+        { title: "Frank Ocean – Acura Integurl (2011)", id: "NNlXo4ymLlU" },
+        { title: "Childish Gambino – Freaks and Geeks (2011)", id: "27d138zhyZQ" },
+        { title: "Lupe Fiasco – Words I Never Said (2011)", id: "22l1sf5JZD0" },
+        { title: "Tyler, The Creator ft. Frank Ocean – She (2011)", id: "7MTCTK70jIU" },
+        { title: "The Weeknd – The Morning (2011)", id: "uac4q389yaM" },
+        { title: "Wiz Khalifa – No Sleep (2011)", id: "evMR4aZMpjM" },
+        { title: "Skrillex – Rock That Body Remix (2011)", id: "Z13MDsCReE0" },
+        { title: "Timeflies – Adderall & Red Bull (2011)", id: "11OguJCoXqQ" },
+        { title: "Curren$y ft. Freddie Gibbs – Scottie Pippen (2011)", id: "5Al3VmPNzBE" }
+      ];
+
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isMuted = false;
+
+      const playBtn = document.getElementById('radio-play-btn');
+      const playIcon = document.getElementById('radio-play-icon');
+      const playText = document.getElementById('radio-play-text');
+      const prevBtn = document.getElementById('radio-prev-btn');
+      const nextBtn = document.getElementById('radio-next-btn');
+      const selectEl = document.getElementById('radio-track-select');
+      const statusDot = document.getElementById('radio-status-dot');
+      const eqBars = document.getElementById('radio-eq');
+      const timeDisplay = document.getElementById('radio-time-display');
+      const muteBtn = document.getElementById('radio-mute-btn');
+      const container = document.getElementById('yt-radio-container');
+
+      function initTrack(index) {
+        if (!container) return;
+        currentIndex = (index + playlist.length) % playlist.length;
+        if (selectEl) selectEl.value = currentIndex;
+        const track = playlist[currentIndex];
+        container.innerHTML = `<iframe id="yt-radio-iframe" src="https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin || '*')}" style="position: absolute; width: 1px; height: 1px; left: -9999px; border: 0;" allow="autoplay"></iframe>`;
+        setPlayingState(true);
+      }
+
+      function setPlayingState(playing) {
+        isPlaying = playing;
+        if (playIcon) playIcon.textContent = playing ? "⏸" : "▶";
+        if (playText) playText.textContent = playing ? "PAUSE RADIO" : "PLAY RETRO RADIO";
+        if (statusDot) {
+          statusDot.style.background = playing ? "#10b981" : "#f59e0b";
+          statusDot.style.boxShadow = playing ? "0 0 10px #10b981" : "none";
+        }
+        if (eqBars) {
+          eqBars.style.opacity = playing ? "1" : "0.35";
+        }
+        if (timeDisplay) {
+          timeDisplay.textContent = playing ? "PLAYING STREAM" : "STREAM PAUSED";
+        }
+      }
+
+      if (playBtn) {
+        playBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            initTrack(currentIndex);
+          } else {
+            if (container) container.innerHTML = "";
+            setPlayingState(false);
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => initTrack(currentIndex - 1));
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => initTrack(currentIndex + 1));
+      }
+      if (selectEl) {
+        selectEl.addEventListener('change', (e) => initTrack(parseInt(e.target.value, 10)));
+      }
+      if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+          isMuted = !isMuted;
+          muteBtn.textContent = isMuted ? "🔇" : "🔊";
+          const iframe = document.getElementById('yt-radio-iframe');
+          if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              event: 'command',
+              func: isMuted ? 'mute' : 'unMute'
+            }), '*');
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
