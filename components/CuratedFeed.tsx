@@ -141,7 +141,7 @@ export default function CuratedFeed() {
           Foundational Blog Discoveries
         </h2>
         <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">
-          Early premieres and coverage recovered from The MuSiK Box and In Audio We Trust.
+          Nine essential co-signs from The MuSiK Box and In Audio We Trust archives.
         </p>
       </div>
 
