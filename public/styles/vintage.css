@@ -1,7 +1,7 @@
 /* ==========================================================================
    VINTAGE 2009–2012 MUSIC BLOG DESIGN SYSTEM
    The MuSiK Box & In Audio We Trust Digital Preservation
-   Palette: 1 #000000 · 2 #ffffff · 3 #e32507 vermilion · 4 #f7f308 yellow (sparse)
+   Palette: 1 #000000 · 2 #ffffff · 3 #e32507 vermilion · 4 #FFCC00 yellow (sparse)
    ========================================================================== */
 
 html {
@@ -30,7 +30,7 @@ html {
   --accent-cyan: #e32507;
   --accent-lime: #e32507;
   --accent-purple: #e32507;
-  --accent-yellow: #f7f308;
+  --accent-yellow: #FFCC00;
 
   --brand-musikbox: #e32507;
   --brand-inaudio: #000000;
@@ -177,7 +177,7 @@ html {
   --accent-cyan: #e32507;
   --accent-lime: #e32507;
   --accent-purple: #e32507;
-  --accent-yellow: #f7f308;
+  --accent-yellow: #FFCC00;
 
   --brand-musikbox: #e32507;
   --brand-inaudio: #ffffff;
@@ -225,7 +225,7 @@ html {
   --accent-cyan: #2dd4bf;
   --accent-lime: #a3e635;
   --accent-purple: #c084fc;
-  --accent-yellow: #f7f308;
+  --accent-yellow: #FFCC00;
   
   --brand-musikbox: #f59e0b;
   --brand-inaudio: #2dd4bf;
@@ -268,7 +268,7 @@ html {
   --accent-cyan: #00f0ff;
   --accent-lime: #00ff66;
   --accent-purple: #bd00ff;
-  --accent-yellow: #f7f308;
+  --accent-yellow: #FFCC00;
   
   --brand-musikbox: #ff007f;
   --brand-inaudio: #00f0ff;
@@ -594,7 +594,7 @@ a:hover {
 }
 
 .dual-brand-nav .nav-story {
-  color: #f7f308 !important;
+  color: #FFCC00 !important;
   font-weight: 700;
 }
 

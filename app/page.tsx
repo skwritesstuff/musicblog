@@ -30,8 +30,8 @@ export default function Home() {
             <a href="/archive" className="hover:text-text-primary transition-colors">
               Archive (360)
             </a>
-            <a href="/story" className="hover:text-text-primary transition-colors">
-              The Story
+            <a href="/story" className="text-accent font-bold hover:underline underline-offset-4 transition-colors">
+              ★ The Story
             </a>
             <a href="/media" className="hover:text-text-primary transition-colors">
               Media Vault
