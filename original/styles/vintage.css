@@ -610,6 +610,11 @@ a:hover {
   color: #ffffff;
 }
 
+.dual-brand-nav .theme-toggle-btn #theme-icon,
+.theme-toggle-btn #theme-icon {
+  color: var(--accent-yellow);
+}
+
 @media (max-width: 720px) {
   .dual-brand-banner {
     padding: 0.95rem 0.85rem 1rem;
@@ -750,6 +755,10 @@ a:hover {
 .vintage-player-bar #radio-track-select,
 .vintage-player-bar #radio-track-select:focus {
   background: #000000 !important;
+}
+
+.vintage-player-bar #radio-track-select {
+  color: #f7f308 !important;
 }
 
 .vintage-player-bar .player-inner > div:has(#radio-track-select),

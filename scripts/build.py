@@ -188,7 +188,7 @@ site_header = '''<header class="site-header dual-brand-header">
       <a href="/gallery.html" class="nav-link">Artwork Vault</a>
       <a href="/search.html" class="nav-link">🔍 Search</a>
       <a href="/rss.xml" class="nav-link nav-rss" target="_blank" rel="noopener">RSS</a>
-      <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme"><span id="theme-icon">☀️</span> <span id="theme-label">Light</span></button>
+      <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme"><span id="theme-icon">☀</span> <span id="theme-label">Light</span></button>
     </nav>
   </div>
 </header>'''

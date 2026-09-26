@@ -18,7 +18,7 @@
         
         <div style="display: flex; align-items: center; gap: 0.5rem; background: #000000; border: 1px solid var(--border-color); border-radius: 4px; padding: 2px 8px;">
           <span class="player-status-dot" id="radio-status-dot" style="background: #f59e0b;"></span>
-          <select id="radio-track-select" style="background: transparent; color: var(--accent-cyan); border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
+          <select id="radio-track-select" style="background: transparent; color: #f7f308; border: none; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; outline: none; max-width: 320px;">
             <option value="0">1. Mac Miller – Futuristic Funk (2011)</option>
             <option value="1">2. Frank Ocean – Acura Integurl (2011)</option>
             <option value="2">3. Childish Gambino – Freaks and Geeks (2011)</option>
@@ -77,7 +77,7 @@
             <li><a href="rss.xml" class="nav-link" target="_blank">RSS</a></li>
           </ul>
           <button id="theme-btn" class="theme-toggle-btn" title="Toggle Theme (Light / Dark / Tape / Neon)" aria-label="Toggle Theme">
-            <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+            <span id="theme-icon">☀</span> <span id="theme-label">Light</span>
           </button>
         </nav>
       </div>
@@ -346,10 +346,10 @@
   </footer>
   <script>
     const themes = [
-      { id: 'light', label: 'Light', icon: '☀️' },
-      { id: 'dark', label: 'Dark', icon: '🌙' },
-      { id: 'sepia', label: 'Tape', icon: '📼' },
-      { id: 'neon', label: 'Neon', icon: '⚡' }
+      { id: 'light', label: 'Light', icon: '\u2600' },
+      { id: 'dark', label: 'Dark', icon: '\u263E' },
+      { id: 'sepia', label: 'Tape', icon: '\u25A6' },
+      { id: 'neon', label: 'Neon', icon: '\u26A1' }
     ];
     function applyTheme(themeId) {
       document.documentElement.setAttribute('data-theme', themeId);
