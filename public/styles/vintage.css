@@ -510,7 +510,7 @@ a:hover {
   max-width: 100%;
   display: block;
   margin-top: 0.4rem;
-  background: #ffffff;
+  background: transparent;
 }
 
 .dual-brand-divider {
