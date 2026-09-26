@@ -175,13 +175,12 @@ if '/story.html#iawt-records' not in site_header:
         '<li><a href="/story.html#iawt-records" class="nav-link">★ IAWT Records</a></li>\n            <li><a href="/story.html"',
         1,
     )
-# Force Story nav color to accent yellow even when original HTML had inline orange.
+# Force Story nav weight only; yellow is applied sparingly via CSS (not site-wide).
 site_header = re.sub(
     r'(<a href="/story\.html"[^>]*style=")[^"]*(")',
-    r'\1font-weight:700;color:var(--accent-yellow);\2',
+    r'\1font-weight:700;\2',
     site_header,
 )
-site_header = site_header.replace('color: var(--accent-orange)', 'color: var(--accent-yellow)')
 # Player button vermilion (inline styles in original chrome)
 radio = radio.replace('background: var(--accent-orange)', 'background: #e32507')
 radio = re.sub(r'background:\s*var\(--accent-orange\)', 'background: #e32507', radio)
@@ -197,19 +196,19 @@ def footer():
 
 
 def layout(title, body, scripts=''):
-    # Default theme is the black archive palette (avoid light/white flash).
+    # Default theme: white space + black text; black chrome; yellow used sparingly.
     themes = (
         theme_scripts
-        .replace("|| 'light'", "|| 'dark'")
-        .replace('|| "light"', '|| "dark"')
-        .replace("||'light'", "||'dark'")
+        .replace("|| 'dark'", "|| 'light'")
+        .replace('|| "dark"', '|| "light"')
+        .replace("||'dark'", "||'light'")
     )
     return (
-        '<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8">'
+        '<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<meta name="theme-color" content="#000000">'
+        '<meta name="theme-color" content="#ffffff">'
         '<title>' + e(title) + ' | ' + e(C['title']) + '</title>'
-        '<style>html,body{background:#000;color:#fff;}</style>'
+        '<style>html,body{background:#fff;color:#000;}</style>'
         '<link rel="stylesheet" href="/styles/vintage.css">'
         '<link rel="alternate" type="application/rss+xml" href="/rss.xml"></head><body>'
         + header()

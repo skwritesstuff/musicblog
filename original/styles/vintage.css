@@ -1,18 +1,159 @@
 /* ==========================================================================
    VINTAGE 2009–2012 MUSIC BLOG DESIGN SYSTEM
    The MuSiK Box & In Audio We Trust Digital Preservation
-   Palette: Primary #000000 · Co-Primary #ffffff · Secondary #e32507 · Accent #f7f308
+   Palette: 1 #000000 · 2 #ffffff · 3 #e32507 vermilion · 4 #f7f308 yellow (sparse)
    ========================================================================== */
 
 html {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ==========================================================================
+   DEFAULT BASE: WHITE SPACE + BLACK TEXT
+   Black chrome (header / player / footer). Vermilion secondary. Yellow rare.
+   ========================================================================== */
+:root, [data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+  --border-color: #e5e5e5;
+  --border-glow: rgba(227, 37, 7, 0.22);
+
+  --text-primary: #000000;
+  --text-secondary: #222222;
+  --text-muted: #666666;
+
+  --accent-orange: #e32507;
+  --accent-amber: #e32507;
+  --accent-cyan: #e32507;
+  --accent-lime: #e32507;
+  --accent-purple: #e32507;
+  --accent-yellow: #f7f308;
+
+  --brand-musikbox: #e32507;
+  --brand-inaudio: #000000;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 14px rgba(227, 37, 7, 0.18);
+}
+
+:root .site-header,
+[data-theme="light"] .site-header {
   background: #000000;
+  border-bottom: 1px solid #000000;
+}
+
+:root .vintage-player-bar,
+[data-theme="light"] .vintage-player-bar {
+  background: #000000;
+  color: #ffffff;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+:root .site-footer,
+[data-theme="light"] .site-footer {
+  background: #000000;
+  color: #a3a3a3;
+  border-top: 1px solid #000000;
+}
+
+:root .site-footer p,
+[data-theme="light"] .site-footer p {
+  color: #e8e8e8;
+}
+
+:root .post-card,
+[data-theme="light"] .post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+}
+
+:root .hero-box,
+[data-theme="light"] .hero-box {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+}
+
+/* White wordmark on black masthead */
+:root .brand-title img,
+[data-theme="light"] .brand-title img {
+  filter: brightness(0) invert(1) !important;
+}
+
+:root .site-header .nav-link,
+[data-theme="light"] .site-header .nav-link,
+:root .site-header .masthead-subtitle,
+[data-theme="light"] .site-header .masthead-subtitle,
+:root .site-header .brand-title,
+[data-theme="light"] .site-header .brand-title {
+  color: #ffffff;
+}
+
+:root .site-header,
+[data-theme="light"] .site-header {
+  color: #ffffff;
+}
+
+:root .site-header [style*="color: var(--text-secondary)"],
+[data-theme="light"] .site-header [style*="color: var(--text-secondary)"],
+:root .site-header [style*="color: var(--text-muted)"],
+[data-theme="light"] .site-header [style*="color: var(--text-muted)"],
+:root .site-header [style*="color: var(--text-primary)"],
+[data-theme="light"] .site-header [style*="color: var(--text-primary)"] {
+  color: #e8e8e8 !important;
+}
+
+:root .site-footer a,
+[data-theme="light"] .site-footer a {
+  color: #ffffff;
+}
+
+:root .site-footer a:hover,
+[data-theme="light"] .site-footer a:hover {
+  color: var(--accent-orange);
+}
+
+:root .site-header .nav-link,
+[data-theme="light"] .site-header .nav-link {
+  background: transparent;
+  border-color: transparent;
+  color: #e8e8e8;
+}
+
+:root .site-header .nav-link:hover,
+:root .site-header .nav-link.active,
+[data-theme="light"] .site-header .nav-link:hover,
+[data-theme="light"] .site-header .nav-link.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+:root .site-header .theme-toggle-btn,
+[data-theme="light"] .site-header .theme-toggle-btn {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
   color: #ffffff;
 }
 
 /* ==========================================================================
-   DEFAULT BASE: BLACK ARCHIVE (no white flash)
+   THEME VARIANTS
    ========================================================================== */
-:root, [data-theme="light"], [data-theme="dark"] {
+
+/* 1. DARK ARCHIVE — black canvas, white text (toggle option) */
+[data-theme="dark"] {
   --bg-primary: #000000;
   --bg-secondary: #000000;
   --bg-card: #0a0a0a;
@@ -26,83 +167,31 @@ html {
 
   --accent-orange: #e32507;
   --accent-amber: #e32507;
-  --accent-cyan: #f7f308;
-  --accent-lime: #f7f308;
+  --accent-cyan: #e32507;
+  --accent-lime: #e32507;
   --accent-purple: #e32507;
   --accent-yellow: #f7f308;
 
   --brand-musikbox: #e32507;
-  --brand-inaudio: #f7f308;
-
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
+  --brand-inaudio: #ffffff;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.65);
   --shadow-glow: 0 0 18px rgba(227, 37, 7, 0.35);
 }
 
-:root .site-header,
-[data-theme="light"] .site-header,
-[data-theme="dark"] .site-header {
-  background: #000000;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-:root .vintage-player-bar,
-[data-theme="light"] .vintage-player-bar,
-[data-theme="dark"] .vintage-player-bar {
-  background: #000000;
-  color: #ffffff;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-:root .site-footer,
-[data-theme="light"] .site-footer,
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .vintage-player-bar,
 [data-theme="dark"] .site-footer {
   background: #000000;
-  color: #a3a3a3;
-  border-top: 1px solid #2a2a2a;
+  color: #ffffff;
+  border-color: #2a2a2a;
 }
 
-:root .site-footer p,
-[data-theme="light"] .site-footer p,
 [data-theme="dark"] .site-footer p {
   color: #e8e8e8;
 }
 
-:root .post-card,
-[data-theme="light"] .post-card,
-[data-theme="dark"] .post-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  box-shadow: none;
-}
-
-:root .hero-box,
-[data-theme="light"] .hero-box,
-[data-theme="dark"] .hero-box {
-  background: #0a0a0a;
-  border: 1px solid #2a2a2a;
-}
-
-/* White turntable / wordmark on black */
-:root .brand-title img,
-[data-theme="light"] .brand-title img,
-[data-theme="dark"] .brand-title img {
-  filter: brightness(0) invert(1) !important;
-}
-
-/* ==========================================================================
-   THEME VARIANTS
-   ========================================================================== */
-
-/* Dark theme aliases the default black archive palette (kept for toggle compat). */
 [data-theme="dark"] .hero-box {
   background: #0a0a0a;
 }
@@ -129,6 +218,7 @@ html {
   --accent-cyan: #2dd4bf;
   --accent-lime: #a3e635;
   --accent-purple: #c084fc;
+  --accent-yellow: #f7f308;
   
   --brand-musikbox: #f59e0b;
   --brand-inaudio: #2dd4bf;
@@ -171,6 +261,7 @@ html {
   --accent-cyan: #00f0ff;
   --accent-lime: #00ff66;
   --accent-purple: #bd00ff;
+  --accent-yellow: #f7f308;
   
   --brand-musikbox: #ff007f;
   --brand-inaudio: #00f0ff;
@@ -204,10 +295,10 @@ html {
 }
 
 body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -221,33 +312,41 @@ a {
 }
 
 a:hover {
-  color: var(--accent-yellow);
+  color: #000000;
   text-decoration: underline;
 }
 
-/* ★ The Story — electric yellow */
-.nav-links a[href*="story.html"] {
-  color: var(--accent-yellow) !important;
+[data-theme="dark"] a:hover,
+[data-theme="sepia"] a:hover,
+[data-theme="neon"] a:hover {
+  color: #ffffff;
+}
+
+/* ★ The Story — sole sparse yellow accent */
+.nav-links a[href*="story.html"]:not([href*="#"]) {
+  color: #000000 !important;
   font-weight: 700;
-}
-
-.nav-links a[href*="story.html"].active,
-.nav-links a[href*="story.html"]:hover {
-  color: var(--accent-yellow) !important;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* Live player LED */
-.player-status-dot {
   background: var(--accent-yellow) !important;
-  box-shadow: 0 0 8px var(--accent-yellow);
+  border-color: var(--accent-yellow) !important;
+}
+
+.nav-links a[href*="story.html"]:not([href*="#"]).active,
+.nav-links a[href*="story.html"]:not([href*="#"]):hover {
+  color: #000000 !important;
+  background: var(--accent-yellow) !important;
+  text-decoration: none;
+}
+
+:root .nav-links a[href*="story.html"]:not([href*="#"]),
+[data-theme="light"] .nav-links a[href*="story.html"]:not([href*="#"]),
+[data-theme="dark"] .nav-links a[href*="story.html"]:not([href*="#"]) {
+  color: #000000 !important;
 }
 
 #radio-play-btn.radio-btn {
   background: var(--accent-orange) !important;
   color: #ffffff !important;
-  box-shadow: 0 0 12px rgba(227, 37, 7, 0.45) !important;
+  box-shadow: none !important;
 }
 
 .badge-brand,
@@ -267,14 +366,14 @@ a:hover {
 .post-article {
   max-width: 840px;
   margin: 0 auto;
-  padding: 2rem 0 3rem;
+  padding: 2.5rem 0 4rem;
 }
 
 .post-article h1 {
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 2rem;
-  line-height: 1.2;
-  margin: 0.75rem 0 1rem;
+  line-height: 1.25;
+  margin: 1rem 0 1.25rem;
 }
 
 .post-article .post-meta-row {
@@ -282,28 +381,28 @@ a:hover {
   flex-wrap: wrap;
   gap: 0.6rem;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .post-article .post-body {
   color: var(--text-secondary);
-  line-height: 1.8;
-  margin: 1.25rem 0;
+  line-height: 1.85;
+  margin: 1.5rem 0;
 }
 
 .post-article .post-body strong {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .post-article .post-sources {
-  margin-top: 2rem;
-  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
 }
 
 .post-article .post-sources h2 {
   font-size: 1.1rem;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
 }
 
@@ -312,14 +411,14 @@ a:hover {
 }
 
 .post-article .preserve-note {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   color: var(--text-muted);
   font-size: 0.95rem;
 }
 
 .post-article .post-footer-nav {
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
@@ -366,12 +465,12 @@ a:hover {
 
 .brand-badge-mb {
   color: var(--brand-musikbox);
-  text-shadow: 0 0 12px rgba(255, 107, 53, 0.4);
+  text-shadow: none;
 }
 
 .brand-badge-iawt {
   color: var(--brand-inaudio);
-  text-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
+  text-shadow: none;
 }
 
 .masthead-subtitle {
@@ -447,15 +546,15 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: var(--accent-lime);
+  color: #ffffff;
 }
 
 .player-status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent-lime);
-  box-shadow: 0 0 8px var(--accent-lime);
+  background: var(--accent-orange);
+  box-shadow: 0 0 6px rgba(227, 37, 7, 0.55);
   animation: pulse 2s infinite ease-in-out;
 }
 
@@ -473,7 +572,7 @@ a:hover {
 
 .eq-bar {
   width: 3px;
-  background: var(--accent-lime);
+  background: #ffffff;
   border-radius: 1px;
 }
 
@@ -490,16 +589,16 @@ a:hover {
 /* Main Content Area */
 main {
   flex: 1;
-  padding: 2.5rem 0;
+  padding: 3.25rem 0 4rem;
 }
 
 /* Hero Section */
 .hero-box {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-md);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -510,8 +609,8 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--brand-musikbox), var(--brand-inaudio), var(--accent-lime));
+  height: 3px;
+  background: linear-gradient(90deg, #000000 0%, var(--accent-orange) 55%, #000000 100%);
 }
 
 .hero-title {
@@ -561,14 +660,14 @@ main {
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .post-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -576,8 +675,8 @@ main {
 
 .post-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 107, 53, 0.4);
-  box-shadow: var(--shadow-glow);
+  border-color: rgba(227, 37, 7, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .card-meta-top {
@@ -599,15 +698,21 @@ main {
 }
 
 .brand-mb {
-  background: rgba(255, 107, 53, 0.15);
+  background: rgba(227, 37, 7, 0.08);
   color: var(--brand-musikbox);
-  border: 1px solid rgba(255, 107, 53, 0.3);
+  border: 1px solid rgba(227, 37, 7, 0.28);
 }
 
 .brand-iawt {
-  background: rgba(0, 210, 255, 0.15);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--brand-inaudio);
-  border: 1px solid rgba(0, 210, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="dark"] .brand-iawt {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .badge-date {
