@@ -26,10 +26,83 @@ def load(p):
 
 
 def prepare_body(body: str) -> str:
-    """Keep archival HTML intact for mistune: no indented code fences; enforce 2009–2012."""
+    """Dedent archival HTML for mistune; enforce 2009–2012 timeline copy."""
     body = body.replace('2009–2013', '2009–2012').replace('2009-2013', '2009–2012')
-    # Left-strip every line so mistune does not treat HTML as indented code blocks.
     return '\n'.join(line.lstrip() for line in body.splitlines())
+
+
+def inline_md(text: str) -> str:
+    """Parse markdown (including emphasis) to HTML without wrapping leftovers as code."""
+    if not text:
+        return ''
+    text = prepare_body(text)
+    # Normalize common emphasis before mistune so ** inside messy HTML still becomes strong.
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text, flags=re.S)
+    text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<em>\1</em>', text, flags=re.S)
+    return md(text)
+
+
+def extract_http_links(body: str):
+    """Preserve original/Wayback http(s) links required by verify.py."""
+    links = []
+    seen = set()
+    for m in re.finditer(r'https?://[^\s\"\'<>]+', body or ''):
+        url = m.group(0).rstrip(').,;]')
+        if url in seen:
+            continue
+        seen.add(url)
+        links.append(url)
+    return links
+
+
+def render_post_article(r: dict) -> str:
+    """Clean post template from frontmatter — no duplicated archival chrome or raw MD leaks."""
+    year = (r.get('date') or '')[:4] or 'Archive'
+    teaser = r.get('teaser') or r.get('excerpt') or ''
+    body_html = inline_md(teaser)
+    http_links = extract_http_links(r.get('body', ''))
+    for extra in r.get('sourceLinks') or []:
+        if isinstance(extra, str) and extra.startswith('http') and extra not in http_links:
+            http_links.append(extra)
+
+    art = (
+        '<p><img class="article-art" src="' + e(r['image'], quote=True) + '" alt="' + e(r['title'], quote=True) + '"></p>'
+        if r.get('image') else ''
+    )
+    audio = (
+        '<p><audio controls preload="none" src="' + e(r['audioUrl'], quote=True) + '"></audio></p>'
+        if r.get('audioUrl') else ''
+    )
+
+    sources = ''
+    if http_links:
+        items = ''.join(
+            '<li><a href="' + e(u, quote=True) + '" target="_blank" rel="noopener">' + e(u) + '</a></li>'
+            for u in http_links
+        )
+        sources = '<section class="post-sources"><h2>Original Source &amp; Snapshots</h2><ul>' + items + '</ul></section>'
+
+    artist = r.get('artist') or ''
+    artist_line = (
+        '<p class="post-artist"><strong>Featured artist:</strong> ' + e(artist) + '</p>' if artist else ''
+    )
+
+    return (
+        '<div class="container"><article class="post-article">'
+        '<nav class="post-breadcrumbs"><a href="/">Home</a> » <a href="/archive.html">Archive</a> » <span>'
+        + e(year) + '</span></nav>'
+        '<div class="post-meta-row">' + brand_badge(r.get('category', ''))
+        + '<span class="badge-date">' + e(str(r.get('date') or '')) + '</span>'
+        + '<span class="tag-pill">' + e(r.get('category') or '') + '</span></div>'
+        '<h1>' + e(r['title']) + '</h1>'
+        + artist_line
+        + '<div class="post-body">' + body_html + '</div>'
+        + art + audio + sources
+        + '<p class="preserve-note"><em>Preserved as part of The MuSiK Box &amp; In Audio We Trust Historical Digital Archive (2009–2012).</em></p>'
+        + '<nav class="post-footer-nav"><a href="/archive.html">← Back to Master Archive</a>'
+        + '<a href="/search.html">Search All 360 Posts →</a></nav>'
+        + '</article></div>'
+    )
 
 
 posts = []
@@ -99,9 +172,20 @@ if '/story.html#iawt-records' not in site_header:
     )
     site_header = site_header.replace(
         '<li><a href="/story.html"',
-        '<li><a href="/story.html#iawt-records" class="nav-link" style="font-weight:700;color:var(--accent-orange);">★ IAWT Records</a></li>\n            <li><a href="/story.html"',
+        '<li><a href="/story.html#iawt-records" class="nav-link">★ IAWT Records</a></li>\n            <li><a href="/story.html"',
         1,
     )
+# Force Story nav color to accent yellow even when original HTML had inline orange.
+site_header = re.sub(
+    r'(<a href="/story\.html"[^>]*style=")[^"]*(")',
+    r'\1font-weight:700;color:var(--accent-yellow);\2',
+    site_header,
+)
+site_header = site_header.replace('color: var(--accent-orange)', 'color: var(--accent-yellow)')
+# Player button vermilion (inline styles in original chrome)
+radio = radio.replace('background: var(--accent-orange)', 'background: #e32507')
+radio = re.sub(r'background:\s*var\(--accent-orange\)', 'background: #e32507', radio)
+radio = radio.replace('rgba(255, 110, 0, 0.4)', 'rgba(227, 37, 7, 0.45)')
 
 
 def header():
@@ -113,17 +197,26 @@ def footer():
 
 
 def layout(title, body, scripts=''):
+    # Default theme is the black archive palette (avoid light/white flash).
+    themes = (
+        theme_scripts
+        .replace("|| 'light'", "|| 'dark'")
+        .replace('|| "light"', '|| "dark"')
+        .replace("||'light'", "||'dark'")
+    )
     return (
-        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<meta name="theme-color" content="#000000">'
         '<title>' + e(title) + ' | ' + e(C['title']) + '</title>'
+        '<style>html,body{background:#000;color:#fff;}</style>'
         '<link rel="stylesheet" href="/styles/vintage.css">'
         '<link rel="alternate" type="application/rss+xml" href="/rss.xml"></head><body>'
         + header()
         + '<main>' + body + '</main>'
         + footer()
         + radio_scripts
-        + theme_scripts
+        + themes
         + scripts
         + '<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>'
         '<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u)window.netlifyIdentity.on("login",()=>location.href="/admin/")})}</script>'
@@ -145,13 +238,15 @@ def brand_badge(category: str) -> str:
 
 
 def card(r):
-    notes = e(r.get('excerpt') or r.get('teaser') or '')
+    notes_src = r.get('excerpt') or r.get('teaser') or ''
+    # Strip markdown markers for card preview text, keep readable plain copy.
+    notes = re.sub(r'[*_`]+', '', notes_src).strip()
     return (
         '<article class="post-card">'
         '<div class="card-meta-top">' + brand_badge(r.get('category', ''))
         + '<span class="badge-date">' + e(str(r['date'])[:7]) + '</span></div>'
         '<h3 class="card-title"><a href="' + e(r['url']) + '">' + e(r['title']) + '</a></h3>'
-        + ('<p class="card-notes">' + notes + '</p>' if notes else '')
+        + ('<p class="card-notes">' + e(notes) + '</p>' if notes else '')
         + '<div class="card-tags"><a href="/search.html?category=' + quote(r.get('category', ''))
         + '" class="tag-pill">#' + e(r.get('category', '')) + '</a></div></article>'
     )
@@ -183,33 +278,7 @@ for p in S.rglob('*.html'):
     write(rel, layout(d.xpath('string(//title)'), content, scripts))
 
 for r in posts:
-    raw = prepare_body(r['body'])
-    body = md(raw)
-    if 'post-meta-table' in raw or 'post-header' in raw or '<main' in raw:
-        # Archival post bodies already carry vintage post chrome — do not double-wrap.
-        article = '<div class="container">' + body + '</div>'
-    else:
-        art = (
-            '<img class="article-art" src="' + e(r['image'], quote=True) + '" alt="' + e(r['title'], quote=True) + '">'
-            if r['image'] else ''
-        )
-        audio = (
-            '<audio controls preload="none" src="' + e(r['audioUrl'], quote=True) + '"></audio>'
-            if r.get('audioUrl') else ''
-        )
-        metadata = (
-            '<details class="archive-metadata"><summary>' + e(C['metadataLabel']) + '</summary><dl>'
-            + ''.join('<dt>' + e(str(k)) + '</dt><dd>' + e(str(v)) + '</dd>' for k, v in r.get('metadata', {}).items())
-            + '</dl>'
-            + ''.join('<p><a href="' + e(v, quote=True) + '">' + e(v) + '</a></p>' for v in r.get('sourceLinks', []))
-            + '</details>'
-        )
-        article = (
-            '<div class="container"><article class="article">'
-            + brand_badge(r.get('category', ''))
-            + '<h1>' + e(r['title']) + '</h1><p class="post-date">' + e(C['publishedLabel']) + ' ' + e(dt(r['date']))
-            + '</p>' + art + audio + body + metadata + '</article></div>'
-        )
+    article = render_post_article(r)
     page = layout(r['title'], article)
     write(r['url'], page)
     write('/blog/' + Path(r['url']).stem + '/index.html', page)
