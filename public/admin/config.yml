@@ -242,11 +242,6 @@ collections:
       name: link
       label: Link
       widget: string
-  - name: metadata
-    label: Original metadata
-    widget: object
-    required: false
-    fields: []
 - name: pages
   label: Pages
   files:
