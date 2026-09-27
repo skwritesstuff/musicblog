@@ -1,4 +1,7 @@
 # Cloudflare Pages — Next.js static HTML export (trailingSlash directories)
+# Build command: npm ci && npm run build
+# Output directory in the CF dashboard must be `out` (Next default) OR `Out`
+# (the build copies to both so either setting works).
 name = "shameis-musicblog"
 compatibility_date = "2024-09-26"
-pages_build_output_dir = "Out"
+pages_build_output_dir = "out"

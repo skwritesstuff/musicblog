@@ -17,13 +17,25 @@ npm install
 npm run dev
 ```
 
-## Build (static export → `Out/`)
+## Build (static export → `out/`)
 
 ```sh
 npm run build
 ```
 
-`next.config` uses `output: 'export'` and `trailingSlash: true`. Publish the `Out/` directory (see `wrangler.toml` / `netlify.toml`).
+`next.config` uses `output: 'export'` and `trailingSlash: true`. Publish **`out/`** (Cloudflare Pages / Netlify). The build also mirrors to `Out/` for older host settings.
+
+### Cloudflare Pages (shameis.com)
+
+If production still shows the old yellow/navy homepage after merging to `main`:
+
+1. Cloudflare Dashboard → Pages → **musicblog** → Settings → Builds  
+   - Build command: `npm ci && npm run build`  
+   - Build output directory: `out`  
+   - Root directory: `/` (repo root)  
+   - Production branch: `main`
+2. Deployments → open the failed `main` deploy → **Retry deployment**  
+   (or merge this deploy-fix PR to trigger a fresh production build)
 
 ## Data (static only)
 
