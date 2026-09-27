@@ -118,23 +118,23 @@
   "footerLinks": [
     {
       "label": "The Story",
-      "href": "/story.html"
+      "href": "/story/"
     },
     {
-      "label": "All posts",
-      "href": "/archive.html"
+      "label": "Master Archive",
+      "href": "/archive/"
     },
     {
-      "label": "RSS",
-      "href": "/rss.xml"
+      "label": "Artists",
+      "href": "/artists/"
     },
     {
-      "label": "Internet Archive",
-      "href": "https://web.archive.org"
+      "label": "Artwork Vault",
+      "href": "/vault/"
     }
   ],
-  "archiveTitle": "All posts",
-  "artistsTitle": "IAWT Artists",
+  "archiveTitle": "Master Archive",
+  "artistsTitle": "Artists",
   "categoriesTitle": "Channels",
   "searchError": "Search could not load. Please reload the page."
 }
