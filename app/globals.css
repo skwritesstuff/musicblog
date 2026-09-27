@@ -74,10 +74,7 @@ body {
   font-style: normal;
 }
 
-/* Yellow is reserved for the nav star and player status dot only */
+/* Yellow is reserved strictly for the ★ on "The Story" nav label */
 .yellow-star {
   color: #f7f308;
-}
-.yellow-dot {
-  background-color: #f7f308;
 }

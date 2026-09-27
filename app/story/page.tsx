@@ -41,16 +41,12 @@ export default function StoryPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs text-text-dark">
             <span>
-              Founded by: <strong className="text-text-primary">Seamus Kelleher</strong> &{' '}
-              <strong className="text-app-accent">Myles Snider</strong>
+              Founded by: <strong className="text-white">Seamus Kelleher</strong> &{' '}
+              <strong className="text-white">Myles Snider</strong>
             </span>
             <span className="hidden sm:inline">•</span>
             <span>
-              Architecture & Design: <strong className="text-text-primary">Evan Edwards</strong>
-            </span>
-            <span className="hidden sm:inline">•</span>
-            <span>
-              Era: <strong className="text-text-primary">August 2009 – January 2012</strong>
+              Era: <strong className="text-white">August 2009 – January 2012</strong>
             </span>
           </div>
         </div>
@@ -183,29 +179,28 @@ export default function StoryPage() {
             <figure className="mb-6 rounded-2xl border border-border-line bg-black p-6 flex flex-col sm:flex-row items-center justify-center gap-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/iawt-headphone-coin.png"
+                src="/images/iawt-coin.png"
                 alt="In Audio We Trust Thomas Jefferson DJ headphones emblem"
                 className="h-28 w-28 object-contain"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/iawt-needle-logo.png"
+                src="/images/iawt-wordmark-white.png"
                 alt="inaudiowetrust wordmark"
                 className="h-10 w-auto object-contain"
               />
-              <figcaption className="sr-only">IAWT 2.0 emblem and wordmark by Evan Edwards</figcaption>
+              <figcaption className="sr-only">IAWT 2.0 Jefferson coin emblem and needle wordmark</figcaption>
             </figure>
             <p className="mb-4">
               As readership expanded beyond Ohio into a national footprint, the co-founders orchestrated a comprehensive
               brand evolution in early 2011, executing a 301 permanent redirect from{' '}
-              <code className="text-text-primary text-sm">themusikbox.com</code> to{' '}
-              <code className="text-text-primary text-sm">inaudiowetrust.com</code>.
+              <code className="text-[#94a3b8] text-sm">themusikbox.com</code> to{' '}
+              <code className="text-[#94a3b8] text-sm">inaudiowetrust.com</code>.
             </p>
             <p className="mb-4">
-              Collaborating with web designer and technical architect{' '}
-              <strong className="text-text-primary">Evan Edwards</strong>, &quot;IAWT 2.0&quot; introduced a sleek,
-              high-contrast dark aesthetic, custom audio streaming players, categorized music channels, and the Thomas
-              Jefferson in DJ headphones emblem that became the brand&apos;s signature seal.
+              &quot;IAWT 2.0&quot; introduced a sleek, high-contrast dark aesthetic, custom audio streaming players,
+              categorized music channels, and the Thomas Jefferson in DJ headphones emblem that became the brand&apos;s
+              signature seal.
             </p>
             <p className="mb-4">
               To keep up with the unrelenting volume of PR submissions and exclusive premieres, the blog&apos;s circle
@@ -270,10 +265,10 @@ export default function StoryPage() {
                 Explore the Chronological Archive →
               </Link>
               <Link
-                href="/media/"
-                className="inline-flex items-center rounded-full border border-border-line bg-card text-text-primary text-sm font-medium px-5 py-2.5 hover:border-border-line transition-colors"
+                href="/vault/"
+                className="inline-flex items-center rounded-full border border-border-line bg-card text-text-primary text-sm font-medium px-5 py-2.5 hover:border-white/30 transition-colors"
               >
-                View Recovered Media & Artwork →
+                View Artwork Vault →
               </Link>
             </div>
           </section>

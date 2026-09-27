@@ -6,7 +6,7 @@ export default function LogoTheMuSiKBox({ className = 'h-10 w-auto' }: { classNa
     <img
       src="/images/the-musik-box-banner.png"
       alt="The MuSiK Box — We Skip Study Hall For This..."
-      className={`object-contain ${className}`}
+      className={`object-contain object-left ${className}`}
       decoding="async"
     />
   );

@@ -2,10 +2,12 @@
 /story /story/ 308
 /archive /archive/ 308
 /artists /artists/ 308
-/media /media/ 308
-/gallery /media/ 308
+/vault /vault/ 308
+/media /vault/ 308
+/gallery /vault/ 308
 /story.html /story/ 308
 /archive.html /archive/ 308
 /artists.html /artists/ 308
-/media.html /media/ 308
-/gallery.html /media/ 308
+/vault.html /vault/ 308
+/media.html /vault/ 308
+/gallery.html /vault/ 308

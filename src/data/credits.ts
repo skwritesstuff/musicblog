@@ -1,7 +1,5 @@
 export const FOUNDERS = ['Seamus Kelleher', 'Myles Snider'] as const;
 
-export const SITE_ARCHITECT = 'Evan Edwards';
-
 /** Confirmed contributors & writers (ordered as credited on the archive). */
 export const CONTRIBUTING_WRITERS = [
   'Matt',

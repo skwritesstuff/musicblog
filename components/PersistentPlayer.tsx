@@ -83,7 +83,7 @@ export default function PersistentPlayer() {
 
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span className="yellow-dot w-1.5 h-1.5 rounded-full shrink-0" aria-hidden />
+              <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-white/70" aria-hidden />
               <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-text-muted truncate">
                 SALVAGED RETROSPECTIVE // THE MUSIK BOX • IN AUDIO WE TRUST (2009–2012) • 360 PRESERVED POSTS
               </p>

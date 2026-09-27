@@ -28,15 +28,15 @@ export default function SiteFooter() {
               </Link>
               {' • '}
               <Link href="/archive/" className="hover:text-text-primary">
-                Archive
+                Master Archive
               </Link>
               {' • '}
               <Link href="/artists/" className="hover:text-text-primary">
                 Artists
               </Link>
               {' • '}
-              <Link href="/media/" className="hover:text-text-primary">
-                Media & Art
+              <Link href="/vault/" className="hover:text-text-primary">
+                Artwork Vault
               </Link>
             </p>
             <p className="text-xs text-text-dark">Saint Ignatius High School • Cleveland, Ohio • 2009–2012</p>

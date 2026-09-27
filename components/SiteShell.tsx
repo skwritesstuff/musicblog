@@ -8,10 +8,10 @@ export default function SiteShell({
   active,
 }: {
   children: React.ReactNode;
-  active?: 'home' | 'story' | 'archive' | 'artists' | 'media';
+  active?: 'home' | 'story' | 'archive' | 'artists' | 'media' | 'vault';
 }) {
   return (
-    <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-white/20 pb-20">
+    <div className="min-h-screen bg-black text-text-primary flex flex-col font-body selection:bg-white/20 pb-20">
       <SiteHeader active={active} />
       <main className="flex-1">{children}</main>
       <SiteFooter />
