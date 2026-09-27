@@ -41,9 +41,9 @@ export default function PersistentPlayer() {
   };
 
   return (
-    <aside className="fixed bottom-0 inset-x-0 z-50 bg-player-bg/95 border-t border-border-line backdrop-blur-xl px-4 sm:px-6 py-2.5">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 min-w-0">
+    <aside className="fixed bottom-0 inset-x-0 z-50 bg-player-bg/95 border-t border-border-line backdrop-blur-xl px-3 sm:px-6 py-2.5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             type="button"
             onClick={togglePlay}
@@ -82,24 +82,18 @@ export default function PersistentPlayer() {
           </button>
 
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="font-heading text-[11px] font-bold uppercase tracking-wider text-text-muted truncate">
-                {isPlaying ? 'NOW STREAMING' : 'VINTAGE STREAMPOD RADIO'}
-              </span>
-            </div>
+            <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-text-muted truncate">
+              SALVAGED RETROSPECTIVE // THE MUSIK BOX • IN AUDIO WE TRUST (2009–2012) • 360 PRESERVED POSTS
+            </p>
             <p className="font-mono text-xs text-accent truncate" title={track.title}>
               {track.title}
             </p>
           </div>
         </div>
 
-        <div className="hidden sm:flex items-center gap-4 text-xs font-mono text-text-dark shrink-0">
+        <div className="hidden sm:flex items-center gap-3 text-xs font-mono shrink-0">
           <span className="px-2 py-0.5 rounded bg-black border border-border-line text-accent font-bold tracking-wide">
-            192 KBPS MP3 [ARCHIVED]
-          </span>
-          <span className="text-[11px] text-text-dark hidden md:inline">
-            THE MUSIK BOX & IN AUDIO WE TRUST · 2009–2012
+            BITRATE: 192 KBPS MP3 [ARCHIVED]
           </span>
         </div>
       </div>

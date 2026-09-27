@@ -82,7 +82,7 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
       <div className="rounded-xl bg-notice-bg border border-accent/30 p-4 border-l-4 border-l-accent mb-8 flex items-start gap-3">
         <span className="text-lg">⚠️</span>
         <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-          <strong className="text-accent font-heading block mb-0.5">Incomplete Salvage</strong>
+          <strong className="text-accent font-heading block mb-0.5">⚠️ Incomplete Salvage</strong>
           Thousands of daily tracks were published between 2009–2012; these 360 posts represent only what survived
           Wayback Machine crawler passes.
         </div>
