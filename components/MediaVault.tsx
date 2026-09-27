@@ -39,14 +39,14 @@ export default function MediaVault({
 
   return (
     <div>
-      <div className="rounded-xl bg-notice-bg border border-accent/30 p-4 border-l-4 border-l-accent mb-10">
+      <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 mb-10">
         <h2 className="font-heading font-bold text-text-primary mb-2">Digital Preservation & Provenance Transparency</h2>
         <p className="text-sm text-text-muted leading-relaxed">
-          <strong className="text-accent">Part 1:</strong> The <strong>9 authentic recovered visual assets</strong>{' '}
+          <strong className="text-text-primary">Part 1:</strong> The <strong>9 authentic recovered visual assets</strong>{' '}
           below survived in original photographic and graphic formats. Open any card for an interactive lightbox and
           full uncompressed resolution.
           <br />
-          <strong className="text-accent">Part 2:</strong> For the remaining{' '}
+          <strong className="text-text-primary">Part 2:</strong> For the remaining{' '}
           <strong>45 additional server upload records</strong> ({registry.length} total WordPress media records),
           Wayback Machine crawlers indexed filenames but did not cache every binary. Their complete filenames and
           snapshot links are preserved in the searchable registry.
@@ -67,7 +67,7 @@ export default function MediaVault({
               Click any asset for lightbox preview and View Full High-Res.
             </p>
           </div>
-          <span className="rounded-full border border-accent/40 px-3 py-1 text-xs font-heading font-bold text-accent">
+          <span className="rounded-full border border-border-line px-3 py-1 text-xs font-heading font-bold text-text-primary">
             9 Verified Visual Assets
           </span>
         </div>
@@ -76,12 +76,12 @@ export default function MediaVault({
           {recovered.map((item) => (
             <article
               key={item.id}
-              className="flex flex-col rounded-2xl border border-border-line bg-card p-4 hover:border-accent/40 transition-colors"
+              className="flex flex-col rounded-2xl border border-border-line bg-card p-4 hover:border-border-line transition-colors"
             >
               <button
                 type="button"
                 onClick={() => setActive(item)}
-                className="relative mb-4 flex h-52 w-full items-center justify-center overflow-hidden rounded-xl border border-border-line bg-black focus:outline-none focus:ring-2 focus:ring-accent"
+                className="relative mb-4 flex h-52 w-full items-center justify-center overflow-hidden rounded-xl border border-border-line bg-black focus:outline-none focus:ring-2 focus:ring-white/40"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -90,11 +90,11 @@ export default function MediaVault({
                   loading="lazy"
                   className="max-h-full max-w-full object-contain"
                 />
-                <span className="absolute top-2 right-2 rounded bg-accent px-2 py-0.5 text-[10px] font-heading font-extrabold uppercase tracking-wide text-bg">
+                <span className="absolute top-2 right-2 rounded bg-white px-2 py-0.5 text-[10px] font-heading font-extrabold uppercase tracking-wide text-black">
                   ★ Preserved
                 </span>
               </button>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-accent mb-1">{item.badge}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-text-primary mb-1">{item.badge}</p>
               <h3 className="font-heading text-lg font-extrabold text-text-primary mb-1 leading-snug">{item.title}</h3>
               <p className="font-mono text-[11px] text-text-dark mb-2">
                 File: <code>{item.filename}</code> · {item.platform}
@@ -104,7 +104,7 @@ export default function MediaVault({
                 <button
                   type="button"
                   onClick={() => setActive(item)}
-                  className="rounded-full border border-accent/40 px-3 py-1.5 text-xs font-heading font-bold text-accent hover:bg-accent hover:text-bg transition-colors"
+                  className="rounded-full border border-border-line px-3 py-1.5 text-xs font-heading font-bold text-text-primary hover:bg-white hover:text-black transition-colors"
                 >
                   View Full High-Res ↗
                 </button>
@@ -138,7 +138,7 @@ export default function MediaVault({
           >
             <div className="flex items-start justify-between gap-3 mb-4">
               <div className="min-w-0">
-                <p className="font-mono text-[11px] text-accent uppercase tracking-wider mb-1">{active.badge}</p>
+                <p className="font-mono text-[11px] text-text-primary uppercase tracking-wider mb-1">{active.badge}</p>
                 <h3 className="font-heading text-lg sm:text-xl font-extrabold text-text-primary">{active.title}</h3>
               </div>
               <button
@@ -163,7 +163,7 @@ export default function MediaVault({
                 href={active.fullRes}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-accent text-bg px-4 py-2 text-xs font-heading font-bold"
+                className="rounded-full bg-white text-black px-4 py-2 text-xs font-heading font-bold"
               >
                 View Full High-Res ↗
               </a>
@@ -193,7 +193,7 @@ export default function MediaVault({
               </p>
             </div>
             <p className="font-mono text-xs text-text-dark">
-              Showing <span className="text-accent font-bold">{filtered.length}</span> records
+              Showing <span className="text-text-primary font-bold">{filtered.length}</span> records
             </p>
           </div>
           <input
@@ -201,7 +201,7 @@ export default function MediaVault({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search archival uploads by artist, title, or filename…"
-            className="w-full rounded-xl border border-border-line bg-bg px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-accent"
+            className="w-full rounded-xl border border-border-line bg-bg px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-white/40"
           />
         </div>
 
@@ -222,7 +222,7 @@ export default function MediaVault({
                 <tr key={`${row.date}-${row.filename}`} className="border-b border-border-line/60 hover:bg-white/[0.03]">
                   <td className="px-4 py-3 font-mono text-xs text-text-dark whitespace-nowrap">{row.date}</td>
                   <td className="px-4 py-3">
-                    <div className="font-bold text-accent">{row.subject}</div>
+                    <div className="font-bold text-text-primary">{row.subject}</div>
                     <div className="text-xs text-text-dark">{row.artist}</div>
                   </td>
                   <td className="px-4 py-3 font-mono text-xs text-text-muted break-all">
@@ -233,7 +233,7 @@ export default function MediaVault({
                     <span
                       className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-heading font-bold ${
                         row.status === 'preserved'
-                          ? 'border-accent/40 text-accent'
+                          ? 'border-border-line text-text-primary'
                           : 'border-border-line text-text-dark'
                       }`}
                     >

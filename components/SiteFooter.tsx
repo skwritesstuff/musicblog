@@ -20,19 +20,22 @@ export default function SiteFooter() {
           </div>
           <div className="text-sm text-text-muted space-y-1 md:text-right shrink-0">
             <p>
-              <Link href="/story" className="text-accent font-bold hover:underline">
-                ★ The Story
+              <Link href="/story/" className="text-text-primary font-semibold hover:underline">
+                <span className="yellow-star" aria-hidden>
+                  ★
+                </span>{' '}
+                The Story
               </Link>
               {' • '}
-              <Link href="/archive" className="hover:text-text-primary">
+              <Link href="/archive/" className="hover:text-text-primary">
                 Archive
               </Link>
               {' • '}
-              <Link href="/artists" className="hover:text-text-primary">
+              <Link href="/artists/" className="hover:text-text-primary">
                 Artists
               </Link>
               {' • '}
-              <Link href="/media" className="hover:text-text-primary">
+              <Link href="/media/" className="hover:text-text-primary">
                 Media & Art
               </Link>
             </p>

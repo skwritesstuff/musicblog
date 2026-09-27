@@ -15,10 +15,10 @@ export default function ArtistsDirectory({ artists }: { artists: ArtistRecord[] 
 
   return (
     <div>
-      <div className="rounded-xl bg-notice-bg border border-accent/30 p-4 border-l-4 border-l-accent mb-8 flex items-start gap-3">
+      <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 mb-8 flex items-start gap-3">
         <span className="text-lg">⚠️</span>
         <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-          <strong className="text-accent font-heading block mb-0.5">CRITICAL ARCHIVAL NOTICE</strong>
+          <strong className="text-text-primary font-heading block mb-0.5">CRITICAL ARCHIVAL NOTICE</strong>
           DO NOT INFER COVERAGE FROM POST COUNTS. During active years, the site published multiple times daily across
           thousands of artists. Post counts reflect only what was captured in fragmented Wayback Machine crawl passes.
         </div>
@@ -34,7 +34,7 @@ export default function ArtistsDirectory({ artists }: { artists: ArtistRecord[] 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search artists (Skrillex, Mac Miller, Kendrick…)"
-          className="w-full max-w-xl rounded-xl border border-border-line bg-card px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-accent"
+          className="w-full max-w-xl rounded-xl border border-border-line bg-card px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-white/40"
         />
       </div>
 
@@ -49,13 +49,13 @@ export default function ArtistsDirectory({ artists }: { artists: ArtistRecord[] 
         {filtered.map((artist) => (
           <Link
             key={artist.slug}
-            href={`/archive?artist=${encodeURIComponent(artist.name)}`}
-            className="group flex items-center justify-between gap-3 rounded-2xl border border-border-line bg-card px-4 py-3.5 hover:border-accent/40 transition-colors"
+            href={`/archive/?artist=${encodeURIComponent(artist.name)}`}
+            className="group flex items-center justify-between gap-3 rounded-2xl border border-border-line bg-card px-4 py-3.5 hover:border-border-line transition-colors"
           >
-            <span className="font-heading font-bold text-text-primary group-hover:text-accent transition-colors truncate">
+            <span className="font-heading font-bold text-text-primary group-hover:text-text-primary transition-colors truncate">
               {artist.name}
             </span>
-            <span className="shrink-0 rounded-full border border-border-line px-2.5 py-0.5 font-mono text-[11px] text-text-dark group-hover:border-accent/40 group-hover:text-accent">
+            <span className="shrink-0 rounded-full border border-border-line px-2.5 py-0.5 font-mono text-[11px] text-text-dark group-hover:border-border-line group-hover:text-text-primary">
               {artist.count} post{artist.count === 1 ? '' : 's'}
             </span>
           </Link>

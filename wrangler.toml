@@ -1,4 +1,4 @@
-# Cloudflare Pages — Next.js static HTML export
+# Cloudflare Pages — Next.js static HTML export (trailingSlash directories)
 name = "shameis-musicblog"
 compatibility_date = "2024-09-26"
-pages_build_output_dir = "out"
+pages_build_output_dir = "Out"

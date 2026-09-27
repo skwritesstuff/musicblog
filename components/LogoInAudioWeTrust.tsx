@@ -5,17 +5,17 @@ export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { class
     <span className="inline-flex items-center gap-2 shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/iawt-headphone-coin.png"
+        src="/images/iawt-coin.png"
         alt=""
         aria-hidden
-        className="h-8 sm:h-10 w-auto object-contain"
+        className="h-9 sm:h-11 w-auto object-contain"
         decoding="async"
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/iawt-needle-logo.png"
+        src="/images/iawt-needle-wordmark.png"
         alt="In Audio We Trust"
-        className={className}
+        className={`object-contain ${className}`}
         decoding="async"
       />
     </span>

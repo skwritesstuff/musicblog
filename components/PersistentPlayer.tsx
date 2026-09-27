@@ -41,14 +41,14 @@ export default function PersistentPlayer() {
   };
 
   return (
-    <aside className="fixed bottom-0 inset-x-0 z-50 bg-player-bg/95 border-t border-border-line backdrop-blur-xl px-3 sm:px-6 py-2.5">
+    <aside className="fixed bottom-0 inset-x-0 z-50 bg-player-bg border-t border-border-line px-3 sm:px-6 py-2.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             type="button"
             onClick={togglePlay}
-            className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-transform ${
-              isPlaying ? 'bg-accent text-bg' : 'bg-white/10 text-accent hover:bg-white/20'
+            className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+              isPlaying ? 'bg-white text-black' : 'bg-white/10 text-text-primary hover:bg-white/20'
             }`}
             aria-label={isPlaying ? 'Pause' : 'Play'}
           >
@@ -82,17 +82,20 @@ export default function PersistentPlayer() {
           </button>
 
           <div className="min-w-0">
-            <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-text-muted truncate">
-              SALVAGED RETROSPECTIVE // THE MUSIK BOX • IN AUDIO WE TRUST (2009–2012) • 360 PRESERVED POSTS
-            </p>
-            <p className="font-mono text-xs text-accent truncate" title={track.title}>
+            <div className="flex items-center gap-2">
+              <span className="yellow-dot w-1.5 h-1.5 rounded-full shrink-0" aria-hidden />
+              <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-text-muted truncate">
+                SALVAGED RETROSPECTIVE // THE MUSIK BOX • IN AUDIO WE TRUST (2009–2012) • 360 PRESERVED POSTS
+              </p>
+            </div>
+            <p className="font-mono text-xs text-text-primary truncate" title={track.title}>
               {track.title}
             </p>
           </div>
         </div>
 
         <div className="hidden sm:flex items-center gap-3 text-xs font-mono shrink-0">
-          <span className="px-2 py-0.5 rounded bg-black border border-border-line text-accent font-bold tracking-wide">
+          <span className="px-2 py-0.5 rounded bg-black border border-border-line text-text-muted font-bold tracking-wide">
             BITRATE: 192 KBPS MP3 [ARCHIVED]
           </span>
         </div>

@@ -45,7 +45,7 @@ export default function AboutCredits() {
           >
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-1">Archival Credits</p>
+                <p className="font-mono text-[11px] uppercase tracking-widest text-text-primary mb-1">Archival Credits</p>
                 <h2 id="colophon-title" className="font-heading text-xl font-extrabold text-text-primary">
                   Colophon
                 </h2>
@@ -93,7 +93,7 @@ export default function AboutCredits() {
               </div>
             </dl>
 
-            <div className="mt-5 rounded-xl border border-accent/30 bg-notice-bg p-4 border-l-4 border-l-accent">
+            <div className="mt-5 rounded-xl border border-border-line bg-notice-bg p-4 border-l-4 border-l-white/40">
               <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{COLOPHON_STAFF_NOTE}</p>
             </div>
 

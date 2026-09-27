@@ -29,7 +29,7 @@ export default function StoryPage() {
         </p>
 
         <div className="text-center mb-12 pb-10 border-b border-border-line">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border-line bg-card px-4 py-1.5 font-mono text-xs text-accent mb-5">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border-line bg-card px-4 py-1.5 font-mono text-xs text-text-primary mb-5">
             ★ HISTORICAL RETROSPECTIVE • 2009–2012
           </div>
           <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
@@ -41,7 +41,7 @@ export default function StoryPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs text-text-dark">
             <span>
-              Founded by: <strong className="text-accent">Seamus Kelleher</strong> &{' '}
+              Founded by: <strong className="text-text-primary">Seamus Kelleher</strong> &{' '}
               <strong className="text-app-accent">Myles Snider</strong>
             </span>
             <span className="hidden sm:inline">•</span>
@@ -64,9 +64,9 @@ export default function StoryPage() {
               <a
                 key={c.id}
                 href={`#${c.id}`}
-                className="flex items-start gap-2 text-text-primary hover:text-accent transition-colors"
+                className="flex items-start gap-2 text-text-primary hover:text-text-primary transition-colors"
               >
-                <span className="text-accent font-mono font-bold shrink-0">{c.num}.</span>
+                <span className="text-text-primary font-mono font-bold shrink-0">{c.num}.</span>
                 <span>{c.title}</span>
               </a>
             ))}
@@ -75,7 +75,7 @@ export default function StoryPage() {
 
         <article className="space-y-14 text-base sm:text-[1.05rem] leading-relaxed text-text-muted">
           <section id="genesis">
-            <div className="font-mono text-xs font-bold text-accent tracking-wider mb-2">CHAPTER 01</div>
+            <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 01</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The High School Genesis & The &apos;MSK&apos; Code
             </h2>
@@ -96,13 +96,13 @@ export default function StoryPage() {
               <strong className="text-text-primary">Myles Snider</strong> and{' '}
               <strong className="text-text-primary">Seamus Kelleher</strong> launched an underground music destination
               straight from their laptops: <em>The MuSiK Box</em> (
-              <code className="text-accent text-sm">themusikbox.com</code>).
+              <code className="text-text-primary text-sm">themusikbox.com</code>).
             </p>
             <p className="mb-4">
               The publication&apos;s distinct capitalization was a subtle in-joke and personal signature:{' '}
               <strong className="text-text-primary">The MuSiK Box</strong> cleverly embedded the co-founders&apos;
               initials — <strong>M</strong>yles <strong>S</strong>nider and <strong>S</strong>eamus{' '}
-              <strong>K</strong>elleher — spelling out <strong className="text-accent">MSK</strong> within{' '}
+              <strong>K</strong>elleher — spelling out <strong className="text-text-primary">MSK</strong> within{' '}
               <em>MuSiK</em> using lowercase &quot;u&quot; and &quot;i&quot;.
             </p>
             <p className="mb-4">
@@ -110,9 +110,9 @@ export default function StoryPage() {
               direct email submissions from hungry indie artists, the site stood at the vanguard of the burgeoning
               music-blog revolution.
             </p>
-            <blockquote className="border-l-4 border-accent bg-card rounded-r-xl px-5 py-4 italic text-text-primary">
+            <blockquote className="border-l-4 border-white/40 bg-card rounded-r-xl px-5 py-4 italic text-text-primary">
               &ldquo;We Skip Study Hall For This...&rdquo;
-              <footer className="mt-2 not-italic font-mono text-xs text-accent">— Motto of The MuSiK Box</footer>
+              <footer className="mt-2 not-italic font-mono text-xs text-text-primary">— Motto of The MuSiK Box</footer>
             </blockquote>
             <figure className="mt-6 rounded-2xl border border-border-line bg-black p-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -128,7 +128,7 @@ export default function StoryPage() {
           </section>
 
           <section id="grog-shop">
-            <div className="font-mono text-xs font-bold text-accent tracking-wider mb-2">CHAPTER 02</div>
+            <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 02</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
@@ -139,12 +139,12 @@ export default function StoryPage() {
               <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights — Mac&apos;s first
               out-of-town headline show.
             </p>
-            <blockquote className="border-l-4 border-accent bg-card rounded-r-xl px-5 py-4 mb-4">
+            <blockquote className="border-l-4 border-white/40 bg-card rounded-r-xl px-5 py-4 mb-4">
               <p className="italic text-text-primary mb-2">
                 &ldquo;Cleveland, a little fun fact for you: actually the first out-of-town headlining show I ever did
                 was at the Grog Shop.&rdquo;
               </p>
-              <footer className="font-mono text-xs text-accent">
+              <footer className="font-mono text-xs text-text-primary">
                 — Mac Miller on <em>The Arroyo Show</em> (House of Blues Cleveland, Oct 10, 2011)
               </footer>
             </blockquote>
@@ -157,7 +157,7 @@ export default function StoryPage() {
           </section>
 
           <section id="viral-surge">
-            <div className="font-mono text-xs font-bold text-accent tracking-wider mb-2">CHAPTER 03</div>
+            <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 03</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The Viral Surge & The 100k Ceiling
             </h2>
@@ -166,7 +166,7 @@ export default function StoryPage() {
               record-shattering days, viral algorithmic traffic from{' '}
               <strong className="text-text-primary">StumbleUpon</strong>, Reddit, Hype Machine, DJ Earworm mashups, and
               college network word-of-mouth propelled single-day visitor counts above{' '}
-              <strong className="text-accent">100,000 unique visitors</strong>.
+              <strong className="text-text-primary">100,000 unique visitors</strong>.
             </p>
             <p>
               A major engine of this explosive growth was the golden age of collegiate mashup culture. IAWT was a
@@ -176,7 +176,7 @@ export default function StoryPage() {
           </section>
 
           <section id="rebrand">
-            <div className="font-mono text-xs font-bold text-accent tracking-wider mb-2">CHAPTER 04</div>
+            <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 04</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The 301 Rebrand to In Audio We Trust
             </h2>
@@ -198,8 +198,8 @@ export default function StoryPage() {
             <p className="mb-4">
               As readership expanded beyond Ohio into a national footprint, the co-founders orchestrated a comprehensive
               brand evolution in early 2011, executing a 301 permanent redirect from{' '}
-              <code className="text-accent text-sm">themusikbox.com</code> to{' '}
-              <code className="text-accent text-sm">inaudiowetrust.com</code>.
+              <code className="text-text-primary text-sm">themusikbox.com</code> to{' '}
+              <code className="text-text-primary text-sm">inaudiowetrust.com</code>.
             </p>
             <p className="mb-4">
               Collaborating with web designer and technical architect{' '}
@@ -230,7 +230,7 @@ export default function StoryPage() {
           </section>
 
           <section id="finale">
-            <div className="font-mono text-xs font-bold text-accent tracking-wider mb-2">CHAPTER 05</div>
+            <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 05</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The Prescient Ear & Final Broadcast
             </h2>
@@ -252,7 +252,7 @@ export default function StoryPage() {
                 ['Mike Posner', 'Final post: “Looks Like Sex,” January 25, 2012.'],
               ].map(([name, blurb]) => (
                 <div key={name} className="rounded-xl border border-border-line bg-card p-4">
-                  <h3 className="font-heading font-bold text-accent mb-1">{name}</h3>
+                  <h3 className="font-heading font-bold text-text-primary mb-1">{name}</h3>
                   <p className="text-sm text-text-muted">{blurb}</p>
                 </div>
               ))}
@@ -264,14 +264,14 @@ export default function StoryPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/archive"
-                className="inline-flex items-center rounded-full bg-accent text-bg font-heading text-sm font-bold px-5 py-2.5 hover:-translate-y-0.5 transition-transform"
+                href="/archive/"
+                className="inline-flex items-center rounded-full bg-white text-black font-heading text-sm font-bold px-5 py-2.5 hover:-translate-y-0.5 transition-transform"
               >
                 Explore the Chronological Archive →
               </Link>
               <Link
-                href="/media"
-                className="inline-flex items-center rounded-full border border-border-line bg-card text-text-primary text-sm font-medium px-5 py-2.5 hover:border-accent/40 transition-colors"
+                href="/media/"
+                className="inline-flex items-center rounded-full border border-border-line bg-card text-text-primary text-sm font-medium px-5 py-2.5 hover:border-border-line transition-colors"
               >
                 View Recovered Media & Artwork →
               </Link>

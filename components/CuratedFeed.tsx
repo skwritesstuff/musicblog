@@ -131,9 +131,9 @@ export default function CuratedFeed() {
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
       {/* Header */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/30 mb-3">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <span className="font-heading text-xs font-bold uppercase tracking-wider text-accent">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-border-line mb-3">
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+          <span className="font-heading text-xs font-bold uppercase tracking-wider text-text-primary">
             FROM THE ARCHIVE
           </span>
         </div>
@@ -150,7 +150,7 @@ export default function CuratedFeed() {
         {CURATED_POSTS.map((post) => (
           <article
             key={post.id}
-            className="group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-accent/40"
+            className="group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-border-line"
           >
             {/* Card Meta */}
             <div className="flex justify-between items-center mb-4 gap-3">
@@ -164,10 +164,10 @@ export default function CuratedFeed() {
 
             {/* Title & Artist */}
             <div className="mb-4">
-              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-accent transition-colors">
+              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-text-primary transition-colors">
                 {post.artist}
               </h3>
-              <h4 className="font-heading text-sm font-semibold text-accent/90 mt-0.5 line-clamp-1">
+              <h4 className="font-heading text-sm font-semibold text-text-muted mt-0.5 line-clamp-1">
                 {post.title}
               </h4>
             </div>
@@ -195,7 +195,7 @@ export default function CuratedFeed() {
             <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
               <a
                 href={post.postSlug}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-accent text-bg font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-black font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
               >
                 Read Post
                 <svg className="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">

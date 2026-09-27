@@ -7,15 +7,15 @@
   --bg: #000000;
   --card: #000000;
   --card-elevated: #0a0a0a;
-  --text: #fffaf0;
-  --text-muted: #d6dbe5;
-  --text-dark: #8892b0;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
+  --text-dark: #64748b;
   --accent: #f7f308;
-  --app-accent: #2eb8c8;
-  --border-line: rgba(255, 255, 255, 0.18);
+  --app-accent: #94a3b8;
+  --border-line: #1e2530;
   --header-bg: #000000;
   --player-bg: #000000;
-  --notice-bg: #18130e;
+  --notice-bg: #0a0a0a;
 }
 
 [data-theme="light"] {
@@ -30,7 +30,7 @@
   --border-line: rgba(0, 0, 0, 0.14);
   --header-bg: #ffffff;
   --player-bg: #111111;
-  --notice-bg: #fff8e6;
+  --notice-bg: #f3f3f0;
 }
 
 [data-theme="sepia"] {
@@ -70,6 +70,14 @@ body {
 }
 
 .theme-icon-glyph {
-  color: var(--accent);
+  color: var(--text-muted);
   font-style: normal;
+}
+
+/* Yellow is reserved for the nav star and player status dot only */
+.yellow-star {
+  color: #f7f308;
+}
+.yellow-dot {
+  background-color: #f7f308;
 }

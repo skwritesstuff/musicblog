@@ -50,7 +50,7 @@ export default function Home() {
     <SiteShell active="home">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border-line relative overflow-hidden">
-          <span className="font-mono text-xs uppercase tracking-widest text-accent font-bold">
+          <span className="font-mono text-xs uppercase tracking-widest text-text-primary font-bold">
             PARTIAL DIGITAL RESCUE (2009–2012)
           </span>
           <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-text-primary tracking-tight mt-2 mb-4 uppercase">
@@ -61,10 +61,10 @@ export default function Home() {
             chronicling early indie hip-hop, mixtape culture, blog-house, and early co-signs for future icons.
           </p>
 
-          <div className="rounded-xl bg-notice-bg border border-accent/30 p-4 border-l-4 border-l-accent flex items-start gap-3 mb-6">
+          <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 flex items-start gap-3 mb-6">
             <span className="text-lg">⚠️</span>
             <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-              <strong className="text-accent font-heading block mb-0.5">
+              <strong className="text-text-primary font-heading block mb-0.5">
                 HISTORICAL ARCHIVAL NOTICE // INCOMPLETE SALVAGE
               </strong>
               This archive is a partial, fragmented rescue of what survived Wayback Machine crawl passes. During active
@@ -88,12 +88,15 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <Link
-          href="/story"
-          className="group block rounded-2xl border border-accent/40 bg-black px-6 py-5 sm:px-8 sm:py-6 hover:border-accent transition-colors"
+          href="/story/"
+          className="group block rounded-2xl border border-border-line bg-black px-6 py-5 sm:px-8 sm:py-6 hover:border-white/40 transition-colors"
         >
-          <p className="font-mono text-[11px] uppercase tracking-widest text-accent mb-2">Primary Feature</p>
-          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-accent group-hover:underline underline-offset-4">
-            ★ THE DEFINITIVE ANTHOLOGY: High School Hallways to 100k+ Daily Readers
+          <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-2">Primary Feature</p>
+          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:underline underline-offset-4">
+            <span className="yellow-star" aria-hidden>
+              ★
+            </span>{' '}
+            THE DEFINITIVE ANTHOLOGY: High School Hallways to 100k+ Daily Readers
           </h2>
           <p className="mt-2 text-sm text-text-muted max-w-3xl">
             Read the five-chapter oral history of The MuSiK Box and In Audio We Trust — from Saint Ignatius study hall
@@ -104,7 +107,7 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-8">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-2">Prescient Ear</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-text-primary font-bold mb-2">Prescient Ear</p>
           <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-2">
             Landmark Discoveries
           </h2>
@@ -117,10 +120,10 @@ export default function Home() {
           {PRESCIENT.map((item) => (
             <article
               key={item.artist}
-              className="rounded-2xl border border-border-line bg-card p-5 hover:border-accent/40 transition-colors"
+              className="rounded-2xl border border-border-line bg-card p-5 hover:border-border-line transition-colors"
             >
               <h3 className="font-heading text-lg font-extrabold text-text-primary">{item.artist}</h3>
-              <p className="font-mono text-xs text-accent mt-1 mb-3">{item.when}</p>
+              <p className="font-mono text-xs text-text-primary mt-1 mb-3">{item.when}</p>
               <p className="text-sm text-text-muted leading-relaxed">{item.blurb}</p>
             </article>
           ))}

@@ -79,10 +79,10 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
 
   return (
     <div>
-      <div className="rounded-xl bg-notice-bg border border-accent/30 p-4 border-l-4 border-l-accent mb-8 flex items-start gap-3">
+      <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 mb-8 flex items-start gap-3">
         <span className="text-lg">⚠️</span>
         <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-          <strong className="text-accent font-heading block mb-0.5">⚠️ Incomplete Salvage</strong>
+          <strong className="text-text-primary font-heading block mb-0.5">⚠️ Incomplete Salvage</strong>
           Thousands of daily tracks were published between 2009–2012; these 360 posts represent only what survived
           Wayback Machine crawler passes.
         </div>
@@ -102,8 +102,8 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
                   onClick={() => setYear(y.id)}
                   className={`rounded-full px-3 py-1.5 text-xs font-heading font-semibold border transition-colors ${
                     active
-                      ? 'bg-accent text-bg border-accent'
-                      : 'bg-card text-text-muted border-border-line hover:border-accent/40'
+                      ? 'bg-white text-black border-white/40'
+                      : 'bg-card text-text-muted border-border-line hover:border-border-line'
                   }`}
                 >
                   {y.label} ({count})
@@ -125,8 +125,8 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
                   onClick={() => setGenre(g)}
                   className={`rounded-full px-3 py-1.5 text-xs font-heading font-semibold border transition-colors ${
                     active
-                      ? 'bg-accent text-bg border-accent'
-                      : 'bg-card text-text-muted border-border-line hover:border-accent/40'
+                      ? 'bg-white text-black border-white/40'
+                      : 'bg-card text-text-muted border-border-line hover:border-border-line'
                   }`}
                 >
                   {g}
@@ -149,12 +149,12 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
               setArtistParam('');
             }}
             placeholder="Search post titles or artist names…"
-            className="w-full rounded-xl border border-border-line bg-card px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-accent"
+            className="w-full rounded-xl border border-border-line bg-card px-4 py-3 text-sm text-text-primary placeholder:text-text-dark outline-none focus:border-white/40"
           />
           {artistParam && (
             <p className="mt-2 text-xs text-text-dark">
               Filtering from Artists directory:{' '}
-              <span className="text-accent font-semibold">{artistParam}</span>
+              <span className="text-text-primary font-semibold">{artistParam}</span>
             </p>
           )}
         </div>
@@ -186,7 +186,7 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
                 <td className="px-4 py-3 font-semibold text-text-primary">{post.title}</td>
                 <td className="px-4 py-3 text-text-muted">{post.artists.join(', ') || '—'}</td>
                 <td className="px-4 py-3">
-                  <span className="inline-flex rounded-full border border-accent/30 px-2 py-0.5 text-[11px] font-heading font-bold text-accent">
+                  <span className="inline-flex rounded-full border border-border-line px-2 py-0.5 text-[11px] font-heading font-bold text-text-primary">
                     {post.category || post.genre}
                   </span>
                 </td>
@@ -216,7 +216,7 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
           <article key={post.slug} className="rounded-2xl border border-border-line bg-card p-4">
             <div className="flex items-center justify-between gap-2 mb-2">
               <span className="font-mono text-xs text-text-dark">{post.date}</span>
-              <span className="inline-flex rounded-full border border-accent/30 px-2 py-0.5 text-[10px] font-heading font-bold text-accent">
+              <span className="inline-flex rounded-full border border-border-line px-2 py-0.5 text-[10px] font-heading font-bold text-text-primary">
                 {post.category || post.genre}
               </span>
             </div>
@@ -242,7 +242,7 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
 
       <p className="mt-8 text-center text-xs text-text-dark">
         Looking for a specific artist?{' '}
-        <Link href="/artists" className="text-accent hover:underline">
+        <Link href="/artists/" className="text-text-primary hover:underline">
           Browse the Artists Directory
         </Link>
       </p>
