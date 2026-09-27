@@ -1,73 +1,144 @@
 'use client';
 
 import React from 'react';
-import CuratedFeed from '@/components/CuratedFeed';
-import PersistentPlayer from '@/components/PersistentPlayer';
+import Link from 'next/link';
+import SiteShell from '@/components/SiteShell';
 import LogoTheMuSiKBox from '@/components/LogoTheMuSiKBox';
 import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
+import CuratedFeed from '@/components/CuratedFeed';
+
+const STATS = [
+  { value: '360', label: 'Salvaged Posts' },
+  { value: '54', label: 'Media Records' },
+  { value: '4 Years Active', label: '(2009–2012)' },
+  { value: 'Partial', label: 'Wayback Rescue' },
+];
+
+const PRESCIENT = [
+  {
+    artist: 'Kendrick Lamar',
+    when: 'March 2011',
+    blurb: 'Pre-Section.80 documentary trailer',
+  },
+  {
+    artist: 'Childish Gambino',
+    when: 'Feb 2011',
+    blurb: 'Derrick Comedy era, pre-Camp',
+  },
+  {
+    artist: 'The Weeknd',
+    when: 'Sept 2011',
+    blurb: 'House of Balloons / “The Morning”',
+  },
+  {
+    artist: 'Frank Ocean',
+    when: 'May 2011',
+    blurb: '“Acura Integurl”, pre-Channel Orange',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-accent selection:text-bg pb-20">
-      <header className="border-b border-border-line bg-[#141820]/90 backdrop-blur sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4 sm:gap-6 overflow-hidden">
-            <a href="https://shameis.com" className="text-text-muted hover:text-white text-xs font-mono shrink-0">
-              ← shameis.com
-            </a>
-            <div className="h-6 w-px bg-white/10 shrink-0" />
-            <div className="flex items-center gap-3 sm:gap-5">
-              <LogoTheMuSiKBox className="h-9 sm:h-11 w-auto" />
-              <span className="text-white/20 text-sm hidden sm:inline">•</span>
-              <LogoInAudioWeTrust className="h-6 sm:h-7 w-auto" />
+    <SiteShell active="home">
+      {/* Full-bleed true-black hero — logos are the brand signal */}
+      <section className="w-full bg-[#000000] border-b border-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-10 sm:pb-14">
+          <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
+            <div className="w-full flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 bg-[#000000]">
+              <LogoTheMuSiKBox className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
+              <span className="hidden lg:inline text-white/20 text-2xl shrink-0" aria-hidden>
+                •
+              </span>
+              <LogoInAudioWeTrust className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
             </div>
-          </div>
 
-          <nav className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-heading font-medium text-text-muted">
-            <a href="#featured" className="hover:text-text-primary transition-colors">
-              Featured
-            </a>
-            <a href="/archive" className="hover:text-text-primary transition-colors">
-              Archive (360)
-            </a>
-            <a href="/story" className="text-accent font-bold hover:underline underline-offset-4 transition-colors">
-              ★ The Story
-            </a>
-            <a href="/media" className="hover:text-text-primary transition-colors">
-              Media Vault
-            </a>
-          </nav>
-        </div>
-      </header>
+            <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#94a3b8] font-bold">
+              PARTIAL DIGITAL RESCUE (2009–2012) • 360 RECOVERED OF THOUSANDS PUBLISHED
+            </p>
+            <p className="font-heading text-sm sm:text-base font-semibold text-white -mt-3">
+              Created & Curated by Seamus Kelleher & Myles Snider
+            </p>
+            <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
+              A salvaged archive from a bygone era of internet music discovery—before discovery was automated by
+              streaming algorithms. Punching far above its weight and secretly run by high schoolers between classes,
+              The MuSiK Box and In Audio We Trust thrived precisely because the digital landscape was shifting so fast
+              that no one held an incumbent advantage.
+            </p>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
-        <div className="p-8 sm:p-10 rounded-3xl bg-card/80 border border-border-line backdrop-blur-xl relative overflow-hidden">
-          <span className="font-mono text-xs uppercase tracking-widest text-accent font-bold">
-            PARTIAL DIGITAL RESCUE (2009–2012)
-          </span>
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-text-primary tracking-tight mt-2 mb-4">
-            The Vintage Audio Archive
-          </h1>
-          <p className="text-base sm:text-lg text-text-muted max-w-2xl leading-relaxed mb-6">
-            A preserved digital retrospective of <em>The MuSiK Box</em> and <em>In Audio We Trust</em>, chronicling early indie hip-hop, mixtape culture, and generational discoveries from high school hallways to thousands of daily readers.
-          </p>
+            <div className="w-full max-w-3xl rounded-xl border border-[#1a1a1a] bg-[#000000] p-4">
+              <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
+                <span className="font-heading font-bold text-white">
+                  HISTORICAL ARCHIVAL NOTICE // INCOMPLETE SALVAGE
+                </span>{' '}
+                — This archive is a partial, fragmented rescue of what survived from Wayback Machine web snapshots.
+                During its active run (2009–2012), the publication published multiple times daily across thousands of
+                underground mixtapes, MP3 premieres, and features. These 360 posts represent only what could be
+                successfully salvaged.
+              </p>
+            </div>
 
-          <div className="rounded-xl bg-[#18130e] border border-amber-500/30 p-4 border-l-4 border-l-accent flex items-start gap-3">
-            <span className="text-lg">⚠️</span>
-            <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-              <strong className="text-accent font-heading block mb-0.5">HISTORICAL ARCHIVAL NOTICE // INCOMPLETE SALVAGE</strong>
-              This archive is a partial, fragmented rescue of what survived from Internet Archive web snapshots. The site published multiple times daily across thousands of premieres—these 360 cataloged posts represent what could be verified.
+            <div className="flex flex-wrap gap-2">
+              {STATS.map((stat) => (
+                <span
+                  key={stat.value + stat.label}
+                  className="inline-flex items-baseline gap-1.5 rounded-full border border-[#222222] bg-[#000000] px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-[#94a3b8]"
+                >
+                  <span className="font-bold text-white">{stat.value}</span>
+                  <span>{stat.label}</span>
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <main id="featured" className="flex-1">
-        <CuratedFeed />
-      </main>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Link
+          href="/story/"
+          className="group block rounded-2xl border border-[#1a1a1a] bg-[#000000] px-6 py-5 sm:px-8 sm:py-6 hover:border-[#222222] transition-colors"
+        >
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] mb-2">Featured</p>
+          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white group-hover:underline underline-offset-4 decoration-white/40">
+            <span className="yellow-star" aria-hidden>
+              ★
+            </span>{' '}
+            The Story: High School Hallways to 100k+ Daily Readers
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-[#94a3b8] max-w-3xl leading-relaxed">
+            The complete oral history: booking 18-year-old Mac Miller&apos;s maiden headline concert at The Grog Shop in
+            Spring 2010, the April 2010 iPhone interview with Machine Gun Kelly in the school parking lot, the 301
+            domain rebrand to IAWT, and early coverage of future stadium headliners.
+          </p>
+        </Link>
+      </section>
 
-      <PersistentPlayer />
-    </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <div className="mb-6">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] font-bold mb-2">
+            Prescient Ear
+          </p>
+          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white mb-2">Early Co-Signs</h2>
+          <p className="text-[#94a3b8] max-w-2xl text-sm sm:text-base">
+            Landmark coverage months ahead of mainstream acclaim — verified from salvaged posts and Wayback snapshots.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {PRESCIENT.map((item) => (
+            <article
+              key={item.artist}
+              className="rounded-2xl border border-[#1a1a1a] bg-[#000000] p-5 hover:border-[#222222] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-extrabold text-white">{item.artist}</h3>
+              <p className="font-mono text-xs text-[#94a3b8] mt-1.5 mb-3">{item.when}</p>
+              <p className="text-sm text-[#94a3b8] leading-relaxed">{item.blurb}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div id="featured">
+        <CuratedFeed />
+      </div>
+    </SiteShell>
   );
 }
-

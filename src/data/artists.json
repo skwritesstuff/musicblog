@@ -1,0 +1,382 @@
+[
+  {
+    "name": "Skrillex",
+    "count": 18,
+    "slug": "skrillex"
+  },
+  {
+    "name": "Kanye West",
+    "count": 14,
+    "slug": "kanye-west"
+  },
+  {
+    "name": "Curren$y",
+    "count": 9,
+    "slug": "curren$y"
+  },
+  {
+    "name": "Mike Posner",
+    "count": 9,
+    "slug": "mike-posner"
+  },
+  {
+    "name": "Kid Cudi",
+    "count": 8,
+    "slug": "kid-cudi"
+  },
+  {
+    "name": "Lil Wayne",
+    "count": 8,
+    "slug": "lil-wayne"
+  },
+  {
+    "name": "XV",
+    "count": 8,
+    "slug": "xv"
+  },
+  {
+    "name": "J. Cole",
+    "count": 7,
+    "slug": "j.-cole"
+  },
+  {
+    "name": "Mac Miller",
+    "count": 7,
+    "slug": "mac-miller"
+  },
+  {
+    "name": "Tyler, The Creator",
+    "count": 7,
+    "slug": "tyler-the-creator"
+  },
+  {
+    "name": "Wale",
+    "count": 6,
+    "slug": "wale"
+  },
+  {
+    "name": "Avicii",
+    "count": 5,
+    "slug": "avicii"
+  },
+  {
+    "name": "Bassnectar",
+    "count": 5,
+    "slug": "bassnectar"
+  },
+  {
+    "name": "Chip Tha Ripper",
+    "count": 5,
+    "slug": "chip-tha-ripper"
+  },
+  {
+    "name": "Joey Sap",
+    "count": 5,
+    "slug": "joey-sap"
+  },
+  {
+    "name": "The Weeknd",
+    "count": 5,
+    "slug": "the-weeknd"
+  },
+  {
+    "name": "Drake",
+    "count": 4,
+    "slug": "drake"
+  },
+  {
+    "name": "Frank Ocean",
+    "count": 4,
+    "slug": "frank-ocean"
+  },
+  {
+    "name": "Lupe Fiasco",
+    "count": 4,
+    "slug": "lupe-fiasco"
+  },
+  {
+    "name": "Odd Future / OFWGKTA",
+    "count": 4,
+    "slug": "odd-future---ofwgkta"
+  },
+  {
+    "name": "Rusko",
+    "count": 4,
+    "slug": "rusko"
+  },
+  {
+    "name": "Wiz Khalifa",
+    "count": 4,
+    "slug": "wiz-khalifa"
+  },
+  {
+    "name": "Big Sean",
+    "count": 3,
+    "slug": "big-sean"
+  },
+  {
+    "name": "Chiddy Bang",
+    "count": 3,
+    "slug": "chiddy-bang"
+  },
+  {
+    "name": "Childish Gambino",
+    "count": 3,
+    "slug": "childish-gambino"
+  },
+  {
+    "name": "Ellie Goulding",
+    "count": 3,
+    "slug": "ellie-goulding"
+  },
+  {
+    "name": "Pusha T",
+    "count": 3,
+    "slug": "pusha-t"
+  },
+  {
+    "name": "Theodore Grams",
+    "count": 3,
+    "slug": "theodore-grams"
+  },
+  {
+    "name": "Brenton Duvall",
+    "count": 2,
+    "slug": "brenton-duvall"
+  },
+  {
+    "name": "Freddie Gibbs",
+    "count": 2,
+    "slug": "freddie-gibbs"
+  },
+  {
+    "name": "Kendrick Lamar",
+    "count": 2,
+    "slug": "kendrick-lamar"
+  },
+  {
+    "name": "Machine Gun Kelly (MGK)",
+    "count": 2,
+    "slug": "machine-gun-kelly-(mgk)"
+  },
+  {
+    "name": "Nero",
+    "count": 2,
+    "slug": "nero"
+  },
+  {
+    "name": "Pretty Lights",
+    "count": 2,
+    "slug": "pretty-lights"
+  },
+  {
+    "name": "Tezo",
+    "count": 2,
+    "slug": "tezo"
+  },
+  {
+    "name": "The White Panda",
+    "count": 2,
+    "slug": "the-white-panda"
+  },
+  {
+    "name": "Ti\u00ebsto",
+    "count": 2,
+    "slug": "ti\u00ebsto"
+  },
+  {
+    "name": "A$AP Rocky",
+    "count": 1,
+    "slug": "a$ap-rocky"
+  },
+  {
+    "name": "Atmosphere",
+    "count": 1,
+    "slug": "atmosphere"
+  },
+  {
+    "name": "Big K.R.I.T.",
+    "count": 1,
+    "slug": "big-k.r.i.t."
+  },
+  {
+    "name": "Bon Iver",
+    "count": 1,
+    "slug": "bon-iver"
+  },
+  {
+    "name": "Brandon Flowers",
+    "count": 1,
+    "slug": "brandon-flowers"
+  },
+  {
+    "name": "Cage",
+    "count": 1,
+    "slug": "cage"
+  },
+  {
+    "name": "Chase and Status",
+    "count": 1,
+    "slug": "chase-and-status"
+  },
+  {
+    "name": "Datsik",
+    "count": 1,
+    "slug": "datsik"
+  },
+  {
+    "name": "Deadmau5",
+    "count": 1,
+    "slug": "deadmau5"
+  },
+  {
+    "name": "Diplo",
+    "count": 1,
+    "slug": "diplo"
+  },
+  {
+    "name": "Dragonette",
+    "count": 1,
+    "slug": "dragonette"
+  },
+  {
+    "name": "Erik Paul",
+    "count": 1,
+    "slug": "erik-paul"
+  },
+  {
+    "name": "Fabolous",
+    "count": 1,
+    "slug": "fabolous"
+  },
+  {
+    "name": "Fam Famous",
+    "count": 1,
+    "slug": "fam-famous"
+  },
+  {
+    "name": "Fashawn",
+    "count": 1,
+    "slug": "fashawn"
+  },
+  {
+    "name": "Gorilla Warfare Tactics",
+    "count": 1,
+    "slug": "gorilla-warfare-tactics"
+  },
+  {
+    "name": "Gucci Mane",
+    "count": 1,
+    "slug": "gucci-mane"
+  },
+  {
+    "name": "Hi-Rez",
+    "count": 1,
+    "slug": "hi-rez"
+  },
+  {
+    "name": "Jay-Z",
+    "count": 1,
+    "slug": "jay-z"
+  },
+  {
+    "name": "La Roux",
+    "count": 1,
+    "slug": "la-roux"
+  },
+  {
+    "name": "Lana Del Rey",
+    "count": 1,
+    "slug": "lana-del-rey"
+  },
+  {
+    "name": "Lloyd Banks",
+    "count": 1,
+    "slug": "lloyd-banks"
+  },
+  {
+    "name": "Lykke Li",
+    "count": 1,
+    "slug": "lykke-li"
+  },
+  {
+    "name": "Martin Solveig",
+    "count": 1,
+    "slug": "martin-solveig"
+  },
+  {
+    "name": "Meg and Dia",
+    "count": 1,
+    "slug": "meg-and-dia"
+  },
+  {
+    "name": "Mr Hudson",
+    "count": 1,
+    "slug": "mr-hudson"
+  },
+  {
+    "name": "Norwegian Recycling",
+    "count": 1,
+    "slug": "norwegian-recycling"
+  },
+  {
+    "name": "Omar Linx",
+    "count": 1,
+    "slug": "omar-linx"
+  },
+  {
+    "name": "Omen",
+    "count": 1,
+    "slug": "omen"
+  },
+  {
+    "name": "Pharrell Williams",
+    "count": 1,
+    "slug": "pharrell-williams"
+  },
+  {
+    "name": "Rick Ross",
+    "count": 1,
+    "slug": "rick-ross"
+  },
+  {
+    "name": "T.I.",
+    "count": 1,
+    "slug": "t.i."
+  },
+  {
+    "name": "Tevon Rease",
+    "count": 1,
+    "slug": "tevon-rease"
+  },
+  {
+    "name": "The Dean's List",
+    "count": 1,
+    "slug": "the-dean's-list"
+  },
+  {
+    "name": "The Decemberists",
+    "count": 1,
+    "slug": "the-decemberists"
+  },
+  {
+    "name": "The Glitch Mob",
+    "count": 1,
+    "slug": "the-glitch-mob"
+  },
+  {
+    "name": "Yeasayer",
+    "count": 1,
+    "slug": "yeasayer"
+  },
+  {
+    "name": "Yelawolf",
+    "count": 1,
+    "slug": "yelawolf"
+  },
+  {
+    "name": "Zeds Dead",
+    "count": 1,
+    "slug": "zeds-dead"
+  }
+]

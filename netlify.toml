@@ -1,5 +1,7 @@
+# Production publish path must be the Next.js static export (true-black App Router site).
+# Do NOT publish the legacy Python/vintage.css `dist` — that build floods yellow accents.
 [build]
-  command = "pip install -r requirements.txt && python scripts/build.py"
-  publish = "dist"
+  command = "npm ci && npm run build"
+  publish = "Out"
 [build.environment]
-  PYTHON_VERSION = "3.12"
+  NODE_VERSION = "20"

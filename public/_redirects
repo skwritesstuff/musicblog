@@ -1,0 +1,13 @@
+# Cloudflare Pages — pretty URL fallbacks for static HTML export
+/story /story/ 308
+/archive /archive/ 308
+/artists /artists/ 308
+/vault /vault/ 308
+/media /vault/ 308
+/gallery /vault/ 308
+/story.html /story/ 308
+/archive.html /archive/ 308
+/artists.html /artists/ 308
+/vault.html /vault/ 308
+/media.html /vault/ 308
+/gallery.html /vault/ 308
