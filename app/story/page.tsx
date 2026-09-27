@@ -128,22 +128,74 @@ export default function StoryPage() {
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
-            <p className="mb-4">
+            <p className="mb-6">
               The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. In
               the spring of 2010, Seamus and Myles partnered with Cleveland promotion crew <em>The Coventry Kids</em> to
               book an 18-year-old Pittsburgh prodigy named <strong className="text-text-primary">Mac Miller</strong> at{' '}
               <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights — Mac&apos;s first
               out-of-town headline show.
             </p>
-            <blockquote className="border-l-4 border-white/40 bg-card rounded-r-xl px-5 py-4 mb-4">
-              <p className="italic text-text-primary mb-2">
-                &ldquo;Cleveland, a little fun fact for you: actually the first out-of-town headlining show I ever did
-                was at the Grog Shop.&rdquo;
-              </p>
-              <footer className="font-mono text-xs text-text-primary">
-                — Mac Miller on <em>The Arroyo Show</em> (House of Blues Cleveland, Oct 10, 2011)
-              </footer>
-            </blockquote>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+              <blockquote className="rounded-2xl border border-[#1a1a1a] border-l-4 border-l-white/50 bg-[#080808] px-5 py-5 flex flex-col justify-center">
+                <p className="italic text-white text-base sm:text-lg leading-relaxed mb-3">
+                  &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
+                  was at the Grog Shop.&rdquo;
+                </p>
+                <footer className="font-mono text-xs text-[#94a3b8]">
+                  — Mac Miller on <em className="text-white">The Arroyo Show</em> (House of Blues Cleveland, Oct 10,
+                  2011)
+                </footer>
+              </blockquote>
+
+              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#080808] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+                  <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
+                    IMMUTABLE DIGITAL RECORD // @MACMILLER ARCHIVE
+                  </p>
+                  <a
+                    href="https://www.youtube.com/watch?v=5nHcZ6xBzJ8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1.5 inline-block font-heading text-sm font-bold text-white hover:underline underline-offset-4"
+                  >
+                    Mac Miller Live at The Grog Shop ↗
+                  </a>
+                </div>
+                <div className="relative w-full aspect-video bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/5nHcZ6xBzJ8?rel=0&modestbranding=1"
+                    title="Mac Miller Live at The Grog Shop — official @macmiller channel"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="px-4 py-4">
+                  <p className="text-sm text-[#94a3b8] leading-relaxed">
+                    On May 8, 2010, an 18-year-old Mac Miller drove out from Pittsburgh to play his maiden out-of-town
+                    headlining concert at The Grog Shop in Cleveland Heights. Documenting that night is a 1-minute live
+                    clip uploaded directly to Mac&apos;s official verified YouTube channel (@macmiller) in 2010.
+                  </p>
+                  <p className="mt-3 text-sm text-[#94a3b8] leading-relaxed">
+                    Today, across a channel with over 5.04 million subscribers and hundreds of videos spanning a global
+                    legacy,{' '}
+                    <a
+                      href="https://www.youtube.com/watch?v=5nHcZ6xBzJ8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white font-semibold hover:underline underline-offset-2"
+                    >
+                      Mac Miller Live at The Grog Shop
+                    </a>{' '}
+                    stands as one of the single oldest surviving uploads on his entire account—an immutable historical
+                    record of his first show outside Pittsburgh.
+                  </p>
+                </div>
+              </aside>
+            </div>
+
             <p>
               Just weeks earlier, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
               a now-legendary parking lot interview on an iPhone in the Saint Ignatius High School lot with a 19-year-old{' '}
