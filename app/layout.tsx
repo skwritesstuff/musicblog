@@ -24,7 +24,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${ibmPlexSans.variable}`} data-theme="dark" suppressHydrationWarning>
-      <body className="bg-bg text-text-primary antialiased min-h-screen">{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{localStorage.setItem('vintage-archive-theme','dark');document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.backgroundColor='#000000';}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className="bg-[#000000] text-white antialiased min-h-screen">{children}</body>
     </html>
   );
 }

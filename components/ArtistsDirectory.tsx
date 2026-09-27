@@ -15,10 +15,9 @@ export default function ArtistsDirectory({ artists }: { artists: ArtistRecord[] 
 
   return (
     <div>
-      <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 mb-8 flex items-start gap-3">
-        <span className="text-lg">⚠️</span>
-        <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-          <strong className="text-text-primary font-heading block mb-0.5">CRITICAL ARCHIVAL NOTICE</strong>
+      <div className="rounded-xl bg-[#000000] border border-[#1a1a1a] p-4 mb-8">
+        <div className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
+          <strong className="text-white font-heading block mb-0.5">CRITICAL ARCHIVAL NOTICE</strong>
           DO NOT INFER COVERAGE FROM POST COUNTS. During active years, the site published multiple times daily across
           thousands of artists. Post counts reflect only what was captured in fragmented Wayback Machine crawl passes.
         </div>

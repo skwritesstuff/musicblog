@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import LogoTheMuSiKBox from '@/components/LogoTheMuSiKBox';
 import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
-import ThemeToggle from '@/components/ThemeToggle';
 import AboutCredits from '@/components/AboutCredits';
 
 const NAV = [
@@ -52,10 +51,9 @@ export default function SiteHeader({
             <div className="hidden sm:block">
               <AboutCredits />
             </div>
-            <ThemeToggle />
             <button
               type="button"
-              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#222222] text-white bg-black"
+              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#1a1a1a] text-white bg-[#000000]"
               aria-label="Open menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}

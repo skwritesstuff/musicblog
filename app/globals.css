@@ -2,79 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Archive chrome is locked to True Black.
+  Theme toggle aliases all map to the same palette so Light/Tape/Neon
+  cannot introduce navy, cream, or gold flood.
+*/
 :root,
-[data-theme="dark"] {
+[data-theme='dark'],
+[data-theme='light'],
+[data-theme='sepia'],
+[data-theme='neon'] {
   --bg: #000000;
-  --card: #080808;
-  --card-elevated: #0d0d0d;
+  --card: #000000;
+  --card-elevated: #000000;
   --text: #ffffff;
   --text-muted: #94a3b8;
   --text-dark: #64748b;
-  --accent: #f7f308;
+  --accent: #ffffff;
   --app-accent: #94a3b8;
   --border-line: #1a1a1a;
   --header-bg: #000000;
   --player-bg: #000000;
-  --notice-bg: #0d0d0d;
+  --notice-bg: #000000;
+  color-scheme: dark;
 }
 
-[data-theme="light"] {
-  --bg: #f7f5ef;
-  --card: #ffffff;
-  --card-elevated: #f0eee6;
-  --text: #111111;
-  --text-muted: #4a4a4a;
-  --text-dark: #6b6b6b;
-  --accent: #f7f308;
-  --app-accent: #0e7c8a;
-  --border-line: rgba(0, 0, 0, 0.14);
-  --header-bg: #ffffff;
-  --player-bg: #111111;
-  --notice-bg: #f3f3f0;
-}
-
-[data-theme="sepia"] {
-  --bg: #1a1610;
-  --card: #221c14;
-  --card-elevated: #2a2319;
-  --text: #f3e6c8;
-  --text-muted: #cbb892;
-  --text-dark: #9a8760;
-  --accent: #f7f308;
-  --app-accent: #d4a017;
-  --border-line: rgba(243, 230, 200, 0.16);
-  --header-bg: #1a1610;
-  --player-bg: #120e0a;
-  --notice-bg: #2a1f12;
-}
-
-/* Neon keeps intentional club navy — do not flatten to pure black */
-[data-theme="neon"] {
-  --bg: #0b0e14;
-  --card: #121826;
-  --card-elevated: #18202c;
-  --text: #e8f7ff;
-  --text-muted: #9eb6d0;
-  --text-dark: #6f879f;
-  --accent: #f7f308;
-  --app-accent: #00f0ff;
-  --border-line: rgba(0, 240, 255, 0.22);
-  --header-bg: #0b0e14;
-  --player-bg: #0b0e14;
-  --notice-bg: #18202c;
-}
-
+html,
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: #000000 !important;
+  color: #ffffff;
 }
 
-.theme-icon-glyph {
-  color: var(--text-muted);
-  font-style: normal;
-}
-
-/* Yellow is reserved strictly for the ★ on "The Story" nav label */
+/* Sole allowed yellow in the entire Next app — nav ★ only */
 .yellow-star {
-  color: #f7f308;
+  color: #f7f308 !important;
 }
