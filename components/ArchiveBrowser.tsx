@@ -79,7 +79,7 @@ export default function ArchiveBrowser({ posts }: { posts: ArchivePost[] }) {
 
   return (
     <div>
-      <div className="rounded-xl bg-[#000000] border border-[#1a1a1a] p-4 mb-8 flex items-start gap-3">
+      <div className="rounded-xl bg-[#000000] border border-[#1e2530] p-4 mb-8 flex items-start gap-3">
         <div className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
           <strong className="text-white font-heading block mb-0.5">Incomplete Salvage</strong>
           Thousands of daily tracks were published between 2009–2012; these 360 posts represent only what survived

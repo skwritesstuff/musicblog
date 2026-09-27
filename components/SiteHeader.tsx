@@ -23,7 +23,7 @@ export default function SiteHeader({
   const current = active === 'media' ? 'vault' : active;
 
   return (
-    <header className="border-b border-[#1a1a1a] bg-black sticky top-0 z-40">
+    <header className="border-b border-[#1e2530] bg-black sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 bg-black">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
@@ -53,7 +53,7 @@ export default function SiteHeader({
             </div>
             <button
               type="button"
-              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#1a1a1a] text-white bg-[#000000]"
+              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#1e2530] text-white bg-[#000000]"
               aria-label="Open menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -63,7 +63,7 @@ export default function SiteHeader({
           </div>
         </div>
 
-        <nav className="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-1 pt-3 mt-3 border-t border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
+        <nav className="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-1 pt-3 mt-3 border-t border-[#1e2530] text-sm font-heading font-medium text-[#94a3b8]">
           {NAV.map((item) => {
             const isActive = current === item.match;
             return (
@@ -89,8 +89,8 @@ export default function SiteHeader({
       </div>
 
       {open && (
-        <div className="sm:hidden border-t border-[#1a1a1a] bg-black px-4 py-3 space-y-1">
-          <div className="pb-3 border-b border-[#1a1a1a] mb-2 bg-black">
+        <div className="sm:hidden border-t border-[#1e2530] bg-black px-4 py-3 space-y-1">
+          <div className="pb-3 border-b border-[#1e2530] mb-2 bg-black">
             <LogoInAudioWeTrust className="h-5 w-auto" />
           </div>
           {NAV.map((item) => (
@@ -114,7 +114,7 @@ export default function SiteHeader({
               )}
             </Link>
           ))}
-          <div className="pt-2 border-t border-[#1a1a1a]">
+          <div className="pt-2 border-t border-[#1e2530]">
             <AboutCredits />
           </div>
         </div>

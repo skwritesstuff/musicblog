@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 export default function ArtistsPage() {
   return (
     <SiteShell active="artists">
+      <div id="artists">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
         <p className="text-sm text-text-dark mb-6">
           <Link href="/" className="hover:text-text-primary">
@@ -28,6 +29,7 @@ export default function ArtistsPage() {
         </p>
         <ArtistsDirectory artists={artists as ArtistRecord[]} />
       </div>
+    </div>
     </SiteShell>
   );
 }

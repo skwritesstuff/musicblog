@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 /*
-  Archive chrome is locked to True Black.
-  Theme toggle aliases all map to the same palette so Light/Tape/Neon
-  cannot introduce navy, cream, or gold flood.
+  Strict palette (98% of the site):
+  - Background: #000000 True Black
+  - Primary text: #ffffff
+  - Muted text: #94a3b8 / #64748b
+  - Borders: #1e2530 / #222c3d
+
+  Yellow #f7f308 ONLY on:
+  - nav ★ The Story (.yellow-star)
+  - tiny audio-player active indicator (.player-active-dot)
 */
 :root,
 [data-theme='dark'],
@@ -20,11 +26,15 @@
   --text-dark: #64748b;
   --accent: #ffffff;
   --app-accent: #94a3b8;
-  --border-line: #1a1a1a;
+  --border-line: #1e2530;
   --header-bg: #000000;
   --player-bg: #000000;
   --notice-bg: #000000;
   color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -33,7 +43,10 @@ body {
   color: #ffffff;
 }
 
-/* Sole allowed yellow in the entire Next app — nav ★ only */
 .yellow-star {
   color: #f7f308 !important;
+}
+
+.player-active-dot {
+  background-color: #f7f308 !important;
 }

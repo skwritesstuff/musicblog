@@ -18,7 +18,8 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 export const metadata: Metadata = {
   title: 'The MuSiK Box & In Audio We Trust (2009–2012) • shameis.com',
-  description: 'Vintage blog-era archive of The MuSiK Box and In Audio We Trust (2009–2012).',
+  description:
+    'A salvaged archive of The MuSiK Box and In Audio We Trust (2009–2012) — partial digital rescue of 360 preserved posts from a bygone era of internet music discovery.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

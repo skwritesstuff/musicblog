@@ -20,6 +20,7 @@ const CHAPTERS = [
 export default function StoryPage() {
   return (
     <SiteShell active="story">
+      <div id="story">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
         <p className="text-sm text-text-dark mb-8">
           <Link href="/" className="hover:text-text-primary">
@@ -53,7 +54,7 @@ export default function StoryPage() {
 
         <nav className="rounded-2xl border border-border-line bg-card p-5 sm:p-6 mb-12">
           <h2 className="font-mono text-xs uppercase tracking-widest text-text-dark mb-4">
-            Anthology Table of Contents
+            Table of Contents
           </h2>
           <div className="grid sm:grid-cols-2 gap-3 text-sm">
             {CHAPTERS.map((c) => (
@@ -137,8 +138,8 @@ export default function StoryPage() {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#080808] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+              <aside className="rounded-2xl border border-[#1e2530] bg-[#080808] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     PRIMARY SOURCE // THE ARROYO SHOW
                   </p>
@@ -157,7 +158,7 @@ export default function StoryPage() {
                     <source src="/media/mac-miller-arroyo-grog-shop-citation.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <blockquote className="px-4 py-4 border-t border-[#1a1a1a] border-l-0">
+                <blockquote className="px-4 py-4 border-t border-[#1e2530] border-l-0">
                   <p className="italic text-white text-sm sm:text-base leading-relaxed mb-2">
                     &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
                     was at the Grog Shop.&rdquo;
@@ -168,8 +169,8 @@ export default function StoryPage() {
                 </blockquote>
               </aside>
 
-              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#080808] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+              <aside className="rounded-2xl border border-[#1e2530] bg-[#080808] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     IMMUTABLE DIGITAL RECORD // @MACMILLER ARCHIVE
                   </p>
@@ -346,6 +347,7 @@ export default function StoryPage() {
           </section>
         </article>
       </div>
+    </div>
     </SiteShell>
   );
 }
