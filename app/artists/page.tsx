@@ -23,8 +23,8 @@ export default function ArtistsPage() {
         </p>
         <h1 className="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">Artists Directory</h1>
         <p className="text-text-muted max-w-3xl mb-8 leading-relaxed">
-          Major figures from the MuSiK Box / IAWT era with salvaged post counts. Select an artist to jump into the
-          chronological archive filtered to their recovered coverage.
+          Directory of 76 major figures from the MuSiK Box / IAWT era with salvaged post counts. Select an artist to
+          jump into the chronological archive filtered to their recovered coverage.
         </p>
         <ArtistsDirectory artists={artists as ArtistRecord[]} />
       </div>
