@@ -61,7 +61,7 @@ export default function MediaVault({
         <div className="flex flex-wrap items-end justify-between gap-3 mb-6">
           <div>
             <h2 className="font-heading text-2xl font-extrabold text-text-primary">
-              ★ Recovered Cover Art & Photography
+              Recovered Cover Art & Photography
             </h2>
             <p className="text-sm text-text-muted mt-1">
               Click any asset for lightbox preview and View Full High-Res.
@@ -91,7 +91,7 @@ export default function MediaVault({
                   className="max-h-full max-w-full object-contain"
                 />
                 <span className="absolute top-2 right-2 rounded bg-white px-2 py-0.5 text-[10px] font-heading font-extrabold uppercase tracking-wide text-black">
-                  ★ Preserved
+                  Preserved
                 </span>
               </button>
               <p className="font-mono text-[10px] uppercase tracking-wider text-text-primary mb-1">{item.badge}</p>
@@ -237,7 +237,7 @@ export default function MediaVault({
                           : 'border-border-line text-text-dark'
                       }`}
                     >
-                      {row.status === 'preserved' ? '★ Preserved' : 'Uncached'}
+                      {row.status === 'preserved' ? 'Preserved' : 'Uncached'}
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right whitespace-nowrap">

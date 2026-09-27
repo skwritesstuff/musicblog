@@ -31,7 +31,7 @@ export default function StoryPage() {
 
         <div className="text-center mb-12 pb-10 border-b border-border-line">
           <div className="inline-flex items-center gap-2 rounded-full border border-border-line bg-card px-4 py-1.5 font-mono text-xs text-text-primary mb-5">
-            ★ HISTORICAL RETROSPECTIVE • 2009–2012
+            HISTORICAL RETROSPECTIVE • 2009–2012
           </div>
           <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
             The Story of The MuSiK Box & In Audio We Trust
@@ -138,7 +138,7 @@ export default function StoryPage() {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <aside className="rounded-2xl border border-[#1e2530] bg-[#080808] overflow-hidden flex flex-col">
+              <aside className="rounded-2xl border border-[#1e2530] bg-[#000000] overflow-hidden flex flex-col">
                 <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     PRIMARY SOURCE // THE ARROYO SHOW
@@ -169,7 +169,7 @@ export default function StoryPage() {
                 </blockquote>
               </aside>
 
-              <aside className="rounded-2xl border border-[#1e2530] bg-[#080808] overflow-hidden flex flex-col">
+              <aside className="rounded-2xl border border-[#1e2530] bg-[#000000] overflow-hidden flex flex-col">
                 <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     IMMUTABLE DIGITAL RECORD // @MACMILLER ARCHIVE

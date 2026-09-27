@@ -3,16 +3,24 @@
   "title": "In Audio We Trust",
   "utilityLinks": [
     {
-      "label": "• about",
-      "href": "/story.html"
+      "label": "Home",
+      "href": "/"
     },
     {
-      "label": "• iawt records",
-      "href": "/story.html#iawt-records"
+      "label": "The Story",
+      "href": "/story/"
     },
     {
-      "label": "• Contact Us",
-      "href": "/contact.html"
+      "label": "Master Archive",
+      "href": "/archive/"
+    },
+    {
+      "label": "Artists",
+      "href": "/artists/"
+    },
+    {
+      "label": "Artwork Vault",
+      "href": "/vault/"
     }
   ],
   "socialLinks": [
@@ -91,7 +99,7 @@
   "storyBlurb": "The story of The MuSiK Box and In Audio We Trust, by Seamus Kelleher and Myles Snider.",
   "contactBlurb": "For the people behind In Audio We Trust, see The Story.",
   "searchBlurb": "Search the posts by artist, title, or category.",
-  "footerText": "In Audio We Trust · The MuSiK Box · 2009–2012",
+  "footerText": "Founded & Curated by Seamus Kelleher & Myles Snider • Written with Matt, Ben, Helen, Pilo, Lesia, Tricia, Heather, and other contributors we're surely forgetting (please reach out for proper attribution!).",
   "archiveNotice": "360 recovered posts from The MuSiK Box and In Audio We Trust. Original publication: August 2009–January 2012. Some media and articles survive only in part. Source preservation: Internet Archive.",
   "storyLabel": "The Story",
   "allPostsLabel": "All posts",

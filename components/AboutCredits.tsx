@@ -86,7 +86,7 @@ export default function AboutCredits() {
               </div>
             </dl>
 
-            <div className="mt-5 rounded-xl border border-border-line bg-[#0a0a0a] p-4 border-l-4 border-l-white/40">
+            <div className="mt-5 rounded-xl border border-[#1e2530] bg-[#000000] p-4 border-l-4 border-l-white/40">
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">{COLOPHON_STAFF_NOTE}</p>
             </div>
 

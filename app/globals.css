@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 /*
-  Strict palette (98% of the site):
-  - Background: #000000 True Black
-  - Primary text: #ffffff
-  - Muted text: #94a3b8 / #64748b
+  Strict Minimal Yellow + True Black (dedicated-routes prompt):
+  - Background: #000000
+  - Text: #ffffff / #94a3b8 / #64748b
   - Borders: #1e2530 / #222c3d
-
-  Yellow #f7f308 ONLY on:
-  - nav ★ The Story (.yellow-star)
-  - tiny audio-player active indicator (.player-active-dot)
+  - Yellow #f7f308 ONLY on the single ★ in nav "★ The Story"
+    (not IAWT Records, not titles, not buttons, not player chrome)
 */
 :root,
 [data-theme='dark'],
@@ -45,8 +42,4 @@ body {
 
 .yellow-star {
   color: #f7f308 !important;
-}
-
-.player-active-dot {
-  background-color: #f7f308 !important;
 }

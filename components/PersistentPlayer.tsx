@@ -84,7 +84,7 @@ export default function PersistentPlayer() {
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <span
-                className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'player-active-dot' : 'bg-[#64748b]'}`}
+                className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'bg-white' : 'bg-[#64748b]'}`}
                 aria-hidden
               />
               <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#94a3b8] truncate">

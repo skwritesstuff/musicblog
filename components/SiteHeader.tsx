@@ -23,8 +23,8 @@ export default function SiteHeader({
   const current = active === 'media' ? 'vault' : active;
 
   return (
-    <header className="border-b border-[#1e2530] bg-black sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 bg-black">
+    <header className="border-b border-[#1e2530] bg-[#000000] sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 bg-[#000000]">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
             <a
@@ -89,8 +89,8 @@ export default function SiteHeader({
       </div>
 
       {open && (
-        <div className="sm:hidden border-t border-[#1e2530] bg-black px-4 py-3 space-y-1">
-          <div className="pb-3 border-b border-[#1e2530] mb-2 bg-black">
+        <div className="sm:hidden border-t border-[#1e2530] bg-[#000000] px-4 py-3 space-y-1">
+          <div className="pb-3 border-b border-[#1e2530] mb-2 bg-[#000000]">
             <LogoInAudioWeTrust className="h-5 w-auto" />
           </div>
           {NAV.map((item) => (
