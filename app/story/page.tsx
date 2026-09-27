@@ -76,15 +76,15 @@ export default function StoryPage() {
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The High School Genesis & The &apos;MSK&apos; Code
             </h2>
-            <figure className="mb-6 rounded-2xl border border-border-line bg-black p-4 sm:p-6">
+            <figure className="mb-6 bg-[#000000] p-4 sm:p-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/recovered_media/The_MuSiK_Box_Original_Logo_2010.png"
-                alt="The MuSiK Box 2010 cassette logo"
-                className="mx-auto max-h-40 w-auto object-contain"
+                src="/images/the-musik-box-banner.png"
+                alt="The MuSiK Box turntable banner"
+                className="mx-auto max-h-40 w-auto object-contain bg-transparent"
               />
-              <figcaption className="mt-3 text-center font-mono text-[11px] text-text-dark">
-                The MuSiK Box cassette mark · recovered March 2010 WordPress upload
+              <figcaption className="mt-3 text-center font-mono text-[11px] text-[#94a3b8]">
+                The MuSiK Box turntable banner · authentic transparent mark on true black
               </figcaption>
             </figure>
             <p className="mb-4">
@@ -111,17 +111,6 @@ export default function StoryPage() {
               &ldquo;We Skip Study Hall For This...&rdquo;
               <footer className="mt-2 not-italic font-mono text-xs text-text-primary">— Motto of The MuSiK Box</footer>
             </blockquote>
-            <figure className="mt-6 rounded-2xl border border-border-line bg-black p-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/recovered_media/media-007_Musikbox%20Logo1.Png"
-                alt="The MuSiK Box turntable and speaker mark"
-                className="mx-auto max-h-28 w-auto object-contain"
-              />
-              <figcaption className="mt-3 text-center font-mono text-[11px] text-text-dark">
-                Early turntable & speaker identity mark · 2009–2010
-              </figcaption>
-            </figure>
           </section>
 
           <section id="grog-shop">
