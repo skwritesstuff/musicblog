@@ -2,15 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #0f1115;
-  --card: #171a21;
+:root,
+[data-theme="dark"] {
+  --bg: #000000;
+  --card: #000000;
+  --card-elevated: #0a0a0a;
   --text: #fffaf0;
-  --accent: #FFCC00;
+  --text-muted: #d6dbe5;
+  --text-dark: #8892b0;
+  --accent: #f7f308;
   --app-accent: #2eb8c8;
+  --border-line: rgba(255, 255, 255, 0.18);
+  --header-bg: #000000;
+  --player-bg: #000000;
+  --notice-bg: #18130e;
+}
+
+[data-theme="light"] {
+  --bg: #f7f5ef;
+  --card: #ffffff;
+  --card-elevated: #f0eee6;
+  --text: #111111;
+  --text-muted: #4a4a4a;
+  --text-dark: #6b6b6b;
+  --accent: #f7f308;
+  --app-accent: #0e7c8a;
+  --border-line: rgba(0, 0, 0, 0.14);
+  --header-bg: #ffffff;
+  --player-bg: #111111;
+  --notice-bg: #fff8e6;
+}
+
+[data-theme="sepia"] {
+  --bg: #1a1610;
+  --card: #221c14;
+  --card-elevated: #2a2319;
+  --text: #f3e6c8;
+  --text-muted: #cbb892;
+  --text-dark: #9a8760;
+  --accent: #f7f308;
+  --app-accent: #d4a017;
+  --border-line: rgba(243, 230, 200, 0.16);
+  --header-bg: #1a1610;
+  --player-bg: #120e0a;
+  --notice-bg: #2a1f12;
+}
+
+/* Neon keeps intentional club navy — do not flatten to pure black */
+[data-theme="neon"] {
+  --bg: #0b0e14;
+  --card: #121826;
+  --card-elevated: #18202c;
+  --text: #e8f7ff;
+  --text-muted: #9eb6d0;
+  --text-dark: #6f879f;
+  --accent: #f7f308;
+  --app-accent: #00f0ff;
+  --border-line: rgba(0, 240, 255, 0.22);
+  --header-bg: #0b0e14;
+  --player-bg: #0b0e14;
+  --notice-bg: #18202c;
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
+}
+
+.theme-icon-glyph {
+  color: var(--accent);
+  font-style: normal;
 }

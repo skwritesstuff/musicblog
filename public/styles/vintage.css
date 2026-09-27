@@ -1,7 +1,7 @@
 /* ==========================================================================
    VINTAGE 2009–2012 MUSIC BLOG DESIGN SYSTEM
    The MuSiK Box & In Audio We Trust Digital Preservation
-   Palette: 1 #000000 · 2 #ffffff · 3 #e32507 vermilion · 4 #FFCC00 yellow (sparse)
+   Palette: 1 #000000 · 2 #ffffff · 3 #e32507 vermilion · 4 #f7f308 yellow (sparse)
    ========================================================================== */
 
 html {
@@ -30,7 +30,7 @@ html {
   --accent-cyan: #e32507;
   --accent-lime: #e32507;
   --accent-purple: #e32507;
-  --accent-yellow: #FFCC00;
+  --accent-yellow: #f7f308;
 
   --brand-musikbox: #e32507;
   --brand-inaudio: #000000;
@@ -163,8 +163,8 @@ html {
 [data-theme="dark"] {
   --bg-primary: #000000;
   --bg-secondary: #000000;
-  --bg-card: #0a0a0a;
-  --bg-card-hover: #141414;
+  --bg-card: #000000;
+  --bg-card-hover: #0a0a0a;
   --border-color: #2a2a2a;
   --border-glow: rgba(227, 37, 7, 0.35);
 
@@ -177,7 +177,7 @@ html {
   --accent-cyan: #e32507;
   --accent-lime: #e32507;
   --accent-purple: #e32507;
-  --accent-yellow: #FFCC00;
+  --accent-yellow: #f7f308;
 
   --brand-musikbox: #e32507;
   --brand-inaudio: #ffffff;
@@ -200,7 +200,7 @@ html {
 }
 
 [data-theme="dark"] .hero-box {
-  background: #0a0a0a;
+  background: #000000;
 }
 
 [data-theme="dark"] .brand-title img {
@@ -225,7 +225,7 @@ html {
   --accent-cyan: #2dd4bf;
   --accent-lime: #a3e635;
   --accent-purple: #c084fc;
-  --accent-yellow: #FFCC00;
+  --accent-yellow: #f7f308;
   
   --brand-musikbox: #f59e0b;
   --brand-inaudio: #2dd4bf;
@@ -268,7 +268,7 @@ html {
   --accent-cyan: #00f0ff;
   --accent-lime: #00ff66;
   --accent-purple: #bd00ff;
-  --accent-yellow: #FFCC00;
+  --accent-yellow: #f7f308;
   
   --brand-musikbox: #ff007f;
   --brand-inaudio: #00f0ff;
@@ -456,7 +456,7 @@ a:hover {
    Stack: black header chrome → white dual-era banner → black menu */
 .dual-brand-header {
   background: #000000 !important;
-  border-bottom: 1px solid #262626;
+  border-bottom: 1px solid #000000;
   padding: 1.25rem 0 0.85rem !important;
 }
 
@@ -594,7 +594,7 @@ a:hover {
 }
 
 .dual-brand-nav .nav-story {
-  color: #FFCC00 !important;
+  color: #f7f308 !important;
   font-weight: 700;
 }
 
@@ -608,6 +608,11 @@ a:hover {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
+}
+
+.dual-brand-nav .theme-toggle-btn #theme-icon,
+.theme-toggle-btn #theme-icon {
+  color: var(--accent-yellow);
 }
 
 @media (max-width: 720px) {
@@ -741,6 +746,24 @@ a:hover {
   padding: 0.6rem 0;
   font-family: var(--font-mono);
   font-size: 0.78rem;
+  background: #000000;
+}
+
+/* Kill leftover navy chrome on radio controls (was #0b0e14 / #18202c) */
+.vintage-player-bar #radio-prev-btn,
+.vintage-player-bar #radio-next-btn,
+.vintage-player-bar #radio-track-select,
+.vintage-player-bar #radio-track-select:focus {
+  background: #000000 !important;
+}
+
+.vintage-player-bar #radio-track-select {
+  color: #f7f308 !important;
+}
+
+.vintage-player-bar .player-inner > div:has(#radio-track-select),
+.vintage-player-bar div:has(> #radio-track-select) {
+  background: #000000 !important;
 }
 
 .player-inner {

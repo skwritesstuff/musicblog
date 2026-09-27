@@ -154,7 +154,7 @@ export default function CuratedFeed() {
           >
             {/* Card Meta */}
             <div className="flex justify-between items-center mb-4 gap-3">
-              <span className="font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#11141c] border border-red-600/40 text-red-600">
+              <span className="font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-black border border-red-600/40 text-red-600">
                 {post.category}
               </span>
               <span className="text-xs text-text-dark font-medium text-right shrink-0">

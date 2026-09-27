@@ -8,16 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0f1115",
-        card: "#171a21",
-        "card-elevated": "#1f2430",
-        "border-line": "rgba(255, 255, 255, 0.18)",
-        "text-primary": "#fffaf0",
-        "text-muted": "#d6dbe5",
-        "text-dark": "#8892b0",
-        accent: "#FFCC00",
-        "app-accent": "#2eb8c8",
+        bg: "var(--bg)",
+        card: "var(--card)",
+        "card-elevated": "var(--card-elevated)",
+        "border-line": "var(--border-line)",
+        "text-primary": "var(--text)",
+        "text-muted": "var(--text-muted)",
+        "text-dark": "var(--text-dark)",
+        accent: "var(--accent)",
+        "app-accent": "var(--app-accent)",
         "app-accent-text": "#4bdceb",
+        "header-bg": "var(--header-bg)",
+        "player-bg": "var(--player-bg)",
+        "notice-bg": "var(--notice-bg)",
       },
       fontFamily: {
         heading: ["var(--font-poppins)", "sans-serif"],
