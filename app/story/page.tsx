@@ -208,17 +208,23 @@ export default function StoryPage() {
               Jefferson in DJ headphones emblem that became the brand&apos;s signature seal.
             </p>
             <p className="mb-4">
-              To keep up with the unrelenting volume of PR submissions and exclusive premieres, Seamus and Myles
-              welcomed an expanding circle of contributing writers and staff —{' '}
-              <strong className="text-text-primary">{WRITERS_INLINE}</strong> — who helped review tracks, cover shows,
+              To keep up with the unrelenting volume of PR submissions and exclusive premieres, the blog&apos;s circle
+              grew the way so many 2009–2012 college-era sites did — friends pitching in between classes, guest writers
+              dropping album reviews, and late-night track tips landing in the inbox. Core contributors included{' '}
+              <strong className="text-text-primary">{WRITERS_INLINE}</strong>, who helped review tracks, cover shows,
               and manage the daily premiere queue.
             </p>
-            <div className="rounded-xl border border-border-line bg-card p-4">
+            <div className="rounded-xl border border-border-line bg-card p-4 mb-4">
               <p className="font-mono text-[11px] uppercase tracking-wider text-text-dark mb-2">
-                Contributing Writers & Staff
+                Confirmed Contributors & Writers
               </p>
-              <p className="text-sm text-text-primary font-heading font-semibold">
-                Matt · Ben · Mike · Pilo · Lesia · Tricia · Heather · Helen
+              <p className="text-sm text-text-primary font-heading font-semibold mb-2">
+                Matt · Ben · Helen · Pilo · Lesia · Tricia · Heather
+              </p>
+              <p className="text-xs text-text-dark leading-relaxed italic">
+                …and other contributors we&apos;re surely forgetting. If you wrote for us, sent in music, or helped run
+                the site during those years, please reach out so we can claim your byline and get your name properly
+                added to the record.
               </p>
             </div>
           </section>

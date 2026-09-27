@@ -1,7 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { CONTRIBUTING_WRITERS, FOUNDERS, SITE_ARCHITECT } from '@/src/data/credits';
+import {
+  COLOPHON_STAFF_NOTE,
+  CONTRIBUTING_WRITERS,
+  FOUNDERS,
+  OPEN_ATTRIBUTION_NOTE,
+  SITE_ARCHITECT,
+} from '@/src/data/credits';
 
 export default function AboutCredits() {
   const [open, setOpen] = useState(false);
@@ -57,7 +63,7 @@ export default function AboutCredits() {
             <dl className="space-y-4 text-sm">
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wider text-text-dark mb-1">
-                  Co-Founders & Curators
+                  Founders & Curators
                 </dt>
                 <dd className="text-text-primary font-heading font-bold">
                   {FOUNDERS[0]} & {FOUNDERS[1]}
@@ -71,9 +77,9 @@ export default function AboutCredits() {
               </div>
               <div>
                 <dt className="font-mono text-[11px] uppercase tracking-wider text-text-dark mb-2">
-                  Contributing Writers & Staff
+                  Confirmed Contributors & Writers
                 </dt>
-                <dd className="flex flex-wrap gap-2">
+                <dd className="flex flex-wrap gap-2 mb-2">
                   {CONTRIBUTING_WRITERS.map((name) => (
                     <span
                       key={name}
@@ -83,10 +89,15 @@ export default function AboutCredits() {
                     </span>
                   ))}
                 </dd>
+                <dd className="text-xs text-text-dark leading-relaxed italic">{OPEN_ATTRIBUTION_NOTE}</dd>
               </div>
             </dl>
 
-            <p className="mt-6 text-xs text-text-dark leading-relaxed border-t border-border-line pt-4">
+            <div className="mt-5 rounded-xl border border-accent/30 bg-notice-bg p-4 border-l-4 border-l-accent">
+              <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{COLOPHON_STAFF_NOTE}</p>
+            </div>
+
+            <p className="mt-5 text-xs text-text-dark leading-relaxed border-t border-border-line pt-4">
               Saint Ignatius High School · Cleveland, Ohio · The MuSiK Box (2009–2011) · In Audio We Trust (2011–2012)
             </p>
           </div>
