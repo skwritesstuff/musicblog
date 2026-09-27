@@ -2,11 +2,46 @@
 
 A Vintage digital-rescue archive with Decap CMS. This repository contains 360 recovered posts, original media, Story updates, editable site copy, and Decap CMS configuration.
 
-## Netlify deployment
+## Cloudflare Pages deployment (primary)
 
-Connect the existing shameis.com Netlify site to **skwritesstuff/musicblog**, production branch **main**. Use the repository root as the base directory. `netlify.toml` supplies the build command and `dist` publish directory. Deploying this repository does not itself change DNS.
+Production host: **Cloudflare Pages** project `shameis-musicblog`, connected to **skwritesstuff/musicblog**, production branch **main**.
 
-For a manual deployment, build locally and upload the contents of `dist` to Netlify. Manual uploads do not enable CMS Git commits.
+### Pages project settings
+
+| Setting | Value |
+|--------|--------|
+| Build command | `pip install -r requirements.txt && python scripts/build.py` |
+| Build output directory | `dist` |
+| Root directory | `/` (repo root) |
+| Environment variable | `PYTHON_VERSION` = `3.12` |
+
+`wrangler.toml` sets `pages_build_output_dir = "dist"`. Deploying the repo does not change DNS by itself.
+
+### Custom domain cutover (off Netlify)
+
+Do this in order:
+
+1. **Cloudflare Pages → Custom domains**  
+   Add `shameis.com` and `www.shameis.com` to the Pages project. Let Cloudflare create/suggest DNS records (usually a CNAME to `*.pages.dev`). Do **not** point the apex at Netlify’s `75.2.60.5`.
+
+2. **Switch nameservers at WordPress.com** (this is the step that actually leaves Netlify’s DNS path)  
+   - Cloudflare → **Overview** for `shameis.com` → copy the two Cloudflare nameservers (`*.ns.cloudflare.com`).  
+   - WordPress.com → **Domains** → `shameis.com` → **Name servers** → **Custom name servers**.  
+   - Remove `ns1/2/3.wordpress.com`. Paste the two Cloudflare nameservers. Save.  
+   - Wait until `dig +short shameis.com NS` shows Cloudflare, not WordPress.
+
+3. **Confirm the site is on Cloudflare**  
+   `curl -sI https://shameis.com` should show `server: cloudflare` (not `Netlify`).
+
+4. **Remove Netlify**  
+   In Netlify: delete custom domains for this site (or delete the site). Optional: delete `netlify.toml` after cutover is stable.
+
+### CMS note (`/admin`)
+
+`/admin` still uses **Netlify Identity + git-gateway**. That login will stop working once you fully leave Netlify. Editing content after cutover means either:
+
+- commit Markdown / `siteCopy.json` directly in GitHub, or  
+- migrate Decap to a GitHub backend (separate follow-up).
 
 ## Editing
 
@@ -18,12 +53,6 @@ For a manual deployment, build locally and upload the contents of `dist` to Netl
 - CMS: `public/admin/config.yml`.
 
 Post frontmatter includes `title`, `artist`, `date` (YYYY-MM-DD, or the recovered partial date), `category`, `audioUrl`, `artwork`, and optional `excerpt`. Do not change an existing post's `legacyPath`: it preserves its public URL. New posts can leave it blank. Media uploads go to `public/uploads`. Recovered post bodies use HTML-compatible Markdown to preserve embedded players and incomplete source markup faithfully. Some records contain only metadata; missing original commentary has not been invented.
-
-## Activate /admin
-
-After linking the repository and deploying, enable Netlify Identity and Git Gateway for the existing site, set registrations to invite-only, and invite the editor account. Open `https://shameis.com/admin/` and accept the invitation. CMS saves commit to `main`; the connected Netlify site must have automatic builds enabled. Authentication and production publishing must be tested on the actual Netlify site; local tests cannot establish those connections.
-
-Backend reference: https://decapcms.org/docs/git-gateway-backend/
 
 ## Build and check
 

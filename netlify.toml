@@ -1,3 +1,7 @@
+# Legacy Netlify config — site is moving to Cloudflare Pages.
+# Prefer wrangler.toml + Cloudflare Pages project settings.
+# Safe to delete after shameis.com nameservers point at Cloudflare
+# and Netlify custom domains are removed.
 [build]
   command = "pip install -r requirements.txt && python scripts/build.py"
   publish = "dist"
