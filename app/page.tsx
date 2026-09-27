@@ -6,42 +6,32 @@ import SiteShell from '@/components/SiteShell';
 import CuratedFeed from '@/components/CuratedFeed';
 
 const STATS = [
-  '360 Salvaged Posts',
-  '54 WordPress Media Uploads',
-  '4 Years Active (2009–2012)',
-  'Partial Wayback Rescue',
+  { value: '360', label: 'Salvaged Posts' },
+  { value: '54', label: 'Media Records' },
+  { value: '4 Years', label: '2009–2012 Active' },
+  { value: 'Partial', label: 'Wayback Rescue' },
 ];
 
 const PRESCIENT = [
   {
     artist: 'Kendrick Lamar',
     when: 'March 2011',
-    blurb: 'Pre-Section.80 documentary trailer coverage — months before the album that announced a generation.',
+    blurb: 'Pre-Section.80 documentary trailer',
   },
   {
     artist: 'Childish Gambino',
     when: 'Feb 2011',
-    blurb: 'Derrick Comedy / Community-era spotlight, long before Camp and the stadium years.',
+    blurb: 'Derrick Comedy era, pre-Camp',
   },
   {
     artist: 'The Weeknd',
     when: 'Sept 2011',
-    blurb: 'House of Balloons era coverage of “The Morning” while Abel Tesfaye was still anonymous.',
+    blurb: 'House of Balloons / “The Morning”',
   },
   {
     artist: 'Frank Ocean',
     when: 'May 2011',
-    blurb: '“Acura Integurl” feature more than a year before Channel Orange.',
-  },
-  {
-    artist: 'Mac Miller',
-    when: 'Spring 2010',
-    blurb: 'Co-promoting his first out-of-town headline show at The Grog Shop in Cleveland Heights.',
-  },
-  {
-    artist: 'Mike Posner',
-    when: 'Fall 2009',
-    blurb: 'Early Duke University dorm recordings, “Drug Dealer Girl,” and hosting Reflections of a Lost Teen.',
+    blurb: '“Acura Integurl”, pre-Channel Orange',
   },
 ];
 
@@ -49,37 +39,42 @@ export default function Home() {
   return (
     <SiteShell active="home">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
-        <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border-line relative overflow-hidden">
-          <span className="font-mono text-xs uppercase tracking-widest text-text-primary font-bold">
-            PARTIAL DIGITAL RESCUE (2009–2012)
-          </span>
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold text-text-primary tracking-tight mt-2 mb-4 uppercase">
-            Vintage Blog Era Digital Archive
-          </h1>
-          <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed mb-6">
-            A preserved digital retrospective of <em>The MuSiK Box</em> and <em>In Audio We Trust</em> (2009–2012),
-            chronicling early indie hip-hop, mixtape culture, blog-house, and early co-signs for future icons.
+        <div className="relative overflow-hidden rounded-2xl border border-[#1a1a1a] bg-[#080808] p-8 sm:p-10">
+          <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#94a3b8] font-bold">
+            PARTIAL DIGITAL RESCUE (2009–2012) • 360 RECOVERED OF THOUSANDS PUBLISHED
+          </p>
+          <p className="mt-3 font-heading text-sm sm:text-base font-semibold text-white">
+            Created & Curated by Seamus Kelleher & Myles Snider
+          </p>
+          <p className="mt-5 text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
+            A salvaged archive from a bygone era of internet music discovery—before discovery was automated by streaming
+            algorithms. Punching far above its weight and secretly run by high schoolers between classes, The MuSiK Box
+            and In Audio We Trust thrived precisely because the digital landscape was shifting so fast that no one held
+            an incumbent advantage.
           </p>
 
-          <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 flex items-start gap-3 mb-6">
-            <span className="text-lg">⚠️</span>
-            <div className="text-xs sm:text-sm text-text-muted leading-relaxed">
-              <strong className="text-text-primary font-heading block mb-0.5">
+          <div className="mt-7 rounded-xl border border-[#222222] bg-[#0d0d0d] p-4 flex items-start gap-3">
+            <span className="text-base leading-none mt-0.5" aria-hidden>
+              ⚠️
+            </span>
+            <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
+              <span className="font-heading font-bold text-white">
                 HISTORICAL ARCHIVAL NOTICE // INCOMPLETE SALVAGE
-              </strong>
-              This archive is a partial, fragmented rescue of what survived Wayback Machine crawl passes. During active
-              years, posts were published multiple times daily across thousands of releases. These 360 posts represent
-              only what could be salvaged.
-            </div>
+              </span>{' '}
+              — This archive is a partial, fragmented rescue of what survived from Wayback Machine web snapshots. During
+              its active run (2009–2012), the publication published multiple times daily across thousands of underground
+              mixtapes, MP3 premieres, and features. These 360 posts represent only what could be successfully salvaged.
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {STATS.map((stat) => (
               <span
-                key={stat}
-                className="rounded-full border border-border-line bg-black px-3 py-1.5 font-mono text-[11px] sm:text-xs text-text-muted"
+                key={stat.value + stat.label}
+                className="inline-flex items-baseline gap-1.5 rounded-full border border-[#222222] bg-black px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-[#94a3b8]"
               >
-                {stat}
+                <span className="font-bold text-white">{stat.value}</span>
+                <span>{stat.label}</span>
               </span>
             ))}
           </div>
@@ -89,42 +84,42 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <Link
           href="/story/"
-          className="group block rounded-2xl border border-border-line bg-black px-6 py-5 sm:px-8 sm:py-6 hover:border-white/40 transition-colors"
+          className="group block rounded-2xl border border-[#1a1a1a] bg-[#080808] px-6 py-5 sm:px-8 sm:py-6 hover:border-[#222222] transition-colors"
         >
-          <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-2">Primary Feature</p>
-          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:underline underline-offset-4">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] mb-2">Featured</p>
+          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white group-hover:underline underline-offset-4 decoration-white/40">
             <span className="yellow-star" aria-hidden>
               ★
             </span>{' '}
-            THE DEFINITIVE ANTHOLOGY: High School Hallways to 100k+ Daily Readers
+            The Story: High School Hallways to 100k+ Daily Readers
           </h2>
-          <p className="mt-2 text-sm text-text-muted max-w-3xl">
-            Read the five-chapter oral history of The MuSiK Box and In Audio We Trust — from Saint Ignatius study hall
-            to the final broadcast on January 25, 2012.
+          <p className="mt-3 text-sm sm:text-base text-[#94a3b8] max-w-3xl leading-relaxed">
+            The complete oral history: booking 18-year-old Mac Miller&apos;s maiden headline concert at The Grog Shop in
+            Spring 2010, the April 2010 iPhone interview with Machine Gun Kelly in the school parking lot, the 301
+            domain rebrand to IAWT, and early coverage of future stadium headliners.
           </p>
         </Link>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="mb-8">
-          <p className="font-mono text-xs uppercase tracking-widest text-text-primary font-bold mb-2">Prescient Ear</p>
-          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-2">
-            Landmark Discoveries
-          </h2>
-          <p className="text-text-muted max-w-2xl">
-            Early coverage months or years ahead of mainstream acclaim — verified from salvaged posts and Wayback
-            snapshots.
+        <div className="mb-6">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] font-bold mb-2">
+            Prescient Ear
+          </p>
+          <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white mb-2">Early Co-Signs</h2>
+          <p className="text-[#94a3b8] max-w-2xl text-sm sm:text-base">
+            Landmark coverage months ahead of mainstream acclaim — verified from salvaged posts and Wayback snapshots.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {PRESCIENT.map((item) => (
             <article
               key={item.artist}
-              className="rounded-2xl border border-border-line bg-card p-5 hover:border-border-line transition-colors"
+              className="rounded-2xl border border-[#1a1a1a] bg-[#0d0d0d] p-5 hover:border-[#222222] transition-colors"
             >
-              <h3 className="font-heading text-lg font-extrabold text-text-primary">{item.artist}</h3>
-              <p className="font-mono text-xs text-text-primary mt-1 mb-3">{item.when}</p>
-              <p className="text-sm text-text-muted leading-relaxed">{item.blurb}</p>
+              <h3 className="font-heading text-lg font-extrabold text-white">{item.artist}</h3>
+              <p className="font-mono text-xs text-[#94a3b8] mt-1.5 mb-3">{item.when}</p>
+              <p className="text-sm text-[#94a3b8] leading-relaxed">{item.blurb}</p>
             </article>
           ))}
         </div>

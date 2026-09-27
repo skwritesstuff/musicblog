@@ -5,17 +5,17 @@
 :root,
 [data-theme="dark"] {
   --bg: #000000;
-  --card: #000000;
-  --card-elevated: #0a0a0a;
+  --card: #080808;
+  --card-elevated: #0d0d0d;
   --text: #ffffff;
   --text-muted: #94a3b8;
   --text-dark: #64748b;
   --accent: #f7f308;
   --app-accent: #94a3b8;
-  --border-line: #1e2530;
+  --border-line: #1a1a1a;
   --header-bg: #000000;
   --player-bg: #000000;
-  --notice-bg: #0a0a0a;
+  --notice-bg: #0d0d0d;
 }
 
 [data-theme="light"] {

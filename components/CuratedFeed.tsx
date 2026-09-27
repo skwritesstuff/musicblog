@@ -131,16 +131,16 @@ export default function CuratedFeed() {
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
       {/* Header */}
       <div className="mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-border-line mb-3">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0d0d0d] border border-[#222222] mb-3">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-          <span className="font-heading text-xs font-bold uppercase tracking-wider text-text-primary">
+          <span className="font-heading text-xs font-bold uppercase tracking-wider text-white">
             FROM THE ARCHIVE
           </span>
         </div>
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary mb-3">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
           Foundational Blog Discoveries
         </h2>
-        <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">
+        <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
           Nine essential co-signs from The MuSiK Box and In Audio We Trust archives.
         </p>
       </div>
@@ -150,7 +150,7 @@ export default function CuratedFeed() {
         {CURATED_POSTS.map((post) => (
           <article
             key={post.id}
-            className="group flex flex-col relative rounded-2xl bg-card/95 border border-border-line p-6 backdrop-blur-md transition-all duration-200 hover:-translate-y-1 hover:border-border-line"
+            className="group flex flex-col relative rounded-2xl bg-[#080808] border border-[#1a1a1a] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#222222]"
           >
             {/* Card Meta */}
             <div className="flex justify-between items-center mb-4 gap-3">
