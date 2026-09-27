@@ -137,16 +137,36 @@ export default function StoryPage() {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <blockquote className="rounded-2xl border border-[#1a1a1a] border-l-4 border-l-white/50 bg-[#080808] px-5 py-5 flex flex-col justify-center">
-                <p className="italic text-white text-base sm:text-lg leading-relaxed mb-3">
-                  &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
-                  was at the Grog Shop.&rdquo;
-                </p>
-                <footer className="font-mono text-xs text-[#94a3b8]">
-                  — Mac Miller on <em className="text-white">The Arroyo Show</em> (House of Blues Cleveland, Oct 10,
-                  2011)
-                </footer>
-              </blockquote>
+              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#080808] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+                  <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
+                    PRIMARY SOURCE // THE ARROYO SHOW
+                  </p>
+                  <p className="mt-1.5 font-heading text-sm font-bold text-white">
+                    Mac Miller cites The Grog Shop — House of Blues Cleveland, Oct 10, 2011
+                  </p>
+                </div>
+                <div className="relative w-full aspect-video bg-black">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-contain bg-black"
+                    aria-label="Mac Miller on The Arroyo Show citing The Grog Shop as his first out-of-town headlining show"
+                  >
+                    <source src="/media/mac-miller-arroyo-grog-shop-citation.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <blockquote className="px-4 py-4 border-t border-[#1a1a1a] border-l-0">
+                  <p className="italic text-white text-sm sm:text-base leading-relaxed mb-2">
+                    &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
+                    was at the Grog Shop.&rdquo;
+                  </p>
+                  <footer className="font-mono text-xs text-[#94a3b8]">
+                    — Mac Miller on <em className="text-white">The Arroyo Show</em>
+                  </footer>
+                </blockquote>
+              </aside>
 
               <aside className="rounded-2xl border border-[#1a1a1a] bg-[#080808] overflow-hidden flex flex-col">
                 <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
