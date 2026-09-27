@@ -6,7 +6,7 @@ import artists from '@/src/data/artists.json';
 import type { ArtistRecord } from '@/src/data/types';
 
 export const metadata: Metadata = {
-  title: 'Artists Directory | The MuSiK Box & In Audio We Trust Archive',
+  title: 'Artists | The MuSiK Box & In Audio We Trust',
   description:
     'Filterable directory of artists covered by The MuSiK Box and In Audio We Trust, with salvaged post counts linking to the archive.',
 };

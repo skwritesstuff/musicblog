@@ -11,14 +11,16 @@ const THEMES: { id: ThemeId; label: string; icon: string }[] = [
   { id: 'neon', label: 'Neon', icon: '\u26A1' },
 ];
 
-const STORAGE_KEY = 'vintage-archive-theme';
+const STORAGE_KEY = 'musikbox-archive-theme';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<ThemeId>('dark');
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) as ThemeId | null;
+      const saved =
+        (localStorage.getItem(STORAGE_KEY) as ThemeId | null) ||
+        (localStorage.getItem('vintage-archive-theme') as ThemeId | null);
       const next = THEMES.some((t) => t.id === saved) ? (saved as ThemeId) : 'dark';
       setTheme(next);
       document.documentElement.setAttribute('data-theme', next);
@@ -34,6 +36,7 @@ export default function ThemeToggle() {
     document.documentElement.setAttribute('data-theme', next.id);
     try {
       localStorage.setItem(STORAGE_KEY, next.id);
+      localStorage.removeItem('vintage-archive-theme');
     } catch {
       /* ignore */
     }

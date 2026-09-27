@@ -6,7 +6,7 @@ import posts from '@/src/data/archivePosts.json';
 import type { ArchivePost } from '@/src/data/types';
 
 export const metadata: Metadata = {
-  title: 'Master Chronological Archive | The MuSiK Box & In Audio We Trust',
+  title: 'Master Archive | The MuSiK Box & In Audio We Trust',
   description: 'Searchable catalog of all 360 salvaged blog posts from The MuSiK Box and In Audio We Trust (2009–2012).',
 };
 

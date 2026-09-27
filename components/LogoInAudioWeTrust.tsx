@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 
 function coinSizeFromWordmark(className: string) {
   if (/\bh-12\b/.test(className) || /\blg:h-12\b/.test(className)) return 'h-14 sm:h-16 lg:h-[4.5rem]';
@@ -10,6 +12,20 @@ function coinSizeFromWordmark(className: string) {
 
 export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { className?: string }) {
   const coinClass = coinSizeFromWordmark(className);
+  const [light, setLight] = useState(false);
+
+  useEffect(() => {
+    const read = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setLight(theme === 'light');
+    };
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => obs.disconnect();
+  }, []);
+
+  const wordmark = light ? '/images/iawt-wordmark-black.png' : '/images/iawt-wordmark-white.png';
 
   return (
     <span className="inline-flex items-center gap-2.5 sm:gap-3 shrink-0 bg-transparent">
@@ -23,7 +39,7 @@ export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { class
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/iawt-wordmark-white.png"
+        src={wordmark}
         alt="In Audio We Trust"
         className={`object-contain bg-transparent ${className}`}
         decoding="async"

@@ -94,8 +94,8 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
     <h2>The 301 Rebrand &amp; IAWT 2.0 (Early 2011)</h2>
     <div>
       <p>As readership expanded beyond Ohio into a national footprint, the co-founders orchestrated a comprehensive brand evolution in early 2011, executing a 301 permanent redirect from <code>themusikbox.com</code> (128 preserved snapshots) to <code>inaudiowetrust.com</code> (1,630+ preserved snapshots).</p>
-      <p>Collaborating with web designer and technical architect <strong>Evan Edwards</strong>, "IAWT 2.0" introduced a sleek, high-contrast dark aesthetic, custom audio streaming players, and categorized music channels covering Hip Hop, Indie / Rock, Electronic / Dubstep, and Mashups.</p>
-      <p>To keep up with the unrelenting volume of PR submissions and exclusive premieres, Seamus and Myles assembled an expanded editorial squad including staff writers <strong>Helen</strong>, <strong>Ben</strong>, <strong>Mike</strong>, <strong>Pilo</strong>, <strong>Lesia</strong>, and <strong>Tricia</strong>.</p>
+      <p>"IAWT 2.0" introduced a sleek, high-contrast dark aesthetic, custom audio streaming players, and categorized music channels covering Hip Hop, Indie / Rock, Electronic / Dubstep, and Mashups — sealed by the Thomas Jefferson in DJ headphones emblem that became the brand's signature mark.</p>
+      <p>To keep up with the unrelenting volume of PR submissions and exclusive premieres, Seamus and Myles assembled an expanded editorial squad. Confirmed contributors &amp; writers: <strong>Matt</strong>, <strong>Ben</strong>, <strong>Helen</strong>, <strong>Pilo</strong>, <strong>Lesia</strong>, <strong>Tricia</strong>, <strong>Heather</strong>, and other contributors we're surely forgetting (please reach out for proper attribution!).</p>
     </div>
   </section>
 

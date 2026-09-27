@@ -4,7 +4,7 @@ import SiteShell from '@/components/SiteShell';
 import { WRITERS_INLINE } from '@/src/data/credits';
 
 export const metadata: Metadata = {
-  title: 'The Story | The MuSiK Box & In Audio We Trust (2009–2012)',
+  title: 'The Story | The MuSiK Box & In Audio We Trust',
   description:
     'Oral history of The MuSiK Box and In Audio We Trust — five chapters from Saint Ignatius High School to the final broadcast.',
 };
@@ -138,8 +138,8 @@ export default function StoryPage() {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <aside className="rounded-2xl border border-[#1e2530] bg-[#000000] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
+              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#000000] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     PRIMARY SOURCE // THE ARROYO SHOW
                   </p>
@@ -158,7 +158,7 @@ export default function StoryPage() {
                     <source src="/media/mac-miller-arroyo-grog-shop-citation.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <blockquote className="px-4 py-4 border-t border-[#1e2530] border-l-0">
+                <blockquote className="px-4 py-4 border-t border-[#1a1a1a] border-l-0">
                   <p className="italic text-white text-sm sm:text-base leading-relaxed mb-2">
                     &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
                     was at the Grog Shop.&rdquo;
@@ -169,8 +169,8 @@ export default function StoryPage() {
                 </blockquote>
               </aside>
 
-              <aside className="rounded-2xl border border-[#1e2530] bg-[#000000] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1e2530]">
+              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#000000] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     IMMUTABLE DIGITAL RECORD // @MACMILLER ARCHIVE
                   </p>

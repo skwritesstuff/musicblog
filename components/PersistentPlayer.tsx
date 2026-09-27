@@ -41,7 +41,7 @@ export default function PersistentPlayer() {
   };
 
   return (
-    <aside className="fixed bottom-0 inset-x-0 z-50 bg-[#000000] border-t border-[#1e2530] px-3 sm:px-6 py-2.5">
+    <aside className="fixed bottom-0 inset-x-0 z-50 bg-[#000000] border-t border-[#1a1a1a] px-3 sm:px-6 py-2.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
@@ -67,7 +67,7 @@ export default function PersistentPlayer() {
           <button
             type="button"
             onClick={() => changeTrack(trackIndex - 1)}
-            className="hidden sm:inline-flex w-7 h-7 items-center justify-center rounded border border-[#1e2530] bg-[#000000] text-[#94a3b8] hover:text-white"
+            className="hidden sm:inline-flex w-7 h-7 items-center justify-center rounded border border-[#1a1a1a] bg-[#000000] text-[#94a3b8] hover:text-white"
             aria-label="Previous track"
           >
             ⏮
@@ -75,7 +75,7 @@ export default function PersistentPlayer() {
           <button
             type="button"
             onClick={() => changeTrack(trackIndex + 1)}
-            className="hidden sm:inline-flex w-7 h-7 items-center justify-center rounded border border-[#1e2530] bg-[#000000] text-[#94a3b8] hover:text-white"
+            className="hidden sm:inline-flex w-7 h-7 items-center justify-center rounded border border-[#1a1a1a] bg-[#000000] text-[#94a3b8] hover:text-white"
             aria-label="Next track"
           >
             ⏭
@@ -84,7 +84,7 @@ export default function PersistentPlayer() {
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <span
-                className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'bg-white' : 'bg-[#64748b]'}`}
+                className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'player-active-dot' : 'bg-[#64748b]'}`}
                 aria-hidden
               />
               <p className="font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#94a3b8] truncate">
@@ -98,7 +98,7 @@ export default function PersistentPlayer() {
         </div>
 
         <div className="hidden sm:flex items-center gap-3 text-xs font-mono shrink-0">
-          <span className="px-2 py-0.5 rounded bg-[#000000] border border-[#1e2530] text-[#94a3b8] font-bold tracking-wide">
+          <span className="px-2 py-0.5 rounded bg-[#000000] border border-[#1a1a1a] text-[#94a3b8] font-bold tracking-wide">
             BITRATE: 192 KBPS MP3 [ARCHIVED]
           </span>
         </div>

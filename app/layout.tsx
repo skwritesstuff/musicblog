@@ -17,9 +17,9 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'The MuSiK Box & In Audio We Trust (2009–2012) • shameis.com',
+  title: 'The MuSiK Box & In Audio We Trust | Pre-Algorithm Music Archive (2009–2012)',
   description:
-    'A salvaged archive of The MuSiK Box and In Audio We Trust (2009–2012) — partial digital rescue of 360 preserved posts from a bygone era of internet music discovery.',
+    'A salvaged retrospective of an underground music blog punching above its weight in the golden era of mixtape culture and pre-algorithm music discovery.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,11 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{localStorage.setItem('vintage-archive-theme','dark');document.documentElement.setAttribute('data-theme','dark');document.documentElement.style.backgroundColor='#000000';}catch(e){}`,
+            __html: `try{var t=localStorage.getItem('musikbox-archive-theme')||localStorage.getItem('vintage-archive-theme');if(t==='light'||t==='sepia'||t==='neon'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){document.documentElement.setAttribute('data-theme','dark');}`,
           }}
         />
       </head>
-      <body className="bg-[#000000] text-white antialiased min-h-screen">{children}</body>
+      <body className="bg-bg text-text-primary antialiased min-h-screen">{children}</body>
     </html>
   );
 }
