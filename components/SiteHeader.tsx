@@ -24,30 +24,48 @@ export default function SiteHeader({
   const current = active === 'media' ? 'vault' : active;
 
   return (
-    <header className="border-b border-border-line bg-black sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 bg-black">
-        <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-          <a
-            href="https://shameis.com"
-            className="text-text-dark hover:text-white text-[11px] font-mono shrink-0 hidden xl:inline"
-          >
-            ← shameis.com
-          </a>
-          <Link
-            href="/"
-            className="flex items-center gap-3 sm:gap-5 min-w-0 bg-transparent"
-            onClick={() => setOpen(false)}
-            aria-label="Home — The MuSiK Box & In Audio We Trust"
-          >
-            <LogoTheMuSiKBox className="h-10 sm:h-12 lg:h-14 w-auto max-w-[48vw] sm:max-w-[300px] lg:max-w-[360px]" />
-            <span className="text-white/25 text-sm hidden md:inline shrink-0">•</span>
-            <span className="hidden sm:inline-flex min-w-0 bg-transparent">
-              <LogoInAudioWeTrust className="h-5 sm:h-6 lg:h-7 w-auto max-w-[170px] lg:max-w-none" />
-            </span>
-          </Link>
+    <header className="border-b border-[#1a1a1a] bg-black sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 bg-black">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+            <a
+              href="https://shameis.com"
+              className="text-[#64748b] hover:text-white text-[11px] font-mono shrink-0 hidden xl:inline"
+            >
+              ← shameis.com
+            </a>
+            <Link
+              href="/"
+              className="flex items-center gap-3 sm:gap-4 min-w-0 bg-transparent"
+              onClick={() => setOpen(false)}
+              aria-label="Home — The MuSiK Box & In Audio We Trust"
+            >
+              <LogoTheMuSiKBox className="h-9 sm:h-11 lg:h-12 w-auto max-w-[46vw] sm:max-w-[240px] lg:max-w-[280px]" />
+              <span className="text-white/25 text-sm hidden md:inline shrink-0">•</span>
+              <span className="hidden sm:inline-flex min-w-0 bg-transparent">
+                <LogoInAudioWeTrust className="h-5 sm:h-6 w-auto max-w-[150px]" />
+              </span>
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="hidden sm:block">
+              <AboutCredits />
+            </div>
+            <ThemeToggle />
+            <button
+              type="button"
+              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#222222] text-white bg-black"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
+            </button>
+          </div>
         </div>
 
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-sm font-heading font-medium text-[#94a3b8] shrink-0">
+        <nav className="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-1 pt-3 mt-3 border-t border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
           {NAV.map((item) => {
             const isActive = current === item.match;
             return (
@@ -69,27 +87,12 @@ export default function SiteHeader({
               </Link>
             );
           })}
-          <AboutCredits />
-          <ThemeToggle />
         </nav>
-
-        <div className="flex items-center gap-2 lg:hidden shrink-0">
-          <ThemeToggle />
-          <button
-            type="button"
-            className="inline-flex items-center justify-center w-9 h-9 rounded-md border border-border-line text-white bg-black"
-            aria-label="Open menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
-          </button>
-        </div>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border-line bg-black px-4 py-3 space-y-1">
-          <div className="pb-3 sm:hidden border-b border-border-line mb-2 bg-black">
+        <div className="sm:hidden border-t border-[#1a1a1a] bg-black px-4 py-3 space-y-1">
+          <div className="pb-3 border-b border-[#1a1a1a] mb-2 bg-black">
             <LogoInAudioWeTrust className="h-5 w-auto" />
           </div>
           {NAV.map((item) => (
@@ -113,7 +116,7 @@ export default function SiteHeader({
               )}
             </Link>
           ))}
-          <div className="pt-2 border-t border-border-line">
+          <div className="pt-2 border-t border-[#1a1a1a]">
             <AboutCredits />
           </div>
         </div>
