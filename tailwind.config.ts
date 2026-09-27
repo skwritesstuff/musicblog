@@ -16,6 +16,8 @@ const config: Config = {
         "text-muted": "#d6dbe5",
         "text-dark": "#8892b0",
         accent: "#FFCC00",
+        "red-accent": "#e32507",
+        "yellow-highlight": "#f7f308",
         "app-accent": "#2eb8c8",
         "app-accent-text": "#4bdceb",
       },
