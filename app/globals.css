@@ -3,82 +3,37 @@
 @tailwind utilities;
 
 /*
-  Dark / default / light / sepia → True Black chrome (no navy).
-  Neon keeps scoped club navy variables only under [data-theme="neon"].
+  Singular True Black theme — no light / sepia / neon switches.
 
   Yellow #f7f308 ONLY on:
   - nav ★ The Story (.yellow-star)
   - active radio indicator (.player-active-dot)
 */
 
-:root,
-[data-theme='dark'],
-[data-theme='sepia'] {
+:root {
   --bg: #000000;
-  --card: #000000;
-  --card-elevated: #000000;
+  --card: #0a0a0a;
+  --card-elevated: #0f0f0f;
   --text: #ffffff;
   --text-muted: #94a3b8;
-  --text-dark: #64748b;
+  --text-dark: #cbd5e1;
   --accent: #ffffff;
   --app-accent: #94a3b8;
-  --border-line: #1a1a1a;
+  --border-line: #222222;
   --header-bg: #000000;
   --player-bg: #000000;
-  --notice-bg: #000000;
-  color-scheme: dark;
-}
-
-[data-theme='light'] {
-  --bg: #f7f5ef;
-  --card: #ffffff;
-  --card-elevated: #f0eee6;
-  --text: #111111;
-  --text-muted: #4a4a4a;
-  --text-dark: #6b6b6b;
-  --accent: #111111;
-  --app-accent: #0e7c8a;
-  --border-line: #222222;
-  --header-bg: #ffffff;
-  --player-bg: #111111;
-  --notice-bg: #f3f3f0;
-  color-scheme: light;
-}
-
-/* Neon: intentional club navy — scoped only to this theme */
-[data-theme='neon'] {
-  --bg: #0b0e14;
-  --card: #121826;
-  --card-elevated: #18202c;
-  --text: #e8f7ff;
-  --text-muted: #9eb6d0;
-  --text-dark: #6f879f;
-  --accent: #00f0ff;
-  --app-accent: #00f0ff;
-  --border-line: rgba(0, 240, 255, 0.22);
-  --header-bg: #0b0e14;
-  --player-bg: #0b0e14;
-  --notice-bg: #18202c;
+  --notice-bg: #0a0a0a;
   color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-/* Default document chrome is true black unless Neon/Light overrides via vars */
-html:not([data-theme='neon']):not([data-theme='light']) {
   background-color: #000000;
 }
 
-.theme-icon-glyph {
-  color: var(--text-muted);
-  font-style: normal;
+body {
+  background-color: #000000;
+  color: var(--text);
 }
 
 .yellow-star {

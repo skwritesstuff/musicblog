@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import LogoTheMuSiKBox from '@/components/LogoTheMuSiKBox';
 import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
-import ThemeToggle from '@/components/ThemeToggle';
 import AboutCredits from '@/components/AboutCredits';
 
 const NAV = [
@@ -44,7 +43,6 @@ export default function SiteHeader({
             <div className="hidden md:block">
               <AboutCredits />
             </div>
-            <ThemeToggle />
             <button
               type="button"
               className="inline-flex md:hidden items-center justify-center w-9 h-9 rounded-md border border-border-line text-text-primary bg-header-bg"
