@@ -8,7 +8,7 @@ A pure-static Next.js archive — a salvaged retrospective of an underground mus
 
 - **Title:** The MuSiK Box & In Audio We Trust | Pre-Algorithm Music Archive (2009–2012)
 - **Routes:** `/` · `/story/` · `/archive/` · `/artists/` · `/vault/`
-- **Brand assets:** `public/images/the-musik-box-banner.png`, `iawt-wordmark-white.png`, `iawt-wordmark-black.png`, `iawt-coin.png`
+- **Brand assets:** `public/images/the-musik-box-banner-dark.png` (white type on dark), `the-musik-box-banner.png` (black type on light), `iawt-wordmark-white.png`, `iawt-wordmark-black.png`, `iawt-coin.png`
 
 ## Develop
 

@@ -45,7 +45,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-10 sm:pb-14">
           <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
             <div className="w-full flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 bg-[#000000]">
-              <LogoTheMuSiKBox className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
+              <LogoTheMuSiKBox surface="on-dark" className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
               <span className="hidden lg:inline text-white/20 text-2xl shrink-0" aria-hidden>
                 •
               </span>
@@ -60,7 +60,7 @@ export default function Home() {
             </p>
             <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
               A salvaged archive from a bygone era of internet music discovery—before discovery was automated by
-              streaming algorithms. Punching far above its weight and secretly run by high schoolers between classes,
+              streaming algorithms. Punching above its weight and secretly run by high schoolers between classes,
               The MuSiK Box and In Audio We Trust thrived precisely because the digital landscape was shifting so fast
               that no one held an incumbent advantage.
             </p>

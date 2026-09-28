@@ -79,12 +79,12 @@ export default function StoryPage() {
             <figure className="mb-6 bg-[#000000] p-4 sm:p-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/the-musik-box-banner.png"
+                src="/images/the-musik-box-banner-dark.png"
                 alt="The MuSiK Box turntable banner"
                 className="mx-auto max-h-40 w-auto object-contain bg-transparent"
               />
               <figcaption className="mt-3 text-center font-mono text-[11px] text-[#94a3b8]">
-                The MuSiK Box turntable banner · authentic transparent mark on true black
+                The MuSiK Box turntable banner · white-type mark on true black
               </figcaption>
             </figure>
             <p className="mb-4">
