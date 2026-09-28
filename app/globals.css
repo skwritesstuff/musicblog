@@ -88,3 +88,19 @@ html:not([data-theme='neon']):not([data-theme='light']) {
 .player-active-dot {
   background-color: #f7f308 !important;
 }
+
+/* Retro Radio CRT bezel — visible YT host (never off-screen / 1×1) */
+.crt-screen::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: soft-light;
+}
