@@ -60,7 +60,7 @@ export default function Home() {
             </p>
             <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
               A salvaged archive from a bygone era of internet music discovery—before discovery was automated by
-              streaming algorithms. Punching far above its weight and secretly run by high schoolers between classes,
+              streaming algorithms. Punching above its weight and secretly run by high schoolers between classes,
               The MuSiK Box and In Audio We Trust thrived precisely because the digital landscape was shifting so fast
               that no one held an incumbent advantage.
             </p>
