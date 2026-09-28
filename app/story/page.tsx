@@ -76,15 +76,15 @@ export default function StoryPage() {
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The High School Genesis & The &apos;MSK&apos; Code
             </h2>
-            <figure className="mb-6 rounded-2xl border border-border-line bg-white p-4 sm:p-6">
+            <figure className="mb-6 rounded-2xl border border-[#222222] bg-[#0a0a0a] p-4 sm:p-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/the-musik-box-banner.png"
+                src="/images/the-musik-box-banner-dark.png"
                 alt="The MuSiK Box turntable banner"
                 className="mx-auto max-h-40 w-auto object-contain bg-transparent"
               />
-              <figcaption className="mt-3 text-center font-mono text-[11px] text-[#64748b]">
-                The MuSiK Box turntable banner · original light-surface mark
+              <figcaption className="mt-3 text-center font-mono text-[11px] text-[#94a3b8]">
+                The MuSiK Box turntable banner · transparent mark on true black
               </figcaption>
             </figure>
             <p className="mb-4">
@@ -127,8 +127,8 @@ export default function StoryPage() {
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#000000] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+              <aside className="rounded-2xl border border-[#222222] bg-[#0a0a0a] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#222222]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     PRIMARY SOURCE // THE ARROYO SHOW
                   </p>
@@ -147,7 +147,7 @@ export default function StoryPage() {
                     <source src="/media/mac-miller-arroyo-grog-shop-citation.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <blockquote className="px-4 py-4 border-t border-[#1a1a1a] border-l-0">
+                <blockquote className="px-4 py-4 border-t border-[#222222] border-l-0">
                   <p className="italic text-white text-sm sm:text-base leading-relaxed mb-2">
                     &ldquo;Cleveland, little fun fact for you: actually the first out-of-town headlining show I ever did
                     was at the Grog Shop.&rdquo;
@@ -158,8 +158,8 @@ export default function StoryPage() {
                 </blockquote>
               </aside>
 
-              <aside className="rounded-2xl border border-[#1a1a1a] bg-[#000000] overflow-hidden flex flex-col">
-                <div className="px-4 pt-4 pb-3 border-b border-[#1a1a1a]">
+              <aside className="rounded-2xl border border-[#222222] bg-[#0a0a0a] overflow-hidden flex flex-col">
+                <div className="px-4 pt-4 pb-3 border-b border-[#222222]">
                   <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
                     IMMUTABLE DIGITAL RECORD // @MACMILLER ARCHIVE
                   </p>
@@ -238,18 +238,18 @@ export default function StoryPage() {
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
               The 301 Rebrand to In Audio We Trust
             </h2>
-            <figure className="mb-6 rounded-2xl border border-border-line bg-white p-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <figure className="mb-6 rounded-2xl border border-[#222222] bg-[#0a0a0a] p-6 flex flex-col sm:flex-row items-center justify-center gap-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/iawt-coin.png"
                 alt="In Audio We Trust Thomas Jefferson DJ headphones emblem"
-                className="h-28 w-28 object-contain"
+                className="h-28 w-28 object-contain bg-transparent"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/iawt-wordmark-black.png"
+                src="/images/iawt-wordmark-white.png"
                 alt="inaudiowetrust wordmark"
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain bg-transparent"
               />
               <figcaption className="sr-only">IAWT 2.0 Jefferson coin emblem and needle wordmark</figcaption>
             </figure>

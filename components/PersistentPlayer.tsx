@@ -241,10 +241,10 @@ export default function PersistentPlayer() {
   };
 
   return (
-    <aside className="fixed bottom-0 inset-x-0 z-50 bg-[#000000] border-t border-[#1a1a1a]">
+    <aside className="fixed bottom-0 inset-x-0 z-50 bg-[#000000] border-t border-[#222222]">
       {/* Visible CRT mini-screen — required for mobile YouTube audio */}
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-b border-[#1a1a1a] ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-b border-[#222222] ${
           screenOpen ? 'max-h-[220px] opacity-100' : 'max-h-0 opacity-0'
         }`}
         aria-hidden={!screenOpen}
@@ -257,20 +257,20 @@ export default function PersistentPlayer() {
                   Retro CRT // YT Stream
                 </span>
                 <span
-                  className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'player-active-dot' : 'bg-[#64748b]'}`}
+                  className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'player-active-dot' : 'bg-[#94a3b8]'}`}
                   aria-hidden
                 />
               </div>
               <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-black border border-[#222] crt-screen">
                 <div id={PLAYER_HOST_ID} className="absolute inset-0 h-full w-full" />
                 {!apiReady && (
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] text-[#64748b]">
+                  <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] text-[#94a3b8]">
                     LOADING TUNER…
                   </div>
                 )}
               </div>
               <div className="mt-1.5 flex items-center justify-between gap-2">
-                <span className="font-mono text-[9px] text-[#64748b] truncate">{status}</span>
+                <span className="font-mono text-[9px] text-[#94a3b8] truncate">{status}</span>
                 <button
                   type="button"
                   onClick={() => setScreenOpen(false)}
@@ -303,7 +303,7 @@ export default function PersistentPlayer() {
           <button
             type="button"
             onClick={() => void loadTrack(trackIndex - 1, true)}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#1a1a1a] bg-[#000000] text-[#94a3b8] hover:text-white"
+            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
             aria-label="Previous track"
           >
             ⏮
@@ -311,13 +311,13 @@ export default function PersistentPlayer() {
           <button
             type="button"
             onClick={() => void loadTrack(trackIndex + 1, true)}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#1a1a1a] bg-[#000000] text-[#94a3b8] hover:text-white"
+            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
             aria-label="Next track"
           >
             ⏭
           </button>
 
-          <div className="flex items-center gap-2 min-w-0 flex-1 basis-[200px] rounded border border-[#1a1a1a] bg-[#0a0a0a] px-2 py-1">
+          <div className="flex items-center gap-2 min-w-0 flex-1 basis-[200px] rounded border border-[#222222] bg-[#0a0a0a] px-2 py-1">
             <span
               className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'player-active-dot' : 'bg-[#f59e0b]'}`}
               aria-hidden
@@ -342,7 +342,7 @@ export default function PersistentPlayer() {
           <button
             type="button"
             onClick={toggleMute}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#1a1a1a] bg-[#000000] text-[#94a3b8] hover:text-white"
+            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
             aria-label={isMuted ? 'Unmute' : 'Mute'}
             title={isMuted ? 'Unmute' : 'Mute'}
           >
@@ -350,10 +350,10 @@ export default function PersistentPlayer() {
           </button>
 
           <div className="hidden md:flex items-center gap-3 text-xs font-mono shrink-0 ml-auto">
-            <span className="text-[#64748b] truncate max-w-[220px]" title={track.title}>
+            <span className="text-[#94a3b8] truncate max-w-[220px]" title={track.title}>
               {status}
             </span>
-            <span className="px-2 py-0.5 rounded bg-[#000000] border border-[#1a1a1a] text-[#94a3b8] font-bold tracking-wide">
+            <span className="px-2 py-0.5 rounded bg-[#0a0a0a] border border-[#222222] text-[#94a3b8] font-bold tracking-wide">
               192 KBPS STEREO
             </span>
           </div>

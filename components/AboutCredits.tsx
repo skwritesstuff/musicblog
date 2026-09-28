@@ -61,7 +61,7 @@ export default function AboutCredits() {
 
             <dl className="space-y-4 text-sm">
               <div>
-                <dt className="font-mono text-[11px] uppercase tracking-wider text-[#64748b] mb-1">
+                <dt className="font-mono text-[11px] uppercase tracking-wider text-[#94a3b8] mb-1">
                   Founders & Curators
                 </dt>
                 <dd className="text-white font-heading font-bold">
@@ -69,7 +69,7 @@ export default function AboutCredits() {
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[11px] uppercase tracking-wider text-[#64748b] mb-2">
+                <dt className="font-mono text-[11px] uppercase tracking-wider text-[#94a3b8] mb-2">
                   Confirmed Contributors & Writers
                 </dt>
                 <dd className="flex flex-wrap gap-2 mb-2">
@@ -82,15 +82,15 @@ export default function AboutCredits() {
                     </span>
                   ))}
                 </dd>
-                <dd className="text-xs text-[#64748b] leading-relaxed italic">{OPEN_ATTRIBUTION_NOTE}</dd>
+                <dd className="text-xs text-[#94a3b8] leading-relaxed italic">{OPEN_ATTRIBUTION_NOTE}</dd>
               </div>
             </dl>
 
-            <div className="mt-5 rounded-xl border border-[#1a1a1a] bg-[#000000] p-4 border-l-4 border-l-white/40">
+            <div className="mt-5 rounded-xl border border-[#222222] bg-[#0a0a0a] p-4 border-l-4 border-l-white/40">
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">{COLOPHON_STAFF_NOTE}</p>
             </div>
 
-            <p className="mt-5 text-xs text-[#64748b] leading-relaxed border-t border-border-line pt-4">
+            <p className="mt-5 text-xs text-[#94a3b8] leading-relaxed border-t border-border-line pt-4">
               Saint Ignatius High School · Cleveland, Ohio · The MuSiK Box (2009–2011) · In Audio We Trust (2011–2012)
             </p>
           </div>

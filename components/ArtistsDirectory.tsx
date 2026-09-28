@@ -15,7 +15,7 @@ export default function ArtistsDirectory({ artists }: { artists: ArtistRecord[] 
 
   return (
     <div>
-      <div className="rounded-xl bg-[#000000] border border-[#1a1a1a] p-4 mb-8">
+      <div className="rounded-xl bg-[#0a0a0a] border border-[#222222] p-4 mb-8">
         <div className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
           <strong className="text-white font-heading block mb-0.5">CRITICAL ARCHIVAL NOTICE</strong>
           DO NOT INFER COVERAGE FROM POST COUNTS. During active years, the site published multiple times daily across

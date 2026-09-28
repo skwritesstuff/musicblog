@@ -40,16 +40,16 @@ const PRESCIENT = [
 export default function Home() {
   return (
     <SiteShell active="home">
-      {/* True-black hero — OG logos seated on light plates (marks are light-surface artwork) */}
-      <section className="w-full bg-[#000000] border-b border-[#1a1a1a]">
+      {/* True-black hero — transparent marks directly on #000 */}
+      <section className="w-full bg-[#000000] border-b border-[#222222]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-10 sm:pb-14">
           <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
-            <div className="w-full flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 bg-[#000000]">
-              <LogoTheMuSiKBox plate className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
+            <div className="w-full flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 bg-transparent">
+              <LogoTheMuSiKBox className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
               <span className="hidden lg:inline text-white/20 text-2xl shrink-0" aria-hidden>
                 •
               </span>
-              <LogoInAudioWeTrust plate className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
+              <LogoInAudioWeTrust className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
             </div>
 
             <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#94a3b8] font-bold">
@@ -65,7 +65,7 @@ export default function Home() {
               that no one held an incumbent advantage.
             </p>
 
-            <div className="w-full max-w-3xl rounded-xl border border-[#1a1a1a] bg-[#000000] p-4">
+            <div className="w-full max-w-3xl rounded-xl border border-[#222222] bg-[#0a0a0a] p-4">
               <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
                 <span className="font-heading font-bold text-white">
                   HISTORICAL ARCHIVAL NOTICE // INCOMPLETE SALVAGE
@@ -81,7 +81,7 @@ export default function Home() {
               {STATS.map((stat) => (
                 <span
                   key={stat.value + stat.label}
-                  className="inline-flex items-baseline gap-1.5 rounded-full border border-[#222222] bg-[#000000] px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-[#94a3b8]"
+                  className="inline-flex items-baseline gap-1.5 rounded-full border border-[#262626] bg-[#0a0a0a] px-3.5 py-1.5 font-mono text-[11px] sm:text-xs text-[#94a3b8]"
                 >
                   <span className="font-bold text-white">{stat.value}</span>
                   <span>{stat.label}</span>
@@ -95,7 +95,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link
           href="/story/"
-          className="group block rounded-2xl border border-[#1a1a1a] bg-[#000000] px-6 py-5 sm:px-8 sm:py-6 hover:border-[#222222] transition-colors"
+          className="group block rounded-2xl border border-[#222222] bg-[#0a0a0a] px-6 py-5 sm:px-8 sm:py-6 hover:border-[#262626] transition-colors"
         >
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] mb-2">Featured</p>
           <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white group-hover:underline underline-offset-4 decoration-white/40">
@@ -126,7 +126,7 @@ export default function Home() {
           {PRESCIENT.map((item) => (
             <article
               key={item.artist}
-              className="rounded-2xl border border-[#1a1a1a] bg-[#000000] p-5 hover:border-[#222222] transition-colors"
+              className="rounded-2xl border border-[#222222] bg-[#0a0a0a] p-5 hover:border-[#262626] transition-colors"
             >
               <h3 className="font-heading text-lg font-extrabold text-white">{item.artist}</h3>
               <p className="font-mono text-xs text-[#94a3b8] mt-1.5 mb-3">{item.when}</p>
