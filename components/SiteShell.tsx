@@ -11,7 +11,7 @@ export default function SiteShell({
   active?: 'home' | 'story' | 'archive' | 'artists' | 'media' | 'vault';
 }) {
   return (
-    <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-white/20 pb-20">
+    <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-white/20 pb-28">
       <SiteHeader active={active} />
       <main className="flex-1">{children}</main>
       <SiteFooter />
