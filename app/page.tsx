@@ -40,16 +40,16 @@ const PRESCIENT = [
 export default function Home() {
   return (
     <SiteShell active="home">
-      {/* Full-bleed true-black hero — logos are the brand signal */}
+      {/* True-black hero — OG logos seated on light plates (marks are light-surface artwork) */}
       <section className="w-full bg-[#000000] border-b border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-10 sm:pb-14">
           <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
-            <div className="w-full flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 bg-[#000000]">
-              <LogoTheMuSiKBox surface="on-dark" className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
+            <div className="w-full flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6 bg-[#000000]">
+              <LogoTheMuSiKBox plate className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
               <span className="hidden lg:inline text-white/20 text-2xl shrink-0" aria-hidden>
                 •
               </span>
-              <LogoInAudioWeTrust className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
+              <LogoInAudioWeTrust plate className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
             </div>
 
             <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#94a3b8] font-bold">

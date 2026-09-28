@@ -10,14 +10,23 @@ function coinSizeFromWordmark(className: string) {
   return 'h-8 sm:h-9';
 }
 
-export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { className?: string }) {
+/**
+ * IAWT coin + wordmark. Marks read best on light surfaces — when plated (or Light theme),
+ * use the black wordmark on a white plate; otherwise white wordmark on dark chrome.
+ */
+export default function LogoInAudioWeTrust({
+  className = 'h-7 w-auto',
+  plate = 'auto',
+}: {
+  className?: string;
+  plate?: boolean | 'auto';
+}) {
   const coinClass = coinSizeFromWordmark(className);
-  const [light, setLight] = useState(false);
+  const [lightTheme, setLightTheme] = useState(false);
 
   useEffect(() => {
     const read = () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      setLight(theme === 'light');
+      setLightTheme(document.documentElement.getAttribute('data-theme') === 'light');
     };
     read();
     const obs = new MutationObserver(read);
@@ -25,9 +34,12 @@ export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { class
     return () => obs.disconnect();
   }, []);
 
-  const wordmark = light ? '/images/iawt-wordmark-black.png' : '/images/iawt-wordmark-white.png';
+  const showPlate = plate === true || (plate === 'auto' && !lightTheme);
+  // Plated or Light theme → black wordmark on light; bare dark chrome → white wordmark
+  const wordmark =
+    showPlate || lightTheme ? '/images/iawt-wordmark-black.png' : '/images/iawt-wordmark-white.png';
 
-  return (
+  const mark = (
     <span className="inline-flex items-center gap-2.5 sm:gap-3 shrink-0 bg-transparent">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -44,6 +56,14 @@ export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { class
         className={`object-contain bg-transparent ${className}`}
         decoding="async"
       />
+    </span>
+  );
+
+  if (!showPlate) return mark;
+
+  return (
+    <span className="inline-flex items-center rounded-md bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 shrink-0">
+      {mark}
     </span>
   );
 }
