@@ -135,7 +135,7 @@ export const CURATED_POSTS: CuratedPost[] = [
     youtubeId: 'ZIfSaDNVjXI',
     description:
       'Foundational local coverage of the Cleveland underground titan and frequent Kid Cudi collaborator with full tracklist and preserved review commentary.',
-    postSlug: '/artists/chip-tha-ripper/',
+    postSlug: '/blog/chip-tha-ripper-freestyle/',
     waybackUrl:
       'https://web.archive.org/web/20101001000000/http://themusikbox.com/tag/chip-tha-ripper/',
   },
