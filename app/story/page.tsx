@@ -319,6 +319,13 @@ export default function StoryPage() {
               publishing by the founders concluded on <strong className="text-text-primary">January 25, 2012</strong>{' '}
               with Mike Posner&apos;s &ldquo;Looks Like Sex&rdquo; — the final broadcast of the authentic era.
             </p>
+            <p className="mb-4">
+              We had begun college already in different cities and found the task of keeping up the blog to the
+              standard we set for ourselves too difficult, so we sold it during our freshman years. For 15 years,
+              until the compilation of this archive was established, we thought only our memories — and the
+              still-regular reminders of its impact from some former readers via DM — would be all we had to
+              remember this fun time from.
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/archive/"
