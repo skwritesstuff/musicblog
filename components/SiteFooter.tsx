@@ -11,12 +11,7 @@ export default function SiteFooter() {
             <p className="font-heading font-extrabold text-text-primary text-sm sm:text-base mb-1">
               The MuSiK Box (2009–2011) • In Audio We Trust (2011–2012)
             </p>
-            <p className="text-xs sm:text-sm text-text-muted leading-relaxed mb-3">{FOOTER_CREDITS}</p>
-            <p className="text-xs text-text-dark leading-relaxed">
-              An incomplete historical salvage of what could be recovered from surviving Wayback Machine archives.
-              Published multiple times daily from August 2009 – January 2012; thousands of original posts and media
-              assets remain lost to time.
-            </p>
+            <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{FOOTER_CREDITS}</p>
           </div>
           <div className="text-sm text-text-muted space-y-1 md:text-right shrink-0">
             <p>
@@ -36,7 +31,6 @@ export default function SiteFooter() {
                 Artwork Vault
               </Link>
             </p>
-            <p className="text-xs text-text-dark">Saint Ignatius High School • Cleveland, Ohio • 2009–2012</p>
           </div>
         </div>
       </div>

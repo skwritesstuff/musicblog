@@ -6,7 +6,7 @@ import { WRITERS_INLINE } from '@/src/data/credits';
 export const metadata: Metadata = {
   title: 'The Story | The MuSiK Box & In Audio We Trust',
   description:
-    'Oral history of The MuSiK Box and In Audio We Trust — five chapters from Saint Ignatius High School to the final broadcast.',
+    'Oral history of The MuSiK Box and In Audio We Trust — five chapters from Cleveland hallways to the final broadcast.',
 };
 
 const CHAPTERS = [
@@ -37,8 +37,8 @@ export default function StoryPage() {
             The Story of The MuSiK Box & In Audio We Trust
           </h1>
           <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed mb-6">
-            From Saint Ignatius High School hallways to 100,000+ daily visitors: the oral history and digital chronicle
-            of an era-defining music publication.
+            From Cleveland high school hallways to 100,000+ daily visitors: the oral history and digital chronicle of an
+            era-defining music publication.
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs text-text-dark">
             <span>
@@ -208,7 +208,7 @@ export default function StoryPage() {
 
             <p>
               Just weeks earlier, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
-              a now-legendary parking lot interview on an iPhone in the Saint Ignatius High School lot with a 19-year-old{' '}
+              a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old{' '}
               <strong className="text-text-primary">Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape{' '}
               <em>100 Words and Running</em>.
             </p>
@@ -315,15 +315,16 @@ export default function StoryPage() {
               ))}
             </div>
             <p className="mb-4">
-              By early 2012, as high school drew toward graduation, the co-founders sold the publication. Active
-              publishing by the founders concluded on <strong className="text-text-primary">January 25, 2012</strong>{' '}
-              with Mike Posner&apos;s &ldquo;Looks Like Sex&rdquo; — the final broadcast of the authentic era.
+              By early 2012, Seamus and Myles were college freshmen living in different cities. The publication had grown
+              into a beast that demanded multiple posts daily, relentless track scouring, and constant coordination.
+              Realizing they could not maintain the high editorial standards and hands-on curation they had established
+              from separate college campuses, they made the decision to sell the blog in early 2012—officially
+              concluding their authentic founder run on{' '}
+              <strong className="text-text-primary">January 25, 2012</strong>.
             </p>
             <p className="mb-4">
-              We had begun college already in different cities and found the task of keeping up the blog to the
-              standard we set for ourselves too difficult, so we sold it during our freshman years. For 15 years,
-              until the compilation of this archive was established, we thought only our memories — and the
-              still-regular reminders of its impact from some former readers via DM — would be all we had to
+              For 15 years, until the compilation of this archive was established, we thought only our memories — and
+              the still-regular reminders of its impact from some former readers via DM — would be all we had to
               remember this fun time from.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

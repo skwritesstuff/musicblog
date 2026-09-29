@@ -78,7 +78,7 @@ export const CURATED_POSTS: CuratedPost[] = [
     category: 'HIP HOP',
     youtubeId: 'I0LNAvvd6Kk',
     description:
-      'Hometown Cleveland coverage following the April 22, 2010 Saint Ignatius High School parking lot iPhone interview tracking his Lace Up transition.',
+      'Hometown Cleveland coverage following the April 22, 2010 school parking lot iPhone interview tracking his Lace Up transition.',
     postSlug: '/blog/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2/',
     waybackUrl:
       'https://web.archive.org/web/20110326022127/http://www.inaudiowetrust.com:80/2011/03/machine-gun-kelly-x-sxsw-11-half-naked-almost-famous-episode-2/',
