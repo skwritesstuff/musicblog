@@ -152,3 +152,14 @@ export function getCuratedPostBySlug(slug: string): CuratedPost | undefined {
     return postSlug === `/blog/${slug}` || postSlug.endsWith(`/${slug}`);
   });
 }
+
+/**
+ * Safe "Read Post" href: only in-app `/blog/...` paths (trailing slash),
+ * otherwise the Wayback snapshot — never a missing internal deep-link.
+ */
+export function resolveCuratedReadHref(post: CuratedPost): string {
+  if (post.postSlug.startsWith('/blog/')) {
+    return post.postSlug.endsWith('/') ? post.postSlug : `${post.postSlug}/`;
+  }
+  return post.waybackUrl;
+}
