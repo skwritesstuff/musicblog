@@ -16,7 +16,7 @@ title: The Story
       The Story of The MuSiK Box &amp; In Audio We Trust
     </h1>
     <p>
-      From Saint Ignatius High School hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
+      From Cleveland high school hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
     </p>
     <div>
       <p>
@@ -85,7 +85,7 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
         </div>
       </div>
       <p>This pivotal show took place months before <em>K.I.D.S. (Kickin' Incredibly Dope Shit)</em> dropped and skyrocketed Mac to superstardom. The concert cemented the site's reputation among major indie labels, including Pittsburgh's Rostrum Records.</p>
-      <p>Just weeks earlier, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the Saint Ignatius High School lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
+      <p>Just weeks earlier, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
     </div>
   </section>
 
