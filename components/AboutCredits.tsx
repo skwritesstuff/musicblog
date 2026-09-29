@@ -91,7 +91,7 @@ export default function AboutCredits() {
             </div>
 
             <p className="mt-5 text-xs text-[#94a3b8] leading-relaxed border-t border-border-line pt-4">
-              Saint Ignatius High School · Cleveland, Ohio · The MuSiK Box (2009–2011) · In Audio We Trust (2011–2012)
+              The MuSiK Box (2009–2011) · In Audio We Trust (2011–2012)
             </p>
           </div>
         </div>

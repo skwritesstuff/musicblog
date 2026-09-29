@@ -16,7 +16,7 @@ title: The Story
       The Story of The MuSiK Box &amp; In Audio We Trust
     </h1>
     <p>
-      From Saint Ignatius High School hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
+      From Cleveland high school hallways to 100,000+ daily visitors: The oral history and digital chronicle of an era-defining music publication.
     </p>
     <div>
       <p>
@@ -85,7 +85,7 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
         </div>
       </div>
       <p>This pivotal show took place months before <em>K.I.D.S. (Kickin' Incredibly Dope Shit)</em> dropped and skyrocketed Mac to superstardom. The concert cemented the site's reputation among major indie labels, including Pittsburgh's Rostrum Records.</p>
-      <p>Just weeks earlier, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the Saint Ignatius High School lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
+      <p>Just weeks earlier, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
     </div>
   </section>
 
@@ -162,8 +162,8 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
     <div>CHAPTER 09</div>
     <h2>The Definitive Finale (January 2012)</h2>
     <div>
-      <p>By early 2012, as high school drew toward graduation and college loomed, the co-founders sold the publication, concluding their storied 50/50 partnership.</p>
-      <p>The original editorial run concluded on January 25, 2012 with Mike Posner’s “Looks Like Sex,” the site’s final official editorial post.</p>
+      <p>By early 2012, Seamus and Myles were college freshmen living in different cities. The publication had grown into a beast that demanded multiple posts daily, relentless track scouring, and constant coordination. Realizing they could not maintain the high editorial standards and hands-on curation they had established from separate college campuses, they made the decision to sell the blog in early 2012—officially concluding their authentic founder run on January 25, 2012.</p>
+      <p>For 15 years, until the compilation of this archive was established, we thought only our memories — and the still-regular reminders of its impact from some former readers via DM — would be all we had to remember this fun time from.</p>
       <p>Following January 2012, publication ceased for a three-month blackout before external owners resumed sporadic posting. This archive strictly preserves the genuine, curated <strong>August 2009 – January 2012</strong> era: <strong>307 posts and 54 media artifacts</strong> representing a golden snapshot of millennial music discovery.</p>
     </div>
     <div>
