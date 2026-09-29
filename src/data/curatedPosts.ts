@@ -135,7 +135,7 @@ export const CURATED_POSTS: CuratedPost[] = [
     youtubeId: 'ZIfSaDNVjXI',
     description:
       'Foundational local coverage of the Cleveland underground titan and frequent Kid Cudi collaborator with full tracklist and preserved review commentary.',
-    postSlug: '/artists/chip-tha-ripper/',
+    postSlug: '/blog/chip-tha-ripper-freestyle/',
     waybackUrl:
       'https://web.archive.org/web/20101001000000/http://themusikbox.com/tag/chip-tha-ripper/',
   },
@@ -151,4 +151,15 @@ export function getCuratedPostBySlug(slug: string): CuratedPost | undefined {
     const postSlug = post.postSlug.replace(/\/$/, '');
     return postSlug === `/blog/${slug}` || postSlug.endsWith(`/${slug}`);
   });
+}
+
+/**
+ * Safe "Read Post" href: only in-app `/blog/...` paths (trailing slash),
+ * otherwise the Wayback snapshot — never a missing internal deep-link.
+ */
+export function resolveCuratedReadHref(post: CuratedPost): string {
+  if (post.postSlug.startsWith('/blog/')) {
+    return post.postSlug.endsWith('/') ? post.postSlug : `${post.postSlug}/`;
+  }
+  return post.waybackUrl;
 }

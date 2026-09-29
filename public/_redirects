@@ -5,9 +5,14 @@
 /vault /vault/ 308
 /media /vault/ 308
 /gallery /vault/ 308
+/blog / 308
 /story.html /story/ 308
 /archive.html /archive/ 308
 /artists.html /artists/ 308
 /vault.html /vault/ 308
 /media.html /vault/ 308
 /gallery.html /vault/ 308
+
+# Curated Chip Tha Ripper card previously linked to a missing artist deep-link
+/artists/chip-tha-ripper /blog/chip-tha-ripper-freestyle/ 301
+/artists/chip-tha-ripper/ /blog/chip-tha-ripper-freestyle/ 301
