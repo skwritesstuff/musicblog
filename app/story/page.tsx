@@ -323,8 +323,8 @@ export default function StoryPage() {
               <strong className="text-text-primary">January 25, 2012</strong>.
             </p>
             <p className="mb-4">
-              For 15 years, until the compilation of this archive was established, we thought only our memories — and
-              the still-regular reminders of its impact from some former readers via DM — would be all we had to
+              For 15 years, until the compilation of this archive was established, they thought only their memories —
+              and the still-regular reminders of its impact from some former readers via DM — would be all they had to
               remember this fun time from.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

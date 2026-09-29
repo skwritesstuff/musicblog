@@ -163,7 +163,7 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
     <h2>The Definitive Finale (January 2012)</h2>
     <div>
       <p>By early 2012, Seamus and Myles were college freshmen living in different cities. The publication had grown into a beast that demanded multiple posts daily, relentless track scouring, and constant coordination. Realizing they could not maintain the high editorial standards and hands-on curation they had established from separate college campuses, they made the decision to sell the blog in early 2012—officially concluding their authentic founder run on January 25, 2012.</p>
-      <p>For 15 years, until the compilation of this archive was established, we thought only our memories — and the still-regular reminders of its impact from some former readers via DM — would be all we had to remember this fun time from.</p>
+      <p>For 15 years, until the compilation of this archive was established, they thought only their memories — and the still-regular reminders of its impact from some former readers via DM — would be all they had to remember this fun time from.</p>
       <p>Following January 2012, publication ceased for a three-month blackout before external owners resumed sporadic posting. This archive strictly preserves the genuine, curated <strong>August 2009 – January 2012</strong> era: <strong>307 posts and 54 media artifacts</strong> representing a golden snapshot of millennial music discovery.</p>
     </div>
     <div>
