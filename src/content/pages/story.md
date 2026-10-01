@@ -5,7 +5,7 @@ title: The Story
     <div class="container">
       <div>
   <div class="post-breadcrumbs">
-    <a href="/">Home</a> » <span>The Story</span>
+    <span>The Story</span>
   </div>
 
   <div>

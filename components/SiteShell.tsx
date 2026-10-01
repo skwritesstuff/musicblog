@@ -8,7 +8,7 @@ export default function SiteShell({
   active,
 }: {
   children: React.ReactNode;
-  active?: 'home' | 'story' | 'archive' | 'artists' | 'media' | 'vault';
+  active?: 'home' | 'story' | 'featured' | 'archive' | 'artists' | 'media' | 'vault';
 }) {
   return (
     <div className="min-h-screen bg-bg text-text-primary flex flex-col font-body selection:bg-white/20 pb-28">

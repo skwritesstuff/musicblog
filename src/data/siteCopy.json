@@ -3,12 +3,12 @@
   "title": "In Audio We Trust",
   "utilityLinks": [
     {
-      "label": "Home",
+      "label": "The Story",
       "href": "/"
     },
     {
-      "label": "The Story",
-      "href": "/story/"
+      "label": "Discoveries",
+      "href": "/featured/"
     },
     {
       "label": "Master Archive",
@@ -118,7 +118,11 @@
   "footerLinks": [
     {
       "label": "The Story",
-      "href": "/story/"
+      "href": "/"
+    },
+    {
+      "label": "Discoveries",
+      "href": "/featured/"
     },
     {
       "label": "Master Archive",

@@ -7,8 +7,8 @@ import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
 import AboutCredits from '@/components/AboutCredits';
 
 const NAV = [
-  { href: '/', label: 'Home', match: 'home' as const },
-  { href: '/story/', label: 'The Story', match: 'story' as const, star: true },
+  { href: '/', label: 'The Story', match: 'story' as const, star: true },
+  { href: '/featured/', label: 'Discoveries', match: 'featured' as const },
   { href: '/archive/', label: 'Master Archive', match: 'archive' as const },
   { href: '/artists/', label: 'Artists', match: 'artists' as const },
   { href: '/vault/', label: 'Artwork Vault', match: 'vault' as const },
@@ -17,10 +17,10 @@ const NAV = [
 export default function SiteHeader({
   active,
 }: {
-  active?: 'home' | 'story' | 'archive' | 'artists' | 'media' | 'vault';
+  active?: 'home' | 'story' | 'featured' | 'archive' | 'artists' | 'media' | 'vault';
 }) {
   const [open, setOpen] = useState(false);
-  const current = active === 'media' ? 'vault' : active;
+  const current = active === 'media' ? 'vault' : active === 'home' ? 'story' : active;
 
   return (
     <header className="border-b border-border-line bg-header-bg sticky top-0 z-40">
@@ -30,7 +30,7 @@ export default function SiteHeader({
             href="/"
             className="flex items-center gap-2 sm:gap-3 min-w-0 bg-transparent"
             onClick={() => setOpen(false)}
-            aria-label="Home — The MuSiK Box & In Audio We Trust"
+            aria-label="The Story — The MuSiK Box & In Audio We Trust"
           >
             <LogoTheMuSiKBox className="h-8 sm:h-10 lg:h-11 w-auto max-w-[42vw] sm:max-w-[200px] lg:max-w-[240px]" />
             <span className="text-text-dark text-sm hidden md:inline shrink-0">•</span>

@@ -32,7 +32,7 @@ export default function BlogPostPage({ params }: PageProps) {
       <article className="w-full bg-[#000000]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 pb-24">
           <Link
-            href="/#featured"
+            href="/featured/#featured"
             className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm text-[#94a3b8] hover:text-white transition-colors mb-8"
           >
             ← Back to Featured
@@ -105,7 +105,7 @@ export default function BlogPostPage({ params }: PageProps) {
 
           <div className="flex flex-wrap gap-4 pt-6 border-t border-[#222222]">
             <Link
-              href="/#featured"
+              href="/featured/#featured"
               className="font-mono text-sm text-[#94a3b8] hover:text-white transition-colors"
             >
               ← Back to Featured

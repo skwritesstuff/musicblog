@@ -15,8 +15,12 @@ export default function SiteFooter() {
           </div>
           <div className="text-sm text-text-muted space-y-1 md:text-right shrink-0">
             <p>
-              <Link href="/story/" className="text-white font-semibold hover:underline">
+              <Link href="/" className="text-white font-semibold hover:underline">
                 The Story
+              </Link>
+              {' • '}
+              <Link href="/featured/" className="hover:text-text-primary">
+                Discoveries
               </Link>
               {' • '}
               <Link href="/archive/" className="hover:text-text-primary">
