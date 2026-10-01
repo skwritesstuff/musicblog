@@ -39,23 +39,17 @@ const PRESCIENT = [
 export default function FeaturedPage() {
   return (
     <SiteShell active="featured">
-      <section className="w-full bg-white border-b border-[#e5e5e5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-6 sm:pb-8">
-          <div className="rounded-2xl border border-[#e5e5e5] bg-white p-5 sm:p-8">
+      <section className="w-full bg-[#000000] border-b border-[#222222]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-10 sm:pb-14">
+          <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
             <div className="w-full flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
-              <LogoTheMuSiKBox plate={false} className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
-              <span className="hidden lg:inline text-[#c4c4c4] text-2xl shrink-0" aria-hidden>
+              <LogoTheMuSiKBox plate className="h-16 sm:h-20 lg:h-24 w-auto max-w-full" />
+              <span className="hidden lg:inline text-white/20 text-2xl shrink-0" aria-hidden>
                 •
               </span>
-              <LogoInAudioWeTrust plate={false} className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
+              <LogoInAudioWeTrust plate className="h-8 sm:h-10 lg:h-12 w-auto max-w-full" />
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="w-full bg-[#000000] border-b border-[#222222]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-10 sm:pb-14">
-          <div className="flex flex-col items-start gap-6 sm:gap-8 bg-[#000000]">
             <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#94a3b8] font-bold">
               PARTIAL DIGITAL RESCUE (2009–2012) • 360 RECOVERED OF THOUSANDS PUBLISHED
             </p>

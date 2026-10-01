@@ -25,64 +25,41 @@ export default function SiteHeader({
 
   return (
     <header className="border-b border-[#1a1a1a] bg-black sticky top-0 z-40">
-      {/* Black chrome → large white dual-era logo block → black menu */}
-      <div className="bg-black px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-2.5 sm:pb-3">
-        <div className="max-w-5xl mx-auto rounded-xl bg-white border border-[#e5e5e5] px-4 sm:px-6 py-4 sm:py-5 shadow-[0_1px_0_rgba(0,0,0,0.04)]">
-          <div className="flex items-center justify-between gap-3 mb-3 sm:mb-4">
-            <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#64748b] font-bold">
-              Dual-era archive · 2009–2012
-            </p>
-            <div className="flex items-center gap-2 shrink-0">
-              <div className="hidden sm:block">
-                <AboutCredits tone="onLight" />
-              </div>
-              <button
-                type="button"
-                className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#d4d4d4] text-black bg-white"
-                aria-label="Open menu"
-                aria-expanded={open}
-                onClick={() => setOpen((v) => !v)}
-              >
-                <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
-              </button>
-            </div>
-          </div>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
+        <div className="flex items-center justify-between gap-3">
           <Link
             href="/"
+            className="flex items-center gap-2 sm:gap-3 min-w-0"
             onClick={() => setOpen(false)}
             aria-label="Home — The MuSiK Box & In Audio We Trust"
-            className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-5"
           >
-            <span className="flex flex-col items-center sm:items-end gap-1.5 min-w-0">
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#e32507] font-bold">
-                The MuSiK Box
-              </span>
-              <span className="inline-flex w-full justify-center sm:justify-end rounded-lg bg-white border border-[#f0f0f0] px-3 py-2.5 sm:px-4 sm:py-3">
-                <LogoTheMuSiKBox
-                  plate={false}
-                  className="h-12 sm:h-14 lg:h-16 w-auto max-w-full"
-                />
-              </span>
-            </span>
-
-            <span className="hidden sm:flex items-center justify-center text-[#c4c4c4] text-2xl font-light leading-none pt-5" aria-hidden>
+            {/* White plates only behind each mark — no full-width / floating white band */}
+            <LogoTheMuSiKBox
+              plate
+              className="h-9 sm:h-11 lg:h-12 w-auto max-w-[46vw] sm:max-w-[240px] lg:max-w-[280px]"
+            />
+            <span className="text-[#555] text-sm hidden md:inline shrink-0" aria-hidden>
               •
             </span>
-
-            <span className="flex flex-col items-center sm:items-start gap-1.5 min-w-0">
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#111111] font-bold">
-                In Audio We Trust
-              </span>
-              <span className="inline-flex w-full justify-center sm:justify-start rounded-lg bg-white border border-[#f0f0f0] px-3 py-2.5 sm:px-4 sm:py-3">
-                <LogoInAudioWeTrust
-                  plate={false}
-                  showCoin
-                  className="h-6 sm:h-7 lg:h-8 w-auto max-w-full"
-                />
-              </span>
+            <span className="hidden sm:inline-flex min-w-0">
+              <LogoInAudioWeTrust plate className="h-5 sm:h-6 w-auto max-w-[150px]" />
             </span>
           </Link>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="hidden sm:block">
+              <AboutCredits />
+            </div>
+            <button
+              type="button"
+              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#222222] text-white bg-black"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -114,6 +91,9 @@ export default function SiteHeader({
 
       {open && (
         <div className="sm:hidden border-t border-[#1a1a1a] bg-black px-4 py-3 space-y-0.5">
+          <div className="pb-3 border-b border-[#1a1a1a] mb-2">
+            <LogoInAudioWeTrust plate className="h-5 w-auto" />
+          </div>
           {NAV.map((item) => {
             const isActive =
               current === item.match ||
