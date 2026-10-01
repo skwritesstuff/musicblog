@@ -11,6 +11,10 @@
       "href": "/story/"
     },
     {
+      "label": "Discoveries",
+      "href": "/featured/"
+    },
+    {
       "label": "Master Archive",
       "href": "/archive/"
     },
@@ -117,8 +121,16 @@
   "noResultsLabel": "No posts found. Try another artist or title.",
   "footerLinks": [
     {
+      "label": "Home",
+      "href": "/"
+    },
+    {
       "label": "The Story",
       "href": "/story/"
+    },
+    {
+      "label": "Discoveries",
+      "href": "/featured/"
     },
     {
       "label": "Master Archive",

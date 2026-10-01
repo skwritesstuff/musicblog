@@ -18,7 +18,7 @@ export default function ArtistsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
         <p className="text-sm text-text-dark mb-6">
           <Link href="/" className="hover:text-text-primary">
-            Home
+            The Story
           </Link>{' '}
           » <span className="text-text-muted">Artists</span>
         </p>
