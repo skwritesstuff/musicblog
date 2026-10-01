@@ -29,15 +29,18 @@ npm run build
 
 ### Cloudflare Pages (shameis.com)
 
-If production still shows the old yellow/navy homepage after merging to `main`:
+Home is **The Story** at `/` (curated discoveries live at `/featured/`).
+
+If production still shows the old archive landing after merging to `main`:
 
 1. Cloudflare Dashboard → Pages → **musicblog** → Settings → Builds  
    - Build command: `npm ci && npm run build`  
-   - Build output directory: `out`  
+   - Build output directory: `out` (lowercase)  
    - Root directory: `/` (repo root)  
-   - Production branch: `main`
+   - Production branch: `main`  
+   - Environment variable: `NODE_VERSION=20`
 2. Deployments → open the failed `main` deploy → **Retry deployment**  
-   (or merge this deploy-fix PR to trigger a fresh production build)
+   (or merge a follow-up PR to trigger a fresh production build)
 
 ## Data (static only)
 
