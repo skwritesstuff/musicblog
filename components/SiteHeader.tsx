@@ -24,46 +24,49 @@ export default function SiteHeader({
   const current = active === 'media' ? 'vault' : active === 'home' ? 'story' : active;
 
   return (
-    <header className="border-b border-[#1a1a1a] bg-black sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5">
-        <div className="flex items-center justify-between gap-3">
-          <Link
-            href="/"
-            className="flex items-center gap-2 sm:gap-3 min-w-0"
-            onClick={() => setOpen(false)}
-            aria-label="Home — The MuSiK Box & In Audio We Trust"
-          >
-            {/* White plates only behind each mark — no full-width / floating white band */}
-            <LogoTheMuSiKBox
-              plate
-              className="h-9 sm:h-11 lg:h-12 w-auto max-w-[46vw] sm:max-w-[240px] lg:max-w-[280px]"
-            />
-            <span className="text-[#555] text-sm hidden md:inline shrink-0" aria-hidden>
-              •
-            </span>
-            <span className="hidden sm:inline-flex min-w-0">
-              <LogoInAudioWeTrust plate className="h-5 sm:h-6 w-auto max-w-[150px]" />
-            </span>
-          </Link>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="hidden sm:block">
-              <AboutCredits />
-            </div>
-            <button
-              type="button"
-              className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#222222] text-white bg-black"
-              aria-label="Open menu"
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
+    <header className="sticky top-0 z-40">
+      {/* Full-bleed white top — original logos on light surface */}
+      <div className="w-full bg-white border-b border-[#e5e5e5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
+          <div className="flex items-center justify-between gap-3">
+            <Link
+              href="/"
+              className="flex items-center gap-2 sm:gap-4 min-w-0"
+              onClick={() => setOpen(false)}
+              aria-label="Home — The MuSiK Box & In Audio We Trust"
             >
-              <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
-            </button>
+              <LogoTheMuSiKBox
+                plate={false}
+                className="h-10 sm:h-12 lg:h-14 w-auto max-w-[46vw] sm:max-w-[260px] lg:max-w-[300px]"
+              />
+              <span className="text-[#b0b0b0] text-sm hidden md:inline shrink-0" aria-hidden>
+                •
+              </span>
+              <span className="hidden sm:inline-flex min-w-0">
+                <LogoInAudioWeTrust plate={false} className="h-6 sm:h-7 w-auto max-w-[160px]" />
+              </span>
+            </Link>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <div className="hidden sm:block">
+                <AboutCredits tone="onLight" />
+              </div>
+              <button
+                type="button"
+                className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#d4d4d4] text-black bg-white"
+                aria-label="Open menu"
+                aria-expanded={open}
+                onClick={() => setOpen((v) => !v)}
+              >
+                <span className="font-mono text-lg leading-none">{open ? '×' : '☰'}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <nav className="hidden sm:flex items-center justify-center gap-x-4 lg:gap-x-5 flex-wrap px-4 sm:px-6 lg:px-8 py-2.5 bg-black border-t border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
+      {/* Black menu row */}
+      <nav className="hidden sm:flex items-center justify-center gap-x-4 lg:gap-x-5 flex-wrap px-4 sm:px-6 lg:px-8 py-2.5 bg-black border-b border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
         {NAV.map((item) => {
           const isActive =
             current === item.match ||
@@ -90,9 +93,11 @@ export default function SiteHeader({
       </nav>
 
       {open && (
-        <div className="sm:hidden border-t border-[#1a1a1a] bg-black px-4 py-3 space-y-0.5">
+        <div className="sm:hidden border-b border-[#1a1a1a] bg-black px-4 py-3 space-y-0.5">
           <div className="pb-3 border-b border-[#1a1a1a] mb-2">
-            <LogoInAudioWeTrust plate className="h-5 w-auto" />
+            <div className="inline-flex rounded-md bg-white px-2 py-1.5">
+              <LogoInAudioWeTrust plate={false} className="h-5 w-auto" />
+            </div>
           </div>
           {NAV.map((item) => {
             const isActive =
