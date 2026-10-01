@@ -8,7 +8,7 @@ import {
   OPEN_ATTRIBUTION_NOTE,
 } from '@/src/data/credits';
 
-export default function AboutCredits() {
+export default function AboutCredits({ tone = 'onDark' }: { tone?: 'onDark' | 'onLight' }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -20,13 +20,14 @@ export default function AboutCredits() {
     return () => document.removeEventListener('keydown', onKey);
   }, [open]);
 
+  const triggerClass =
+    tone === 'onLight'
+      ? 'text-xs sm:text-sm font-heading font-medium text-[#475569] hover:text-black transition-colors'
+      : 'text-xs sm:text-sm font-heading font-medium text-[#94a3b8] hover:text-white transition-colors';
+
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="text-xs sm:text-sm font-heading font-medium text-[#94a3b8] hover:text-white transition-colors"
-      >
+      <button type="button" onClick={() => setOpen(true)} className={triggerClass}>
         Colophon
       </button>
 

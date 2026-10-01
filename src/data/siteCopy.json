@@ -3,8 +3,12 @@
   "title": "In Audio We Trust",
   "utilityLinks": [
     {
-      "label": "The Story",
+      "label": "Home",
       "href": "/"
+    },
+    {
+      "label": "The Story",
+      "href": "/story/"
     },
     {
       "label": "Discoveries",
@@ -117,8 +121,12 @@
   "noResultsLabel": "No posts found. Try another artist or title.",
   "footerLinks": [
     {
-      "label": "The Story",
+      "label": "Home",
       "href": "/"
+    },
+    {
+      "label": "The Story",
+      "href": "/story/"
     },
     {
       "label": "Discoveries",

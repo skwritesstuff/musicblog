@@ -8,11 +8,21 @@ function coinSizeFromWordmark(className: string) {
   return 'h-8 sm:h-9';
 }
 
-/** IAWT coin + white needle wordmark — sits directly on true black. */
-export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { className?: string }) {
+/**
+ * IAWT coin + original black needle wordmark.
+ * Default: white plate so the mark reads on dark chrome.
+ * Set plate={false} when already seated on a light surface (e.g. white header banner).
+ */
+export default function LogoInAudioWeTrust({
+  className = 'h-7 w-auto',
+  plate = true,
+}: {
+  className?: string;
+  plate?: boolean;
+}) {
   const coinClass = coinSizeFromWordmark(className);
 
-  return (
+  const mark = (
     <span className="inline-flex items-center gap-2.5 sm:gap-3 shrink-0 bg-transparent">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -24,11 +34,19 @@ export default function LogoInAudioWeTrust({ className = 'h-7 w-auto' }: { class
       />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/iawt-wordmark-white.png"
+        src="/images/iawt-wordmark-black.png"
         alt="In Audio We Trust"
         className={`object-contain bg-transparent ${className}`}
         decoding="async"
       />
+    </span>
+  );
+
+  if (!plate) return mark;
+
+  return (
+    <span className="inline-flex items-center rounded-md bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 shrink-0">
+      {mark}
     </span>
   );
 }
