@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import SiteShell from '@/components/SiteShell';
 import LogoTheMuSiKBox from '@/components/LogoTheMuSiKBox';
 import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
@@ -97,27 +96,7 @@ export default function FeaturedPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link
-          href="/"
-          className="group block rounded-2xl border border-[#222222] bg-[#0a0a0a] px-6 py-5 sm:px-8 sm:py-6 hover:border-[#262626] transition-colors"
-        >
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] mb-2">Oral History</p>
-          <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white group-hover:underline underline-offset-4 decoration-white/40">
-            <span className="yellow-star" aria-hidden>
-              ★
-            </span>{' '}
-            The Story: High School Hallways to 100k+ Daily Readers
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#94a3b8] max-w-3xl leading-relaxed">
-            The complete oral history: booking 18-year-old Mac Miller&apos;s maiden headline concert at The Grog Shop in
-            Spring 2010, the April 2010 iPhone interview with Machine Gun Kelly in the school parking lot, the 301
-            domain rebrand to IAWT, and early coverage of future stadium headliners.
-          </p>
-        </Link>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-6">
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#94a3b8] font-bold mb-2">
             Prescient Ear

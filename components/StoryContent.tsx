@@ -13,48 +13,6 @@ const CHAPTERS = [
 export default function StoryContent() {
   return (
       <div id="story">
-      {/* Full-bleed white brand block — original logos need light surfaces */}
-      <section className="w-full bg-white border-b border-[#e5e5e5]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <p className="text-center font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-[#64748b] font-bold mb-5">
-            Original brand marks · light-surface artwork
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            <figure className="rounded-xl border border-[#e5e5e5] bg-white p-5 sm:p-6 flex flex-col items-center justify-center min-h-[140px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/the-musik-box-banner.png"
-                alt="The MuSiK Box — We Skip Study Hall For This..."
-                className="max-h-28 sm:max-h-32 w-auto object-contain"
-              />
-              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-wider text-[#64748b]">
-                The MuSiK Box
-              </figcaption>
-            </figure>
-            <figure className="rounded-xl border border-[#e5e5e5] bg-white p-5 sm:p-6 flex flex-col items-center justify-center min-h-[140px]">
-              <span className="inline-flex items-center gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/iawt-coin.png"
-                  alt=""
-                  aria-hidden
-                  className="h-14 w-14 sm:h-16 sm:w-16 object-contain"
-                />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/iawt-wordmark-black.png"
-                  alt="In Audio We Trust"
-                  className="h-7 sm:h-8 w-auto object-contain"
-                />
-              </span>
-              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-wider text-[#64748b]">
-                In Audio We Trust
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
         <div className="text-center mb-12 pb-10 border-b border-border-line">
           <div className="inline-flex items-center gap-2 rounded-full border border-border-line bg-card px-4 py-1.5 font-mono text-xs text-text-primary mb-5">
