@@ -34,7 +34,7 @@ export default function LogoTheMuSiKBox({
   if (variant === 'dark' || !plate) return img;
 
   return (
-    <span className="inline-flex items-center rounded-md bg-white px-2 py-1 sm:px-2.5 sm:py-1.5 shrink-0">
+    <span className="inline-flex items-center rounded-lg bg-white border border-[#e5e5e5] px-3 py-2 sm:px-4 sm:py-2.5 shrink-0">
       {img}
     </span>
   );
