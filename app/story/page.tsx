@@ -206,12 +206,57 @@ export default function StoryPage() {
               </aside>
             </div>
 
-            <p>
+            <p className="mb-6">
               Just weeks earlier, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
               a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old{' '}
               <strong className="text-text-primary">Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape{' '}
               <em>100 Words and Running</em>.
             </p>
+
+            <aside className="rounded-2xl border border-[#222222] bg-[#0a0a0a] overflow-hidden mb-2">
+              <div className="px-4 pt-4 pb-3 border-b border-[#222222]">
+                <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] font-bold text-white">
+                  PRIMARY SOURCE // PARKING LOT INTERVIEW
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=WzgJwyb199w"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1.5 inline-block font-heading text-sm font-bold text-white hover:underline underline-offset-4"
+                >
+                  Machine Gun Kelly — The MuSiK Box Parking Lot Interview ↗
+                </a>
+              </div>
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/WzgJwyb199w?rel=0&modestbranding=1"
+                  title="Machine Gun Kelly — The MuSiK Box parking lot interview, April 22, 2010"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="px-4 py-4">
+                <p className="text-sm text-[#94a3b8] leading-relaxed">
+                  Shot on an iPhone in the Saint Ignatius High School parking lot on April 22, 2010 — weeks before Mac
+                  Miller&apos;s Grog Shop headline — this interview captures a 19-year-old MGK breaking down{' '}
+                  <em className="text-white">100 Words and Running</em> at the cusp of his Lace Up breakout.
+                </p>
+                <p className="mt-3 text-sm text-[#94a3b8] leading-relaxed">
+                  Watch the full restored clip on YouTube:{' '}
+                  <a
+                    href="https://www.youtube.com/watch?v=WzgJwyb199w"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-semibold hover:underline underline-offset-2"
+                  >
+                    Machine Gun Kelly — The MuSiK Box Parking Lot Interview
+                  </a>
+                  .
+                </p>
+              </div>
+            </aside>
           </section>
 
           <section id="viral-surge">
