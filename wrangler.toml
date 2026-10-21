@@ -5,3 +5,7 @@
 name = "shameis-musicblog"
 compatibility_date = "2024-09-26"
 pages_build_output_dir = "out"
+
+# Public GitHub App identifier; the client secret stays encrypted in Cloudflare.
+[env.production.vars]
+GITHUB_CLIENT_ID = "Iv23lizwTMFvVGexTIQ2"
