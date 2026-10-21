@@ -3,21 +3,21 @@
   const {CMS, h, createClass} = window;
   const GitHubBackend = CMS.getBackend('github').BackendClass;
   const loginResult = new URL(window.location.href).searchParams.get('login');
-  let handoff;
+  let pendingHandoff = loginResult === 'complete';
   const Login = createClass({
     getInitialState() {
-      return {error:loginResult === 'failed' ? 'GitHub sign-in could not be completed. Please try again.' : '', loading:loginResult === 'complete'};
+      return {error:loginResult === 'failed' ? 'GitHub sign-in could not be completed. Please try again.' : '', loading:pendingHandoff};
     },
     componentDidMount() {
       if (loginResult) window.history.replaceState(null, '', '/admin/' + window.location.hash);
-      if (loginResult !== 'complete') return;
-      // Share the request across component remounts; the response clears the cookie.
-      handoff ||= fetch('/cms/session', {method:'POST',credentials:'same-origin',cache:'no-store'})
+      if (!pendingHandoff) return;
+      // A later logout must show the login link, not replay this handoff.
+      pendingHandoff = false;
+      fetch('/cms/session', {method:'POST',credentials:'same-origin',cache:'no-store'})
         .then(async response => {
           if (!response.ok) throw Error('Sign-in expired. Please sign in again.');
           return response.json();
-        });
-      handoff.then(data => this.props.onLogin(data)).catch(() => {
+        }).then(data => this.props.onLogin(data)).catch(() => {
         this.setState({loading:false,error:'Sign-in could not be completed. Please sign in again.'});
       });
     },
