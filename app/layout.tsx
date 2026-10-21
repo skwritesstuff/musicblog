@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Poppins, IBM_Plex_Sans } from 'next/font/google';
+import TelemetryDeckAnalytics from '@/components/TelemetryDeckAnalytics';
 import './globals.css';
 
 const poppins = Poppins({
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${ibmPlexSans.variable}`} suppressHydrationWarning>
-      <body className="bg-black text-white antialiased min-h-screen">{children}</body>
+      <body className="bg-black text-white antialiased min-h-screen">
+        {children}
+        <TelemetryDeckAnalytics />
+      </body>
     </html>
   );
 }
