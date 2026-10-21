@@ -124,7 +124,7 @@ export const CURATED_POSTS: CuratedPost[] = [
     youtubeId: 'ZT4hcbSNq6U',
     listeningTitle: 'Kid Cudi — Maniac (2010), later related listening',
     description:
-      "The first albums we reviewed in 2009 were hometown legend Kid Cudi’s debut, Man on the Moon, and Jay-Z’s The Blueprint 3. Those reviews predate the salvaged archive. We had been covering Cudi well before the later records that survive here.",
+      "The site’s first album reviews in 2009 covered hometown legend Kid Cudi’s debut, Man on the Moon, alongside Jay-Z’s The Blueprint 3. Those reviews predate the salvaged archive. The site’s Cudi coverage began well before the later records that survive here.",
     sourceNote: 'Later surviving record: Maniac ft. Cage · October 2010.',
     recordLabel: 'Later record',
     postSlug: '/blog/kid-cudi-maniac-ft-cage/',

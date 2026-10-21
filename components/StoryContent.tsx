@@ -104,8 +104,9 @@ export default function StoryContent() {
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
             <p className="mb-6">
-              On August 21, 2010, we booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
-              headlining show at <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights.
+              The MuSiK Box booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
+              headlining show at <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights,
+              held on August 21, 2010.
               Seamus and Myles worked with Cleveland promotion crew <em>The Coventry Kids</em> to bring the
               18-year-old Pittsburgh rapper to the venue. Mac later recalled the show in the interview below.
             </p>
