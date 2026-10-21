@@ -13,7 +13,7 @@
     {
       "year": "January 2012",
       "title": "Last recovered entries",
-      "copy": "The surviving catalog ends in January 2012."
+      "copy": "The surviving catalog ends in January 2012 when Seamus and Myles sold the site domains and associated assets. "
     }
   ],
   "vaultTitle": "Recovered artwork",
@@ -23,6 +23,24 @@
   "discoveriesTitle": "Start with a discovery",
   "vaultLink": "Open the artwork vault →",
   "intro": "The MuSiK Box was founded in Cleveland by Seamus Kelleher and Myles Snider and became In Audio We Trust in 2011. This archive brings together {{recordCount}} surviving post records, recovered artwork, interviews, and the history of the site from 2009 to 2012.",
+  "brandArtwork": [
+    {
+      "src": "/images/musik-box-turntable.webp",
+      "alt": "The MuSiK Box turntable artwork",
+      "label": "The MuSiK Box",
+      "href": "/story/#genesis",
+      "width": 3546,
+      "height": 3382
+    },
+    {
+      "src": "/images/in-audio-we-trust-emblem.webp",
+      "alt": "In Audio We Trust emblem with Thomas Jefferson wearing headphones",
+      "label": "In Audio We Trust",
+      "href": "/story/#rebrand",
+      "width": 3424,
+      "height": 3424
+    }
+  ],
   "storyLink": "Read the story",
   "picks": [
     {
@@ -67,23 +85,5 @@
   "timelineTitle": "From The MuSiK Box to In Audio We Trust",
   "title": "The MuSiK Box\n& In Audio We Trust",
   "vaultIntro": "{{imageCount}} recovered images, from early logos to artist photography. See the files and their archival sources.",
-  "archiveLink": "Explore the archive →",
-  "brandArtwork": [
-    {
-      "src": "/images/musik-box-turntable.webp",
-      "alt": "The MuSiK Box turntable artwork",
-      "label": "The MuSiK Box",
-      "href": "/story/#genesis",
-      "width": 3546,
-      "height": 3382
-    },
-    {
-      "src": "/images/in-audio-we-trust-emblem.webp",
-      "alt": "In Audio We Trust emblem with Thomas Jefferson wearing headphones",
-      "label": "In Audio We Trust",
-      "href": "/story/#rebrand",
-      "width": 3424,
-      "height": 3424
-    }
-  ]
+  "archiveLink": "Explore the archive →"
 }
