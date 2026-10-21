@@ -9,7 +9,7 @@ const PICKS = [
   { artist: 'J. Cole', title: 'Artist of the Week', date: 'November 2009', href: '/blog/j-cole-artist-of-the-week/', image: recovered[1], caption: 'Recovered photo · December 2009' },
   { artist: 'Chiddy Bang', title: 'Bad Day', date: 'October 2010', href: '/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/', image: recovered[2], caption: 'Recovered Xaphoon Jones photo · November 2009' },
   {
-    artist: 'Mac Miller', title: 'His first out-of-town show', date: 'May 2010', href: '/story/#grog-shop',
+    artist: 'Mac Miller', title: 'His first out-of-town show', date: 'August 21, 2010', href: '/story/#grog-shop',
     image: { src: '/media/mac-miller-arroyo-still.jpg', alt: 'Mac Miller on The Arroyo Show in 2011, recalling his first out-of-town headlining show at The Grog Shop' },
     description: 'We booked Mac’s first out-of-town headlining show at The Grog Shop in Cleveland Heights.',
     caption: 'Interview still · The Arroyo Show, October 2011',

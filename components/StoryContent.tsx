@@ -104,7 +104,7 @@ export default function StoryContent() {
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
             <p className="mb-6">
-              In May 2010, we booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
+              On August 21, 2010, we booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
               headlining show at <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights.
               Seamus and Myles worked with Cleveland promotion crew <em>The Coventry Kids</em> to bring the
               18-year-old Pittsburgh rapper to the venue. Mac later recalled the show in the interview below.
@@ -168,7 +168,7 @@ export default function StoryContent() {
                 </div>
                 <div className="px-4 py-4">
                   <p className="text-sm text-[#94a3b8] leading-relaxed">
-                    On May 8, 2010, an 18-year-old Mac Miller drove out from Pittsburgh to play his maiden out-of-town
+                    On August 21, 2010, an 18-year-old Mac Miller drove out from Pittsburgh to play his maiden out-of-town
                     headlining concert at The Grog Shop in Cleveland Heights. Documenting that night is a 1-minute live
                     clip uploaded directly to Mac&apos;s official verified YouTube channel (@macmiller) in 2010.
                   </p>
@@ -191,7 +191,7 @@ export default function StoryContent() {
             </div>
 
             <p className="mb-6">
-              Just weeks earlier, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
+              Earlier that year, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
               a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old{' '}
               <strong className="text-text-primary">Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape{' '}
               <em>100 Words and Running</em>.
@@ -223,7 +223,7 @@ export default function StoryContent() {
               </div>
               <div className="px-4 py-4">
                 <p className="text-sm text-[#94a3b8] leading-relaxed">
-                  Shot on an iPhone in the Saint Ignatius High School parking lot on April 22, 2010 — weeks before Mac
+                  Shot on an iPhone in the Saint Ignatius High School parking lot on April 22, 2010 — four months before Mac
                   Miller&apos;s Grog Shop headline — this interview captures a 19-year-old MGK breaking down{' '}
                   <em className="text-white">100 Words and Running</em> at the cusp of his Lace Up breakout.
                 </p>

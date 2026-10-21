@@ -5,7 +5,7 @@ date: '2012-01-01'
 category: Hip Hop
 audioUrl: ''
 artwork: ''
-teaser: Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010
+teaser: The MuSiK Box booked Mac Miller’s first out-of-town headlining show at The Grog Shop on August 21, 2010
 originalPath: /blog/mac-miller-jerrys-record-store.html
 ---
 
@@ -20,7 +20,7 @@ originalPath: /blog/mac-miller-jerrys-record-store.html
           <span class="tag-pill">Hip Hop</span>
         </div>
         <h1 class="post-title">Mac Miller Jerrys Record Store</h1>
-        <div class="archive-callout"><strong style="color: var(--accent-orange); display: block; margin-bottom: 0.3rem;">Historical Significance:</strong><p>Historical early co-sign; hosted at Grog Shop pre-K.I.D.S. in 2010</p></div>
+        <div class="archive-callout"><strong style="color: var(--accent-orange); display: block; margin-bottom: 0.3rem;">Historical Significance:</strong><p>The MuSiK Box booked Mac Miller’s first out-of-town headlining show at The Grog Shop on August 21, 2010</p></div>
         <table class="post-meta-table">
           <tr><th>Platform</th><td>In Audio We Trust</td></tr>
           <tr><th>Date</th><td>2012-01-01</td></tr>
