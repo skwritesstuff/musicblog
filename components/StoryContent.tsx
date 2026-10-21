@@ -6,7 +6,7 @@ const CHAPTERS = [
   { id: 'grog-shop', num: '02', title: 'Mac Miller at The Grog Shop & The MGK Video' },
   { id: 'viral-surge', num: '03', title: 'The Viral Surge & The 100k Ceiling' },
   { id: 'rebrand', num: '04', title: 'The 301 Rebrand to In Audio We Trust' },
-  { id: 'finale', num: '05', title: 'The Prescient Ear & Final Broadcast' },
+  { id: 'finale', num: '05', title: 'Early Artist Coverage & The Final Posts' },
 ];
 
 /** Oral history — rendered at `/` (home) and kept available via `/story/` redirects. */
@@ -319,7 +319,7 @@ export default function StoryContent() {
           <section id="finale">
             <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 05</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
-              The Prescient Ear & Final Broadcast
+              Early Artist Coverage &amp; The Final Posts
             </h2>
             <p className="mb-5">
               What made The MuSiK Box & IAWT unique was their track record of identifying future megastars months or
