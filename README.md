@@ -69,3 +69,7 @@ See [CATALOG_NOTES.md](CATALOG_NOTES.md) for the distinction between preserved r
 ### Canonical host
 
 Canonical tags, Open Graph URLs, and the sitemap use `https://shameis.com`. A `www` → apex redirect must be configured in Cloudflare Bulk Redirects or Redirect Rules; Pages `_redirects` does not support domain-level redirects. Preserve the path suffix and query string when applying the rule. [Cloudflare setup](https://developers.cloudflare.com/pages/how-to/www-redirect/).
+
+## Copy editing
+
+The Decap editor at `/admin/` manages the live editorial copy. See [Copy editor instructions and setup](docs/COPY-EDITOR.md).

@@ -1,0 +1,25 @@
+.cms-mobile-preview { display: none; }
+@media (max-width: 700px) {
+  /* Decap's desktop shell has an 800px minimum; keep its controls in view. */
+  [class*='-EditorContainer'], [class*='-ToolbarContainer'] { min-width: 0 !important; width: 100% !important; }
+  [class*='-BackCollection'], [class*='-ToolbarContainer'] [class*='-AppHeaderSiteLink'] { display: none !important; }
+  [class*='-ToolbarSectionBackLink'] { padding: 8px !important; flex: 0 1 auto !important; min-width: 0 !important; }
+  [class*='-BackArrow'] { margin-right: 6px !important; }
+  [class*='-BackStatus'] { font-size: 10px !important; white-space: normal !important; max-width: 82px; }
+  [class*='-ToolbarSectionMain'] { padding: 0 !important; min-width: 0 !important; }
+  [class*='-ToolbarSectionMeta'] { padding: 6px !important; flex: 0 0 44px !important; min-width: 0 !important; }
+  [class*='-ToolbarSubSectionFirst'] { min-width: 0 !important; }
+  [class*='-ToolbarButton'] { margin: 0 4px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  [class*='-PreviewLink'] { font-size: 12px !important; padding: 4px !important; }
+  [class*='-ViewControls'], .SplitPane .Resizer { display: none !important; }
+  .SplitPane .Pane1 { width: 100% !important; }
+  .SplitPane .Pane2 { display: none !important; }
+  .cms-mobile-preview-active .SplitPane .Pane1 { display: none !important; }
+  .cms-mobile-preview-active .SplitPane .Pane2 { display: block !important; width: 100% !important; }
+  #preview-pane { width: 100% !important; }
+  body:has(.SplitPane) .cms-mobile-preview {
+    display: block; position: fixed; z-index: 999; bottom: max(16px, env(safe-area-inset-bottom)); right: 16px;
+    min-height: 44px; padding: 10px 20px; border: 1px solid #eee; border-radius: 24px;
+    background: #182333; color: white; font: 600 14px system-ui, sans-serif; box-shadow: 0 2px 10px #0003;
+  }
+}

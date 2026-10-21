@@ -1,0 +1,89 @@
+{
+  "timeline": [
+    {
+      "year": "2009",
+      "title": "The MuSiK Box begins",
+      "copy": "Seamus Kelleher and Myles Snider launch the music blog in Cleveland."
+    },
+    {
+      "year": "2011",
+      "title": "In Audio We Trust",
+      "copy": "The site adopts a new name as its readership and contributor group grow."
+    },
+    {
+      "year": "January 2012",
+      "title": "Last recovered entries",
+      "copy": "The surviving catalog ends in January 2012."
+    }
+  ],
+  "vaultTitle": "Recovered artwork",
+  "recoveryNote": "A partial recovery, August 2009–January 2012. Original snapshots remain linked throughout.",
+  "discoveriesLink": "All discoveries →",
+  "eyebrow": "Music blog archive · Cleveland · 2009–2012",
+  "discoveriesTitle": "Start with a discovery",
+  "vaultLink": "Open the artwork vault →",
+  "intro": "The MuSiK Box was founded in Cleveland by Seamus Kelleher and Myles Snider and became In Audio We Trust in 2011. This archive brings together {{recordCount}} surviving post records, recovered artwork, interviews, and the history of the site from 2009 to 2012.",
+  "storyLink": "Read the story",
+  "picks": [
+    {
+      "artist": "J. Cole",
+      "title": "Artist of the Week",
+      "date": "November 2009",
+      "href": "/blog/j-cole-artist-of-the-week/",
+      "image": {
+        "src": "/recovered_media/The_MuSiK_Box_JCole_Dec2009.jpg",
+        "alt": "J. Cole — Artist of the Week, December 2009"
+      },
+      "caption": "Recovered photo · December 2009",
+      "description": ""
+    },
+    {
+      "artist": "Chiddy Bang",
+      "title": "Bad Day",
+      "date": "October 2010",
+      "href": "/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/",
+      "image": {
+        "src": "/recovered_media/The_MuSiK_Box_XaphoonJones_Nov2009.jpg",
+        "alt": "Xaphoon Jones & Chiddy Bang, November 2009"
+      },
+      "caption": "Recovered Xaphoon Jones photo · November 2009",
+      "description": ""
+    },
+    {
+      "artist": "Mac Miller",
+      "title": "His first out-of-town show",
+      "date": "August 21, 2010",
+      "href": "/story/#grog-shop",
+      "image": {
+        "src": "/media/mac-miller-arroyo-still.jpg",
+        "alt": "Mac Miller on The Arroyo Show in 2011, recalling his first out-of-town headlining show at The Grog Shop"
+      },
+      "description": "The MuSiK Box booked his first out-of-town headlining show at The Grog Shop in Cleveland Heights.",
+      "caption": "Interview still · The Arroyo Show, October 2011"
+    }
+  ],
+  "metaTitle": "Music Blog Archive (2009–2012)",
+  "metaDescription": "The history and surviving archive of The MuSiK Box and In Audio We Trust, founded in Cleveland by Seamus Kelleher and Myles Snider.",
+  "timelineTitle": "From The MuSiK Box to In Audio We Trust",
+  "title": "The MuSiK Box\n& In Audio We Trust",
+  "vaultIntro": "{{imageCount}} recovered images, from early logos to artist photography. See the files and their archival sources.",
+  "archiveLink": "Explore the archive →",
+  "brandArtwork": [
+    {
+      "src": "/images/musik-box-turntable.webp",
+      "alt": "The MuSiK Box turntable artwork",
+      "label": "The MuSiK Box",
+      "href": "/story/#genesis",
+      "width": 3546,
+      "height": 3382
+    },
+    {
+      "src": "/images/in-audio-we-trust-emblem.webp",
+      "alt": "In Audio We Trust emblem with Thomas Jefferson wearing headphones",
+      "label": "In Audio We Trust",
+      "href": "/story/#rebrand",
+      "width": 3424,
+      "height": 3424
+    }
+  ]
+}
