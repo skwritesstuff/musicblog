@@ -104,11 +104,10 @@ export default function StoryContent() {
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
             <p className="mb-6">
-              The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. In
-              the spring of 2010, Seamus and Myles partnered with Cleveland promotion crew <em>The Coventry Kids</em> to
-              book an 18-year-old Pittsburgh prodigy named <strong className="text-text-primary">Mac Miller</strong> at{' '}
-              <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights — Mac&apos;s first
-              out-of-town headline show.
+              In May 2010, we booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
+              headlining show at <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights.
+              Seamus and Myles worked with Cleveland promotion crew <em>The Coventry Kids</em> to bring the
+              18-year-old Pittsburgh rapper to the venue. Mac later recalled the show in the interview below.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">

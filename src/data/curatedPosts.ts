@@ -6,7 +6,10 @@ export interface CuratedPost {
   brand: 'The MuSiK Box' | 'In Audio We Trust';
   category: string;
   youtubeId: string;
+  listeningTitle?: string;
   description: string;
+  sourceNote?: string;
+  recordLabel?: string;
   postSlug: string;
   waybackUrl: string;
 }
@@ -114,13 +117,16 @@ export const CURATED_POSTS: CuratedPost[] = [
   {
     id: 'kid-cudi',
     artist: 'Kid Cudi',
-    title: "Maniac ft. Cage",
-    date: '2010-10',
+    title: "Man on the Moon",
+    date: '2009',
     brand: 'The MuSiK Box',
     category: 'HIP HOP',
     youtubeId: 'ZT4hcbSNq6U',
+    listeningTitle: 'Kid Cudi — Maniac (2010), later related listening',
     description:
-      "The October 2010 catalog records Kid Cudi’s Maniac featuring Cage. This page preserves the reference and links back to the available historical source.",
+      "The first albums we reviewed in 2009 were hometown legend Kid Cudi’s debut, Man on the Moon, and Jay-Z’s The Blueprint 3. Those reviews predate the salvaged archive. We had been covering Cudi well before the later records that survive here.",
+    sourceNote: 'Later surviving record: Maniac ft. Cage · October 2010.',
+    recordLabel: 'Later record',
     postSlug: '/blog/kid-cudi-maniac-ft-cage/',
     waybackUrl:
       'https://web.archive.org/web/20101010000000/http://themusikbox.com/2010/10/kid-cudi-maniac-ft-cage/',

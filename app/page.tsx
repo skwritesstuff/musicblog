@@ -6,9 +6,14 @@ import recovered from '@/src/data/recoveredMedia.json';
 
 export const metadata = pageMetadata('Music before the feed', 'Explore 360 preserved records, recovered artwork, and the story of The MuSiK Box and In Audio We Trust (2009–2012).', '/');
 const PICKS = [
-  { artist: 'J. Cole', title: 'Artist of the Week', date: 'November 2009', slug: 'j-cole-artist-of-the-week', image: recovered[1], caption: 'Recovered photo · December 2009' },
-  { artist: 'Chiddy Bang', title: 'Bad Day', date: 'October 2010', slug: 'chiddy-bang-bad-day-ft-darwin-deez-theodore-grams', image: recovered[2], caption: 'Recovered Xaphoon Jones photo · November 2009' },
-  { artist: 'Lupe Fiasco', title: 'Words I Never Said', date: 'February 2011', slug: 'lupe-fiasco-words-i-never-said-ft-skylar-grey', image: recovered[6], caption: 'Recovered feature artwork · February 2011' },
+  { artist: 'J. Cole', title: 'Artist of the Week', date: 'November 2009', href: '/blog/j-cole-artist-of-the-week/', image: recovered[1], caption: 'Recovered photo · December 2009' },
+  { artist: 'Chiddy Bang', title: 'Bad Day', date: 'October 2010', href: '/blog/chiddy-bang-bad-day-ft-darwin-deez-theodore-grams/', image: recovered[2], caption: 'Recovered Xaphoon Jones photo · November 2009' },
+  {
+    artist: 'Mac Miller', title: 'His first out-of-town show', date: 'May 2010', href: '/story/#grog-shop',
+    image: { src: '/media/mac-miller-arroyo-still.jpg', alt: 'Mac Miller on The Arroyo Show in 2011, recalling his first out-of-town headlining show at The Grog Shop' },
+    description: 'We booked Mac’s first out-of-town headlining show at The Grog Shop in Cleveland Heights.',
+    caption: 'Interview still · The Arroyo Show, October 2011',
+  },
 ];
 
 export default function Home() {
@@ -33,7 +38,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-3 gap-6">
             {PICKS.map((pick) => (
               <article key={pick.artist} className="rounded-xl overflow-hidden border border-border-line bg-black">
-                <Link href={`/blog/${pick.slug}/`} className="block group">
+                <Link href={pick.href} className="block group">
                   <div className="h-56 sm:h-52 lg:h-64 bg-[#111] flex items-center justify-center overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={pick.image.src} alt={pick.image.alt} width="600" height="400" className="h-full w-full object-contain" />
@@ -42,6 +47,7 @@ export default function Home() {
                     <p className="font-mono text-xs text-text-muted mb-2">{pick.date}</p>
                     <h3 className="font-heading text-2xl font-bold group-hover:underline underline-offset-4">{pick.artist}</h3>
                     <p className="text-text-muted mt-1">{pick.title}</p>
+                    {pick.description && <p className="text-sm text-text-muted mt-3 leading-relaxed">{pick.description}</p>}
                     <p className="text-xs text-text-muted mt-4">{pick.caption}</p>
                   </div>
                 </Link>
@@ -52,7 +58,7 @@ export default function Home() {
       </section>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid lg:grid-cols-2 gap-12">
         <div>
-          <h2 className="font-heading text-2xl font-extrabold mb-6">Two names. One shared obsession.</h2>
+          <h2 className="font-heading text-2xl font-extrabold mb-6">From The MuSiK Box to In Audio We Trust</h2>
           <ol className="border-l border-border-line pl-6 space-y-7">
             {[
               ['2009', 'The MuSiK Box begins', 'Cleveland high school friends start sharing the music they cannot stop playing.'],
