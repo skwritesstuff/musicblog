@@ -306,7 +306,7 @@ export default function StoryContent() {
                 Confirmed Contributors & Writers
               </p>
               <p className="text-sm text-text-primary font-heading font-semibold mb-2">
-                Matt · Ben · Helen · Pilo · Lesia · Tricia · Heather · Tim
+                {CONTRIBUTING_WRITERS.join(' · ')}
               </p>
               <p className="text-xs text-text-dark leading-relaxed italic">
                 …and other contributors we&apos;re surely forgetting. If you wrote for us, sent in music, or helped run
