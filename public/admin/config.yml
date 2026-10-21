@@ -40,8 +40,9 @@
             },
             {
               "name": "eyebrow",
-              "label": "Small heading",
-              "widget": "string"
+              "label": "Text above homepage title",
+              "widget": "string",
+              "hint": "The small line above the main homepage title. Search title and Search description are separate fields."
             },
             {
               "name": "brandArtwork",
