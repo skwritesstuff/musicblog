@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import copy from '@/src/content/editorial/discoveries.json';
+import { editorialText } from '@/lib/editorial';
 import { CURATED_POSTS, resolveCuratedReadHref, type CuratedPost } from '@/src/data/curatedPosts';
 
 export type { CuratedPost };
@@ -10,12 +12,12 @@ export default function CuratedFeed() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
       <div className="mb-8">
-        <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-3">From the archive</p>
-        <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Discoveries</h1>
-        <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">Nine selections from the blog years. These are retrospective notes with related listening selections; follow the Wayback links for surviving historical pages.</p>
+        <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-3">{copy.eyebrow}</p>
+        <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">{copy.title}</h1>
+        <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">{editorialText(copy.intro, { count: CURATED_POSTS.length })}</p>
       </div>
 
-      {/* 3x3 Grid */}
+      {/* Featured coverage, with later surviving records labeled separately. */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {CURATED_POSTS.map((post) => {
           const readHref = resolveCuratedReadHref(post);
@@ -27,7 +29,7 @@ export default function CuratedFeed() {
               className="group flex flex-col relative rounded-2xl bg-[#0a0a0a] border border-[#222222] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#262626]"
             >
               {/* Card Meta */}
-              <div className="flex justify-between items-center mb-4 gap-3">
+              <div className="flex flex-wrap justify-between items-center mb-4 gap-3">
                 <span className="font-heading text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded bg-[#0f0f0f] border border-[#262626] text-[#94a3b8]">
                   {post.category}
                 </span>
@@ -51,21 +53,22 @@ export default function CuratedFeed() {
                 {post.description}
               </p>
 
-              {/* DIRECT INLINE YOUTUBE VIDEO EMBED */}
-              <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden shadow-lg">
+              {(post.videoSrc || post.youtubeId) && <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden shadow-lg">
                 <div className="relative w-full aspect-video bg-black">
-                  <iframe
+                  {post.videoSrc ? <video controls playsInline preload="none" poster={post.poster} aria-label={post.listeningTitle ?? post.title} className="absolute inset-0 w-full h-full object-contain">
+                    <source src={post.videoSrc} type="video/mp4" />
+                  </video> : <iframe
                     src={`https://www.youtube.com/embed/${post.youtubeId}?rel=0&modestbranding=1`}
                     title={post.listeningTitle ?? `${post.artist} - ${post.title}`}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                  />
+                  />}
                 </div>
-              </div>
+              </div>}
 
-              <p className="text-[11px] text-text-muted mb-3">Related listening · selected for this retrospective</p>
+              {(post.videoSrc || post.youtubeId) && <p className="text-[11px] text-text-muted mb-3">{post.mediaLabel ?? 'Related listening · selected for this retrospective'}</p>}
               {post.sourceNote && <p className="text-xs text-text-muted leading-relaxed mb-3">{post.sourceNote}</p>}
 
               {/* Actions — View record only targets /blog/... (or Wayback fallback); never missing deep-links */}

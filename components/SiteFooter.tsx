@@ -1,3 +1,4 @@
+import copy from '@/src/content/editorial/credits.json';
 import React from 'react';
 import Link from 'next/link';
 import { FOOTER_CREDITS } from '@/src/data/credits';
@@ -9,7 +10,7 @@ export default function SiteFooter() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
           <div className="max-w-2xl">
             <p className="font-heading font-extrabold text-text-primary text-sm sm:text-base mb-1">
-              The MuSiK Box (2009–2011) • In Audio We Trust (2011–2012)
+              {copy.footerTitle}
             </p>
             <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{FOOTER_CREDITS}</p>
           </div>

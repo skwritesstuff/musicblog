@@ -2,7 +2,8 @@ import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import SiteShell from '@/components/SiteShell';
 import MediaVault from '@/components/MediaVault';
-import recovered from '@/src/data/recoveredMedia.json';
+import artwork from '@/src/content/editorial/artwork.json';
+const recovered = artwork.items;
 import registry from '@/src/data/uploadsRegistry.json';
 import type { RecoveredMedia, UploadRecord } from '@/src/data/types';
 

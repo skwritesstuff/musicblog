@@ -1,257 +1,1060 @@
-backend:
-  name: git-gateway
-  branch: main
-site_url: https://shameis.com
-media_folder: public/uploads
-public_folder: /uploads
-collections:
-- name: copy
-  label: Site copy
-  files:
-  - name: siteCopy
-    label: Labels, navigation and footer
-    file: src/data/siteCopy.json
-    fields:
-    - label: brand
-      name: brand
-      widget: string
-      required: false
-    - label: title
-      name: title
-      widget: string
-      required: false
-    - label: utilityLinks
-      name: utilityLinks
-      widget: list
-      fields:
-      - label: label
-        name: label
-        widget: string
-        required: false
-      - label: href
-        name: href
-        widget: string
-        required: false
-    - label: socialLinks
-      name: socialLinks
-      widget: list
-      fields:
-      - label: label
-        name: label
-        widget: string
-        required: false
-      - label: href
-        name: href
-        widget: string
-        required: false
-    - label: channels
-      name: channels
-      widget: list
-      fields:
-      - label: label
-        name: label
-        widget: string
-        required: false
-      - label: links
-        name: links
-        widget: list
-        fields:
-        - label: label
-          name: label
-          widget: string
-          required: false
-        - label: query
-          name: query
-          widget: string
-          required: false
-    - label: artistsLabel
-      name: artistsLabel
-      widget: string
-      required: false
-    - label: mixesLabel
-      name: mixesLabel
-      widget: string
-      required: false
-    - label: searchLabel
-      name: searchLabel
-      widget: string
-      required: false
-    - label: publishedLabel
-      name: publishedLabel
-      widget: string
-      required: false
-    - label: readMoreLabel
-      name: readMoreLabel
-      widget: string
-      required: false
-    - label: archiveLabel
-      name: archiveLabel
-      widget: string
-      required: false
-    - label: homeBlurb
-      name: homeBlurb
-      widget: string
-      required: false
-    - label: storyBlurb
-      name: storyBlurb
-      widget: string
-      required: false
-    - label: contactBlurb
-      name: contactBlurb
-      widget: string
-      required: false
-    - label: searchBlurb
-      name: searchBlurb
-      widget: string
-      required: false
-    - label: footerText
-      name: footerText
-      widget: string
-      required: false
-    - label: archiveNotice
-      name: archiveNotice
-      widget: string
-      required: false
-    - label: storyLabel
-      name: storyLabel
-      widget: string
-      required: false
-    - label: allPostsLabel
-      name: allPostsLabel
-      widget: string
-      required: false
-    - label: galleryLabel
-      name: galleryLabel
-      widget: string
-      required: false
-    - label: siteUrl
-      name: siteUrl
-      widget: string
-      required: false
-    - label: channelsLabel
-      name: channelsLabel
-      widget: string
-      required: false
-    - label: radioPlay
-      name: radioPlay
-      widget: string
-      required: false
-    - label: radioPause
-      name: radioPause
-      widget: string
-      required: false
-    - label: previousLabel
-      name: previousLabel
-      widget: string
-      required: false
-    - label: searchTitle
-      name: searchTitle
-      widget: string
-      required: false
-    - label: contactTitle
-      name: contactTitle
-      widget: string
-      required: false
-    - label: storyTitle
-      name: storyTitle
-      widget: string
-      required: false
-    - label: metadataLabel
-      name: metadataLabel
-      widget: string
-      required: false
-    - label: resultsLabel
-      name: resultsLabel
-      widget: string
-      required: false
-    - label: noResultsLabel
-      name: noResultsLabel
-      widget: string
-      required: false
-    - label: footerLinks
-      name: footerLinks
-      widget: list
-      fields:
-      - label: label
-        name: label
-        widget: string
-        required: false
-      - label: href
-        name: href
-        widget: string
-        required: false
-    - name: archiveTitle
-      label: archiveTitle
-      widget: string
-    - name: artistsTitle
-      label: artistsTitle
-      widget: string
-    - name: categoriesTitle
-      label: categoriesTitle
-      widget: string
-    - name: searchError
-      label: searchError
-      widget: string
-- name: posts
-  label: Posts
-  folder: src/content/posts
-  create: true
-  slug: '{{slug}}'
-  fields:
-  - name: title
-    label: title
-    widget: string
-    required: true
-  - name: artist
-    label: artist
-    widget: string
-    required: false
-  - name: date
-    label: date
-    widget: string
-    required: true
-  - name: category
-    label: category
-    widget: string
-    required: true
-  - name: audioUrl
-    label: audioUrl
-    widget: string
-    required: false
-  - name: artwork
-    label: artwork
-    widget: image
-    required: false
-  - name: excerpt
-    label: excerpt
-    widget: text
-    required: false
-  - name: legacyPath
-    label: legacyPath
-    widget: string
-    required: false
-  - name: body
-    label: body
-    widget: markdown
-    required: true
-  - name: sourceLinks
-    label: Preserved source links
-    widget: list
-    required: false
-    field:
-      name: link
-      label: Link
-      widget: string
-- name: pages
-  label: Pages
-  files:
-  - name: story
-    label: The Story
-    file: src/content/pages/story.md
-    fields:
-    - name: title
-      label: Title
-      widget: string
-    - name: body
-      label: Body
-      widget: markdown
+{
+  "backend": {
+    "name": "github",
+    "repo": "skwritesstuff/musicblog",
+    "branch": "main",
+    "base_url": "https://shameis.com",
+    "auth_endpoint": "cms/auth",
+    "commit_messages": {
+      "update": "Edit {{collection}}: {{slug}}"
+    }
+  },
+  "local_backend": true,
+  "site_url": "https://shameis.com",
+  "display_url": "https://shameis.com",
+  "logo_url": "https://shameis.com/icon.png",
+  "media_folder": "public/uploads",
+  "public_folder": "/uploads",
+  "collections": [
+    {
+      "name": "editorial",
+      "label": "Website copy",
+      "description": "Edit the live homepage, story, discoveries, artwork captions, and credits. Publish saves your changes and starts a site update. Historical post records are preserved separately.",
+      "files": [
+        {
+          "name": "home",
+          "label": "Homepage",
+          "file": "src/content/editorial/home.json",
+          "format": "json",
+          "preview_path": "/",
+          "fields": [
+            {
+              "name": "metaTitle",
+              "label": "Search title",
+              "widget": "string"
+            },
+            {
+              "name": "metaDescription",
+              "label": "Search description",
+              "widget": "text"
+            },
+            {
+              "name": "eyebrow",
+              "label": "Small heading",
+              "widget": "string"
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "widget": "text"
+            },
+            {
+              "name": "intro",
+              "label": "Introduction",
+              "widget": "text",
+              "hint": "Keep {{recordCount}} to insert the current number of surviving records."
+            },
+            {
+              "name": "archiveLink",
+              "label": "Archive Link",
+              "widget": "string"
+            },
+            {
+              "name": "storyLink",
+              "label": "Story Link",
+              "widget": "string"
+            },
+            {
+              "name": "recoveryNote",
+              "label": "Recovery Note",
+              "widget": "text"
+            },
+            {
+              "name": "discoveriesTitle",
+              "label": "Discoveries Title",
+              "widget": "string"
+            },
+            {
+              "name": "discoveriesLink",
+              "label": "Discoveries Link",
+              "widget": "string"
+            },
+            {
+              "name": "picks",
+              "label": "Picks",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "artist",
+                  "label": "Artist",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "date",
+                  "label": "Date",
+                  "widget": "string"
+                },
+                {
+                  "name": "href",
+                  "label": "Link",
+                  "widget": "string",
+                  "pattern": [
+                    "^/(?!/)[^\\\\]*$",
+                    "Use a site path beginning with one /, such as /story/#grog-shop."
+                  ]
+                },
+                {
+                  "name": "image",
+                  "label": "Image",
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image",
+                      "widget": "image"
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Image description",
+                      "widget": "string"
+                    }
+                  ]
+                },
+                {
+                  "name": "caption",
+                  "label": "Caption",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text",
+                  "required": false
+                }
+              ],
+              "min": 3,
+              "max": 3,
+              "add_to_top": false,
+              "allow_add": false,
+              "allow_remove": false
+            },
+            {
+              "name": "timelineTitle",
+              "label": "Timeline Title",
+              "widget": "string"
+            },
+            {
+              "name": "timeline",
+              "label": "Timeline",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "year",
+                  "label": "Year",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "copy",
+                  "label": "Text",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "vaultTitle",
+              "label": "Vault Title",
+              "widget": "string"
+            },
+            {
+              "name": "vaultIntro",
+              "label": "Vault Intro",
+              "widget": "text",
+              "hint": "Keep {{imageCount}} to insert the number of recovered images."
+            },
+            {
+              "name": "vaultLink",
+              "label": "Vault Link",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "name": "story",
+          "label": "Story",
+          "file": "src/content/editorial/story.json",
+          "format": "json",
+          "preview_path": "/story/",
+          "fields": [
+            {
+              "name": "metaTitle",
+              "label": "Search title",
+              "widget": "string"
+            },
+            {
+              "name": "metaDescription",
+              "label": "Search description",
+              "widget": "text"
+            },
+            {
+              "name": "header",
+              "label": "Header",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "contentsTitle",
+                  "label": "Contents Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "eyebrow",
+                  "label": "Small heading",
+                  "widget": "string"
+                },
+                {
+                  "name": "foundersLabel",
+                  "label": "Founders Label",
+                  "widget": "string"
+                },
+                {
+                  "name": "eraLabel",
+                  "label": "Era Label",
+                  "widget": "string"
+                },
+                {
+                  "name": "era",
+                  "label": "Era",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "genesis",
+              "label": "Genesis",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "bannerCaption",
+                  "label": "Banner Caption",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "nameOrigin",
+                  "label": "Name Origin",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "platforms",
+                  "label": "Platforms",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "mottoCredit",
+                  "label": "Motto Credit",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "motto",
+                  "label": "Motto",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "grog",
+              "label": "Grog",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "arroyoLabel",
+                  "label": "Arroyo Label",
+                  "widget": "string"
+                },
+                {
+                  "name": "arroyoTitle",
+                  "label": "Arroyo Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "arroyoQuote",
+                  "label": "Arroyo Quote",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "arroyoCredit",
+                  "label": "Arroyo Credit",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "liveLabel",
+                  "label": "Live Label",
+                  "widget": "string"
+                },
+                {
+                  "name": "liveIntro",
+                  "label": "Live Intro",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "liveContext",
+                  "label": "Live Context",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "mgkIntro",
+                  "label": "Mgk Intro",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "mgkLabel",
+                  "label": "Mgk Label",
+                  "widget": "string"
+                },
+                {
+                  "name": "mgkCaption",
+                  "label": "Mgk Caption",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "mgkWatch",
+                  "label": "Mgk Watch",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "liveLinkText",
+                  "label": "Live Link Text",
+                  "widget": "string"
+                },
+                {
+                  "name": "mgkLinkText",
+                  "label": "Mgk Link Text",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "surge",
+              "label": "Surge",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "readership",
+                  "label": "Readership",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "mashups",
+                  "label": "Mashups",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                }
+              ]
+            },
+            {
+              "name": "rebrand",
+              "label": "Rebrand",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "bannerCaption",
+                  "label": "Banner Caption",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "design",
+                  "label": "Design",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "contributors",
+                  "label": "Contributors",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "contributorsTitle",
+                  "label": "Contributors Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "attributionNote",
+                  "label": "Attribution Note",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                }
+              ]
+            },
+            {
+              "name": "finale",
+              "label": "Finale",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "sale",
+                  "label": "Sale",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "memories",
+                  "label": "Memories",
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link"
+                  ],
+                  "editor_components": [],
+                  "modes": [
+                    "rich_text",
+                    "raw"
+                  ],
+                  "hint": "A single paragraph. Bold, italics, and links are supported."
+                },
+                {
+                  "name": "artists",
+                  "label": "Artists",
+                  "widget": "list",
+                  "collapsed": true,
+                  "summary": "{{fields.name}}",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "widget": "string"
+                    },
+                    {
+                      "name": "blurb",
+                      "label": "Blurb",
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "discoveriesLink",
+                  "label": "Discoveries Link",
+                  "widget": "string"
+                },
+                {
+                  "name": "archiveLink",
+                  "label": "Archive Link",
+                  "widget": "string"
+                },
+                {
+                  "name": "vaultLink",
+                  "label": "Vault Link",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "discoveries",
+          "label": "Discoveries",
+          "file": "src/content/editorial/discoveries.json",
+          "format": "json",
+          "preview_path": "/featured/",
+          "fields": [
+            {
+              "name": "metaTitle",
+              "label": "Search title",
+              "widget": "string"
+            },
+            {
+              "name": "metaDescription",
+              "label": "Search description",
+              "widget": "text"
+            },
+            {
+              "name": "eyebrow",
+              "label": "Small heading",
+              "widget": "string"
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "widget": "string"
+            },
+            {
+              "name": "intro",
+              "label": "Introduction",
+              "widget": "text"
+            },
+            {
+              "name": "entries",
+              "label": "Entries",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.artist}} \u2014 {{fields.title}}",
+              "fields": [
+                {
+                  "name": "id",
+                  "label": "Id",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "artist",
+                  "label": "Artist",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "date",
+                  "label": "Date",
+                  "widget": "string",
+                  "hint": "The date of the coverage or event. Later surviving records should be labeled separately below."
+                },
+                {
+                  "name": "brand",
+                  "label": "Brand",
+                  "widget": "select",
+                  "options": [
+                    "The MuSiK Box",
+                    "In Audio We Trust"
+                  ]
+                },
+                {
+                  "name": "category",
+                  "label": "Category",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text"
+                },
+                {
+                  "name": "sourceNote",
+                  "label": "Archive context",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "recordLabel",
+                  "label": "Main button label",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "postSlug",
+                  "label": "Surviving record",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "waybackUrl",
+                  "label": "Original snapshot",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "readHref",
+                  "label": "Main link",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "youtubeId",
+                  "label": "YouTube video ID",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "videoSrc",
+                  "label": "Video file",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "poster",
+                  "label": "Video poster",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "mediaLabel",
+                  "label": "Media caption",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "listeningTitle",
+                  "label": "Video description",
+                  "widget": "string",
+                  "required": false
+                }
+              ],
+              "allow_add": false,
+              "allow_remove": false,
+              "hint": "Edit existing highlights here. Original record and media links are preserved."
+            }
+          ]
+        },
+        {
+          "name": "artwork",
+          "label": "Artwork captions",
+          "file": "src/content/editorial/artwork.json",
+          "format": "json",
+          "preview_path": "/vault/",
+          "fields": [
+            {
+              "name": "items",
+              "label": "Items",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.title}}",
+              "fields": [
+                {
+                  "name": "id",
+                  "label": "Id",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "src",
+                  "label": "Image",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "alt",
+                  "label": "Image description",
+                  "widget": "string"
+                },
+                {
+                  "name": "badge",
+                  "label": "Badge",
+                  "widget": "string"
+                },
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "widget": "string"
+                },
+                {
+                  "name": "filename",
+                  "label": "Filename",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "platform",
+                  "label": "Platform",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text"
+                },
+                {
+                  "name": "fullRes",
+                  "label": "Full Res",
+                  "widget": "hidden",
+                  "required": false
+                },
+                {
+                  "name": "waybackUrl",
+                  "label": "Original snapshot",
+                  "widget": "hidden",
+                  "required": false
+                }
+              ],
+              "allow_add": false,
+              "allow_remove": false,
+              "hint": "Edit captions and descriptions. The recovered files and their source links are preserved."
+            }
+          ]
+        },
+        {
+          "name": "credits",
+          "label": "Credits",
+          "file": "src/content/editorial/credits.json",
+          "format": "json",
+          "preview_path": "/story/",
+          "fields": [
+            {
+              "name": "founders",
+              "label": "Founders",
+              "widget": "list",
+              "field": {
+                "name": "name",
+                "label": "Name",
+                "widget": "string"
+              },
+              "min": 2,
+              "max": 2,
+              "allow_add": false,
+              "allow_remove": false
+            },
+            {
+              "name": "writers",
+              "label": "Writers",
+              "widget": "list",
+              "field": {
+                "name": "name",
+                "label": "Name",
+                "widget": "string"
+              }
+            },
+            {
+              "name": "openAttributionNote",
+              "label": "Contributor invitation",
+              "widget": "text"
+            },
+            {
+              "name": "footerTitle",
+              "label": "Footer Title",
+              "widget": "text"
+            },
+            {
+              "name": "footerCredits",
+              "label": "Footer Credits",
+              "widget": "text"
+            },
+            {
+              "name": "writersInline",
+              "label": "Writer names in story text",
+              "widget": "text"
+            },
+            {
+              "name": "colophonStaffNote",
+              "label": "Staff and byline note",
+              "widget": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

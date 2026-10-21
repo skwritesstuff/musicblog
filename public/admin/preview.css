@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #080808; color: #eee; font: 16px/1.7 system-ui, sans-serif; }
+main { max-width: 780px; margin: auto; padding: 28px; overflow-wrap: anywhere; }
+h1,h2,h3 { line-height: 1.15; letter-spacing: -.03em; color: #fff; }
+h1 { font-size: 40px; white-space: pre-line; } h2 { font-size: 27px; } h3 { font-size: 20px; }
+p { color: #aaa; white-space: pre-line; }
+a { color: #fff; } img { display: block; max-width: 100%; max-height: 280px; object-fit: contain; margin-bottom: 16px; }
+section { padding: 24px 0; border-top: 1px solid #292929; }
+.preview-note { font-size: 12px; padding-bottom: 20px; border-bottom: 1px solid #292929; }
+.story-field { margin: 16px 0; }
