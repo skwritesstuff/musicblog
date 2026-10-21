@@ -1,4 +1,4 @@
-import archivePosts from '@/src/data/archivePosts.json';
+import { archivePosts } from '@/lib/archive';
 import { getCuratedBlogPosts, getCuratedPostBySlug, type CuratedPost } from '@/src/data/curatedPosts';
 import type { ArchivePost } from '@/src/data/types';
 
@@ -19,35 +19,37 @@ export type ResolvedBlogPost = {
 
 const ARCHIVE_POSTS = archivePosts as ArchivePost[];
 
-function inferBrand(waybackUrl: string): BlogBrand {
+function inferBrand(waybackUrl: string, date: string): BlogBrand {
+  if (date < '2011-01') return 'The MuSiK Box';
   if (/themusikbox\.com/i.test(waybackUrl)) return 'The MuSiK Box';
   return 'In Audio We Trust';
 }
 
 function fromCurated(post: CuratedPost): ResolvedBlogPost {
   const slug = post.postSlug.replace(/^\/blog\//, '').replace(/\/$/, '');
+  const original = ARCHIVE_POSTS.find((record) => record.slug === slug);
   return {
     slug,
-    artist: post.artist,
-    title: post.title,
-    date: post.date,
-    brand: post.brand,
-    category: post.category,
+    artist: original?.artists.join(', ') || post.artist,
+    title: original?.title ?? post.title,
+    date: original?.date ?? post.date,
+    brand: original ? inferBrand(original.waybackUrl, original.date) : post.brand,
+    category: original?.category ?? post.category,
     youtubeId: post.youtubeId,
     description: post.description,
-    waybackUrl: post.waybackUrl,
+    waybackUrl: original?.waybackUrl ?? post.waybackUrl,
     curated: true,
   };
 }
 
 function fromArchive(post: ArchivePost): ResolvedBlogPost {
-  const artist = post.artists[0] || 'Various Artists';
+  const artist = post.artists.join(', ') || 'Artist not identified';
   return {
     slug: post.slug,
     artist,
     title: post.title,
     date: post.date,
-    brand: inferBrand(post.waybackUrl),
+    brand: inferBrand(post.waybackUrl, post.date),
     category: post.category || post.genre,
     description: `Salvaged archive record for “${post.title}” (${post.date}). Full editorial body was not recovered from surviving Wayback Machine crawls; use the original snapshot for the contemporary write-up.`,
     waybackUrl: post.waybackUrl,
@@ -74,4 +76,12 @@ export function getBlogPostBySlug(slug: string): ResolvedBlogPost | undefined {
   if (archive) return fromArchive(archive);
 
   return undefined;
+}
+
+/** Related records share an explicitly cataloged artist, never a substring match. */
+export function getRelatedBlogPosts(slug: string, limit = 3): ArchivePost[] {
+  const original = ARCHIVE_POSTS.find((post) => post.slug === slug);
+  const curated = getCuratedPostBySlug(slug);
+  const artists = original?.artists ?? (curated ? [curated.artist] : []);
+  return ARCHIVE_POSTS.filter((post) => post.slug !== slug && post.artists.some((artist) => artists.includes(artist))).slice(0, limit);
 }

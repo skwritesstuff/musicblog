@@ -22,7 +22,7 @@ export default function StoryContent() {
             The Story of The MuSiK Box & In Audio We Trust
           </h1>
           <p className="text-base sm:text-lg text-text-muted max-w-2xl mx-auto leading-relaxed mb-6">
-            From Cleveland high school hallways to 100,000+ daily visitors: the oral history and digital chronicle of an
+            From Cleveland high school hallways to a growing community of listeners: the oral history and digital chronicle of an
             era-defining music publication.
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 font-mono text-xs text-text-dark">
@@ -250,11 +250,11 @@ export default function StoryContent() {
               The Viral Surge & The 100k Ceiling
             </h2>
             <p className="mb-4">
-              During its peak in 2011, <em>In Audio We Trust</em> averaged 2,000 to 6,000+ daily readers. On
+              Historical readership estimates recorded for this retrospective put <em>In Audio We Trust</em> at 2,000 to 6,000+ daily readers in 2011. On
               record-shattering days, viral algorithmic traffic from{' '}
               <strong className="text-text-primary">StumbleUpon</strong>, Reddit, Hype Machine, DJ Earworm mashups, and
               college network word-of-mouth propelled single-day visitor counts above{' '}
-              <strong className="text-text-primary">100,000 unique visitors</strong>.
+              <strong className="text-text-primary">100,000 unique visitors</strong>. These figures describe occasional peaks, not typical daily traffic; contemporary analytics are not included in this archive.
             </p>
             <p>
               A major engine of this explosive growth was the golden age of collegiate mashup culture. IAWT was a
@@ -334,7 +334,7 @@ export default function StoryContent() {
                 ['Tyler, The Creator', 'Spring 2011 Goblin-era coverage with OFWGKTA.'],
                 ['A$AP Rocky', 'October 2011 Live. Love. A$AP debut wave.'],
                 ['Macklemore', 'August 2010 archive — two years before The Heist.'],
-                ['Skrillex', 'Peak electronic / dubstep premiere cycle (18 salvaged posts).'],
+                ['Skrillex', 'Electronic and dubstep selections from the blog years.'],
                 ['Avicii', 'Early progressive-house blog-era features.'],
                 ['Mike Posner', 'Final post: “Looks Like Sex,” January 25, 2012.'],
               ].map(([name, blurb]) => (

@@ -7,8 +7,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && rm -rf Out && cp -a out Out",
-    "start": "next start"
+    "build": "next build && node scripts/mirror-export.mjs",
+    "start": "next start",
+    "test": "node --test tests/*.test.mjs",
+    "check:export": "node scripts/check-export.mjs"
   },
   "dependencies": {
     "next": "^14.2.0",

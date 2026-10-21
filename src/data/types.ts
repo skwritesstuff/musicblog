@@ -7,6 +7,7 @@ export type ArchivePost = {
   category: string;
   genre: string;
   artists: string[];
+  discoveryGenres?: string[];
   waybackUrl: string;
 };
 

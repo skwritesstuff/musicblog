@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Modal from '@/components/Modal';
 import {
   COLOPHON_STAFF_NOTE,
   CONTRIBUTING_WRITERS,
@@ -11,15 +12,6 @@ import {
 export default function AboutCredits({ tone = 'onDark' }: { tone?: 'onDark' | 'onLight' }) {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [open]);
-
   const triggerClass =
     tone === 'onLight'
       ? 'text-xs sm:text-sm font-heading font-medium text-[#475569] hover:text-black transition-colors'
@@ -27,22 +19,12 @@ export default function AboutCredits({ tone = 'onDark' }: { tone?: 'onDark' | 'o
 
   return (
     <>
-      <button type="button" onClick={() => setOpen(true)} className={triggerClass}>
+      <button type="button" onClick={() => setOpen(true)} className={`${triggerClass} min-h-11`}>
         Colophon
       </button>
 
       {open && (
-        <div
-          className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center bg-black/80 p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="colophon-title"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="w-full max-w-lg rounded-2xl border border-border-line bg-black p-6 sm:p-8 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <Modal label="Colophon" onClose={() => setOpen(false)}>
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-widest text-[#94a3b8] mb-1">Archival Credits</p>
@@ -53,7 +35,7 @@ export default function AboutCredits({ tone = 'onDark' }: { tone?: 'onDark' | 'o
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-md border border-border-line px-2 py-1 text-[#94a3b8] hover:text-white"
+                className="rounded-md border border-border-line w-11 h-11 text-[#94a3b8] hover:text-white"
                 aria-label="Close"
               >
                 ×
@@ -94,8 +76,7 @@ export default function AboutCredits({ tone = 'onDark' }: { tone?: 'onDark' | 'o
             <p className="mt-5 text-xs text-[#94a3b8] leading-relaxed border-t border-border-line pt-4">
               The MuSiK Box (2009–2011) · In Audio We Trust (2011–2012)
             </p>
-          </div>
-        </div>
+        </Modal>
       )}
     </>
   );

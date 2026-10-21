@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Poppins, IBM_Plex_Sans } from 'next/font/google';
 import TelemetryDeckAnalytics from '@/components/TelemetryDeckAnalytics';
+import { SITE_URL, pageMetadata } from '@/lib/metadata';
 import './globals.css';
 
 const poppins = Poppins({
@@ -18,9 +19,9 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'The MuSiK Box & In Audio We Trust | Pre-Algorithm Music Archive (2009–2012)',
-  description:
-    'A salvaged retrospective of an underground music blog punching above its weight in the golden era of mixtape culture and pre-algorithm music discovery.',
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata('Music Archive (2009–2012)', 'Explore 360 preserved records from The MuSiK Box and In Audio We Trust, with music, artwork, and the story behind the blogs.', '/'),
+  icons: { icon: '/icon.png', apple: '/icon.png' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

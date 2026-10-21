@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { pageMetadata } from '@/lib/metadata';
 import SiteShell from '@/components/SiteShell';
-import { getAllBlogSlugs, getBlogPostBySlug } from '@/src/data/blogPosts';
+import { getAllBlogSlugs, getBlogPostBySlug, getRelatedBlogPosts } from '@/src/data/blogPosts';
 
 type PageProps = {
   params: { slug: string };
@@ -17,25 +18,23 @@ export function generateMetadata({ params }: PageProps): Metadata {
   if (!post) {
     return { title: 'Post Not Found | The MuSiK Box & In Audio We Trust' };
   }
-  return {
-    title: `${post.artist} — ${post.title} | The MuSiK Box & In Audio We Trust`,
-    description: post.description,
-  };
+  return pageMetadata(post.title, post.description, `/blog/${post.slug}/`);
 }
 
 export default function BlogPostPage({ params }: PageProps) {
   const post = getBlogPostBySlug(params.slug);
   if (!post) notFound();
+  const related = getRelatedBlogPosts(params.slug);
 
   return (
     <SiteShell>
       <article className="w-full bg-[#000000]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 pb-24">
           <Link
-            href="/featured/#featured"
+            href="/archive/"
             className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm text-[#94a3b8] hover:text-white transition-colors mb-8"
           >
-            ← Back to Featured
+            ← Back to archive
           </Link>
 
           <header className="mb-8 sm:mb-10">
@@ -69,12 +68,13 @@ export default function BlogPostPage({ params }: PageProps) {
                   allowFullScreen
                 />
               </div>
+              <p className="p-3 text-xs text-text-muted">Related listening · selected for this retrospective</p>
             </div>
           )}
 
           <section className="mb-8">
             <h2 className="font-heading text-lg sm:text-xl font-extrabold text-white mb-3">
-              Editorial
+              {post.curated ? 'Retrospective note' : 'Catalog record'}
             </h2>
             <p className="text-base sm:text-lg text-[#94a3b8] leading-relaxed">{post.description}</p>
           </section>
@@ -84,9 +84,9 @@ export default function BlogPostPage({ params }: PageProps) {
               Historical Archival Notes
             </h2>
             <p className="text-sm sm:text-base text-[#94a3b8] leading-relaxed mb-4">
-              {post.curated
-                ? `This feature was originally published on ${post.brand} in ${post.date}. The page you are reading is a curated retrospective reconstruction from the salvaged MuSiK Box / In Audio We Trust archive (2009–2012). Surviving media embeds and editorial context have been restored where recoverable; thousands of contemporaneous posts remain lost beyond Wayback Machine crawls.`
-                : `This entry exists in the master chronological catalog of 360 salvaged posts. Editorial body text and embeds for many archive records were not recovered; the Wayback Machine snapshot remains the authoritative contemporary source.`}
+              This page combines preserved catalog metadata with present-day context. The note above is not a transcription of the original article.
+              Dates are recorded to the month. The source link may lead to a captured article, a tag page, or a Wayback search;
+              availability varies. Related videos are listening companions selected for the retrospective, not verified original embeds.
             </p>
             {post.waybackUrl ? (
               <a
@@ -95,7 +95,7 @@ export default function BlogPostPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-white text-black font-heading text-xs font-bold px-4 py-2.5 hover:-translate-y-0.5 transition-transform"
               >
-                Open original Wayback Machine snapshot
+                View historical source on Wayback
                 <span aria-hidden>↗</span>
               </a>
             ) : (
@@ -103,15 +103,24 @@ export default function BlogPostPage({ params }: PageProps) {
             )}
           </section>
 
+          {related.length > 0 && <section className="mb-10">
+            <h2 className="font-heading text-xl font-bold mb-4">Related archive records</h2>
+            <ul className="space-y-3">{related.map((record) => <li key={record.slug}>
+              <Link href={`/blog/${record.slug}/`} className="block border border-border-line rounded-xl p-4 hover:bg-card">
+                <span className="block text-xs font-mono text-text-muted mb-1">{record.date}</span>
+                <span className="font-semibold underline underline-offset-4 decoration-white/30">{record.title}</span>
+              </Link>
+            </li>)}</ul>
+          </section>}
           <div className="flex flex-wrap gap-4 pt-6 border-t border-[#222222]">
             <Link
-              href="/featured/#featured"
+              href="/archive/"
               className="font-mono text-sm text-[#94a3b8] hover:text-white transition-colors"
             >
-              ← Back to Featured
+              ← Back to archive
             </Link>
-            <Link href="/archive/" className="font-mono text-sm text-[#94a3b8] hover:text-white transition-colors">
-              Master Archive →
+            <Link href="/featured/" className="font-mono text-sm text-[#94a3b8] hover:text-white transition-colors">
+              More discoveries →
             </Link>
           </div>
         </div>
