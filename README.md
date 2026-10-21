@@ -7,7 +7,7 @@ A pure-static Next.js archive — a salvaged retrospective of an underground mus
 ## Site identity
 
 - **Title:** The MuSiK Box & In Audio We Trust | Pre-Algorithm Music Archive (2009–2012)
-- **Routes:** `/` (The Story) · `/featured/` · `/archive/` · `/artists/` · `/vault/` · `/story/` (alias)
+- **Routes:** `/` (archive introduction) · `/featured/` · `/archive/` · `/artists/` · `/vault/` · `/story/` (full oral history)
 - **Theme:** Singular true black (`#000000`) — no theme toggle
 - **Brand assets:** light-surface originals on white (`the-musik-box-banner.png`, `iawt-wordmark-black.png`, `iawt-coin.png`); dark-chrome counterparts (`the-musik-box-banner-dark.png`, `iawt-wordmark-white.png`)
 - **Retro Radio:** Visible YouTube IFrame API player (10-track vintage playlist)
@@ -29,7 +29,7 @@ npm run build
 
 ### Cloudflare Pages (shameis.com)
 
-Home is **The Story** at `/` (curated discoveries live at `/featured/`).
+Home is the archive introduction at `/`; the full oral history lives at `/story/`, and curated discoveries at `/featured/`.
 
 If production still shows the old archive landing after merging to `main`:
 
@@ -47,7 +47,7 @@ If production still shows the old archive landing after merging to `main`:
 | Source | Path |
 | --- | --- |
 | Posts (360) | `src/data/archivePosts.json` |
-| Artists | `src/data/artists.json` |
+| Browsing annotations and derived artists | `src/data/catalogAnnotations.json`, `lib/archive.ts` |
 | Uploads / media | `src/data/uploadsRegistry.json`, `src/data/recoveredMedia.json` |
 | Credits | `src/data/credits.ts` |
 | Site copy | `src/data/siteCopy.json` |
@@ -57,3 +57,15 @@ If production still shows the old archive landing after merging to `main`:
 ## Credits
 
 Founded & Curated by Seamus Kelleher & Myles Snider · Written with Matt, Ben, Helen, Pilo, Lesia, Tricia, Heather, Tim, and other contributors we're surely forgetting (please reach out for proper attribution!).
+
+## Validation
+
+Run `npm test`, `npm run build`, and `npm run check:export`. The filter tests exercise punctuation-safe URL round trips, corpus boundaries, R&B discovery, exact artist filtering, and combined filters. The export check verifies internal links/assets and canonical/share metadata across the generated site.
+
+The build mirrors `out/` into `Out/` only on case-sensitive filesystems. On macOS volumes where these names resolve to the same directory, it leaves the existing export intact.
+
+See [CATALOG_NOTES.md](CATALOG_NOTES.md) for the distinction between preserved recovery data and current browsing annotations.
+
+### Canonical host
+
+Canonical tags, Open Graph URLs, and the sitemap use `https://shameis.com`. A `www` → apex redirect must be configured in Cloudflare Bulk Redirects or Redirect Rules; Pages `_redirects` does not support domain-level redirects. Preserve the path suffix and query string when applying the rule. [Cloudflare setup](https://developers.cloudflare.com/pages/how-to/www-redirect/).

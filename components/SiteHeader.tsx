@@ -7,8 +7,8 @@ import LogoInAudioWeTrust from '@/components/LogoInAudioWeTrust';
 import AboutCredits from '@/components/AboutCredits';
 
 const NAV = [
-  { href: '/', label: 'Home', match: 'story' as const },
-  { href: '/story/', label: 'The Story', match: 'story-alias' as const, star: true },
+  { href: '/', label: 'Home', match: 'home' as const },
+  { href: '/story/', label: 'The Story', match: 'story' as const, star: true },
   { href: '/featured/', label: 'Discoveries', match: 'featured' as const },
   { href: '/archive/', label: 'Master Archive', match: 'archive' as const },
   { href: '/artists/', label: 'Artists', match: 'artists' as const },
@@ -21,7 +21,7 @@ export default function SiteHeader({
   active?: 'home' | 'story' | 'featured' | 'archive' | 'artists' | 'media' | 'vault';
 }) {
   const [open, setOpen] = useState(false);
-  const current = active === 'media' ? 'vault' : active === 'home' ? 'story' : active;
+  const current = active === 'media' ? 'vault' : active;
 
   return (
     <header className="sticky top-0 z-40">
@@ -53,8 +53,9 @@ export default function SiteHeader({
               </div>
               <button
                 type="button"
-                className="inline-flex sm:hidden items-center justify-center w-9 h-9 rounded-md border border-[#d4d4d4] text-black bg-white"
-                aria-label="Open menu"
+                className="inline-flex sm:hidden items-center justify-center w-11 h-11 rounded-md border border-[#d4d4d4] text-black bg-white"
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-controls="mobile-navigation"
                 aria-expanded={open}
                 onClick={() => setOpen((v) => !v)}
               >
@@ -66,15 +67,14 @@ export default function SiteHeader({
       </div>
 
       {/* Black menu row */}
-      <nav className="hidden sm:flex items-center justify-center gap-x-4 lg:gap-x-5 flex-wrap px-4 sm:px-6 lg:px-8 py-2.5 bg-black border-b border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
+      <nav aria-label="Primary" className="hidden sm:flex items-center justify-center gap-x-4 lg:gap-x-5 flex-wrap px-4 sm:px-6 lg:px-8 py-2.5 bg-black border-b border-[#1a1a1a] text-sm font-heading font-medium text-[#94a3b8]">
         {NAV.map((item) => {
-          const isActive =
-            current === item.match ||
-            (current === 'story' && (item.match === 'story' || item.match === 'story-alias'));
+          const isActive = current === item.match;
           return (
             <Link
               key={`${item.href}-${item.label}`}
               href={item.href}
+              aria-current={isActive ? "page" : undefined}
               className={`shrink-0 ${isActive ? 'text-white' : 'hover:text-white transition-colors'}`}
             >
               {'star' in item && item.star ? (
@@ -93,20 +93,19 @@ export default function SiteHeader({
       </nav>
 
       {open && (
-        <div className="sm:hidden border-b border-[#1a1a1a] bg-black px-4 py-3 space-y-0.5">
+        <nav id="mobile-navigation" aria-label="Mobile" className="sm:hidden border-b border-[#1a1a1a] bg-black px-4 py-3 space-y-0.5">
           <div className="pb-3 border-b border-[#1a1a1a] mb-2">
             <div className="inline-flex rounded-md bg-white px-2 py-1.5">
               <LogoInAudioWeTrust plate={false} className="h-5 w-auto" />
             </div>
           </div>
           {NAV.map((item) => {
-            const isActive =
-              current === item.match ||
-              (current === 'story' && (item.match === 'story' || item.match === 'story-alias'));
+            const isActive = current === item.match;
             return (
               <Link
                 key={`${item.href}-${item.label}`}
                 href={item.href}
+                aria-current={isActive ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={`block py-2.5 text-sm font-heading ${
                   isActive ? 'text-white' : 'text-[#94a3b8]'
@@ -128,7 +127,7 @@ export default function SiteHeader({
           <div className="pt-2 border-t border-[#1a1a1a]">
             <AboutCredits />
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

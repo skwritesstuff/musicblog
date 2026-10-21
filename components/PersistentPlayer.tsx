@@ -23,6 +23,7 @@ type YtNamespace = {
       height?: string | number;
       playerVars?: Record<string, string | number>;
       events?: {
+        onError?: (e: { data: number }) => void;
         onReady?: (e: { target: YtPlayer }) => void;
         onStateChange?: (e: { data: number; target: YtPlayer }) => void;
       };
@@ -97,10 +98,12 @@ export default function PersistentPlayer() {
   const [screenOpen, setScreenOpen] = useState(false);
   const [status, setStatus] = useState('STREAM READY');
   const [apiReady, setApiReady] = useState(false);
+  const [playerReady, setPlayerReady] = useState(false);
 
   const playerRef = useRef<YtPlayer | null>(null);
   const creatingRef = useRef<Promise<YtPlayer> | null>(null);
   const trackIndexRef = useRef(0);
+  const playbackRequested = useRef(false);
   const track = PLAYLIST[trackIndex];
 
   useEffect(() => {
@@ -146,14 +149,17 @@ export default function PersistentPlayer() {
             origin: window.location.origin,
           },
           events: {
+            onError: () => { setIsPlaying(false); setStatus('TRACK UNAVAILABLE — TRY ANOTHER'); },
             onReady: (e) => {
               playerRef.current = e.target;
+              setPlayerReady(true);
               resolve(e.target);
             },
             onStateChange: (e) => {
               const YTns = window.YT;
               if (!YTns) return;
               if (e.data === YTns.PlayerState.PLAYING) {
+                if (!playbackRequested.current) { e.target.pauseVideo(); return; }
                 setIsPlaying(true);
                 setStatus('PLAYING STREAM');
               } else if (e.data === YTns.PlayerState.PAUSED) {
@@ -187,14 +193,16 @@ export default function PersistentPlayer() {
       setScreenOpen(true);
       setStatus('TUNING…');
     });
-    const player = await ensurePlayer();
-    if (!player) return;
+    playbackRequested.current = true;
+    const player = await ensurePlayer().catch(() => { setStatus('STREAM UNAVAILABLE'); return null; });
+    if (!player || !playbackRequested.current) return;
     player.playVideo();
     if (isMuted) player.mute();
     else player.unMute();
   }, [ensurePlayer, isMuted]);
 
   const pauseRadio = useCallback(() => {
+    playbackRequested.current = false;
     playerRef.current?.pauseVideo();
     setIsPlaying(false);
     setStatus('STREAM PAUSED');
@@ -215,8 +223,9 @@ export default function PersistentPlayer() {
       setStatus(autoplay ? 'TUNING…' : 'CUED');
     });
 
-    const player = await ensurePlayer();
-    if (!player) return;
+    playbackRequested.current = autoplay;
+    const player = await ensurePlayer().catch(() => { setStatus('STREAM UNAVAILABLE'); return null; });
+    if (!player || !playbackRequested.current) return;
     player.loadVideoById(PLAYLIST[idx].id);
     if (autoplay) {
       player.playVideo();
@@ -241,123 +250,34 @@ export default function PersistentPlayer() {
   };
 
   return (
-    <aside className="fixed bottom-0 inset-x-0 z-50 bg-[#000000] border-t border-[#222222]">
-      {/* Visible CRT mini-screen — required for mobile YouTube audio */}
-      <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-b border-[#222222] ${
-          screenOpen ? 'max-h-[220px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-        aria-hidden={!screenOpen}
-      >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex justify-center sm:justify-start">
-          <div className="relative w-[240px] shrink-0">
-            <div className="rounded-lg border-2 border-[#333] bg-[#111] p-2 shadow-[inset_0_0_0_1px_#222,0_8px_24px_rgba(0,0,0,0.55)]">
-              <div className="flex items-center justify-between mb-1.5 px-0.5">
-                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-[#94a3b8]">
-                  Retro CRT // YT Stream
-                </span>
-                <span
-                  className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'player-active-dot' : 'bg-[#94a3b8]'}`}
-                  aria-hidden
-                />
-              </div>
-              <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-black border border-[#222] crt-screen">
-                <div id={PLAYER_HOST_ID} className="absolute inset-0 h-full w-full" />
-                {!apiReady && (
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] text-[#94a3b8]">
-                    LOADING TUNER…
-                  </div>
-                )}
-              </div>
-              <div className="mt-1.5 flex items-center justify-between gap-2">
-                <span className="font-mono text-[9px] text-[#94a3b8] truncate">{status}</span>
-                <button
-                  type="button"
-                  onClick={() => setScreenOpen(false)}
-                  className="font-mono text-[9px] uppercase tracking-wider text-[#94a3b8] hover:text-white"
-                >
-                  Hide
-                </button>
-              </div>
-            </div>
+    <aside aria-label="Retro Radio" className="fixed bottom-0 inset-x-0 z-50 bg-black border-t border-border-line max-h-[75dvh] overflow-y-auto">
+      <div hidden={!screenOpen} id="radio-screen" className="border-b border-border-line px-4 py-3">
+        <div className="max-w-sm mx-auto rounded-lg border-2 border-[#333] bg-[#111] p-2">
+          <p className="font-mono text-[10px] text-text-muted mb-2">RETRO RADIO · YOUTUBE</p>
+          <div className="relative h-[200px] w-full overflow-hidden bg-black crt-screen">
+            <div id={PLAYER_HOST_ID} className="absolute inset-0 h-full w-full" />
+            {!playerReady && <p className="absolute inset-0 flex items-center justify-center text-center p-4 text-xs text-text-muted">{!apiReady ? 'Loading tuner…' : status === 'TUNING…' ? 'Connecting to YouTube…' : 'Press Play Retro Radio to start listening.'}</p>}
           </div>
+          <p role="status" aria-live="polite" className="font-mono text-[10px] text-text-muted mt-2">{status}</p>
         </div>
       </div>
-
-      <div className="px-3 sm:px-6 py-2.5">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-2 sm:gap-3">
-          <button
-            type="button"
-            onClick={togglePlay}
-            className={`inline-flex items-center gap-1.5 rounded px-3 py-1.5 font-mono text-[11px] font-extrabold uppercase tracking-wide shrink-0 transition-colors ${
-              isPlaying
-                ? 'bg-white text-black'
-                : 'bg-white/10 text-white hover:bg-white/20 border border-[#222]'
-            }`}
-            aria-label={isPlaying ? 'Pause Retro Radio' : 'Play Retro Radio'}
-          >
-            <span aria-hidden>{isPlaying ? '⏸' : '▶'}</span>
-            <span>{isPlaying ? 'PAUSE RADIO' : 'PLAY RETRO RADIO'}</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => void loadTrack(trackIndex - 1, true)}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
-            aria-label="Previous track"
-          >
-            ⏮
-          </button>
-          <button
-            type="button"
-            onClick={() => void loadTrack(trackIndex + 1, true)}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
-            aria-label="Next track"
-          >
-            ⏭
-          </button>
-
-          <div className="flex items-center gap-2 min-w-0 flex-1 basis-[200px] rounded border border-[#222222] bg-[#0a0a0a] px-2 py-1">
-            <span
-              className={`w-1.5 h-1.5 rounded-full shrink-0 ${isPlaying ? 'player-active-dot' : 'bg-[#f59e0b]'}`}
-              aria-hidden
-            />
-            <label className="sr-only" htmlFor="retro-radio-track">
-              Retro Radio track
-            </label>
-            <select
-              id="retro-radio-track"
-              value={trackIndex}
-              onChange={(e) => void loadTrack(Number(e.target.value), true)}
-              className="w-full min-w-0 bg-transparent text-[#94a3b8] font-mono text-[11px] sm:text-xs outline-none cursor-pointer"
-            >
-              {PLAYLIST.map((t, i) => (
-                <option key={t.id} value={i} className="bg-black text-white">
-                  {i + 1}. {t.title}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="inline-flex w-8 h-8 items-center justify-center rounded border border-[#222222] bg-[#0a0a0a] text-[#94a3b8] hover:text-white"
-            aria-label={isMuted ? 'Unmute' : 'Mute'}
-            title={isMuted ? 'Unmute' : 'Mute'}
-          >
-            {isMuted ? '🔇' : '🔊'}
-          </button>
-
-          <div className="hidden md:flex items-center gap-3 text-xs font-mono shrink-0 ml-auto">
-            <span className="text-[#94a3b8] truncate max-w-[220px]" title={track.title}>
-              {status}
-            </span>
-            <span className="px-2 py-0.5 rounded bg-[#0a0a0a] border border-[#222222] text-[#94a3b8] font-bold tracking-wide">
-              192 KBPS STEREO
-            </span>
-          </div>
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 flex flex-wrap items-center gap-2 sm:gap-3">
+        <button type="button" onClick={togglePlay} className="min-h-11 inline-flex items-center gap-2 rounded-lg bg-white text-black px-3 font-heading text-xs font-bold shrink-0" aria-label={isPlaying ? 'Pause Retro Radio' : 'Play Retro Radio'}>
+          <span aria-hidden>{isPlaying ? '⏸' : '▶'}</span><span>{isPlaying ? 'Pause radio' : 'Play Retro Radio'}</span>
+        </button>
+        <p className={`text-xs text-text-muted truncate flex-1 min-w-0 sm:hidden ${screenOpen ? 'hidden' : ''}`} title={track.title}>{track.title}</p>
+        <div className={`${screenOpen ? 'flex order-3 basis-full sm:order-none sm:basis-auto' : 'hidden sm:flex'} items-center gap-2 flex-1 min-w-0`}>
+          <button type="button" onClick={() => void loadTrack(trackIndex - 1, true)} className="w-11 h-11 shrink-0 rounded border border-border-line" aria-label="Previous track">⏮</button>
+          <button type="button" onClick={() => void loadTrack(trackIndex + 1, true)} className="w-11 h-11 shrink-0 rounded border border-border-line" aria-label="Next track">⏭</button>
+          <label className="sr-only" htmlFor="retro-radio-track">Retro Radio track</label>
+          <select id="retro-radio-track" value={trackIndex} onChange={(event) => void loadTrack(Number(event.target.value), true)} className="min-h-11 min-w-0 flex-1 rounded border border-border-line bg-card text-text-muted text-xs px-2">
+            {PLAYLIST.map((item, index) => <option key={item.id} value={index}>{index + 1}. {item.title}</option>)}
+          </select>
+          <button type="button" onClick={toggleMute} className="w-11 h-11 shrink-0 rounded border border-border-line" aria-label={isMuted ? 'Unmute radio' : 'Mute radio'} aria-pressed={isMuted}>{isMuted ? '🔇' : '🔊'}</button>
         </div>
+        <button type="button" onClick={() => { if (screenOpen) pauseRadio(); else playbackRequested.current = true; setScreenOpen(!screenOpen); }} aria-expanded={screenOpen} aria-controls="radio-screen" className="min-h-11 px-3 text-xs text-text-muted border border-border-line rounded-lg ml-auto shrink-0">
+          {screenOpen ? 'Close radio' : 'Open radio'}
+        </button>
       </div>
     </aside>
   );

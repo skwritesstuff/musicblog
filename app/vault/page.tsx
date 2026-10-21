@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import SiteShell from '@/components/SiteShell';
 import MediaVault from '@/components/MediaVault';
@@ -6,11 +6,7 @@ import recovered from '@/src/data/recoveredMedia.json';
 import registry from '@/src/data/uploadsRegistry.json';
 import type { RecoveredMedia, UploadRecord } from '@/src/data/types';
 
-export const metadata: Metadata = {
-  title: 'Artwork Vault | The MuSiK Box & In Audio We Trust',
-  description:
-    '9 authentic recovered visual assets and the searchable WordPress server uploads registry from The MuSiK Box and In Audio We Trust.',
-};
+export const metadata = pageMetadata("Artwork Vault", "Explore recovered artwork and photography alongside the original media uploads ledger.", "/vault/");
 
 export default function VaultPage() {
   return (
@@ -19,7 +15,7 @@ export default function VaultPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
         <p className="text-sm text-text-dark mb-6">
           <Link href="/" className="hover:text-text-primary">
-            The Story
+            Home
           </Link>{' '}
           » <span className="text-text-muted">Artwork Vault</span>
         </p>
@@ -27,8 +23,8 @@ export default function VaultPage() {
           Artwork Vault
         </h1>
         <p className="text-text-muted max-w-3xl mb-8 leading-relaxed">
-          A transparent historical catalog of the 54 verified WordPress media uploads from <em>The MuSiK Box</em> and{' '}
-          <em>In Audio We Trust</em> (2009–2012) — 9 authentic recovered assets plus the full server uploads registry.
+          {recovered.length} recovered images from <em>The MuSiK Box</em> and <em>In Audio We Trust</em>,
+          alongside a searchable ledger of {registry.length} cataloged WordPress uploads. Explore what is here and trace each file to its archival source.
         </p>
         <MediaVault recovered={recovered as RecoveredMedia[]} registry={registry as UploadRecord[]} />
       </div>

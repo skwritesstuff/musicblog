@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import Modal from '@/components/Modal';
 import type { RecoveredMedia, UploadRecord } from '@/src/data/types';
 
 export default function MediaVault({
@@ -12,19 +13,6 @@ export default function MediaVault({
 }) {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState<RecoveredMedia | null>(null);
-
-  useEffect(() => {
-    if (!active) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setActive(null);
-    };
-    document.addEventListener('keydown', onKey);
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
-    };
-  }, [active]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -40,20 +28,11 @@ export default function MediaVault({
   return (
     <div>
       <div className="rounded-xl bg-notice-bg border border-border-line p-4 border-l-4 border-l-white/40 mb-10">
-        <h2 className="font-heading font-bold text-text-primary mb-2">Digital Preservation & Provenance Transparency</h2>
+        <h2 className="font-heading font-bold text-text-primary mb-2">What survived</h2>
         <p className="text-sm text-text-muted leading-relaxed">
-          <strong className="text-text-primary">Part 1:</strong> The <strong>9 authentic recovered visual assets</strong>{' '}
-          below survived in original photographic and graphic formats. Open any card for an interactive lightbox and
-          full uncompressed resolution.
-          <br />
-          <strong className="text-text-primary">Part 2:</strong> For the remaining{' '}
-          <strong>45 additional server upload records</strong> ({registry.length} total WordPress media records),
-          Wayback Machine crawlers indexed filenames but did not cache every binary. Their complete filenames and
-          snapshot links are preserved in the searchable registry.
-        </p>
-        <p className="mt-3 font-mono text-xs text-text-dark">
-          9 authentic images preserved · {uncachedCount} server records logged · {registry.length} total WordPress media
-          records ({preservedCount} marked preserved in ledger)
+          The gallery contains {recovered.length} image files available to view here. The separate uploads ledger contains {registry.length} records:
+          {' '}{preservedCount} marked preserved and {uncachedCount} marked uncached. A ledger status does not mean a file is included in this gallery.
+          Each entry retains its source link; some links open a Wayback search rather than a single captured file.
         </p>
       </div>
 
@@ -64,11 +43,11 @@ export default function MediaVault({
               Recovered Cover Art & Photography
             </h2>
             <p className="text-sm text-text-muted mt-1">
-              Click any asset for lightbox preview and View Full High-Res.
+              Click any asset for lightbox preview and View full-size file.
             </p>
           </div>
           <span className="rounded-full border border-border-line px-3 py-1 text-xs font-heading font-bold text-text-primary">
-            9 Verified Visual Assets
+            {recovered.length} Recovered Images
           </span>
         </div>
 
@@ -96,7 +75,7 @@ export default function MediaVault({
               </button>
               <p className="font-mono text-[10px] uppercase tracking-wider text-text-primary mb-1">{item.badge}</p>
               <h3 className="font-heading text-lg font-extrabold text-text-primary mb-1 leading-snug">{item.title}</h3>
-              <p className="font-mono text-[11px] text-text-dark mb-2">
+              <p className="font-mono text-[11px] text-text-dark mb-2 break-words">
                 File: <code>{item.filename}</code> · {item.platform}
               </p>
               <p className="text-sm text-text-muted leading-relaxed mb-4 flex-1">{item.description}</p>
@@ -106,7 +85,7 @@ export default function MediaVault({
                   onClick={() => setActive(item)}
                   className="rounded-full border border-border-line px-3 py-1.5 text-xs font-heading font-bold text-text-primary hover:bg-white hover:text-black transition-colors"
                 >
-                  View Full High-Res ↗
+                  View full-size file ↗
                 </button>
                 {item.waybackUrl && (
                   <a
@@ -125,17 +104,7 @@ export default function MediaVault({
       </section>
 
       {active && (
-        <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label={active.title}
-          onClick={() => setActive(null)}
-        >
-          <div
-            className="relative w-full max-w-5xl max-h-[92vh] overflow-auto rounded-2xl border border-border-line bg-card p-4 sm:p-6"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <Modal label={active.title} onClose={() => setActive(null)} wide>
             <div className="flex items-start justify-between gap-3 mb-4">
               <div className="min-w-0">
                 <p className="font-mono text-[11px] text-text-primary uppercase tracking-wider mb-1">{active.badge}</p>
@@ -144,7 +113,7 @@ export default function MediaVault({
               <button
                 type="button"
                 onClick={() => setActive(null)}
-                className="rounded-md border border-border-line px-2.5 py-1 text-text-muted hover:text-text-primary"
+                className="rounded-md border border-border-line w-11 h-11 text-text-muted hover:text-text-primary"
                 aria-label="Close lightbox"
               >
                 ×
@@ -165,7 +134,7 @@ export default function MediaVault({
                 rel="noopener noreferrer"
                 className="rounded-full bg-white text-black px-4 py-2 text-xs font-heading font-bold"
               >
-                View Full High-Res ↗
+                View full-size file ↗
               </a>
               {active.waybackUrl && (
                 <a
@@ -178,8 +147,7 @@ export default function MediaVault({
                 </a>
               )}
             </div>
-          </div>
-        </div>
+        </Modal>
       )}
 
       <section>
@@ -192,11 +160,13 @@ export default function MediaVault({
                 Trust (2009–2012).
               </p>
             </div>
-            <p className="font-mono text-xs text-text-dark">
+            <p role="status" aria-live="polite" className="font-mono text-xs text-text-dark">
               Showing <span className="text-text-primary font-bold">{filtered.length}</span> records
             </p>
           </div>
+          <label htmlFor="vault-search" className="block text-sm font-medium mb-2">Search the uploads ledger</label>
           <input
+            id="vault-search"
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -237,7 +207,7 @@ export default function MediaVault({
                           : 'border-border-line text-text-dark'
                       }`}
                     >
-                      {row.status === 'preserved' ? 'Preserved' : 'Uncached'}
+                      {row.status === 'preserved' ? 'Ledger: preserved' : 'Ledger: uncached'}
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right whitespace-nowrap">
@@ -256,6 +226,7 @@ export default function MediaVault({
                   </td>
                 </tr>
               ))}
+              {filtered.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-text-muted">No uploads match this search. <button className="underline" onClick={() => setQuery('')}>Clear search</button></td></tr>}
             </tbody>
           </table>
         </div>

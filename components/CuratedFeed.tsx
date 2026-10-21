@@ -9,20 +9,10 @@ export { CURATED_POSTS };
 export default function CuratedFeed() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-text-primary">
-      {/* Header */}
-      <div className="mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0a0a0a] border border-[#222222] mb-3">
-          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-          <span className="font-heading text-xs font-bold uppercase tracking-wider text-white">
-            FROM THE ARCHIVE
-          </span>
-        </div>
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
-          Foundational Blog Discoveries
-        </h2>
-        <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
-          Nine essential co-signs from The MuSiK Box and In Audio We Trust archives.
-        </p>
+      <div className="mb-8">
+        <p className="font-mono text-xs uppercase tracking-widest text-text-muted mb-3">From the archive</p>
+        <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Discoveries</h1>
+        <p className="text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed">Nine selections from the blog years. These are retrospective notes with related listening selections; follow the Wayback links for surviving historical pages.</p>
       </div>
 
       {/* 3x3 Grid */}
@@ -51,7 +41,7 @@ export default function CuratedFeed() {
                 <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-text-primary group-hover:text-text-primary transition-colors">
                   {post.artist}
                 </h3>
-                <h4 className="font-heading text-sm font-semibold text-text-muted mt-0.5 line-clamp-1">
+                <h4 className="font-heading text-sm font-semibold text-text-muted mt-0.5 leading-relaxed">
                   {post.title}
                 </h4>
               </div>
@@ -70,21 +60,22 @@ export default function CuratedFeed() {
                 </div>
               </div>
 
-              {/* Editorial Description */}
+              <p className="text-[11px] text-text-muted mb-3">Related listening · selected for this retrospective</p>
+              {/* Retrospective note */}
               <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
                 {post.description}
               </p>
 
-              {/* Actions — Read Post only targets /blog/... (or Wayback fallback); never missing deep-links */}
+              {/* Actions — View record only targets /blog/... (or Wayback fallback); never missing deep-links */}
               <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
                 <a
                   href={readHref}
                   {...(readIsExternal
                     ? { target: '_blank', rel: 'noopener noreferrer' }
                     : {})}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-black font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
+                  className="inline-flex items-center gap-1.5 min-h-11 px-4 py-2 rounded-full bg-white text-black font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
                 >
-                  Read Post
+                  View record
                   <svg className="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -93,9 +84,9 @@ export default function CuratedFeed() {
                   href={post.waybackUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-3.5 py-2 rounded-full bg-white/5 border border-border-line text-text-muted hover:text-text-primary hover:bg-white/10 text-xs font-medium transition-all"
+                  className="inline-flex items-center min-h-11 px-3.5 py-2 rounded-full bg-white/5 border border-border-line text-text-muted hover:text-text-primary hover:bg-white/10 text-xs font-medium transition-all"
                 >
-                  Wayback Snap ↗
+                  Wayback ↗
                 </a>
               </div>
             </article>
