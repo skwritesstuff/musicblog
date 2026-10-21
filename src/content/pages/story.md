@@ -75,7 +75,7 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
     <div>CHAPTER 04</div>
     <h2>Live Concerts, The Grog Shop &amp; Mac Miller (2010)</h2>
     <div>
-      <p>The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. In the spring of 2010, Seamus and Myles partnered with Cleveland promotion crew <em>The Coventry Kids</em> to book an 18-year-old Pittsburgh prodigy named <strong>Mac Miller</strong> at <strong>The Grog Shop</strong> in Cleveland Heights.</p>
+      <p>The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. On August 21, 2010, Seamus and Myles worked with Cleveland promotion crew <em>The Coventry Kids</em> to bring 18-year-old Pittsburgh rapper <strong>Mac Miller</strong> to <strong>The Grog Shop</strong> in Cleveland Heights for his first out-of-town headlining show.</p>
       <div>
         <p>
           “Cleveland, a little fun fact for you: actually the first out-of-town headlining show I ever did was at the Grog Shop.”
@@ -85,7 +85,7 @@ The publication’s distinct capitalization was a subtle in-joke and personal si
         </div>
       </div>
       <p>This pivotal show took place months before <em>K.I.D.S. (Kickin' Incredibly Dope Shit)</em> dropped and skyrocketed Mac to superstardom. The concert cemented the site's reputation among major indie labels, including Pittsburgh's Rostrum Records.</p>
-      <p>Just weeks earlier, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. Watch the restored interview: <a href="https://www.youtube.com/watch?v=WzgJwyb199w" target="_blank" rel="noopener noreferrer">Machine Gun Kelly — The MuSiK Box Parking Lot Interview</a>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
+      <p>Earlier that year, on <strong>April 22, 2010</strong>, the co-founders shot a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old <strong>Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape <em>100 Words and Running</em>. Watch the restored interview: <a href="https://www.youtube.com/watch?v=WzgJwyb199w" target="_blank" rel="noopener noreferrer">Machine Gun Kelly — The MuSiK Box Parking Lot Interview</a>. The site followed this in April 2011 by co-producing the <em>Animal House Tour</em> at The Grog Shop featuring Kansas breakout <strong>XV</strong> and college-rap phenoms <strong>The Dean's List</strong>.</p>
     </div>
   </section>
 

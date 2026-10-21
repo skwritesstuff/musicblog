@@ -1,3 +1,4 @@
+import { decodeArchiveSlug } from '@/lib/slugs';
 import { archivePosts } from '@/lib/archive';
 import { getCuratedBlogPosts, getCuratedPostBySlug, type CuratedPost } from '@/src/data/curatedPosts';
 import type { ArchivePost } from '@/src/data/types';
@@ -69,6 +70,9 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export function getBlogPostBySlug(slug: string): ResolvedBlogPost | undefined {
+  const decoded = decodeArchiveSlug(slug);
+  if (!decoded) return undefined;
+  slug = decoded;
   const curated = getCuratedPostBySlug(slug);
   if (curated) return fromCurated(curated);
 
@@ -80,6 +84,9 @@ export function getBlogPostBySlug(slug: string): ResolvedBlogPost | undefined {
 
 /** Related records share an explicitly cataloged artist, never a substring match. */
 export function getRelatedBlogPosts(slug: string, limit = 3): ArchivePost[] {
+  const decoded = decodeArchiveSlug(slug);
+  if (!decoded) return [];
+  slug = decoded;
   const original = ARCHIVE_POSTS.find((post) => post.slug === slug);
   const curated = getCuratedPostBySlug(slug);
   const artists = original?.artists ?? (curated ? [curated.artist] : []);

@@ -16,7 +16,9 @@ for (const path of pages) {
     if (![local, join(local, 'index.html'), local + '.html'].some(existsSync)) errors.push(`${path}: missing ${pathname}`);
   }
   if (path === 'index.html' || /^(archive|artists|featured|story|vault|blog)\//.test(path)) {
-    if (!/<link rel="canonical" href="https:\/\/shameis.com\//.test(html)) errors.push(`${path}: no canonical`);
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    const expectedPath = '/' + path.replace(/index\.html$/, '');
+    if (!canonical || new URL(canonical).origin !== 'https://shameis.com' || decodeURIComponent(new URL(canonical).pathname) !== expectedPath) errors.push(`${path}: canonical does not match this record (${canonical})`);
     if (!html.includes('property="og:title"') || !html.includes('name="twitter:card"')) errors.push(`${path}: missing share metadata`);
   }
 }
@@ -28,6 +30,7 @@ for (const url of urls) {
   if (!existsSync(join(root, pathname, 'index.html'))) errors.push(`sitemap: missing ${pathname}`);
 }
 assert.ok(existsSync(join(root, 'icon.png')));
+assert.ok(existsSync(join(root, 'favicon.ico')));
 assert.ok(readFileSync(join(root, 'robots.txt'), 'utf8').includes('https://shameis.com/sitemap.xml'));
 assert.deepEqual(errors, []);
 console.log(`Verified ${pages.length} HTML files, ${urls.length} sitemap URLs, internal links/assets, canonical/share metadata, icon, and robots.txt.`);

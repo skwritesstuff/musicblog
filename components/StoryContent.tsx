@@ -6,7 +6,7 @@ const CHAPTERS = [
   { id: 'grog-shop', num: '02', title: 'Mac Miller at The Grog Shop & The MGK Video' },
   { id: 'viral-surge', num: '03', title: 'The Viral Surge & The 100k Ceiling' },
   { id: 'rebrand', num: '04', title: 'The 301 Rebrand to In Audio We Trust' },
-  { id: 'finale', num: '05', title: 'The Prescient Ear & Final Broadcast' },
+  { id: 'finale', num: '05', title: 'Early Artist Coverage & The Final Posts' },
 ];
 
 /** Oral history — rendered at `/` (home) and kept available via `/story/` redirects. */
@@ -104,11 +104,11 @@ export default function StoryContent() {
               Mac Miller at The Grog Shop & The MGK Video
             </h2>
             <p className="mb-6">
-              The MuSiK Box was never just digital commentary; it was a physical live-music catalyst in the Midwest. In
-              the spring of 2010, Seamus and Myles partnered with Cleveland promotion crew <em>The Coventry Kids</em> to
-              book an 18-year-old Pittsburgh prodigy named <strong className="text-text-primary">Mac Miller</strong> at{' '}
-              <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights — Mac&apos;s first
-              out-of-town headline show.
+              The MuSiK Box booked <strong className="text-text-primary">Mac Miller</strong>&apos;s first out-of-town
+              headlining show at <strong className="text-text-primary">The Grog Shop</strong> in Cleveland Heights,
+              held on August 21, 2010.
+              Seamus and Myles worked with Cleveland promotion crew <em>The Coventry Kids</em> to bring the
+              18-year-old Pittsburgh rapper to the venue. Mac later recalled the show in the interview below.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
@@ -169,7 +169,7 @@ export default function StoryContent() {
                 </div>
                 <div className="px-4 py-4">
                   <p className="text-sm text-[#94a3b8] leading-relaxed">
-                    On May 8, 2010, an 18-year-old Mac Miller drove out from Pittsburgh to play his maiden out-of-town
+                    On August 21, 2010, an 18-year-old Mac Miller drove out from Pittsburgh to play his maiden out-of-town
                     headlining concert at The Grog Shop in Cleveland Heights. Documenting that night is a 1-minute live
                     clip uploaded directly to Mac&apos;s official verified YouTube channel (@macmiller) in 2010.
                   </p>
@@ -192,7 +192,7 @@ export default function StoryContent() {
             </div>
 
             <p className="mb-6">
-              Just weeks earlier, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
+              Earlier that year, on <strong className="text-text-primary">April 22, 2010</strong>, the co-founders shot
               a now-legendary parking lot interview on an iPhone in the school lot with a 19-year-old{' '}
               <strong className="text-text-primary">Machine Gun Kelly (MGK)</strong>, breaking down his breakout mixtape{' '}
               <em>100 Words and Running</em>.
@@ -224,7 +224,7 @@ export default function StoryContent() {
               </div>
               <div className="px-4 py-4">
                 <p className="text-sm text-[#94a3b8] leading-relaxed">
-                  Shot on an iPhone in the Saint Ignatius High School parking lot on April 22, 2010 — weeks before Mac
+                  Shot on an iPhone in the Saint Ignatius High School parking lot on April 22, 2010 — four months before Mac
                   Miller&apos;s Grog Shop headline — this interview captures a 19-year-old MGK breaking down{' '}
                   <em className="text-white">100 Words and Running</em> at the cusp of his Lace Up breakout.
                 </p>
@@ -319,7 +319,7 @@ export default function StoryContent() {
           <section id="finale">
             <div className="font-mono text-xs font-bold text-text-primary tracking-wider mb-2">CHAPTER 05</div>
             <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-text-primary mb-5">
-              The Prescient Ear & Final Broadcast
+              Early Artist Coverage &amp; The Final Posts
             </h2>
             <p className="mb-5">
               What made The MuSiK Box & IAWT unique was their track record of identifying future megastars months or

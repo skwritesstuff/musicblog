@@ -46,12 +46,17 @@ export default function CuratedFeed() {
                 </h4>
               </div>
 
+              {/* Lead with the history; later listening and records are supporting references. */}
+              <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
+                {post.description}
+              </p>
+
               {/* DIRECT INLINE YOUTUBE VIDEO EMBED */}
               <div className="w-full mb-4 rounded-xl bg-card-elevated border border-border-line overflow-hidden shadow-lg">
                 <div className="relative w-full aspect-video bg-black">
                   <iframe
                     src={`https://www.youtube.com/embed/${post.youtubeId}?rel=0&modestbranding=1`}
-                    title={`${post.artist} - ${post.title}`}
+                    title={post.listeningTitle ?? `${post.artist} - ${post.title}`}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -61,10 +66,7 @@ export default function CuratedFeed() {
               </div>
 
               <p className="text-[11px] text-text-muted mb-3">Related listening · selected for this retrospective</p>
-              {/* Retrospective note */}
-              <p className="text-sm text-text-muted leading-relaxed mb-6 flex-grow">
-                {post.description}
-              </p>
+              {post.sourceNote && <p className="text-xs text-text-muted leading-relaxed mb-3">{post.sourceNote}</p>}
 
               {/* Actions — View record only targets /blog/... (or Wayback fallback); never missing deep-links */}
               <div className="flex items-center gap-3 pt-2 border-t border-white/5 mt-auto">
@@ -75,7 +77,7 @@ export default function CuratedFeed() {
                     : {})}
                   className="inline-flex items-center gap-1.5 min-h-11 px-4 py-2 rounded-full bg-white text-black font-heading text-xs font-bold hover:-translate-y-0.5 transition-transform"
                 >
-                  View record
+                  {post.recordLabel ?? 'View record'}
                   <svg className="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
