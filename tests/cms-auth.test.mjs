@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
-import {startAuth,finishAuth,seal,unseal} from '../lib/cms-auth.mjs';
+import {startAuth,finishAuth,consumeSession,seal,unseal} from '../lib/cms-auth.mjs';
 const env={GITHUB_CLIENT_ID:'test-client',GITHUB_CLIENT_SECRET:'test-only-secret'};
 const now=1700000000000;
 const authContext=(url='https://shameis.com/cms/auth?provider=github&site_id=shameis.com')=>({request:new Request(url),env});
@@ -43,15 +42,15 @@ test('expired, tampered, missing and mismatched state never reach GitHub',async(
  const {context,session}=await flow();
  let called=false; const fetcher=()=>{called=true;throw Error('Unexpected fetch');};
  const expired=await finishAuth(context,fetcher,now+600001);
- assert.ok((await expired.text()).includes('authorization:github:error:'));
+ assert.equal(expired.headers.get('Location'),'https://shameis.com/admin/?login=failed');
  for(const value of ['bad',await seal({...session,state:'wrong'},env.GITHUB_CLIENT_SECRET)]){
   const request=new Request(context.request.url,{headers:{Cookie:`__Host-shameis-cms-state=${value}`}});
-  assert.ok((await (await finishAuth({request,env},fetcher,now)).text()).includes('authorization:github:error:'));
+  assert.equal((await finishAuth({request,env},fetcher,now)).headers.get('Location'),'https://shameis.com/admin/?login=failed');
  }
- assert.ok((await (await finishAuth({...context,request:new Request(context.request.url)},fetcher,now)).text()).includes('authorization:github:error:'));
+ assert.equal((await finishAuth({...context,request:new Request(context.request.url)},fetcher,now)).headers.get('Location'),'https://shameis.com/admin/?login=failed');
  assert.equal(called,false);
 });
-test('successful auth exchanges a repository-restricted token and sends it only to the same-origin opener',async()=>{
+test('successful auth redirects to the editor with an encrypted short-lived handoff, without a popup or exposed token',async()=>{
  const {context,session}=await flow(); const api=github();
  const r=await finishAuth(context,api.fetcher,now); const body=await r.text();
  const exchange=JSON.parse(api.calls[0].options.body);
@@ -60,25 +59,41 @@ test('successful auth exchanges a repository-restricted token and sends it only 
  assert.ok(!body.includes(env.GITHUB_CLIENT_SECRET));
  assert.ok(!body.includes('never-return-this'));
  assert.equal(r.headers.get('Cache-Control'),'no-store');
- assert.ok(r.headers.get('Content-Security-Policy').includes("frame-ancestors 'none'"));
+ assert.equal(r.status,303);
+ assert.equal(r.headers.get('Location'),'https://shameis.com/admin/?login=complete');
+ assert.equal(body,'');
+ assert.ok(![...r.headers].flat().join().includes('ghu_test-token'));
  assert.ok(r.headers.get('Set-Cookie').includes('Max-Age=0'));
- let listener; const messages=[]; const opener={postMessage:(...args)=>messages.push(args)};
- const window={opener,addEventListener:(_,f)=>listener=f,removeEventListener:()=>{}};
- vm.runInNewContext(body.match(/<script nonce="[^"]+">([\s\S]*?)<\/script>/)[1],{window});
- listener({origin:'https://evil.example',source:opener,data:'authorizing:github'});
- listener({origin:'https://shameis.com',source:{},data:'authorizing:github'});
- assert.equal(messages.length,1);
- listener({origin:'https://shameis.com',source:opener,data:'authorizing:github'});
- assert.equal(messages.length,2);
- assert.equal(messages[1][1],'https://shameis.com');
- assert.ok(messages[1][0].startsWith('authorization:github:success:'));
+ const handoff=r.headers.getSetCookie().find(x=>x.startsWith('__Host-shameis-cms-handoff='));
+ for(const value of ['HttpOnly','Secure','SameSite=Strict','Path=/','Max-Age=120'])assert.ok(handoff.includes(value));
+ const request=new Request('https://shameis.com/cms/session',{method:'POST',headers:{Origin:'https://shameis.com',Cookie:handoff.split(';')[0]}});
+ const redeemed=await consumeSession({request,env},now);
+ assert.deepEqual(await redeemed.json(),{token:'ghu_test-token',provider:'github'});
+ assert.ok(redeemed.headers.get('Set-Cookie').includes('Max-Age=0'));
+ assert.equal(redeemed.headers.get('Cache-Control'),'no-store');
+ assert.equal(redeemed.headers.get('Access-Control-Allow-Origin'),null);
 });
 test('wrong users, missing push permission, wrong repositories and upstream failures get no token',async()=>{
  for(const options of [{user:999},{repo:999},{push:false}]){
   const {context}=await flow();const r=await finishAuth(context,github(options).fetcher,now);
-  const body=await r.text();assert.ok(body.includes('authorization:github:error:'));assert.ok(!body.includes('ghu_test-token'));
+  assert.equal(r.headers.get('Location'),'https://shameis.com/admin/?login=failed');
+  assert.ok(r.headers.getSetCookie().every(x=>x.includes('Max-Age=0')));
  }
  const {context}=await flow();
  const r=await finishAuth(context,async()=>{throw Error('private-upstream-detail');},now);
  assert.ok(!(await r.text()).includes('private-upstream-detail'));
+});
+test('session handoff rejects foreign origins, GET, expiry, tampering, missing cookies and wrong purpose',async()=>{
+ const valid={purpose:'editor-handoff',token:'ghu_test-token',expires:now+120000};
+ async function redeem(payload=valid,{origin='https://shameis.com',method='POST',time=now}={}) {
+  const value=typeof payload==='string'?payload:await seal(payload,env.GITHUB_CLIENT_SECRET);
+  return consumeSession({request:new Request('https://shameis.com/cms/session',{method,headers:{Origin:origin,Cookie:`__Host-shameis-cms-handoff=${value}`}}),env},time);
+ }
+ for(const options of [{origin:'https://evil.example'},{origin:''},{method:'GET'}])assert.equal((await redeem(valid,options)).status,403);
+ for(const payload of ['', 'tampered', {...valid,purpose:'oauth-state'}, {...valid,expires:now-1}, {...valid,expires:now+120001}, {...valid,token:'bad-token'}]){
+  const r=await redeem(payload);assert.equal(r.status,401);assert.ok(!(await r.text()).includes('ghu_test-token'));
+ }
+ assert.equal((await redeem(valid,{time:now+120001})).status,401);
+ const missing=await consumeSession({request:new Request('https://shameis.com/cms/session',{method:'POST',headers:{Origin:'https://shameis.com'}}),env},now);
+ assert.equal(missing.status,401);
 });
