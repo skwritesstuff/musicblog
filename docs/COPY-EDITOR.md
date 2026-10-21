@@ -23,7 +23,7 @@ The implementation requires a private GitHub App owned by `skwritesstuff`, insta
 - No organization or account permissions, Actions/Workflows permissions, or private key are needed.
 - Install only on the `musicblog` repository.
 
-Store the app's Client ID and generated Client Secret in the Cloudflare Pages `musicblog` project's **Production** environment as `GITHUB_CLIENT_ID` and encrypted `GITHUB_CLIENT_SECRET`. Do not add credentials to source files, build logs, chat, or the CMS config. Redeploy after changing secrets. Preview environments intentionally cannot sign in; production authentication accepts only the canonical `https://shameis.com` host and GitHub user ID `110862146` with push access to repository ID `1389267275`.
+The public Client ID is configured as `GITHUB_CLIENT_ID` in `wrangler.toml` under `[env.production.vars]`; this file controls runtime variables. Store the generated Client Secret in the Cloudflare Pages `musicblog` project's **Production** environment as encrypted `GITHUB_CLIENT_SECRET`. Never add the secret to source files, build logs, chat, or the CMS config. Redeploy after changing secrets. Preview environments intentionally cannot sign in; production authentication accepts only the canonical `https://shameis.com` host and GitHub user ID `110862146` with push access to repository ID `1389267275`.
 
 OAuth uses a 10-minute encrypted HttpOnly state cookie, PKCE, a fixed callback and postMessage origin, and a repository-restricted GitHub App user token. Client secret and refresh token never enter the browser. The user access token is delivered to Decap, which stores its session in the browser; log out on shared devices. After token expiry, sign in again. App access can be revoked in GitHub's application settings.
 
