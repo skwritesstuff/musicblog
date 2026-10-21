@@ -44,6 +44,46 @@
               "widget": "string"
             },
             {
+              "name": "brandArtwork",
+              "label": "Homepage brand artwork",
+              "widget": "list",
+              "collapsed": true,
+              "summary": "{{fields.label}}",
+              "min": 2,
+              "max": 2,
+              "allow_add": false,
+              "allow_remove": false,
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Image",
+                  "widget": "image"
+                },
+                {
+                  "name": "alt",
+                  "label": "Image description",
+                  "widget": "string"
+                },
+                {
+                  "name": "label",
+                  "label": "Caption",
+                  "widget": "string"
+                },
+                {
+                  "name": "href",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "width",
+                  "widget": "hidden"
+                },
+                {
+                  "name": "height",
+                  "widget": "hidden"
+                }
+              ]
+            },
+            {
               "name": "title",
               "label": "Title",
               "widget": "text"

@@ -4,7 +4,7 @@ Open **https://shameis.com/admin/** and choose **Login with GitHub**. Use the `s
 
 Choose **Website copy**, then Homepage, Story, Discoveries, Artwork captions, or Credits. Edit the labeled fields and review the copy preview. On a phone, use **Preview copy** and **Edit copy** to switch between fields and preview. **Publish → Publish now** saves to GitHub and starts the Cloudflare build; the public site updates after that build succeeds. Allow a minute or two, then reload the edited page. The preview focuses on copy; final spacing follows the live responsive layout.
 
-The homepage and story include search titles and descriptions. Story paragraphs support bold, italics, and links. Keep `{{recordCount}}`, `{{imageCount}}`, `{{count}}`, and `{{writers}}` where automatic values are wanted. Use one paragraph per story field. The original 360 post records, archival source URLs, and recovered media files are separate from editable retrospective copy.
+The homepage includes the two supplied brand artworks, image descriptions, captions, search title, and search description. The story also includes search metadata. Story paragraphs support bold, italics, and links. Keep `{{recordCount}}`, `{{imageCount}}`, `{{count}}`, and `{{writers}}` where automatic values are wanted. Use one paragraph per story field. The original 360 post records, archival source URLs, and recovered media files are separate from editable retrospective copy.
 
 The Mac Miller highlight appears on both Homepage and Discoveries; update matching title/date/description in both when revising that highlight. Credits include separate footer and story text, so check both when adding names.
 

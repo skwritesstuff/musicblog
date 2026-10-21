@@ -14,14 +14,29 @@ export default function Home() {
   return (
     <SiteShell active="home">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-12 sm:pb-16">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_240px] xl:grid-cols-[minmax(0,1fr)_320px] gap-10 lg:gap-16 items-center">
+        <div>
         <p className="font-mono text-xs uppercase tracking-[.18em] text-text-muted mb-5">{copy.eyebrow}</p>
-        <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] max-w-5xl whitespace-pre-line">{copy.title}</h1>
+        <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08] max-w-5xl whitespace-pre-line">{copy.title}</h1>
         <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-2xl mt-6">{editorialText(copy.intro, { recordCount: archivePosts.length })}</p>
         <div className="flex flex-wrap gap-3 mt-8">
           <Link href="/archive/" className="rounded-full bg-white text-black px-6 py-3 font-heading font-bold text-sm">{copy.archiveLink}</Link>
           <Link href="/story/" className="rounded-full border border-border-line px-6 py-3 font-heading font-bold text-sm hover:bg-white/10">{copy.storyLink}</Link>
         </div>
         <p className="text-xs text-text-muted mt-5">{copy.recoveryNote}</p>
+        </div>
+        <div className="flex flex-col items-center gap-7 lg:gap-6" aria-label="The two blog identities">
+          {copy.brandArtwork.map((artwork) => (
+            <figure key={artwork.src} className="w-40 sm:w-48 xl:w-52 text-center">
+              <Link href={artwork.href} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={artwork.src} alt={artwork.alt} width={artwork.width} height={artwork.height} className="w-full h-auto object-contain" />
+              </Link>
+              <figcaption className="mt-2 text-[11px] font-mono text-text-muted">{artwork.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        </div>
       </section>
       <section className="border-y border-border-line bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">

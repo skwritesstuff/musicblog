@@ -67,5 +67,23 @@
   "timelineTitle": "From The MuSiK Box to In Audio We Trust",
   "title": "The MuSiK Box\n& In Audio We Trust",
   "vaultIntro": "{{imageCount}} recovered images, from early logos to artist photography. See the files and their archival sources.",
-  "archiveLink": "Explore the archive →"
+  "archiveLink": "Explore the archive →",
+  "brandArtwork": [
+    {
+      "src": "/images/musik-box-turntable.webp",
+      "alt": "The MuSiK Box turntable artwork",
+      "label": "The MuSiK Box",
+      "href": "/story/#genesis",
+      "width": 3546,
+      "height": 3382
+    },
+    {
+      "src": "/images/in-audio-we-trust-emblem.webp",
+      "alt": "In Audio We Trust emblem with Thomas Jefferson wearing headphones",
+      "label": "In Audio We Trust",
+      "href": "/story/#rebrand",
+      "width": 3424,
+      "height": 3424
+    }
+  ]
 }

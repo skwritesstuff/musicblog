@@ -22,7 +22,7 @@
   const replace = (value, values) => String(value || '').replace(/\{\{(\w+)\}\}/g,(token,key)=>key in values ? values[key] : token);
   CMS.registerPreviewTemplate('home', ({entry,getAsset}) => {
     const d = entry.get('data').toJS();
-    return frame(p(d.eyebrow),title(d.title,'h1'),p(replace(d.intro,{recordCount:360})),p(`${d.archiveLink} · ${d.storyLink}`),p(d.recoveryNote),title(d.discoveriesTitle),
+    return frame(p(d.eyebrow),title(d.title,'h1'),p(replace(d.intro,{recordCount:360})),p(`${d.archiveLink} · ${d.storyLink}`),p(d.recoveryNote),...(d.brandArtwork || []).map((x,i)=>h('figure',{key:i},image(x.src,x.alt,getAsset),p(x.label))),title(d.discoveriesTitle),
       ...(d.picks || []).map((x,i)=>h('section',{key:i},image(x.image?.src,x.image?.alt,getAsset),p(x.caption),p(x.date),title(x.artist),title(x.title,'h3'),p(x.description))),
       title(d.timelineTitle),...(d.timeline || []).map((x,i)=>h('section',{key:i},p(x.year),title(x.title,'h3'),p(x.copy))),title(d.vaultTitle),p(replace(d.vaultIntro,{imageCount:9})),p(d.vaultLink));
   });
