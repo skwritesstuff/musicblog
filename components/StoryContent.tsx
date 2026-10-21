@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { WRITERS_INLINE } from '@/src/data/credits';
+import { CONTRIBUTING_WRITERS, WRITERS_INLINE } from '@/src/data/credits';
 
 const CHAPTERS = [
   { id: 'genesis', num: '01', title: "The High School Genesis & The 'MSK' Code" },
@@ -306,7 +306,7 @@ export default function StoryContent() {
                 Confirmed Contributors & Writers
               </p>
               <p className="text-sm text-text-primary font-heading font-semibold mb-2">
-                Matt · Ben · Helen · Pilo · Lesia · Tricia · Heather
+                Matt · Ben · Helen · Pilo · Lesia · Tricia · Heather · Tim
               </p>
               <p className="text-xs text-text-dark leading-relaxed italic">
                 …and other contributors we&apos;re surely forgetting. If you wrote for us, sent in music, or helped run

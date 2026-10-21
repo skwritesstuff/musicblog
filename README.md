@@ -56,4 +56,4 @@ If production still shows the old archive landing after merging to `main`:
 
 ## Credits
 
-Founded & Curated by Seamus Kelleher & Myles Snider · Written with Matt, Ben, Helen, Pilo, Lesia, Tricia, Heather, and other contributors we're surely forgetting (please reach out for proper attribution!).
+Founded & Curated by Seamus Kelleher & Myles Snider · Written with Matt, Ben, Helen, Pilo, Lesia, Tricia, Heather, Tim, and other contributors we're surely forgetting (please reach out for proper attribution!).
